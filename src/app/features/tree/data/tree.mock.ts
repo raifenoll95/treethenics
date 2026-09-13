@@ -10,6 +10,9 @@ export const EXERCISES: Exercise[] = [
     category: 'pull',
     muscles: ['back', 'biceps'],
     equipment: ['pull-up-bar'],
+    imageUrl: '/images/exercises/pull-up.png',
+    description:
+    'A fundamental pulling exercise where you lift your body until your chin passes the bar.',
   },
   {
     id: 'chest-to-bar',

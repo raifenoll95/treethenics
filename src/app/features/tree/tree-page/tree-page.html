@@ -14,7 +14,77 @@
   </header>
 
   <div class="tree-canvas">
-    <app-tree-canvas />
+    <app-tree-canvas
+      (exerciseSelected)="onExerciseSelected($event)"
+    />
+
+    @if (selectedExercise(); as exercise) {
+      <aside class="exercise-panel">
+        <button
+          class="exercise-panel__close"
+          type="button"
+          (click)="closeExercise()"
+          aria-label="Close exercise details"
+        >
+          ×
+        </button>
+
+        @if (exercise.imageUrl) {
+          <div class="exercise-panel__image">
+            <img
+              [src]="exercise.imageUrl"
+              [alt]="exercise.name"
+            />
+          </div>
+        }
+
+        <span class="exercise-panel__difficulty">
+          {{ exercise.difficulty }}
+        </span>
+
+        <h2>
+          {{ exercise.name }}
+        </h2>
+
+        @if (exercise.description) {
+          <p class="exercise-panel__description">
+            {{ exercise.description }}
+          </p>
+        }
+
+        <div class="exercise-panel__section">
+          <span class="exercise-panel__label">
+            Muscles
+          </span>
+
+          <div class="exercise-panel__tags">
+            @for (muscle of exercise.muscles; track muscle) {
+              <span>{{ muscle }}</span>
+            }
+          </div>
+        </div>
+
+        <div class="exercise-panel__section">
+          <span class="exercise-panel__label">
+            Equipment
+          </span>
+
+          <div class="exercise-panel__tags">
+            @for (equipment of exercise.equipment; track equipment) {
+              <span>{{ equipment }}</span>
+            }
+          </div>
+        </div>
+
+        <button
+          class="exercise-panel__details"
+          type="button"
+        >
+          View exercise
+          <span>→</span>
+        </button>
+      </aside>
+    }
 
     <div class="tree-controls">
       <button type="button" aria-label="Zoom in">+</button>

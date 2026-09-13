@@ -21,4 +21,7 @@ export interface Exercise {
 
   muscles: string[];
   equipment: string[];
+
+  imageUrl?: string;
+  description?: string;
 }

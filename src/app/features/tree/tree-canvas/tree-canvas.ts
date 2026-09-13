@@ -2,7 +2,9 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  EventEmitter,
   OnDestroy,
+  Output,
   ViewChild,
 } from '@angular/core';
 
@@ -24,6 +26,9 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
   @ViewChild('cyContainer', { static: true })
   private cyContainer!: ElementRef<HTMLDivElement>;
 
+  @Output()
+  exerciseSelected = new EventEmitter<string>();
+
   private cy?: Core;
 
   ngAfterViewInit(): void {
@@ -40,6 +45,10 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
         id: exercise.id,
         label: exercise.name,
         difficulty: exercise.difficulty,
+
+        ...(exercise.imageUrl && {
+          imageUrl: exercise.imageUrl,
+        }),
       },
     }));
 
@@ -68,57 +77,109 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
       },
 
       style: [
+        /*
+         * NODE BASE
+         */
         {
           selector: 'node',
           style: {
-            'background-color': '#202126',
-            'border-color': '#3a3b42',
+            'background-color': '#292c33',
+            'border-color': '#3a3e47',
             'border-width': 1,
 
+            width: 190,
+            height: 72,
+
+            shape: 'round-rectangle',
+
             label: 'data(label)',
+
             color: '#f4f4f5',
 
             'font-size': 12,
             'font-weight': 600,
 
-            width: 100,
-            height: 46,
-
-            shape: 'round-rectangle',
-
             'text-valign': 'center',
             'text-halign': 'center',
 
             'text-wrap': 'wrap',
-            'text-max-width': '80px',
+            'text-max-width': '105px',
           },
         },
+
+        /*
+         * NODE WITH IMAGE
+         */
+        {
+          selector: 'node[imageUrl]',
+          style: {
+            'background-image': 'data(imageUrl)',
+
+            'background-fit': 'contain',
+            'background-repeat': 'no-repeat',
+
+            'background-width': '56px',
+            'background-height': '56px',
+
+            'background-position-x': '19%',
+            'background-position-y': '50%',
+
+            /*
+             * Mantiene el texto centrado,
+             * pero lo desplaza hacia la derecha.
+             */
+            'text-halign': 'center',
+            'text-margin-x': 32,
+          },
+        },
+
+        {
+          selector: 'node:active',
+          style: {
+            'background-color': '#323640',
+            'border-color': '#ef233c',
+          },
+        },
+
+        /*
+         * SELECTED NODE
+         */
         {
           selector: 'node:selected',
           style: {
             'border-color': '#ef233c',
             'border-width': 2,
+
             'background-color': '#35181e',
           },
         },
+
+        /*
+         * CONNECTIONS
+         */
         {
-          selector: 'edge',
-          style: {
-            width: 2,
+        selector: 'edge',
+        style: {
+          width: 2,
 
-            'line-color': '#3a3b42',
-            'target-arrow-color': '#3a3b42',
-            'target-arrow-shape': 'triangle',
+          'line-color': '#555b66',
+          'target-arrow-color': '#555b66',
+          'target-arrow-shape': 'triangle',
 
-            'curve-style': 'bezier',
-          },
+          'curve-style': 'bezier',
         },
+      },
       ],
 
       minZoom: 0.4,
       maxZoom: 2,
 
       wheelSensitivity: 0.2,
+    });
+
+    this.cy.on('tap', 'node', (event) => {
+      const exerciseId = event.target.id();
+      this.exerciseSelected.emit(exerciseId);
     });
   }
 }
