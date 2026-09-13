@@ -22,7 +22,6 @@ import {
   styleUrl: './tree-canvas.css',
 })
 export class TreeCanvas implements AfterViewInit, OnDestroy {
-
   @ViewChild('cyContainer', { static: true })
   private cyContainer!: ElementRef<HTMLDivElement>;
 
@@ -72,113 +71,128 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
       layout: {
         name: 'breadthfirst',
         directed: true,
-        padding: 60,
-        spacingFactor: 1.5,
+        padding: 10,
+        spacingFactor: 1,
       },
 
       style: [
-        /*
-         * NODE BASE
-         */
-        {
-          selector: 'node',
-          style: {
-            'background-color': '#292c33',
-            'border-color': '#3a3e47',
-            'border-width': 1,
+  /*
+   * NODE BASE
+   */
+  {
+    selector: 'node',
+    style: {
+      'background-color': '#343a45',
 
-            width: 190,
-            height: 72,
+      'border-color': '#535c69',
+      'border-width': 1.5,
 
-            shape: 'round-rectangle',
+      width: 220,
+      height: 82,
 
-            label: 'data(label)',
+      shape: 'round-rectangle',
 
-            color: '#f4f4f5',
+      label: 'data(label)',
+      color: '#f8fafc',
 
-            'font-size': 12,
-            'font-weight': 600,
+      'font-size': 15,
+      'font-weight': 700,
 
-            'text-valign': 'center',
-            'text-halign': 'center',
+      'text-valign': 'center',
+      'text-halign': 'center',
 
-            'text-wrap': 'wrap',
-            'text-max-width': '105px',
-          },
-        },
+      'text-wrap': 'wrap',
+      'text-max-width': '145px',
+    },
+  },
 
-        /*
-         * NODE WITH IMAGE
-         */
-        {
-          selector: 'node[imageUrl]',
-          style: {
-            'background-image': 'data(imageUrl)',
+  /*
+   * NODE WITH IMAGE
+   */
+  {
+    selector: 'node[imageUrl]',
+    style: {
+      'background-image': 'data(imageUrl)',
 
-            'background-fit': 'contain',
-            'background-repeat': 'no-repeat',
+      'background-fit': 'contain',
+      'background-repeat': 'no-repeat',
 
-            'background-width': '56px',
-            'background-height': '56px',
+      'background-width': '64px',
+      'background-height': '64px',
 
-            'background-position-x': '19%',
-            'background-position-y': '50%',
+      'background-position-x': '18%',
+      'background-position-y': '50%',
 
-            /*
-             * Mantiene el texto centrado,
-             * pero lo desplaza hacia la derecha.
-             */
-            'text-halign': 'center',
-            'text-margin-x': 32,
-          },
-        },
+      'text-halign': 'center',
+      'text-margin-x': 44,
+    },
+  },
 
-        {
-          selector: 'node:active',
-          style: {
-            'background-color': '#323640',
-            'border-color': '#ef233c',
-          },
-        },
+  /*
+   * ACTIVE NODE
+   */
+  {
+    selector: 'node:active',
+    style: {
+      'background-color': '#404753',
+      'border-color': '#ef233c',
+      'border-width': 2,
+    },
+  },
 
-        /*
-         * SELECTED NODE
-         */
-        {
-          selector: 'node:selected',
-          style: {
-            'border-color': '#ef233c',
-            'border-width': 2,
+  /*
+   * SELECTED NODE
+   */
+  {
+    selector: 'node:selected',
+    style: {
+      'background-color': '#44252c',
 
-            'background-color': '#35181e',
-          },
-        },
+      'border-color': '#ef233c',
+      'border-width': 3,
+    },
+  },
 
-        /*
-         * CONNECTIONS
-         */
-        {
-        selector: 'edge',
-        style: {
-          width: 2,
+  /*
+   * CONNECTIONS
+   */
+  {
+    selector: 'edge',
+    style: {
+      width: 2.5,
 
-          'line-color': '#555b66',
-          'target-arrow-color': '#555b66',
-          'target-arrow-shape': 'triangle',
+      'line-color': '#747d8c',
 
-          'curve-style': 'bezier',
-        },
-      },
-      ],
+      'target-arrow-color': '#747d8c',
+      'target-arrow-shape': 'triangle',
+      'arrow-scale': 0.8,
+
+      'curve-style': 'bezier',
+
+      opacity: 0.9,
+    },
+  },
+],
 
       minZoom: 0.4,
-      maxZoom: 2,
+      maxZoom: 2.2,
 
       wheelSensitivity: 0.2,
     });
 
+    /*
+     * Inicialmente centramos el árbol.
+     */
+    this.cy.fit(undefined, 80);
+    this.cy.zoom(this.cy.zoom() * 1.1);
+    this.cy.center();
+
+    /*
+     * Selección del ejercicio.
+     */
     this.cy.on('tap', 'node', (event) => {
       const exerciseId = event.target.id();
+
       this.exerciseSelected.emit(exerciseId);
     });
   }
