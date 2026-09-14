@@ -8,7 +8,10 @@ import {
   ViewChild,
 } from '@angular/core';
 
-import cytoscape, { Core } from 'cytoscape';
+import cytoscape, {
+  Core,
+  NodeSingular,
+} from 'cytoscape';
 
 import {
   ExerciseGraphLevel,
@@ -51,10 +54,6 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
         graphLevel: exercise.graphLevel,
       },
 
-      /*
-       * IMPORTANTE:
-       * position tiene que estar FUERA de data.
-       */
       position: this.getNodePosition(
         exercise.id,
         exercise.graphLevel,
@@ -85,162 +84,203 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
         ...edges,
       ],
 
-      /*
-       * Nosotros controlamos las posiciones.
-       */
       layout: {
         name: 'preset',
       },
 
       style: [
-      /*
-      * BASE NODE
-      */
-      {
-        selector: 'node',
-        style: {
-          width: 150,
-          height: 52,
+        /*
+         * BASE NODE
+         */
+        {
+          selector: 'node',
+          style: {
+            width: 150,
+            height: 52,
 
-          shape: 'round-rectangle',
+            shape: 'round-rectangle',
 
-          'background-color': '#161b22',
+            'background-color': '#161b22',
 
-          'border-width': 2,
+            'border-width': 2,
 
-          label: 'data(label)',
+            label: 'data(label)',
 
-          color: '#f8fafc',
+            color: '#f8fafc',
 
-          'font-family': 'Inter, system-ui, sans-serif',
-          'font-size': 19,
-          'font-weight': 700,
+            'font-family': 'Inter, system-ui, sans-serif',
+            'font-size': 19,
+            'font-weight': 700,
 
-          'text-valign': 'center',
-          'text-halign': 'center',
+            'text-valign': 'center',
+            'text-halign': 'center',
 
-          'text-wrap': 'wrap',
-          'text-max-width': '124px',
+            'text-wrap': 'wrap',
+            'text-max-width': '124px',
+          },
         },
-      },
 
-      /*
-      * BEGINNER
-      */
-      {
-        selector: 'node[difficulty = "beginner"]',
-        style: {
-          'border-color': '#34d399',
-          'background-color': '#14231f',
+        /*
+         * BEGINNER
+         */
+        {
+          selector: 'node[difficulty = "beginner"]',
+          style: {
+            'border-color': '#34d399',
+            'background-color': '#14231f',
+          },
         },
-      },
 
-      /*
-      * INTERMEDIATE
-      */
-      {
-        selector: 'node[difficulty = "intermediate"]',
-        style: {
-          'border-color': '#60a5fa',
-          'background-color': '#151f2d',
+        /*
+         * INTERMEDIATE
+         */
+        {
+          selector: 'node[difficulty = "intermediate"]',
+          style: {
+            'border-color': '#60a5fa',
+            'background-color': '#151f2d',
+          },
         },
-      },
 
-      /*
-      * ADVANCED
-      */
-      {
-        selector: 'node[difficulty = "advanced"]',
-        style: {
-          'border-color': '#fb923c',
-          'background-color': '#2a1f16',
+        /*
+         * ADVANCED
+         */
+        {
+          selector: 'node[difficulty = "advanced"]',
+          style: {
+            'border-color': '#fb923c',
+            'background-color': '#2a1f16',
+          },
         },
-      },
 
-      /*
-      * ELITE
-      */
-      {
-        selector: 'node[difficulty = "elite"]',
-        style: {
-          'border-color': '#f43f5e',
-          'background-color': '#2a171c',
+        /*
+         * ELITE
+         */
+        {
+          selector: 'node[difficulty = "elite"]',
+          style: {
+            'border-color': '#f43f5e',
+            'background-color': '#2a171c',
+          },
         },
-      },
 
-      /*
-      * ACTIVE
-      */
-      {
-        selector: 'node:active',
-        style: {
-          'border-width': 3,
+        /*
+         * DIMMED
+         */
+        {
+          selector: '.dimmed',
+          style: {
+            opacity: 0.12,
+          },
         },
-      },
 
-      /*
-      * SELECTED
-      */
-      {
-        selector: 'node:selected',
-        style: {
-          'border-width': 3.5,
-
-          'background-color': '#272b33',
+        /*
+         * HIGHLIGHTED NODE
+         */
+        {
+          selector: 'node.highlighted',
+          style: {
+            opacity: 1,
+            'border-width': 3,
+          },
         },
-      },
 
-      /*
-      * EDGES
-      */
-      {
-        selector: 'edge',
-        style: {
-          width: 2.2,
-
-          'line-color': '#9ca3af',
-
-          'target-arrow-color': '#9ca3af',
-          'target-arrow-shape': 'triangle',
-          'arrow-scale': 0.9,
-
-          'curve-style': 'straight',
-
-          opacity: 0.9,
+        /*
+         * HIGHLIGHTED EDGE
+         */
+        {
+          selector: 'edge.highlighted',
+          style: {
+            opacity: 1,
+            width: 3.5,
+            'arrow-scale': 1,
+          },
         },
-      },
-      {
-        selector: 'edge[targetDifficulty = "beginner"]',
-        style: {
-          'line-color': '#34d399',
-          'target-arrow-color': '#34d399',
-        },
-      },
 
-      {
-        selector: 'edge[targetDifficulty = "intermediate"]',
-        style: {
-          'line-color': '#60a5fa',
-          'target-arrow-color': '#60a5fa',
+        /*
+         * ACTIVE
+         */
+        {
+          selector: 'node:active',
+          style: {
+            'border-width': 3,
+          },
         },
-      },
 
-      {
-        selector: 'edge[targetDifficulty = "advanced"]',
-        style: {
-          'line-color': '#fb923c',
-          'target-arrow-color': '#fb923c',
+        /*
+         * SELECTED
+         */
+        {
+          selector: 'node:selected',
+          style: {
+            'border-width': 3.5,
+          },
         },
-      },
 
-      {
-        selector: 'edge[targetDifficulty = "elite"]',
-        style: {
-          'line-color': '#f43f5e',
-          'target-arrow-color': '#f43f5e',
+        /*
+         * BASE EDGE
+         */
+        {
+          selector: 'edge',
+          style: {
+            width: 2.2,
+
+            'line-color': '#9ca3af',
+
+            'target-arrow-color': '#9ca3af',
+            'target-arrow-shape': 'triangle',
+            'arrow-scale': 0.9,
+
+            'curve-style': 'straight',
+
+            opacity: 0.9,
+          },
         },
-      },
-    ],
+
+        /*
+         * EDGE → BEGINNER
+         */
+        {
+          selector: 'edge[targetDifficulty = "beginner"]',
+          style: {
+            'line-color': '#34d399',
+            'target-arrow-color': '#34d399',
+          },
+        },
+
+        /*
+         * EDGE → INTERMEDIATE
+         */
+        {
+          selector: 'edge[targetDifficulty = "intermediate"]',
+          style: {
+            'line-color': '#60a5fa',
+            'target-arrow-color': '#60a5fa',
+          },
+        },
+
+        /*
+         * EDGE → ADVANCED
+         */
+        {
+          selector: 'edge[targetDifficulty = "advanced"]',
+          style: {
+            'line-color': '#fb923c',
+            'target-arrow-color': '#fb923c',
+          },
+        },
+
+        /*
+         * EDGE → ELITE
+         */
+        {
+          selector: 'edge[targetDifficulty = "elite"]',
+          style: {
+            'line-color': '#f43f5e',
+            'target-arrow-color': '#f43f5e',
+          },
+        },
+      ],
 
       minZoom: 0.3,
       maxZoom: 2.5,
@@ -249,35 +289,90 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
     });
 
     /*
-     * Queremos ver todo el árbol al entrar.
+     * Todo el árbol visible inicialmente.
      */
     this.cy.fit(undefined, 40);
 
     /*
-     * Click en ejercicio.
+     * Click en un ejercicio.
      */
     this.cy.on('tap', 'node', (event) => {
-      const exerciseId = event.target.id();
+      const node = event.target as NodeSingular;
 
-      this.exerciseSelected.emit(exerciseId);
+      this.highlightPath(node);
+      this.exerciseSelected.emit(node.id());
+    });
+
+    /*
+     * Click en el fondo del canvas.
+     */
+    this.cy.on('tap', (event) => {
+      if (event.target === this.cy) {
+        this.clearHighlight();
+      }
     });
   }
 
+  private highlightPath(node: NodeSingular): void {
+    if (!this.cy) {
+      return;
+    }
+
+    /*
+     * Muy importante:
+     * limpiamos cualquier ruta seleccionada anteriormente.
+     */
+    this.clearHighlight();
+
+    /*
+     * Nodos + conexiones necesarias para llegar
+     * hasta el ejercicio seleccionado.
+     */
+    const predecessors = node.predecessors();
+
+    /*
+     * Incluimos el propio nodo seleccionado.
+     */
+    const path = predecessors.union(node);
+
+    /*
+     * Atenuamos absolutamente todo.
+     */
+    this.cy.elements().addClass('dimmed');
+
+    /*
+     * Recuperamos únicamente la ruta relevante.
+     */
+    path.removeClass('dimmed');
+    path.addClass('highlighted');
+  }
+
+  clearHighlight(): void {
+    if (!this.cy) {
+      return;
+    }
+
+    this.cy
+      .elements()
+      .removeClass('dimmed')
+      .removeClass('highlighted');
+  }
+
   private getNodePosition(
-  exerciseId: string,
-  graphLevel: ExerciseGraphLevel,
+    exerciseId: string,
+    graphLevel: ExerciseGraphLevel,
   ): { x: number; y: number } {
     const positions: Record<string, number> = {
       /*
-      * LEVEL 1
-      */
+       * LEVEL 1
+       */
       'pull-up': 350,
       'dips': 900,
       'push-up': 1850,
 
       /*
-      * LEVEL 2
-      */
+       * LEVEL 2
+       */
       'early-front-lever-progressions': 90,
       'chest-to-bar': 550,
 
@@ -289,8 +384,8 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
       'skin-the-cat': 2340,
 
       /*
-      * LEVEL 3
-      */
+       * LEVEL 3
+       */
       'hang-to-inverted-press': 250,
       'dragon-flag': 540,
 
@@ -306,8 +401,8 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
       'back-lever': 2240,
 
       /*
-      * LEVEL 4
-      */
+       * LEVEL 4
+       */
       'front-lever': 90,
       'one-arm-pull-up': 350,
       'waist-pull-up': 540,
@@ -323,8 +418,8 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
       'one-arm-back-lever': 2340,
 
       /*
-      * LEVEL 5
-      */
+       * LEVEL 5
+       */
       'touch-front-lever': 50,
       'front-lever-pull-up': 420,
 
@@ -337,8 +432,8 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
       'iron-cross': 2340,
 
       /*
-      * LEVEL 6
-      */
+       * LEVEL 6
+       */
       'one-arm-front-lever': 260,
       'victorian': 520,
       'butterfly': 720,
@@ -349,8 +444,8 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
       'maltese': 1950,
 
       /*
-      * LEVEL 7
-      */
+       * LEVEL 7
+       */
       'caruso': 520,
       'inverted-butterfly': 720,
 

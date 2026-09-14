@@ -14,7 +14,39 @@
   </header>
 
   <div class="tree-canvas">
+  
+    <div class="tree-legend">
+      <div class="tree-legend__item">
+        <span
+          class="tree-legend__dot tree-legend__dot--beginner"
+        ></span>
+        <span>Beginner</span>
+      </div>
+
+      <div class="tree-legend__item">
+        <span
+          class="tree-legend__dot tree-legend__dot--intermediate"
+        ></span>
+        <span>Intermediate</span>
+      </div>
+
+      <div class="tree-legend__item">
+        <span
+          class="tree-legend__dot tree-legend__dot--advanced"
+        ></span>
+        <span>Advanced</span>
+      </div>
+
+      <div class="tree-legend__item">
+        <span
+          class="tree-legend__dot tree-legend__dot--elite"
+        ></span>
+        <span>Elite</span>
+      </div>
+    </div>
+
     <app-tree-canvas
+      #treeCanvas
       (exerciseSelected)="onExerciseSelected($event)"
     />
 
@@ -23,7 +55,7 @@
         <button
           class="exercise-panel__close"
           type="button"
-          (click)="closeExercise()"
+          (click)="closeExercise(); treeCanvas.clearHighlight()"
           aria-label="Close exercise details"
         >
           ×
