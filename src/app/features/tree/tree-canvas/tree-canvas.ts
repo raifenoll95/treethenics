@@ -22,6 +22,11 @@ import {
   EXERCISE_RELATIONS,
 } from '../data/tree.mock';
 
+export interface ExerciseSelection {
+  id: string;
+  panelSide: 'left' | 'right';
+}
+
 @Component({
   selector: 'app-tree-canvas',
   imports: [],
@@ -33,7 +38,10 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
   private cyContainer!: ElementRef<HTMLDivElement>;
 
   @Output()
-  exerciseSelected = new EventEmitter<string>();
+  exerciseSelected = new EventEmitter<ExerciseSelection>();
+
+  @Output()
+  backgroundClicked = new EventEmitter<void>();
 
   private cy?: Core;
 
@@ -291,7 +299,12 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
     /*
      * Todo el árbol visible inicialmente.
      */
-    this.cy.fit(undefined, 40);
+    this.cy.fit(undefined, 70);
+
+    this.cy.panBy({
+      x: 45,
+      y: 0,
+    });
 
     /*
      * Click en un ejercicio.
@@ -300,7 +313,21 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
       const node = event.target as NodeSingular;
 
       this.highlightPath(node);
-      this.exerciseSelected.emit(node.id());
+
+      const renderedPosition = node.renderedPosition();
+
+      const canvasWidth =
+        this.cyContainer.nativeElement.clientWidth;
+
+      const panelSide: 'left' | 'right' =
+        renderedPosition.x > canvasWidth / 2
+          ? 'left'
+          : 'right';
+
+      this.exerciseSelected.emit({
+        id: node.id(),
+        panelSide,
+      });
     });
 
     /*
@@ -309,6 +336,7 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
     this.cy.on('tap', (event) => {
       if (event.target === this.cy) {
         this.clearHighlight();
+        this.backgroundClicked.emit();
       }
     });
   }

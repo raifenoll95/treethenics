@@ -14,6 +14,73 @@
   </header>
 
   <div class="tree-canvas">
+
+    <div class="tree-levels" aria-hidden="true">
+      <div class="tree-level tree-level--beginner">
+        <span class="tree-level__number">1</span>
+
+        <div class="tree-level__info">
+          <strong>BEGINNER</strong>
+          <span>Fundamentals</span>
+        </div>
+      </div>
+
+      <div class="tree-level tree-level--intermediate">
+        <span class="tree-level__number">2</span>
+
+        <div class="tree-level__info">
+          <strong>INTERMEDIATE</strong>
+          <span>Build Strength</span>
+        </div>
+      </div>
+
+      <div class="tree-level tree-level--intermediate">
+        <span class="tree-level__number">3</span>
+
+        <div class="tree-level__info">
+          <strong>INTERMEDIATE</strong>
+          <span>Develop Control</span>
+        </div>
+      </div>
+
+      <div class="tree-level tree-level--advanced">
+        <span class="tree-level__number">4</span>
+
+        <div class="tree-level__info">
+          <strong>ADVANCED</strong>
+          <span>Advanced Strength</span>
+        </div>
+      </div>
+
+      <div class="tree-level tree-level--advanced">
+        <span class="tree-level__number">5</span>
+
+        <div class="tree-level__info">
+          <strong>ADVANCED</strong>
+          <span>Higher Skill</span>
+        </div>
+      </div>
+
+      <div class="tree-level tree-level--elite">
+        <span class="tree-level__number">6</span>
+
+        <div class="tree-level__info">
+          <strong>ELITE</strong>
+          <span>Extreme Control</span>
+        </div>
+      </div>
+
+      <div class="tree-level tree-level--elite">
+        <span class="tree-level__number">7</span>
+
+        <div class="tree-level__info">
+          <strong>ELITE</strong>
+          <span>Peak Performance</span>
+        </div>
+      </div>
+    </div>
+
+
   
     <div class="tree-legend">
       <div class="tree-legend__item">
@@ -48,10 +115,15 @@
     <app-tree-canvas
       #treeCanvas
       (exerciseSelected)="onExerciseSelected($event)"
+      (backgroundClicked)="closeExercise()"
     />
 
     @if (selectedExercise(); as exercise) {
-      <aside class="exercise-panel">
+      <aside
+        class="exercise-panel"
+        [class.exercise-panel--left]="panelSide() === 'left'"
+        [class.exercise-panel--right]="panelSide() === 'right'"
+      >
         <button
           class="exercise-panel__close"
           type="button"
