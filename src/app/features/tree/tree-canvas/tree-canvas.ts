@@ -11,6 +11,10 @@ import {
 import cytoscape, { Core } from 'cytoscape';
 
 import {
+  ExerciseGraphLevel,
+} from '../../../shared/models/exercise.model';
+
+import {
   EXERCISES,
   EXERCISE_RELATIONS,
 } from '../data/tree.mock';
@@ -44,11 +48,17 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
         id: exercise.id,
         label: exercise.name,
         difficulty: exercise.difficulty,
-
-        ...(exercise.imageUrl && {
-          imageUrl: exercise.imageUrl,
-        }),
+        graphLevel: exercise.graphLevel,
       },
+
+      /*
+       * IMPORTANTE:
+       * position tiene que estar FUERA de data.
+       */
+      position: this.getNodePosition(
+        exercise.id,
+        exercise.graphLevel,
+      ),
     }));
 
     const edges = EXERCISE_RELATIONS.map((relation, index) => ({
@@ -68,132 +78,224 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
         ...edges,
       ],
 
+      /*
+       * Nosotros controlamos las posiciones.
+       */
       layout: {
-        name: 'breadthfirst',
-        directed: true,
-        padding: 10,
-        spacingFactor: 1,
+        name: 'preset',
       },
 
       style: [
-  /*
-   * NODE BASE
-   */
-  {
-    selector: 'node',
-    style: {
-      'background-color': '#343a45',
+        /*
+         * NODE BASE
+         */
+        {
+          selector: 'node',
+          style: {
+            'background-color': '#343a45',
 
-      'border-color': '#535c69',
-      'border-width': 1.5,
+            'border-color': '#535c69',
+            'border-width': 1.5,
 
-      width: 220,
-      height: 82,
+            width: 150,
+            height: 54,
 
-      shape: 'round-rectangle',
+            shape: 'round-rectangle',
 
-      label: 'data(label)',
-      color: '#f8fafc',
+            label: 'data(label)',
 
-      'font-size': 15,
-      'font-weight': 700,
+            color: '#f8fafc',
 
-      'text-valign': 'center',
-      'text-halign': 'center',
+            'font-size': 17,
+            'font-weight': 700,
 
-      'text-wrap': 'wrap',
-      'text-max-width': '145px',
-    },
-  },
+            'text-valign': 'center',
+            'text-halign': 'center',
 
-  /*
-   * NODE WITH IMAGE
-   */
-  {
-    selector: 'node[imageUrl]',
-    style: {
-      'background-image': 'data(imageUrl)',
+            'text-wrap': 'wrap',
+            'text-max-width': '120px',
+          },
+        },
 
-      'background-fit': 'contain',
-      'background-repeat': 'no-repeat',
+        /*
+         * ACTIVE NODE
+         */
+        {
+          selector: 'node:active',
+          style: {
+            'background-color': '#404753',
+            'border-color': '#ef233c',
+            'border-width': 2,
+          },
+        },
 
-      'background-width': '64px',
-      'background-height': '64px',
+        /*
+         * SELECTED NODE
+         */
+        {
+          selector: 'node:selected',
+          style: {
+            'background-color': '#44252c',
+            'border-color': '#ef233c',
+            'border-width': 2.5,
+          },
+        },
 
-      'background-position-x': '18%',
-      'background-position-y': '50%',
+        /*
+         * CONNECTIONS
+         */
+        {
+          selector: 'edge',
+          style: {
+            width: 1.6,
 
-      'text-halign': 'center',
-      'text-margin-x': 44,
-    },
-  },
+            'line-color': '#626b78',
 
-  /*
-   * ACTIVE NODE
-   */
-  {
-    selector: 'node:active',
-    style: {
-      'background-color': '#404753',
-      'border-color': '#ef233c',
-      'border-width': 2,
-    },
-  },
+            'target-arrow-color': '#626b78',
+            'target-arrow-shape': 'triangle',
+            'arrow-scale': 0.7,
+            'curve-style': 'straight',
 
-  /*
-   * SELECTED NODE
-   */
-  {
-    selector: 'node:selected',
-    style: {
-      'background-color': '#44252c',
+            opacity: 0.65,
+          },
+        },
+      ],
 
-      'border-color': '#ef233c',
-      'border-width': 3,
-    },
-  },
-
-  /*
-   * CONNECTIONS
-   */
-  {
-    selector: 'edge',
-    style: {
-      width: 2.5,
-
-      'line-color': '#747d8c',
-
-      'target-arrow-color': '#747d8c',
-      'target-arrow-shape': 'triangle',
-      'arrow-scale': 0.8,
-
-      'curve-style': 'bezier',
-
-      opacity: 0.9,
-    },
-  },
-],
-
-      minZoom: 0.4,
-      maxZoom: 2.2,
+      minZoom: 0.3,
+      maxZoom: 2.5,
 
       wheelSensitivity: 0.2,
     });
 
     /*
-     * Inicialmente centramos el árbol.
+     * Queremos ver todo el árbol al entrar.
      */
-    this.cy.fit(undefined, 80);
-    this.cy.zoom(this.cy.zoom() * 1.1);
-    this.cy.center();
+    this.cy.fit(undefined, 40);
 
     /*
-     * Selección del ejercicio.
+     * Click en ejercicio.
      */
     this.cy.on('tap', 'node', (event) => {
       const exerciseId = event.target.id();
 
       this.exerciseSelected.emit(exerciseId);
     });
+  }
+
+  private getNodePosition(
+  exerciseId: string,
+  graphLevel: ExerciseGraphLevel,
+  ): { x: number; y: number } {
+    const positions: Record<string, number> = {
+      /*
+      * LEVEL 1
+      */
+      'pull-up': 350,
+      'dips': 900,
+      'push-up': 1850,
+
+      /*
+      * LEVEL 2
+      */
+      'early-front-lever-progressions': 90,
+      'chest-to-bar': 550,
+
+      'l-sit': 1300,
+      'handstand': 1500,
+
+      'pike-push-up': 1800,
+      'bent-arm-planche': 2000,
+      'skin-the-cat': 2200,
+
+      /*
+      * LEVEL 3
+      */
+      'hang-to-inverted-press': 250,
+      'dragon-flag': 540,
+
+      'muscle-up': 700,
+      'impossible-dip': 900,
+      'korean-dip': 1100,
+
+      'handstand-press': 1300,
+      'early-planche-progressions': 1500,
+
+      'handstand-push-up': 1800,
+      'one-arm-bent-planche': 2000,
+      'back-lever': 2200,
+
+      /*
+      * LEVEL 4
+      */
+      'front-lever': 90,
+      'one-arm-pull-up': 350,
+      'waist-pull-up': 700,
+
+      'human-flag': 920,
+      'hefesto': 1140,
+      'v-sit': 1300,
+
+      'straddle-planche': 1580,
+
+      '90-degree-push-up': 1800,
+      'one-arm-push-up-clean-form': 2020,
+      'one-arm-back-lever': 2240,
+
+      /*
+      * LEVEL 5
+      */
+      'touch-front-lever': 90,
+      'front-lever-pull-up': 430,
+
+      'human-flag-pull-up': 900,
+      'entrada-de-angel': 1140,
+
+      'full-planche': 1580,
+      'clean-one-arm-handstand': 1820,
+
+      'iron-cross': 2240,
+
+      /*
+      * LEVEL 6
+      */
+      'one-arm-front-lever': 260,
+      'victorian': 520,
+      'butterfly': 780,
+
+      'mana': 1300,
+
+      'full-planche-push-ups': 1580,
+      'maltese': 1840,
+
+      /*
+      * LEVEL 7
+      */
+      'caruso': 520,
+      'inverted-butterfly': 780,
+
+      'entrada-de-diablo': 1100,
+
+      'reverse-planche': 1460,
+      'one-arm-planche': 1680,
+      'pelican': 1900,
+      'zanetti': 2120,
+
+      'inverted-cross': 2340,
+    };
+
+    const levelY: Record<ExerciseGraphLevel, number> = {
+      1: 100,
+      2: 250,
+      3: 400,
+      4: 550,
+      5: 700,
+      6: 850,
+      7: 1000,
+    };
+
+    return {
+      x: positions[exerciseId] ?? 1200,
+      y: levelY[graphLevel],
+    };
   }
 }
