@@ -201,11 +201,11 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
       'chest-to-bar': 550,
 
       'l-sit': 1300,
-      'handstand': 1500,
+      'handstand': 1580,
 
       'pike-push-up': 1800,
-      'bent-arm-planche': 2000,
-      'skin-the-cat': 2200,
+      'bent-arm-planche': 2050,
+      'skin-the-cat': 2340,
 
       /*
       * LEVEL 3
@@ -213,72 +213,72 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
       'hang-to-inverted-press': 250,
       'dragon-flag': 540,
 
-      'muscle-up': 700,
+      'muscle-up': 720,
       'impossible-dip': 900,
       'korean-dip': 1100,
 
-      'handstand-press': 1300,
-      'early-planche-progressions': 1500,
+      'handstand-press': 1400,
+      'early-planche-progressions': 1630,
 
       'handstand-push-up': 1800,
-      'one-arm-bent-planche': 2000,
-      'back-lever': 2200,
+      'one-arm-bent-planche': 2050,
+      'back-lever': 2240,
 
       /*
       * LEVEL 4
       */
       'front-lever': 90,
       'one-arm-pull-up': 350,
-      'waist-pull-up': 700,
+      'waist-pull-up': 540,
 
-      'human-flag': 920,
-      'hefesto': 1140,
+      'human-flag': 900,
+      'hefesto': 1100,
       'v-sit': 1300,
 
-      'straddle-planche': 1580,
+      'straddle-planche': 1630,
 
       '90-degree-push-up': 1800,
-      'one-arm-push-up-clean-form': 2020,
-      'one-arm-back-lever': 2240,
+      'one-arm-push-up-clean-form': 2010,
+      'one-arm-back-lever': 2340,
 
       /*
       * LEVEL 5
       */
-      'touch-front-lever': 90,
-      'front-lever-pull-up': 430,
+      'touch-front-lever': 50,
+      'front-lever-pull-up': 420,
 
       'human-flag-pull-up': 900,
-      'entrada-de-angel': 1140,
+      'entrada-de-angel': 1100,
 
-      'full-planche': 1580,
-      'clean-one-arm-handstand': 1820,
+      'full-planche': 1630,
+      'clean-one-arm-handstand': 1390,
 
-      'iron-cross': 2240,
+      'iron-cross': 2340,
 
       /*
       * LEVEL 6
       */
       'one-arm-front-lever': 260,
       'victorian': 520,
-      'butterfly': 780,
+      'butterfly': 720,
 
       'mana': 1300,
 
-      'full-planche-push-ups': 1580,
-      'maltese': 1840,
+      'full-planche-push-ups': 1610,
+      'maltese': 1950,
 
       /*
       * LEVEL 7
       */
       'caruso': 520,
-      'inverted-butterfly': 780,
+      'inverted-butterfly': 720,
 
       'entrada-de-diablo': 1100,
 
-      'reverse-planche': 1460,
-      'one-arm-planche': 1680,
-      'pelican': 1900,
-      'zanetti': 2120,
+      'reverse-planche': 1350,
+      'one-arm-planche': 1800,
+      'pelican': 2000,
+      'zanetti': 2180,
 
       'inverted-cross': 2340,
     };
