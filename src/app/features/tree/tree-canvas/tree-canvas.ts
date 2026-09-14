@@ -61,14 +61,21 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
       ),
     }));
 
-    const edges = EXERCISE_RELATIONS.map((relation, index) => ({
-      data: {
-        id: `relation-${index}`,
-        source: relation.from,
-        target: relation.to,
-        type: relation.type,
-      },
-    }));
+    const edges = EXERCISE_RELATIONS.map((relation, index) => {
+      const targetExercise = EXERCISES.find(
+        (exercise) => exercise.id === relation.to,
+      );
+
+      return {
+        data: {
+          id: `relation-${index}`,
+          source: relation.from,
+          target: relation.to,
+          type: relation.type,
+          targetDifficulty: targetExercise?.difficulty,
+        },
+      };
+    });
 
     this.cy = cytoscape({
       container: this.cyContainer.nativeElement,
@@ -86,80 +93,154 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
       },
 
       style: [
-        /*
-         * NODE BASE
-         */
-        {
-          selector: 'node',
-          style: {
-            'background-color': '#343a45',
+      /*
+      * BASE NODE
+      */
+      {
+        selector: 'node',
+        style: {
+          width: 150,
+          height: 52,
 
-            'border-color': '#535c69',
-            'border-width': 1.5,
+          shape: 'round-rectangle',
 
-            width: 150,
-            height: 54,
+          'background-color': '#161b22',
 
-            shape: 'round-rectangle',
+          'border-width': 2,
 
-            label: 'data(label)',
+          label: 'data(label)',
 
-            color: '#f8fafc',
+          color: '#f8fafc',
 
-            'font-size': 17,
-            'font-weight': 700,
+          'font-family': 'Inter, system-ui, sans-serif',
+          'font-size': 19,
+          'font-weight': 700,
 
-            'text-valign': 'center',
-            'text-halign': 'center',
+          'text-valign': 'center',
+          'text-halign': 'center',
 
-            'text-wrap': 'wrap',
-            'text-max-width': '120px',
-          },
+          'text-wrap': 'wrap',
+          'text-max-width': '124px',
         },
+      },
 
-        /*
-         * ACTIVE NODE
-         */
-        {
-          selector: 'node:active',
-          style: {
-            'background-color': '#404753',
-            'border-color': '#ef233c',
-            'border-width': 2,
-          },
+      /*
+      * BEGINNER
+      */
+      {
+        selector: 'node[difficulty = "beginner"]',
+        style: {
+          'border-color': '#34d399',
+          'background-color': '#14231f',
         },
+      },
 
-        /*
-         * SELECTED NODE
-         */
-        {
-          selector: 'node:selected',
-          style: {
-            'background-color': '#44252c',
-            'border-color': '#ef233c',
-            'border-width': 2.5,
-          },
+      /*
+      * INTERMEDIATE
+      */
+      {
+        selector: 'node[difficulty = "intermediate"]',
+        style: {
+          'border-color': '#60a5fa',
+          'background-color': '#151f2d',
         },
+      },
 
-        /*
-         * CONNECTIONS
-         */
-        {
-          selector: 'edge',
-          style: {
-            width: 1.6,
-
-            'line-color': '#626b78',
-
-            'target-arrow-color': '#626b78',
-            'target-arrow-shape': 'triangle',
-            'arrow-scale': 0.7,
-            'curve-style': 'straight',
-
-            opacity: 0.65,
-          },
+      /*
+      * ADVANCED
+      */
+      {
+        selector: 'node[difficulty = "advanced"]',
+        style: {
+          'border-color': '#fb923c',
+          'background-color': '#2a1f16',
         },
-      ],
+      },
+
+      /*
+      * ELITE
+      */
+      {
+        selector: 'node[difficulty = "elite"]',
+        style: {
+          'border-color': '#f43f5e',
+          'background-color': '#2a171c',
+        },
+      },
+
+      /*
+      * ACTIVE
+      */
+      {
+        selector: 'node:active',
+        style: {
+          'border-width': 3,
+        },
+      },
+
+      /*
+      * SELECTED
+      */
+      {
+        selector: 'node:selected',
+        style: {
+          'border-width': 3.5,
+
+          'background-color': '#272b33',
+        },
+      },
+
+      /*
+      * EDGES
+      */
+      {
+        selector: 'edge',
+        style: {
+          width: 2.2,
+
+          'line-color': '#9ca3af',
+
+          'target-arrow-color': '#9ca3af',
+          'target-arrow-shape': 'triangle',
+          'arrow-scale': 0.9,
+
+          'curve-style': 'straight',
+
+          opacity: 0.9,
+        },
+      },
+      {
+        selector: 'edge[targetDifficulty = "beginner"]',
+        style: {
+          'line-color': '#34d399',
+          'target-arrow-color': '#34d399',
+        },
+      },
+
+      {
+        selector: 'edge[targetDifficulty = "intermediate"]',
+        style: {
+          'line-color': '#60a5fa',
+          'target-arrow-color': '#60a5fa',
+        },
+      },
+
+      {
+        selector: 'edge[targetDifficulty = "advanced"]',
+        style: {
+          'line-color': '#fb923c',
+          'target-arrow-color': '#fb923c',
+        },
+      },
+
+      {
+        selector: 'edge[targetDifficulty = "elite"]',
+        style: {
+          'line-color': '#f43f5e',
+          'target-arrow-color': '#f43f5e',
+        },
+      },
+    ],
 
       minZoom: 0.3,
       maxZoom: 2.5,
