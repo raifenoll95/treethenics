@@ -3,20 +3,31 @@
   height: 100%;
 }
 
+/* =========================================================
+   PAGE
+   ========================================================= */
+
 .tree-page {
   display: flex;
   flex-direction: column;
+
   position: relative;
+
   height: 100%;
   padding: 32px;
 
   overflow: hidden;
 }
 
+/* =========================================================
+   HEADER
+   ========================================================= */
+
 .tree-page__header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+
   gap: 24px;
 
   margin-bottom: 24px;
@@ -24,12 +35,14 @@
 
 .tree-page__eyebrow {
   display: block;
+
   margin-bottom: 8px;
 
   color: var(--color-primary);
 
   font-size: 11px;
   font-weight: 700;
+
   letter-spacing: 1.8px;
 }
 
@@ -40,6 +53,7 @@
 
   font-size: 28px;
   font-weight: 700;
+
   letter-spacing: -0.6px;
 }
 
@@ -50,6 +64,10 @@
 
   font-size: 14px;
 }
+
+/* =========================================================
+   HEADER ACTION
+   ========================================================= */
 
 .tree-page__action {
   padding: 10px 16px;
@@ -71,19 +89,372 @@
 .tree-page__action:hover {
   background: var(--color-surface-hover);
   color: var(--color-text);
+
   border-color: #3b3d44;
 }
 
-/* EXERCISE DETAILS PANEL */
+/* =========================================================
+   TREE CANVAS
+   ========================================================= */
+
+.tree-canvas {
+  position: relative;
+
+  flex: 1;
+  min-height: 0;
+
+  overflow: hidden;
+
+  background: #0f1318;
+
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+}
+
+/* =========================================================
+   BACKGROUND IMAGE
+   ========================================================= */
+
+/*
+ * Imagen del parque de calistenia.
+ *
+ * Cambia la ruta si tu imagen tiene otro nombre.
+ */
+.tree-canvas::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  background-image: url('/images/calisthenics-park.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  filter: blur(5px);
+  transform: scale(1.04);
+
+  opacity: 0.45;
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   DARK OVERLAY + DOT GRID
+   ========================================================= */
+
+/*
+ * Esta capa oscurece la fotografía y mantiene
+ * el patrón de puntos que ya tenía el mapa.
+ */
+.tree-canvas::after {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      rgba(10, 14, 18, 0.55),
+      rgba(10, 14, 18, 0.72)
+    );
+
+  background-size:
+    24px 24px,
+    100% 100%;
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   CYTOSCAPE
+   ========================================================= */
+
+/*
+ * El grafo queda por encima:
+ *
+ * 0 -> fotografía
+ * 1 -> overlay + puntos
+ * 2 -> Cytoscape
+ */
+app-tree-canvas {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 2;
+}
+
+/* =========================================================
+   LEVELS
+   ========================================================= */
+
+.tree-levels {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 110px;
+
+  z-index: 10;
+
+  display: grid;
+  grid-template-rows: repeat(7, 1fr);
+
+  pointer-events: none;
+
+  /*
+   * Degradado para que los niveles sean legibles
+   * incluso encima de la fotografía.
+   */
+  background:
+    linear-gradient(
+      90deg,
+      rgba(15, 19, 24, 0.98) 0%,
+      rgba(15, 19, 24, 0.75) 60%,
+      rgba(15, 19, 24, 0) 100%
+    );
+}
+
+.tree-level {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding-left: 12px;
+}
+
+/*
+ * Separadores horizontales.
+ */
+.tree-level::after {
+  content: '';
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100vw;
+
+  border-bottom:
+    1px dashed rgba(148, 163, 184, 0.1);
+
+  pointer-events: none;
+}
+
+.tree-level:last-child::after {
+  display: none;
+}
+
+/* =========================================================
+   LEVEL NUMBER
+   ========================================================= */
+
+.tree-level__number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  flex-shrink: 0;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+/* =========================================================
+   LEVEL TEXT
+   ========================================================= */
+
+.tree-level__info {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.tree-level__info strong {
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.06em;
+}
+
+.tree-level__info span {
+  color: #7f8a9a;
+
+  font-size: 9px;
+  font-weight: 500;
+
+  white-space: nowrap;
+}
+
+/* =========================================================
+   BEGINNER
+   ========================================================= */
+
+.tree-level--beginner .tree-level__number {
+  color: #34d399;
+
+  background: rgba(52, 211, 153, 0.12);
+}
+
+.tree-level--beginner .tree-level__info strong {
+  color: #34d399;
+}
+
+/* =========================================================
+   INTERMEDIATE
+   ========================================================= */
+
+.tree-level--intermediate .tree-level__number {
+  color: #60a5fa;
+
+  background: rgba(96, 165, 250, 0.12);
+}
+
+.tree-level--intermediate .tree-level__info strong {
+  color: #60a5fa;
+}
+
+/* =========================================================
+   ADVANCED
+   ========================================================= */
+
+.tree-level--advanced .tree-level__number {
+  color: #fb923c;
+
+  background: rgba(251, 146, 60, 0.12);
+}
+
+.tree-level--advanced .tree-level__info strong {
+  color: #fb923c;
+}
+
+/* =========================================================
+   ELITE
+   ========================================================= */
+
+.tree-level--elite .tree-level__number {
+  color: #f43f5e;
+
+  background: rgba(244, 63, 94, 0.12);
+}
+
+.tree-level--elite .tree-level__info strong {
+  color: #f43f5e;
+}
+
+/* =========================================================
+   LEGEND
+   ========================================================= */
+
+.tree-legend {
+  position: absolute;
+
+  top: 18px;
+  right: 18px;
+
+  z-index: 20;
+
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+
+  gap: 10px 20px;
+
+  padding: 12px 16px;
+
+  background: rgba(15, 19, 24, 0.92);
+
+  border: 1px solid #2d333d;
+  border-radius: 10px;
+
+  backdrop-filter: blur(8px);
+}
+
+.tree-legend__item {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  color: #cbd5e1;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+.tree-legend__dot {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+}
+
+.tree-legend__dot--beginner {
+  background: #34d399;
+
+  box-shadow:
+    0 0 8px rgba(52, 211, 153, 0.45);
+}
+
+.tree-legend__dot--intermediate {
+  background: #60a5fa;
+
+  box-shadow:
+    0 0 8px rgba(96, 165, 250, 0.45);
+}
+
+.tree-legend__dot--advanced {
+  background: #fb923c;
+
+  box-shadow:
+    0 0 8px rgba(251, 146, 60, 0.45);
+}
+
+.tree-legend__dot--elite {
+  background: #f43f5e;
+
+  box-shadow:
+    0 0 8px rgba(244, 63, 94, 0.45);
+}
+
+/* =========================================================
+   EXERCISE DETAILS PANEL
+   ========================================================= */
 
 .exercise-panel {
   position: absolute;
 
   top: 20px;
-  right: 24px;
   bottom: 24px;
 
   width: 340px;
+
   padding: 24px;
 
   display: flex;
@@ -102,17 +473,27 @@
   z-index: 30;
 }
 
+/*
+ * Si el ejercicio está a la izquierda,
+ * el panel aparece a la derecha.
+ */
 .exercise-panel--right {
   right: 20px;
   left: auto;
 }
 
+/*
+ * Si el ejercicio está a la derecha,
+ * el panel aparece a la izquierda.
+ */
 .exercise-panel--left {
   left: 20px;
   right: auto;
 }
 
-/* CLOSE */
+/* =========================================================
+   CLOSE BUTTON
+   ========================================================= */
 
 .exercise-panel__close {
   position: absolute;
@@ -129,6 +510,7 @@
   padding: 0;
 
   background: transparent;
+
   color: #9ca3af;
 
   border: 0;
@@ -146,10 +528,13 @@
 
 .exercise-panel__close:hover {
   background: #292d35;
+
   color: #ffffff;
 }
 
-/* IMAGE */
+/* =========================================================
+   EXERCISE IMAGE
+   ========================================================= */
 
 .exercise-panel__image {
   display: grid;
@@ -177,7 +562,9 @@
   object-fit: contain;
 }
 
-/* DIFFICULTY */
+/* =========================================================
+   DIFFICULTY
+   ========================================================= */
 
 .exercise-panel__difficulty {
   display: block;
@@ -190,10 +577,13 @@
   font-weight: 700;
 
   text-transform: uppercase;
+
   letter-spacing: 1.4px;
 }
 
-/* TITLE */
+/* =========================================================
+   EXERCISE TITLE
+   ========================================================= */
 
 .exercise-panel h2 {
   margin: 0 0 12px;
@@ -202,10 +592,13 @@
 
   font-size: 26px;
   font-weight: 700;
+
   letter-spacing: -0.4px;
 }
 
-/* DESCRIPTION */
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
 
 .exercise-panel__description {
   margin: 0 0 22px;
@@ -213,10 +606,13 @@
   color: var(--color-text-secondary);
 
   font-size: 14px;
+
   line-height: 1.6;
 }
 
-/* SECTIONS */
+/* =========================================================
+   PANEL SECTIONS
+   ========================================================= */
 
 .exercise-panel__section {
   margin-top: 20px;
@@ -233,10 +629,13 @@
   font-weight: 700;
 
   text-transform: uppercase;
+
   letter-spacing: 1px;
 }
 
-/* TAGS */
+/* =========================================================
+   TAGS
+   ========================================================= */
 
 .exercise-panel__tags {
   display: flex;
@@ -249,6 +648,7 @@
   padding: 6px 10px;
 
   background: #292d35;
+
   color: #d7dae0;
 
   border: 1px solid #393e48;
@@ -257,7 +657,9 @@
   font-size: 12px;
 }
 
-/* DETAILS BUTTON */
+/* =========================================================
+   VIEW EXERCISE BUTTON
+   ========================================================= */
 
 .exercise-panel__details {
   display: flex;
@@ -267,9 +669,11 @@
   width: 100%;
 
   margin-top: auto;
+
   padding: 13px 16px;
 
   background: var(--color-primary);
+
   color: #ffffff;
 
   border: 0;
@@ -293,264 +697,21 @@
   transform: translateY(1px);
 }
 
-/* leyenda */
-
-.tree-legend {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-
-  z-index: 20;
-
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  gap: 10px 20px;
-
-  padding: 12px 16px;
-
-  background: rgba(15, 19, 24, 0.92);
-  border: 1px solid #2d333d;
-  border-radius: 10px;
-
-  backdrop-filter: blur(8px);
-}
-
-.tree-legend__item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-
-  color: #cbd5e1;
-
-  font-size: 12px;
-  font-weight: 600;
-
-  white-space: nowrap;
-}
-
-.tree-legend__dot {
-  width: 9px;
-  height: 9px;
-
-  border-radius: 50%;
-}
-
-.tree-legend__dot--beginner {
-  background: #34d399;
-  box-shadow: 0 0 8px rgba(52, 211, 153, 0.45);
-}
-
-.tree-legend__dot--intermediate {
-  background: #60a5fa;
-  box-shadow: 0 0 8px rgba(96, 165, 250, 0.45);
-}
-
-.tree-legend__dot--advanced {
-  background: #fb923c;
-  box-shadow: 0 0 8px rgba(251, 146, 60, 0.45);
-}
-
-.tree-legend__dot--elite {
-  background: #f43f5e;
-  box-shadow: 0 0 8px rgba(244, 63, 94, 0.45);
-}
-
-
-
-
-.tree-canvas {
-  position: relative;
-  overflow: hidden;
-}
-
-/*
- * LEVELS
- */
-.tree-levels {
-  position: absolute;
-
-  top: 0;
-  bottom: 0;
-  left: 0;
-
-  width: 110px;
-
-  z-index: 10;
-
-  display: grid;
-  grid-template-rows: repeat(7, 1fr);
-
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(15, 19, 24, 0.98) 0%,
-      rgba(15, 19, 24, 0.75) 60%,
-      rgba(15, 19, 24, 0) 100%
-    );
-}
-
-.tree-level {
-  position: relative;
-
-  display: flex;
-  align-items: center;
-
-  gap: 9px;
-
-  padding-left: 12px;
-}
-
-.tree-level:last-child {
-  border-bottom: none;
-}
-
-/*
- * Número
- */
-.tree-level__number {
-  width: 32px;
-  height: 32px;
-
-  flex-shrink: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 10px;
-
-  font-size: 14px;
-  font-weight: 800;
-}
-
-/*
- * Texto
- */
-.tree-level__info {
-  display: flex;
-  flex-direction: column;
-
-  gap: 3px;
-}
-
-.tree-level__info strong {
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-}
-
-.tree-level__info span {
-  font-size: 9px;
-  font-weight: 500;
-  color: #7f8a9a;
-}
-
-
-
-
-
-
-
-/*
- * BEGINNER
- */
-.tree-level--beginner .tree-level__number {
-  color: #34d399;
-  background: rgba(52, 211, 153, 0.12);
-}
-
-.tree-level--beginner .tree-level__info strong {
-  color: #34d399;
-}
-
-/*
- * INTERMEDIATE
- */
-.tree-level--intermediate .tree-level__number {
-  color: #60a5fa;
-  background: rgba(96, 165, 250, 0.12);
-}
-
-.tree-level--intermediate .tree-level__info strong {
-  color: #60a5fa;
-}
-
-/*
- * ADVANCED
- */
-.tree-level--advanced .tree-level__number {
-  color: #fb923c;
-  background: rgba(251, 146, 60, 0.12);
-}
-
-.tree-level--advanced .tree-level__info strong {
-  color: #fb923c;
-}
-
-/*
- * ELITE
- */
-.tree-level--elite .tree-level__number {
-  color: #f43f5e;
-  background: rgba(244, 63, 94, 0.12);
-}
-
-.tree-level--elite .tree-level__info strong {
-  color: #f43f5e;
-}
-
-
-
-
-
-/* TREE */
-
-.tree-canvas {
-  position: relative;
-  flex: 1;
-  min-height: 0;
-
-  overflow: hidden;
-
-background-color: #16181d;
-
-  background-image:
-    radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.09) 1px,
-      transparent 1px
-    );
-
-  background-size: 24px 24px;
-
-  border: 1px solid var(--color-border);
-  border-radius: 14px;
-}
-
-.tree-canvas__placeholder {
-  position: absolute;
-  inset: 0;
-
-  display: grid;
-  place-items: center;
-
-  color: var(--color-text-muted);
-
-  font-size: 13px;
-  letter-spacing: 0.5px;
-}
-
-/* CONTROLS */
+/* =========================================================
+   TREE CONTROLS
+   ========================================================= */
 
 .tree-controls {
   position: absolute;
+
   right: 16px;
   bottom: 16px;
 
+  z-index: 20;
+
   display: flex;
   flex-direction: column;
+
   gap: 4px;
 
   padding: 4px;
@@ -560,7 +721,8 @@ background-color: #16181d;
   border: 1px solid var(--color-border);
   border-radius: 10px;
 
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.25);
 }
 
 .tree-controls button {
@@ -573,6 +735,7 @@ background-color: #16181d;
   padding: 0;
 
   background: transparent;
+
   color: var(--color-text-secondary);
 
   border: 0;
@@ -589,8 +752,34 @@ background-color: #16181d;
 
 .tree-controls button:hover {
   background: var(--color-surface-hover);
+
   color: var(--color-primary);
 }
+
+/* =========================================================
+   PLACEHOLDER
+   ========================================================= */
+
+.tree-canvas__placeholder {
+  position: absolute;
+
+  inset: 0;
+
+  display: grid;
+  place-items: center;
+
+  color: var(--color-text-muted);
+
+  font-size: 13px;
+
+  letter-spacing: 0.5px;
+
+  z-index: 5;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 768px) {
   .tree-page {
@@ -615,5 +804,61 @@ background-color: #16181d;
 
   .tree-canvas {
     border-radius: 10px;
+  }
+
+  /*
+   * En móvil reducimos el área de niveles.
+   */
+  .tree-levels {
+    width: 64px;
+  }
+
+  /*
+   * Ocultamos el texto para dejar solamente
+   * los números 1-7.
+   */
+  .tree-level__info {
+    display: none;
+  }
+
+  .tree-level {
+    justify-content: center;
+
+    padding-left: 0;
+  }
+
+  /*
+   * Leyenda más compacta.
+   */
+  .tree-legend {
+    top: 10px;
+    right: 10px;
+
+    gap: 7px 12px;
+
+    padding: 10px 12px;
+  }
+
+  .tree-legend__item {
+    font-size: 10px;
+  }
+
+  /*
+   * En móvil no utilizamos izquierda/derecha.
+   * El detalle aparece como panel inferior.
+   */
+  .exercise-panel,
+  .exercise-panel--left,
+  .exercise-panel--right {
+    top: auto;
+
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+
+    width: auto;
+    max-height: 70%;
+
+    padding: 20px;
   }
 }
