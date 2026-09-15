@@ -450,56 +450,58 @@ app-tree-canvas {
 .exercise-panel {
   position: absolute;
 
-  top: 20px;
-  bottom: 24px;
+  top: 18px;
+  bottom: 18px;
 
-  width: 340px;
-
-  padding: 24px;
+  width: 420px;
+  padding: 18px;
 
   display: flex;
   flex-direction: column;
 
-  background: #1b1e24;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(28, 32, 39, 0.98) 0%,
+      rgba(23, 26, 32, 0.98) 100%
+    );
 
-  border: 1px solid #343943;
-  border-radius: 14px;
+  border: 1px solid #343b46;
+  border-radius: 18px;
 
   box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.45);
+    0 24px 70px rgba(0, 0, 0, 0.55);
 
   overflow-y: auto;
 
   z-index: 30;
 }
 
-/*
- * Si el ejercicio está a la izquierda,
- * el panel aparece a la derecha.
- */
+/* PANEL A LA DERECHA */
+
 .exercise-panel--right {
-  right: 20px;
+  right: 18px;
   left: auto;
 }
 
-/*
- * Si el ejercicio está a la derecha,
- * el panel aparece a la izquierda.
- */
+/* PANEL A LA IZQUIERDA */
+
 .exercise-panel--left {
-  left: 20px;
+  left: 18px;
   right: auto;
 }
 
 /* =========================================================
-   CLOSE BUTTON
+   CLOSE
    ========================================================= */
 
 .exercise-panel__close {
   position: absolute;
 
-  top: 14px;
-  right: 14px;
+  top: 12px;
+  right: 12px;
+
+  z-index: 2;
 
   display: grid;
   place-items: center;
@@ -509,46 +511,47 @@ app-tree-canvas {
 
   padding: 0;
 
-  background: transparent;
+  background: rgba(15, 18, 23, 0.72);
+  color: #aeb6c2;
 
-  color: #9ca3af;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 9px;
 
-  border: 0;
-  border-radius: 8px;
-
-  font-size: 22px;
+  font-size: 21px;
   line-height: 1;
 
   cursor: pointer;
 
+  backdrop-filter: blur(8px);
+
   transition:
     background var(--transition-fast),
-    color var(--transition-fast);
+    color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .exercise-panel__close:hover {
-  background: #292d35;
-
+  background: #292e37;
   color: #ffffff;
+
+  transform: scale(1.04);
 }
 
 /* =========================================================
-   EXERCISE IMAGE
+   IMAGE
    ========================================================= */
 
 .exercise-panel__image {
-  display: grid;
-  place-items: center;
+  position: relative;
 
   width: 100%;
-  height: 180px;
 
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 
-  background: #15171c;
+  background: #101318;
 
-  border: 1px solid #292d35;
-  border-radius: 12px;
+  border: 1px solid #343b46;
+  border-radius: 14px;
 
   overflow: hidden;
 }
@@ -557,9 +560,38 @@ app-tree-canvas {
   display: block;
 
   width: 100%;
-  height: 100%;
+  height: auto;
 
-  object-fit: contain;
+  /*
+   * Hace que la imagen ocupe toda la tarjeta.
+   */
+  object-fit: cover;
+
+  /*
+   * Centrado por defecto.
+   * Se puede ajustar individualmente más adelante.
+   */
+  object-position: center;
+}
+
+/*
+ * Pequeño degradado inferior sobre la imagen.
+ * Ayuda a integrarla con el panel.
+ */
+.exercise-panel__image::after {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 65%,
+      rgba(15, 18, 23, 0.22) 100%
+    );
+
+  pointer-events: none;
 }
 
 /* =========================================================
@@ -569,31 +601,33 @@ app-tree-canvas {
 .exercise-panel__difficulty {
   display: block;
 
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 
-  color: var(--color-primary);
+  color: #f43f5e;
 
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 800;
 
   text-transform: uppercase;
 
-  letter-spacing: 1.4px;
+  letter-spacing: 1.5px;
 }
 
 /* =========================================================
-   EXERCISE TITLE
+   TITLE
    ========================================================= */
 
 .exercise-panel h2 {
-  margin: 0 0 12px;
+  margin: 0 0 14px;
 
-  color: var(--color-text);
+  color: #f8fafc;
 
-  font-size: 26px;
-  font-weight: 700;
+  font-size: 30px;
+  font-weight: 750;
 
-  letter-spacing: -0.4px;
+  line-height: 1.1;
+
+  letter-spacing: -0.7px;
 }
 
 /* =========================================================
@@ -601,21 +635,21 @@ app-tree-canvas {
    ========================================================= */
 
 .exercise-panel__description {
-  margin: 0 0 22px;
+  margin: 0 0 8px;
 
-  color: var(--color-text-secondary);
+  color: #9ca6b4;
 
   font-size: 14px;
 
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 /* =========================================================
-   PANEL SECTIONS
+   SECTIONS
    ========================================================= */
 
 .exercise-panel__section {
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
 .exercise-panel__label {
@@ -623,14 +657,14 @@ app-tree-canvas {
 
   margin-bottom: 10px;
 
-  color: var(--color-text-muted);
+  color: #707986;
 
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 10px;
+  font-weight: 800;
 
   text-transform: uppercase;
 
-  letter-spacing: 1px;
+  letter-spacing: 1.3px;
 }
 
 /* =========================================================
@@ -642,6 +676,20 @@ app-tree-canvas {
   flex-wrap: wrap;
 
   gap: 8px;
+}
+
+.exercise-panel__tags span {
+  padding: 7px 11px;
+
+  background: #242932;
+
+  color: #d9dee7;
+
+  border: 1px solid #3a414d;
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .exercise-panel__tags span {
@@ -658,7 +706,7 @@ app-tree-canvas {
 }
 
 /* =========================================================
-   VIEW EXERCISE BUTTON
+   VIEW EXERCISE
    ========================================================= */
 
 .exercise-panel__details {
@@ -670,27 +718,50 @@ app-tree-canvas {
 
   margin-top: auto;
 
-  padding: 13px 16px;
+  padding: 15px 17px;
 
-  background: var(--color-primary);
+  background:
+    linear-gradient(
+      135deg,
+      #f52242,
+      #ef233c
+    );
 
   color: #ffffff;
 
   border: 0;
-  border-radius: 8px;
+  border-radius: 10px;
 
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 750;
 
   cursor: pointer;
 
+  box-shadow:
+    0 8px 24px rgba(239, 35, 60, 0.18);
+
   transition:
-    background var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    filter var(--transition-fast);
+}
+
+.exercise-panel__details span {
+  font-size: 18px;
+
+  transition:
     transform var(--transition-fast);
 }
 
 .exercise-panel__details:hover {
-  background: var(--color-primary-hover);
+  filter: brightness(1.07);
+
+  box-shadow:
+    0 10px 30px rgba(239, 35, 60, 0.28);
+}
+
+.exercise-panel__details:hover span {
+  transform: translateX(3px);
 }
 
 .exercise-panel__details:active {

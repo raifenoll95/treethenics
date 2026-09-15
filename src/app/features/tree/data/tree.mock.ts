@@ -8,10 +8,25 @@ export const EXERCISES: Exercise[] = [
   {
     id: 'pull-up',
     name: 'Pull Up',
+
     difficulty: 'beginner',
     graphLevel: 1,
-    muscles: [],
-    equipment: [],
+
+    description:
+      'A fundamental upper body exercise that builds back strength, grip and overall pulling power.',
+
+    muscles: [
+      'Latissimus Dorsi',
+      'Biceps',
+      'Upper Back',
+      'Core',
+    ],
+
+    equipment: [
+      'Pull Up Bar',
+    ],
+
+    imageUrl: '/images/exercises/pull-up.png',
   },
   {
     id: 'dips',
@@ -20,6 +35,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 1,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/dips.png',
   },
   {
     id: 'push-up',
@@ -28,6 +44,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 1,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/push-ups.png',
   },
 
   /*
@@ -40,6 +57,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 2,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/tuck-front.png',
   },
   {
     id: 'chest-to-bar',
@@ -56,6 +74,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 2,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/l-sit.png',
   },
   {
     id: 'handstand',
@@ -64,6 +83,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 2,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/handstand2.png',
   },
   {
     id: 'pike-push-up',
@@ -72,6 +92,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 2,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/pike-push-up.png',
   },
   {
     id: 'bent-arm-planche',
@@ -80,6 +101,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 2,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/bent-arm-planche.png',
   },
   {
     id: 'skin-the-cat',
@@ -88,6 +110,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 2,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/skin-the-cat.png',
   },
 
   /*
@@ -108,6 +131,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 3,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/dragon-flag.png',
   },
   {
     id: 'muscle-up',
@@ -116,6 +140,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 3,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/muscle-up.png',
   },
   {
     id: 'impossible-dip',
@@ -132,6 +157,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 3,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/korean-dip.png',
   },
   {
     id: 'handstand-press',
@@ -148,6 +174,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 3,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/tuck-planche.png',
   },
   {
     id: 'handstand-push-up',
@@ -156,6 +183,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 3,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/hspu3.png',
   },
   {
     id: 'one-arm-bent-planche',
@@ -172,6 +200,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 3,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/back-lever.png',
   },
 
   /*
@@ -184,6 +213,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 4,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/front-lever.png',
   },
   {
     id: 'one-arm-pull-up',
@@ -192,6 +222,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 4,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/oap.png',
   },
   {
     id: 'waist-pull-up',
@@ -200,6 +231,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 4,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/waist-pull-up.png',
   },
   {
     id: 'human-flag',
@@ -208,6 +240,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 4,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/human-flag.png',
   },
   {
     id: 'hefesto',
@@ -216,6 +249,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 4,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/hefesto.png',
   },
   {
     id: 'v-sit',
@@ -224,6 +258,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 4,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/v-sit.png',
   },
   {
     id: 'straddle-planche',
@@ -232,6 +267,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 4,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/straddle-planche.png',
   },
   {
     id: '90-degree-push-up',
@@ -256,6 +292,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 4,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/one-arm-back-lever.png',
   },
 
   /*
@@ -268,6 +305,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 5,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/touch-front.png',
   },
   {
     id: 'front-lever-pull-up',
@@ -276,6 +314,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 5,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/front-lever-pull.png',
   },
   {
     id: 'human-flag-pull-up',
@@ -284,6 +323,8 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 5,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/human-flag-PU.png',
+
   },
   {
     id: 'entrada-de-angel',
@@ -292,6 +333,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 5,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/entrada-angel.png',
   },
   {
     id: 'full-planche',
@@ -300,6 +342,8 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 5,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/full-planche.png',
+
   },
   {
     id: 'clean-one-arm-handstand',
@@ -308,6 +352,8 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 5,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/oah2.png',
+
   },
   {
     id: 'iron-cross',
@@ -316,6 +362,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 5,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/iron-cross.png',
   },
 
   /*
@@ -328,6 +375,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 6,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/one-arm-front.png',
   },
   {
     id: 'victorian',
@@ -336,6 +384,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 6,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/victorian.png',
   },
   {
     id: 'butterfly',
@@ -352,6 +401,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 6,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/manna.png',
   },
   {
     id: 'full-planche-push-ups',
@@ -360,6 +410,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 6,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/full-planche-pu.png',
   },
   {
     id: 'maltese',
@@ -368,6 +419,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 6,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/maltese.png',
   },
 
   /*
@@ -404,6 +456,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 7,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/reverse-planche.png',
   },
   {
     id: 'one-arm-planche',
@@ -412,6 +465,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 7,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/one-arm-planche.png',
   },
   {
     id: 'pelican',
