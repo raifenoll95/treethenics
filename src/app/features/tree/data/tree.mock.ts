@@ -393,6 +393,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 6,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/butterfly.png',
   },
   {
     id: 'mana',
@@ -440,6 +441,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 7,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/inverted-butterfly.png',
   },
   {
     id: 'entrada-de-diablo',
@@ -490,6 +492,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 7,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/inverted-cross.png',
   },
 ];
 
@@ -777,6 +780,11 @@ export const EXERCISE_RELATIONS: ExerciseRelation[] = [
   {
     from: 'iron-cross',
     to: 'inverted-cross',
+    type: 'progression',
+  },
+  {
+    from: 'iron-cross',
+    to: 'butterfly',
     type: 'progression',
   },
 ];

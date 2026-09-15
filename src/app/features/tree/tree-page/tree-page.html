@@ -81,7 +81,7 @@
     </div>
 
 
-  
+
     <div class="tree-legend">
       <div class="tree-legend__item">
         <span
@@ -123,6 +123,10 @@
         class="exercise-panel"
         [class.exercise-panel--left]="panelSide() === 'left'"
         [class.exercise-panel--right]="panelSide() === 'right'"
+        [class.exercise-panel--beginner]="exercise.difficulty === 'beginner'"
+        [class.exercise-panel--intermediate]="exercise.difficulty === 'intermediate'"
+        [class.exercise-panel--advanced]="exercise.difficulty === 'advanced'"
+        [class.exercise-panel--elite]="exercise.difficulty === 'elite'"
       >
         <button
           class="exercise-panel__close"
