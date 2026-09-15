@@ -123,6 +123,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 3,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/inverted.png',
   },
   {
     id: 'dragon-flag',
