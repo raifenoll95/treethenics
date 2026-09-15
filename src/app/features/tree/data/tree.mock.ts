@@ -52,7 +52,7 @@ export const EXERCISES: Exercise[] = [
    */
   {
     id: 'early-front-lever-progressions',
-    name: 'Early Front Lever Progressions',
+    name: 'Tucked Front Lever',
     difficulty: 'intermediate',
     graphLevel: 2,
     muscles: [],
@@ -118,7 +118,7 @@ export const EXERCISES: Exercise[] = [
    */
   {
     id: 'hang-to-inverted-press',
-    name: 'Hang to Inverted Press',
+    name: 'Inverted Press',
     difficulty: 'intermediate',
     graphLevel: 3,
     muscles: [],
@@ -149,6 +149,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 3,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/impossible-dip.png',
   },
   {
     id: 'korean-dip',
@@ -169,7 +170,7 @@ export const EXERCISES: Exercise[] = [
   },
   {
     id: 'early-planche-progressions',
-    name: 'Early Planche Progressions',
+    name: 'Tucked Planche',
     difficulty: 'intermediate',
     graphLevel: 3,
     muscles: [],
@@ -323,7 +324,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 5,
     muscles: [],
     equipment: [],
-    imageUrl: '/images/exercises/human-flag-PU.png',
+    imageUrl: '/images/exercises/human-flag-pu.png',
 
   },
   {
@@ -347,7 +348,7 @@ export const EXERCISES: Exercise[] = [
   },
   {
     id: 'clean-one-arm-handstand',
-    name: 'Clean One Arm Handstand',
+    name: 'One Arm Handstand',
     difficulty: 'advanced',
     graphLevel: 5,
     muscles: [],
@@ -787,4 +788,11 @@ export const EXERCISE_RELATIONS: ExerciseRelation[] = [
     to: 'butterfly',
     type: 'progression',
   },
+  /*
+  {
+    from: 'inverted-cross',
+    to: 'inverted-butterfly',
+    type: 'progression',
+  },
+  */
 ];
