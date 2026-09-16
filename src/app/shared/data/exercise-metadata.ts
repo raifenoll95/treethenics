@@ -3,7 +3,7 @@ import { ExerciseMuscle } from '../models/exercise-muscle.model';
 import { ExerciseTargetArea } from '../models/exercise-target-area.model';
 
 export const MUSCLE_LABELS: Record<ExerciseMuscle, string> = {
-  'latissimus-dorsi': 'Latissimus Dorsi',
+  'latissimus-dorsi': 'Lats',
   'upper-back': 'Upper Back',
   'lower-back': 'Lower Back',
   trapezius: 'Trapezius',
@@ -26,8 +26,7 @@ export const MUSCLE_LABELS: Record<ExerciseMuscle, string> = {
 
 export const EQUIPMENT_LABELS: Record<ExerciseEquipment, string> = {
   'pull-up-bar': 'Pull Up Bar',
-  'parallel-bars': 'Parallel Bars',
-  rings: 'Rings',
+  rings: 'Rings (harder)',
   parallettes: 'Parallettes',
   bands: 'Resistance Bands',
   'added-weight': 'Added Weight',

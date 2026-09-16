@@ -18,3 +18,4 @@ export type ExerciseMuscle =
   | 'quadriceps'
   | 'hamstrings'
   | 'calves';
+  'rotator-cuff';

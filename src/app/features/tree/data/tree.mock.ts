@@ -66,7 +66,7 @@ export const EXERCISES: Exercise[] = [
     ],
 
     equipment: [
-      'parallel-bars',
+      'parallettes',
     ],
 
     description:
@@ -111,68 +111,247 @@ export const EXERCISES: Exercise[] = [
   /*
    * LEVEL 2 — INTERMEDIATE
    */
-  {
-    id: 'early-front-lever-progressions',
-    name: 'Tucked Front Lever',
-    difficulty: 'intermediate',
-    graphLevel: 2,
-    //muscles: [],
-    equipment: [],
-    imageUrl: '/images/exercises/tuck-front.png',
-  },
-  {
-    id: 'chest-to-bar',
-    name: 'Chest to Bar',
-    difficulty: 'intermediate',
-    graphLevel: 2,
-    //muscles: [],
-    equipment: [],
-  },
-  {
-    id: 'l-sit',
-    name: 'L-Sit',
-    difficulty: 'intermediate',
-    graphLevel: 2,
-    //muscles: [],
-    equipment: [],
-    imageUrl: '/images/exercises/l-sit.png',
-  },
-  {
-    id: 'handstand',
-    name: 'Handstand',
-    difficulty: 'intermediate',
-    graphLevel: 2,
-    //muscles: [],
-    equipment: [],
-    imageUrl: '/images/exercises/handstand2.png',
-  },
-  {
-    id: 'pike-push-up',
-    name: 'Pike Push Up',
-    difficulty: 'intermediate',
-    graphLevel: 2,
-    //muscles: [],
-    equipment: [],
-    imageUrl: '/images/exercises/pike-push-up.png',
-  },
-  {
-    id: 'bent-arm-planche',
-    name: 'Elbow Lever',
-    difficulty: 'intermediate',
-    graphLevel: 2,
-    //muscles: [],
-    equipment: [],
-    imageUrl: '/images/exercises/bent-arm-planche.png',
-  },
-  {
-    id: 'skin-the-cat',
-    name: 'Skin the Cat',
-    difficulty: 'intermediate',
-    graphLevel: 2,
-    //muscles: [],
-    equipment: [],
-    imageUrl: '/images/exercises/skin-the-cat.png',
-  },
+{
+  id: 'early-front-lever-progressions',
+  name: 'Tucked Front Lever',
+
+  difficulty: 'intermediate',
+  graphLevel: 2,
+
+  category: 'pull',
+
+  targetAreas: [
+    'back',
+    'core',
+  ],
+
+  primaryMuscles: [
+    'latissimus-dorsi',
+    'upper-back',
+    'abdominals',
+  ],
+
+  secondaryMuscles: [
+    'rear-deltoids',
+    'biceps',
+    'forearms',
+  ],
+
+  equipment: [
+    'pull-up-bar',
+    'rings'
+  ],
+
+  description:
+    'Introductory front lever progressions that develop straight-arm pulling strength, core tension and body control.',
+
+  imageUrl: '/images/exercises/tuck-front.png',
+},
+{
+  id: 'chest-to-bar',
+  name: 'Chest to Bar',
+
+  difficulty: 'intermediate',
+  graphLevel: 2,
+
+  category: 'pull',
+
+  targetAreas: [
+    'back',
+    'biceps',
+  ],
+
+  primaryMuscles: [
+    'latissimus-dorsi',
+    'upper-back',
+    'biceps',
+  ],
+
+  secondaryMuscles: [
+    'rear-deltoids',
+    'forearms',
+    'abdominals',
+  ],
+
+  equipment: [
+    'pull-up-bar',
+  ],
+
+  description:
+    'An explosive pulling exercise that increases range of motion and develops the strength needed to pull the chest toward the bar.',
+
+  imageUrl: '/images/exercises/chest-to-bar.png',
+},
+{
+  id: 'l-sit',
+  name: 'L-Sit',
+
+  difficulty: 'intermediate',
+  graphLevel: 2,
+
+  category: 'core',
+
+  targetAreas: [
+    'core',
+  ],
+
+  primaryMuscles: [
+    'abdominals',
+    'hip-flexors',
+  ],
+
+  secondaryMuscles: [
+    'triceps',
+    'front-deltoids',
+    'quadriceps',
+  ],
+
+  equipment: [
+    'parallettes',
+    'rings'
+  ],
+
+  description:
+    'A static hold that develops core compression, hip flexor strength and straight-arm support control.',
+
+  imageUrl: '/images/exercises/l-sit.png',
+},
+{
+  id: 'handstand',
+  name: 'Handstand',
+
+  difficulty: 'intermediate',
+  graphLevel: 2,
+
+  category: 'static',
+
+  targetAreas: [
+    'shoulders',
+    'core',
+  ],
+
+  primaryMuscles: [
+    'front-deltoids',
+    'side-deltoids',
+    'triceps',
+  ],
+
+  secondaryMuscles: [
+    'trapezius',
+    'serratus-anterior',
+    'abdominals',
+    'forearms',
+  ],
+
+  equipment: [],
+
+  description:
+    'A fundamental inverted skill that develops balance, overhead stability, shoulder strength and full-body control.',
+
+  imageUrl: '/images/exercises/handstand.png',
+},
+{
+  id: 'pike-push-up',
+  name: 'Pike Push Up',
+
+  difficulty: 'intermediate',
+  graphLevel: 2,
+
+  category: 'push',
+
+  targetAreas: [
+    'shoulders',
+    'triceps',
+  ],
+
+  primaryMuscles: [
+    'front-deltoids',
+    'triceps',
+  ],
+
+  secondaryMuscles: [
+    'upper-back',
+    'serratus-anterior',
+    'chest',
+    'abdominals',
+  ],
+
+  equipment: [],
+
+  description:
+    'A bodyweight vertical pressing progression that builds shoulder and triceps strength for handstand push ups.',
+
+  imageUrl: '/images/exercises/pike-push-up.png',
+},
+{
+  id: 'bent-arm-planche',
+  name: 'Bent Arm Planche',
+
+  difficulty: 'intermediate',
+  graphLevel: 2,
+
+  category: 'static',
+
+  targetAreas: [
+    'shoulders',
+    'chest',
+    'triceps',
+    'core',
+  ],
+
+  primaryMuscles: [
+    'front-deltoids',
+    'chest',
+    'triceps',
+  ],
+
+  secondaryMuscles: [
+    'serratus-anterior',
+    'abdominals',
+    'forearms',
+  ],
+
+  equipment: [],
+
+  description:
+    'A bent-arm horizontal hold that develops pressing strength, forward lean control and full-body tension.',
+
+  imageUrl: '/images/exercises/bent-arm-planche.png',
+},
+ {
+  id: 'skin-the-cat',
+  name: 'Skin the Cat',
+
+  difficulty: 'intermediate',
+  graphLevel: 2,
+
+  category: 'pull',
+
+  targetAreas: [
+    'shoulders',
+    'back',
+    'core',
+  ],
+
+  primaryMuscles: [
+    'rear-deltoids',
+    'abdominals',
+  ],
+
+  secondaryMuscles: [
+    'biceps',
+    'forearms',
+  ],
+
+  equipment: [
+    'pull-up-bar','rings',
+  ],
+
+  description:
+    'A controlled rotational movement that develops shoulder mobility, pulling control and strength through an inverted position.',
+
+  imageUrl: '/images/exercises/skin-the-cat.png',
+},
 
   /*
    * LEVEL 3 — INTERMEDIATE
