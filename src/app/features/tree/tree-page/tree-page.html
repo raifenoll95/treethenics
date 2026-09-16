@@ -132,12 +132,26 @@
         </button>
 
         @if (exercise.imageUrl) {
+          <div class="exercise-panel__image-wrapper">
+
           <div class="exercise-panel__image">
             <img
               [src]="exercise.imageUrl"
               [alt]="exercise.name"
             />
           </div>
+
+          @if (exercise.movementType) {
+            <span
+              class="exercise-panel__movement"
+              [class.exercise-panel__movement--static]="exercise.movementType === 'static'"
+              [class.exercise-panel__movement--dynamic]="exercise.movementType === 'dynamic'"
+            >
+              {{ exercise.movementType }}
+            </span>
+          }
+
+        </div>
         }
 
         <span class="exercise-panel__difficulty">

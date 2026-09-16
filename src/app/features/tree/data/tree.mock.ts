@@ -10,6 +10,7 @@ export const EXERCISES: Exercise[] = [
     name: 'Pull Up',
 
     difficulty: 'beginner',
+    movementType: 'dynamic',
     graphLevel: 1,
 
     category: 'pull',
@@ -42,6 +43,7 @@ export const EXERCISES: Exercise[] = [
   {
     id: 'dips',
     name: 'Dips',
+    movementType: 'dynamic',
 
     difficulty: 'beginner',
     graphLevel: 1,
@@ -77,6 +79,7 @@ export const EXERCISES: Exercise[] = [
   {
     id: 'push-up',
     name: 'Push Up',
+    movementType: 'dynamic',
 
     difficulty: 'beginner',
     graphLevel: 1,
@@ -150,6 +153,7 @@ export const EXERCISES: Exercise[] = [
 {
   id: 'chest-to-bar',
   name: 'Chest to Bar',
+  movementType: 'dynamic',
 
   difficulty: 'intermediate',
   graphLevel: 2,
@@ -185,6 +189,7 @@ export const EXERCISES: Exercise[] = [
 {
   id: 'l-sit',
   name: 'L-Sit',
+  movementType: 'static',
 
   difficulty: 'intermediate',
   graphLevel: 2,
@@ -253,6 +258,7 @@ export const EXERCISES: Exercise[] = [
 {
   id: 'pike-push-up',
   name: 'Pike Push Up',
+  movementType: 'dynamic',
 
   difficulty: 'intermediate',
   graphLevel: 2,
@@ -321,6 +327,7 @@ export const EXERCISES: Exercise[] = [
  {
   id: 'skin-the-cat',
   name: 'Skin the Cat',
+  movementType: 'dynamic',
 
   difficulty: 'intermediate',
   graphLevel: 2,
@@ -360,6 +367,7 @@ export const EXERCISES: Exercise[] = [
   id: 'hang-to-inverted-press',
   name: 'Inverted Press',
   difficulty: 'intermediate',
+  movementType: 'dynamic',
   graphLevel: 3,
   category: 'pull',
   targetAreas: ['back', 'shoulders', 'core'],
@@ -374,6 +382,7 @@ export const EXERCISES: Exercise[] = [
   id: 'dragon-flag',
   name: 'Dragon Flag',
   difficulty: 'intermediate',
+  movementType: 'dynamic',
   graphLevel: 3,
   category: 'core',
   targetAreas: ['core'],
@@ -388,6 +397,7 @@ export const EXERCISES: Exercise[] = [
   id: 'muscle-up',
   name: 'Muscle Up',
   difficulty: 'intermediate',
+  movementType: 'dynamic',
   graphLevel: 3,
   category: 'pull',
   targetAreas: ['back', 'biceps', 'chest', 'triceps', 'shoulders'],
@@ -402,6 +412,7 @@ export const EXERCISES: Exercise[] = [
   id: 'impossible-dip',
   name: 'Impossible Dip',
   difficulty: 'intermediate',
+  movementType: 'dynamic',
   graphLevel: 3,
   category: 'push',
   targetAreas: ['triceps', 'shoulders'],
@@ -416,6 +427,7 @@ export const EXERCISES: Exercise[] = [
   id: 'korean-dip',
   name: 'Korean Dip',
   difficulty: 'intermediate',
+  movementType: 'dynamic',
   graphLevel: 3,
   category: 'push',
   targetAreas: ['shoulders', 'triceps', 'chest'],
@@ -430,6 +442,7 @@ export const EXERCISES: Exercise[] = [
   id: 'handstand-press',
   name: 'Handstand Press',
   difficulty: 'intermediate',
+  movementType: 'dynamic',
   graphLevel: 3,
   category: 'push',
   targetAreas: ['shoulders', 'core'],
@@ -442,6 +455,7 @@ export const EXERCISES: Exercise[] = [
 {
   id: 'early-planche-progressions',
   name: 'Tucked Planche',
+  movementType: 'static',
   difficulty: 'intermediate',
   graphLevel: 3,
   category: 'static',
@@ -457,6 +471,7 @@ export const EXERCISES: Exercise[] = [
   id: 'handstand-push-up',
   name: 'Handstand Push Up',
   difficulty: 'intermediate',
+  movementType: 'dynamic',
   graphLevel: 3,
   category: 'push',
   targetAreas: ['shoulders', 'triceps'],
@@ -470,6 +485,7 @@ export const EXERCISES: Exercise[] = [
 {
   id: 'one-arm-bent-planche',
   name: 'One Arm Elbow Lever',
+  movementType: 'static',
   difficulty: 'intermediate',
   graphLevel: 3,
   category: 'static',
@@ -485,6 +501,7 @@ export const EXERCISES: Exercise[] = [
   id: 'back-lever',
   name: 'Back Lever',
   difficulty: 'intermediate',
+  movementType: 'static',
   graphLevel: 3,
   category: 'static',
   targetAreas: ['back', 'shoulders', 'core'],
@@ -502,6 +519,7 @@ export const EXERCISES: Exercise[] = [
 {
   id: 'front-lever',
   name: 'Front Lever',
+  movementType: 'static',
   difficulty: 'advanced',
   graphLevel: 4,
   category: 'static',
@@ -517,6 +535,7 @@ export const EXERCISES: Exercise[] = [
   id: 'one-arm-pull-up',
   name: 'One Arm Pull Up',
   difficulty: 'advanced',
+  movementType: 'dynamic',
   graphLevel: 4,
   category: 'pull',
   targetAreas: ['back', 'biceps'],
@@ -531,6 +550,7 @@ export const EXERCISES: Exercise[] = [
   id: 'waist-pull-up',
   name: 'Waist Pull Up',
   difficulty: 'advanced',
+  movementType: 'dynamic',
   graphLevel: 4,
   category: 'pull',
   targetAreas: ['back', 'biceps', 'core'],
@@ -543,6 +563,7 @@ export const EXERCISES: Exercise[] = [
 },
 {
   id: 'human-flag',
+  movementType: 'static',
   name: 'Human Flag',
   difficulty: 'advanced',
   graphLevel: 4,
@@ -559,6 +580,7 @@ export const EXERCISES: Exercise[] = [
   id: 'hefesto',
   name: 'Hefesto',
   difficulty: 'advanced',
+  movementType: 'dynamic',
   graphLevel: 4,
   category: 'pull',
   targetAreas: ['biceps', 'shoulders', 'back'],
@@ -573,6 +595,7 @@ export const EXERCISES: Exercise[] = [
   id: 'v-sit',
   name: 'V-Sit',
   difficulty: 'advanced',
+  movementType: 'static',
   graphLevel: 4,
   category: 'core',
   targetAreas: ['core'],
@@ -586,6 +609,7 @@ export const EXERCISES: Exercise[] = [
 {
   id: 'straddle-planche',
   name: 'Straddle Planche',
+  movementType: 'static',
   difficulty: 'advanced',
   graphLevel: 4,
   category: 'static',
@@ -601,6 +625,7 @@ export const EXERCISES: Exercise[] = [
   id: '90-degree-push-up',
   name: '90 Degree Push Up',
   difficulty: 'advanced',
+  movementType: 'dynamic',
   graphLevel: 4,
   category: 'push',
   targetAreas: ['shoulders', 'chest', 'triceps', 'core'],
@@ -614,6 +639,7 @@ export const EXERCISES: Exercise[] = [
   id: 'one-arm-push-up-clean-form',
   name: 'One Arm Push Up',
   difficulty: 'advanced',
+  movementType: 'dynamic',
   graphLevel: 4,
   category: 'push',
   targetAreas: ['chest', 'triceps', 'shoulders', 'core'],
@@ -627,6 +653,7 @@ export const EXERCISES: Exercise[] = [
 {
   id: 'one-arm-back-lever',
   name: 'One Arm Back Lever',
+  movementType: 'static',
   difficulty: 'advanced',
   graphLevel: 4,
   category: 'static',
@@ -645,6 +672,7 @@ export const EXERCISES: Exercise[] = [
 {
   id: 'touch-front-lever',
   name: 'Touch Front Lever',
+  movementType: 'static',
   difficulty: 'advanced',
   graphLevel: 5,
   category: 'static',
@@ -660,6 +688,7 @@ export const EXERCISES: Exercise[] = [
   id: 'front-lever-pull-up',
   name: 'Front Lever Pull Up',
   difficulty: 'advanced',
+  movementType: 'dynamic',
   graphLevel: 5,
   category: 'pull',
   targetAreas: ['back', 'biceps', 'core'],
@@ -673,6 +702,7 @@ export const EXERCISES: Exercise[] = [
 {
   id: 'human-flag-pull-up',
   name: 'Human Flag Pull Up',
+  movementType: 'dynamic',
   difficulty: 'advanced',
   graphLevel: 5,
   category: 'pull',
@@ -687,6 +717,7 @@ export const EXERCISES: Exercise[] = [
 {
   id: 'entrada-de-angel',
   name: 'Entrada de Ángel',
+  movementType: 'dynamic',
   difficulty: 'advanced',
   graphLevel: 5,
   category: 'pull',
@@ -701,6 +732,7 @@ export const EXERCISES: Exercise[] = [
 {
   id: 'full-planche',
   name: 'Full Planche',
+  movementType: 'static',
   difficulty: 'advanced',
   graphLevel: 5,
   category: 'static',
@@ -715,6 +747,7 @@ export const EXERCISES: Exercise[] = [
 {
   id: 'clean-one-arm-handstand',
   name: 'One Arm Handstand',
+  movementType: 'static',
   difficulty: 'advanced',
   graphLevel: 5,
   category: 'static',
@@ -729,6 +762,7 @@ export const EXERCISES: Exercise[] = [
 {
   id: 'iron-cross',
   name: 'Iron Cross',
+  movementType: 'static',
   difficulty: 'advanced',
   graphLevel: 5,
   category: 'static',
@@ -747,6 +781,7 @@ export const EXERCISES: Exercise[] = [
 {
   id: 'one-arm-front-lever',
   name: 'One Arm Front Lever',
+  movementType: 'static',
   difficulty: 'elite',
   graphLevel: 6,
   category: 'static',
@@ -762,6 +797,7 @@ export const EXERCISES: Exercise[] = [
   id: 'victorian',
   name: 'Victorian',
   difficulty: 'elite',
+  movementType: 'static',
   graphLevel: 6,
   category: 'static',
   targetAreas: ['back', 'shoulders', 'core'],
@@ -776,6 +812,7 @@ export const EXERCISES: Exercise[] = [
   id: 'butterfly',
   name: 'Butterfly',
   difficulty: 'elite',
+  movementType: 'dynamic',
   graphLevel: 6,
   category: 'pull',
   targetAreas: ['shoulders', 'back', 'chest', 'biceps'],
@@ -790,6 +827,7 @@ export const EXERCISES: Exercise[] = [
   id: 'mana',
   name: 'Manna',
   difficulty: 'elite',
+  movementType: 'static',
   graphLevel: 6,
   category: 'static',
   targetAreas: ['core', 'shoulders'],
@@ -804,6 +842,7 @@ export const EXERCISES: Exercise[] = [
   id: 'full-planche-push-ups',
   name: 'Full Planche Push Ups',
   difficulty: 'elite',
+  movementType: 'dynamic',
   graphLevel: 6,
   category: 'push',
   targetAreas: ['shoulders', 'chest', 'triceps', 'core'],
@@ -818,6 +857,7 @@ export const EXERCISES: Exercise[] = [
   id: 'maltese',
   name: 'Maltese',
   difficulty: 'elite',
+  movementType: 'static',
   graphLevel: 6,
   category: 'static',
   targetAreas: ['shoulders', 'chest', 'biceps', 'core'],
@@ -836,6 +876,7 @@ export const EXERCISES: Exercise[] = [
   id: 'caruso',
   name: 'Caruso',
   difficulty: 'elite',
+  movementType: 'dynamic',
   graphLevel: 7,
   category: 'static',
   targetAreas: ['back', 'shoulders', 'core'],
@@ -850,6 +891,7 @@ export const EXERCISES: Exercise[] = [
   id: 'inverted-butterfly',
   name: 'Inverted Butterfly',
   difficulty: 'elite',
+  movementType: 'dynamic',
   graphLevel: 7,
   category: 'pull',
   targetAreas: ['shoulders', 'back', 'chest', 'biceps'],
@@ -864,6 +906,7 @@ export const EXERCISES: Exercise[] = [
   id: 'entrada-de-diablo',
   name: 'Entrada de Diablo',
   difficulty: 'elite',
+  movementType: 'dynamic',
   graphLevel: 7,
   category: 'pull',
   targetAreas: ['biceps', 'shoulders', 'back'],
@@ -876,6 +919,7 @@ export const EXERCISES: Exercise[] = [
 {
   id: 'reverse-planche',
   name: 'Reverse Planche',
+  movementType: 'static',
   difficulty: 'elite',
   graphLevel: 7,
   category: 'static',
@@ -890,6 +934,7 @@ export const EXERCISES: Exercise[] = [
 {
   id: 'one-arm-planche',
   name: 'One Arm Planche',
+  movementType: 'static',
   difficulty: 'elite',
   graphLevel: 7,
   category: 'static',
@@ -905,6 +950,7 @@ export const EXERCISES: Exercise[] = [
   id: 'pelican',
   name: 'Pelican',
   difficulty: 'elite',
+  movementType: 'dynamic',
   graphLevel: 7,
   category: 'pull',
   targetAreas: ['biceps', 'shoulders', 'chest'],
@@ -919,6 +965,7 @@ export const EXERCISES: Exercise[] = [
   id: 'zanetti',
   name: 'Zanetti',
   difficulty: 'elite',
+  movementType: 'dynamic',
   graphLevel: 7,
   category: 'static',
   targetAreas: ['shoulders', 'chest', 'biceps', 'core'],
@@ -932,6 +979,7 @@ export const EXERCISES: Exercise[] = [
 {
   id: 'inverted-cross',
   name: 'Inverted Cross',
+  movementType: 'static',
   difficulty: 'elite',
   graphLevel: 7,
   category: 'static',

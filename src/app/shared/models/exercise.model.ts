@@ -2,6 +2,10 @@ import { ExerciseEquipment } from './exercise-equipment.model';
 import { ExerciseMuscle } from './exercise-muscle.model';
 import { ExerciseTargetArea } from './exercise-target-area.model';
 
+export type ExerciseMovementType =
+  | 'static'
+  | 'dynamic';
+
 export type ExerciseDifficulty =
   | 'beginner'
   | 'intermediate'
@@ -32,6 +36,7 @@ export interface Exercise {
   graphLevel: ExerciseGraphLevel;
 
   category?: ExerciseCategory;
+  movementType?: ExerciseMovementType;
 
   /*
    * Áreas generales.

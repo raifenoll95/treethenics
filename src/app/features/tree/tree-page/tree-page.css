@@ -454,7 +454,18 @@ app-tree-canvas {
 
   overflow-y: auto;
 
+  /* Firefox */
+  scrollbar-width: none;
+
+  /* Edge antiguo / IE */
+  -ms-overflow-style: none;
+
   z-index: 30;
+}
+
+/* Chrome, Edge, Safari */
+.exercise-panel::-webkit-scrollbar {
+  display: none;
 }
 
 /* BEGINNER */
@@ -540,6 +551,58 @@ app-tree-canvas {
 /* =========================================================
    IMAGE
    ========================================================= */
+
+   .exercise-panel__image-wrapper {
+      position: relative;
+      margin-bottom: 14px;
+      overflow: visible;
+    }
+
+   .exercise-panel__movement {
+      position: absolute;
+      right: 14px;
+      bottom: -12px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-width: 82px;
+      height: 30px;
+      padding: 0 16px;
+
+      border: 1px solid;
+      border-radius: 999px;
+
+      background: #10151c;
+
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+
+      z-index: 2;
+    }
+
+
+.exercise-panel__movement--static {
+  color: #60a5fa;
+  border-color: #3b82f6;
+
+  box-shadow:
+    0 0 10px rgba(59, 130, 246, 0.22),
+    inset 0 0 8px rgba(59, 130, 246, 0.04);
+}
+
+.exercise-panel__movement--dynamic {
+  color: #34d399;
+  border-color: #10b981;
+
+  box-shadow:
+    0 0 10px rgba(16, 185, 129, 0.22),
+    inset 0 0 8px rgba(16, 185, 129, 0.04);
+}
 
 .exercise-panel__image {
   position: relative;
@@ -716,19 +779,16 @@ app-tree-canvas {
   justify-content: space-between;
 
   width: 100%;
-
   margin-top: auto;
 
-  padding: 15px 17px;
+  padding: 8px 14px;
 
   background: var(--exercise-color);
-
   color: #ffffff;
-
   border: 0;
-  border-radius: 10px;
+  border-radius: 8px;
 
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 750;
 
   cursor: pointer;
@@ -743,8 +803,7 @@ app-tree-canvas {
 
   transition:
     transform var(--transition-fast),
-    box-shadow var(--transition-fast),
-    filter var(--transition-fast);
+    box-shadow var(--transition-fast);
 }
 
 .exercise-panel__details span {
