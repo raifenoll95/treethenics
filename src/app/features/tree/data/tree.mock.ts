@@ -96,7 +96,7 @@ export const EXERCISES: Exercise[] = [
   },
   {
     id: 'bent-arm-planche',
-    name: 'Bent Arm Planche',
+    name: 'Elbow Lever',
     difficulty: 'intermediate',
     graphLevel: 2,
     muscles: [],
@@ -189,11 +189,12 @@ export const EXERCISES: Exercise[] = [
   },
   {
     id: 'one-arm-bent-planche',
-    name: 'One Arm Bent Planche',
+    name: 'One Arm Elbow Lever',
     difficulty: 'intermediate',
     graphLevel: 3,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/one-arm-elbow-lever.png',
   },
   {
     id: 'back-lever',
@@ -435,6 +436,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 7,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/caruso.png',
   },
   {
     id: 'inverted-butterfly',
@@ -478,6 +480,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 7,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/pelican.png',
   },
   {
     id: 'zanetti',
@@ -486,6 +489,7 @@ export const EXERCISES: Exercise[] = [
     graphLevel: 7,
     muscles: [],
     equipment: [],
+    imageUrl: '/images/exercises/zanetti.png',
   },
   {
     id: 'inverted-cross',
