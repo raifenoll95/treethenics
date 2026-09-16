@@ -13,6 +13,7 @@ export const EXERCISES: Exercise[] = [
     movementType: 'dynamic',
     graphLevel: 1,
 
+  showInTree: true,
     category: 'pull',
 
     targetAreas: [
@@ -48,6 +49,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: 'beginner',
     graphLevel: 1,
 
+  showInTree: true,
     category: 'push',
 
     targetAreas: [
@@ -84,6 +86,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: 'beginner',
     graphLevel: 1,
 
+  showInTree: true,
     category: 'push',
 
     targetAreas: [
@@ -121,6 +124,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'intermediate',
   graphLevel: 2,
 
+  showInTree: true,
   category: 'pull',
 
   targetAreas: [
@@ -158,6 +162,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'intermediate',
   graphLevel: 2,
 
+  showInTree: true,
   category: 'pull',
 
   targetAreas: [
@@ -194,6 +199,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'intermediate',
   graphLevel: 2,
 
+  showInTree: true,
   category: 'core',
 
   targetAreas: [
@@ -229,6 +235,7 @@ export const EXERCISES: Exercise[] = [
   movementType: 'static',
   graphLevel: 2,
 
+  showInTree: true,
   category: 'static',
 
   targetAreas: [
@@ -264,6 +271,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'intermediate',
   graphLevel: 2,
 
+  showInTree: true,
   category: 'push',
 
   targetAreas: [
@@ -298,6 +306,7 @@ export const EXERCISES: Exercise[] = [
   movementType: 'static',
   graphLevel: 2,
 
+  showInTree: true,
   category: 'static',
 
   targetAreas: [
@@ -334,6 +343,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'intermediate',
   graphLevel: 2,
 
+  showInTree: true,
   category: 'pull',
 
   targetAreas: [
@@ -371,6 +381,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'intermediate',
   movementType: 'dynamic',
   graphLevel: 3,
+  showInTree: true,
   category: 'pull',
   targetAreas: ['back', 'shoulders', 'core'],
   primaryMuscles: ['latissimus-dorsi', 'upper-back', 'front-deltoids'],
@@ -386,6 +397,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'intermediate',
   movementType: 'dynamic',
   graphLevel: 3,
+  showInTree: true,
   category: 'core',
   targetAreas: ['core'],
   primaryMuscles: ['abdominals', 'obliques'],
@@ -401,6 +413,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'intermediate',
   movementType: 'dynamic',
   graphLevel: 3,
+  showInTree: true,
   category: 'pull',
   targetAreas: ['back', 'biceps', 'chest', 'triceps', 'shoulders'],
   primaryMuscles: ['latissimus-dorsi', 'upper-back', 'biceps', 'triceps'],
@@ -416,6 +429,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'intermediate',
   movementType: 'dynamic',
   graphLevel: 3,
+  showInTree: true,
   category: 'push',
   targetAreas: ['triceps', 'shoulders'],
   primaryMuscles: ['triceps', 'front-deltoids'],
@@ -431,6 +445,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'intermediate',
   movementType: 'dynamic',
   graphLevel: 3,
+  showInTree: true,
   category: 'push',
   targetAreas: ['shoulders', 'triceps', 'chest'],
   primaryMuscles: ['triceps', 'front-deltoids', 'chest'],
@@ -446,6 +461,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'intermediate',
   movementType: 'dynamic',
   graphLevel: 3,
+  showInTree: true,
   category: 'push',
   targetAreas: ['shoulders', 'core'],
   primaryMuscles: ['front-deltoids', 'triceps', 'abdominals', 'hip-flexors'],
@@ -460,6 +476,7 @@ export const EXERCISES: Exercise[] = [
   movementType: 'static',
   difficulty: 'intermediate',
   graphLevel: 3,
+  showInTree: true,
   category: 'static',
   targetAreas: ['shoulders', 'chest', 'triceps', 'core'],
   primaryMuscles: ['front-deltoids', 'serratus-anterior', 'triceps'],
@@ -475,6 +492,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'intermediate',
   movementType: 'dynamic',
   graphLevel: 3,
+  showInTree: true,
   category: 'push',
   targetAreas: ['shoulders', 'triceps'],
   primaryMuscles: ['front-deltoids', 'triceps'],
@@ -490,6 +508,7 @@ export const EXERCISES: Exercise[] = [
   movementType: 'static',
   difficulty: 'intermediate',
   graphLevel: 3,
+  showInTree: true,
   category: 'static',
   targetAreas: ['shoulders', 'chest', 'core'],
   primaryMuscles: ['front-deltoids', 'chest', 'abdominals'],
@@ -505,6 +524,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'intermediate',
   movementType: 'static',
   graphLevel: 3,
+  showInTree: true,
   category: 'static',
   targetAreas: ['back', 'shoulders', 'core'],
   primaryMuscles: ['latissimus-dorsi', 'rear-deltoids', 'upper-back'],
@@ -524,6 +544,7 @@ export const EXERCISES: Exercise[] = [
   movementType: 'static',
   difficulty: 'advanced',
   graphLevel: 4,
+  showInTree: true,
   category: 'static',
   targetAreas: ['back', 'core'],
   primaryMuscles: ['latissimus-dorsi', 'upper-back', 'abdominals'],
@@ -539,6 +560,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'advanced',
   movementType: 'dynamic',
   graphLevel: 4,
+  showInTree: true,
   category: 'pull',
   targetAreas: ['back', 'biceps'],
   primaryMuscles: ['latissimus-dorsi', 'biceps', 'upper-back'],
@@ -554,6 +576,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'advanced',
   movementType: 'dynamic',
   graphLevel: 4,
+  showInTree: true,
   category: 'pull',
   targetAreas: ['back', 'biceps', 'core'],
   primaryMuscles: ['latissimus-dorsi', 'upper-back', 'biceps'],
@@ -569,6 +592,7 @@ export const EXERCISES: Exercise[] = [
   name: 'Human Flag',
   difficulty: 'advanced',
   graphLevel: 4,
+  showInTree: true,
   category: 'static',
   targetAreas: ['shoulders', 'back', 'core'],
   primaryMuscles: ['obliques', 'latissimus-dorsi', 'front-deltoids'],
@@ -584,6 +608,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'advanced',
   movementType: 'dynamic',
   graphLevel: 4,
+  showInTree: true,
   category: 'pull',
   targetAreas: ['biceps', 'shoulders', 'back'],
   primaryMuscles: ['biceps', 'rear-deltoids', 'latissimus-dorsi'],
@@ -599,6 +624,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'advanced',
   movementType: 'static',
   graphLevel: 4,
+  showInTree: true,
   category: 'core',
   targetAreas: ['core'],
   primaryMuscles: ['abdominals', 'hip-flexors'],
@@ -614,6 +640,7 @@ export const EXERCISES: Exercise[] = [
   movementType: 'static',
   difficulty: 'advanced',
   graphLevel: 4,
+  showInTree: true,
   category: 'static',
   targetAreas: ['shoulders', 'chest', 'triceps', 'core'],
   primaryMuscles: ['front-deltoids', 'serratus-anterior', 'triceps'],
@@ -629,6 +656,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'advanced',
   movementType: 'dynamic',
   graphLevel: 4,
+  showInTree: true,
   category: 'push',
   targetAreas: ['shoulders', 'chest', 'triceps', 'core'],
   primaryMuscles: ['front-deltoids', 'triceps', 'chest'],
@@ -643,6 +671,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'advanced',
   movementType: 'dynamic',
   graphLevel: 4,
+  showInTree: true,
   category: 'push',
   targetAreas: ['chest', 'triceps', 'shoulders', 'core'],
   primaryMuscles: ['chest', 'triceps', 'front-deltoids'],
@@ -658,6 +687,7 @@ export const EXERCISES: Exercise[] = [
   movementType: 'static',
   difficulty: 'advanced',
   graphLevel: 4,
+  showInTree: true,
   category: 'static',
   targetAreas: ['back', 'shoulders', 'core'],
   primaryMuscles: ['latissimus-dorsi', 'rear-deltoids', 'upper-back'],
@@ -677,6 +707,7 @@ export const EXERCISES: Exercise[] = [
   movementType: 'static',
   difficulty: 'advanced',
   graphLevel: 5,
+  showInTree: true,
   category: 'static',
   targetAreas: ['back', 'core'],
   primaryMuscles: ['latissimus-dorsi', 'upper-back', 'rear-deltoids'],
@@ -692,6 +723,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'advanced',
   movementType: 'dynamic',
   graphLevel: 5,
+  showInTree: true,
   category: 'pull',
   targetAreas: ['back', 'biceps', 'core'],
   primaryMuscles: ['latissimus-dorsi', 'upper-back', 'biceps'],
@@ -707,6 +739,7 @@ export const EXERCISES: Exercise[] = [
   movementType: 'dynamic',
   difficulty: 'advanced',
   graphLevel: 5,
+  showInTree: true,
   category: 'pull',
   targetAreas: ['shoulders', 'back', 'core'],
   primaryMuscles: ['latissimus-dorsi', 'obliques', 'front-deltoids'],
@@ -722,6 +755,7 @@ export const EXERCISES: Exercise[] = [
   movementType: 'dynamic',
   difficulty: 'advanced',
   graphLevel: 5,
+  showInTree: true,
   category: 'pull',
   targetAreas: ['biceps', 'shoulders', 'back'],
   primaryMuscles: ['biceps', 'rear-deltoids', 'latissimus-dorsi'],
@@ -737,6 +771,7 @@ export const EXERCISES: Exercise[] = [
   movementType: 'static',
   difficulty: 'advanced',
   graphLevel: 5,
+  showInTree: true,
   category: 'static',
   targetAreas: ['shoulders', 'chest', 'triceps', 'core'],
   primaryMuscles: ['front-deltoids', 'serratus-anterior', 'triceps'],
@@ -752,6 +787,7 @@ export const EXERCISES: Exercise[] = [
   movementType: 'static',
   difficulty: 'advanced',
   graphLevel: 5,
+  showInTree: true,
   category: 'static',
   targetAreas: ['shoulders', 'core'],
   primaryMuscles: ['front-deltoids', 'side-deltoids', 'triceps'],
@@ -767,6 +803,7 @@ export const EXERCISES: Exercise[] = [
   movementType: 'static',
   difficulty: 'advanced',
   graphLevel: 5,
+  showInTree: true,
   category: 'static',
   targetAreas: ['shoulders', 'chest', 'back', 'biceps'],
   primaryMuscles: ['front-deltoids', 'chest', 'latissimus-dorsi', 'biceps'],
@@ -786,6 +823,7 @@ export const EXERCISES: Exercise[] = [
   movementType: 'static',
   difficulty: 'elite',
   graphLevel: 6,
+  showInTree: true,
   category: 'static',
   targetAreas: ['back', 'core'],
   primaryMuscles: ['latissimus-dorsi', 'upper-back', 'rear-deltoids'],
@@ -801,6 +839,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'elite',
   movementType: 'static',
   graphLevel: 6,
+  showInTree: true,
   category: 'static',
   targetAreas: ['back', 'shoulders', 'core'],
   primaryMuscles: ['latissimus-dorsi', 'upper-back', 'rear-deltoids'],
@@ -816,6 +855,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'elite',
   movementType: 'dynamic',
   graphLevel: 6,
+  showInTree: true,
   category: 'pull',
   targetAreas: ['shoulders', 'back', 'chest', 'biceps'],
   primaryMuscles: ['latissimus-dorsi', 'front-deltoids', 'biceps', 'chest'],
@@ -831,6 +871,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'elite',
   movementType: 'static',
   graphLevel: 6,
+  showInTree: true,
   category: 'static',
   targetAreas: ['core', 'shoulders'],
   primaryMuscles: ['abdominals', 'hip-flexors', 'front-deltoids'],
@@ -846,6 +887,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'elite',
   movementType: 'dynamic',
   graphLevel: 6,
+  showInTree: true,
   category: 'push',
   targetAreas: ['shoulders', 'chest', 'triceps', 'core'],
   primaryMuscles: ['front-deltoids', 'chest', 'triceps'],
@@ -861,6 +903,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'elite',
   movementType: 'static',
   graphLevel: 6,
+  showInTree: true,
   category: 'static',
   targetAreas: ['shoulders', 'chest', 'biceps', 'core'],
   primaryMuscles: ['front-deltoids', 'chest', 'biceps'],
@@ -880,6 +923,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'elite',
   movementType: 'dynamic',
   graphLevel: 7,
+  showInTree: true,
   category: 'static',
   targetAreas: ['back', 'shoulders', 'core'],
   primaryMuscles: ['latissimus-dorsi', 'upper-back', 'rear-deltoids'],
@@ -895,6 +939,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'elite',
   movementType: 'dynamic',
   graphLevel: 7,
+  showInTree: true,
   category: 'pull',
   targetAreas: ['shoulders', 'back', 'chest', 'biceps'],
   primaryMuscles: ['front-deltoids', 'latissimus-dorsi', 'biceps', 'chest'],
@@ -910,6 +955,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'elite',
   movementType: 'dynamic',
   graphLevel: 7,
+  showInTree: true,
   category: 'pull',
   targetAreas: ['biceps', 'shoulders', 'back'],
   primaryMuscles: ['biceps', 'rear-deltoids', 'latissimus-dorsi'],
@@ -924,6 +970,7 @@ export const EXERCISES: Exercise[] = [
   movementType: 'static',
   difficulty: 'elite',
   graphLevel: 7,
+  showInTree: true,
   category: 'static',
   targetAreas: ['shoulders', 'back', 'core'],
   primaryMuscles: ['rear-deltoids', 'upper-back', 'triceps'],
@@ -939,6 +986,7 @@ export const EXERCISES: Exercise[] = [
   movementType: 'static',
   difficulty: 'elite',
   graphLevel: 7,
+  showInTree: true,
   category: 'static',
   targetAreas: ['shoulders', 'chest', 'triceps', 'core'],
   primaryMuscles: ['front-deltoids', 'serratus-anterior', 'triceps'],
@@ -954,6 +1002,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'elite',
   movementType: 'dynamic',
   graphLevel: 7,
+  showInTree: true,
   category: 'pull',
   targetAreas: ['biceps', 'shoulders', 'chest'],
   primaryMuscles: ['biceps', 'front-deltoids', 'chest'],
@@ -969,6 +1018,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'elite',
   movementType: 'dynamic',
   graphLevel: 7,
+  showInTree: true,
   category: 'static',
   targetAreas: ['shoulders', 'chest', 'biceps', 'core'],
   primaryMuscles: ['front-deltoids', 'chest', 'biceps'],
@@ -984,6 +1034,7 @@ export const EXERCISES: Exercise[] = [
   movementType: 'static',
   difficulty: 'elite',
   graphLevel: 7,
+  showInTree: true,
   category: 'static',
   targetAreas: ['shoulders', 'chest', 'back', 'core'],
   primaryMuscles: ['front-deltoids', 'side-deltoids', 'trapezius'],
@@ -993,6 +1044,477 @@ export const EXERCISES: Exercise[] = [
     'An extreme inverted rings hold with the arms extended laterally, demanding exceptional shoulder strength, stability and precise body control.',
   imageUrl: '/images/exercises/inverted-cross.png',
 },
+
+
+
+
+/*
+  * LEVEL 9 - no salen en arbol
+*/
+
+{
+  id: 'full-planche-rings',
+  name: 'Rings Full Planche',
+  movementType: 'static',
+  difficulty: 'advanced',
+  graphLevel: 5,
+  showInTree: false,
+  category: 'static',
+  targetAreas: ['shoulders', 'chest', 'triceps', 'core'],
+  primaryMuscles: ['front-deltoids', 'serratus-anterior', 'triceps'],
+  secondaryMuscles: ['chest', 'abdominals', 'forearms', 'glutes'],
+  equipment: [],
+  description:
+    'A straight-arm horizontal hold with the legs fully extended, requiring exceptional shoulder strength, scapular control and total-body tension.',
+  imageUrl: '/images/exercises/full-rings.png',
+},
+{
+  id: 'maltese',
+  name: 'Maltese Rings',
+  difficulty: 'elite',
+  movementType: 'static',
+  graphLevel: 6,
+  showInTree: false,
+  category: 'static',
+  targetAreas: ['shoulders', 'chest', 'biceps', 'core'],
+  primaryMuscles: ['front-deltoids', 'chest', 'biceps'],
+  secondaryMuscles: ['serratus-anterior', 'latissimus-dorsi', 'forearms', 'abdominals'],
+  equipment: ['rings'],
+  description:
+    'An elite straight-arm strength hold with the arms extended wide and the body horizontal, placing enormous demands on the shoulders and chest.',
+  imageUrl: '/images/exercises/maltese-rings.png',
+},
+{
+  id: 'back-lever-rings',
+  name: 'Rings Back Lever',
+  difficulty: 'intermediate',
+  movementType: 'static',
+  graphLevel: 3,
+  showInTree: true,
+  category: 'static',
+  targetAreas: ['back', 'shoulders', 'core'],
+  primaryMuscles: ['latissimus-dorsi', 'rear-deltoids', 'upper-back'],
+  secondaryMuscles: ['biceps', 'chest', 'abdominals', 'glutes'],
+  equipment: ['pull-up-bar'],
+  description:
+    'A straight-arm static hold with the body horizontal and facing the ground, requiring strong shoulders, back and full-body tension.',
+  imageUrl: '/images/exercises/back-lever-rings.png',
+},
+{
+  id: 'handstand-rings',
+  name: 'Rings Handstand',
+
+  difficulty: 'advanced',
+  movementType: 'static',
+  graphLevel: 5,
+
+  showInTree: false,
+  category: 'static',
+
+  targetAreas: [
+    'shoulders',
+    'core',
+  ],
+
+  primaryMuscles: [
+    'front-deltoids',
+    'side-deltoids',
+    'triceps',
+  ],
+
+  secondaryMuscles: [
+    'trapezius',
+    'serratus-anterior',
+    'abdominals',
+    'forearms',
+  ],
+
+  equipment: [],
+
+  description:
+    'A fundamental inverted skill that develops balance, overhead stability, shoulder strength and full-body control.',
+
+  imageUrl: '/images/exercises/handstand-rings.png',
+},
+{
+    id: 'supinated-pull-up',
+    name: 'Supinated Pull Up',
+
+    difficulty: 'beginner',
+    movementType: 'dynamic',
+    graphLevel: 1,
+
+  showInTree: false,
+    category: 'pull',
+
+    targetAreas: [
+      'back',
+      'biceps',
+    ],
+
+    primaryMuscles: [
+      'latissimus-dorsi',
+      'upper-back',
+      'biceps',
+    ],
+
+    secondaryMuscles: [
+      'forearms',
+      'abdominals',
+    ],
+
+    equipment: [
+      'pull-up-bar',
+    ],
+
+    description:
+      'A fundamental upper body exercise that builds back strength, grip and overall pulling power.',
+
+    imageUrl: '/images/exercises/supinated-pull-up.png',
+  },
+  {
+    id: 'archer-pull-up',
+    name: 'Archer Pull Up',
+
+    difficulty: 'intermediate',
+    movementType: 'dynamic',
+    graphLevel: 2,
+
+    showInTree: false,
+    category: 'pull',
+
+    targetAreas: [
+      'back',
+      'biceps',
+    ],
+
+    primaryMuscles: [
+      'latissimus-dorsi',
+      'upper-back',
+      'biceps',
+    ],
+
+    secondaryMuscles: [
+      'forearms',
+      'abdominals',
+    ],
+
+    equipment: [
+      'pull-up-bar',
+    ],
+
+    description:
+      'A fundamental upper body exercise that builds back strength, grip and overall pulling power.',
+
+    imageUrl: '/images/exercises/archer-pull-up.png',
+  },
+ {
+    id: 'l-sit-pull-up',
+    name: 'L-Sit Pull Up',
+
+    difficulty: 'intermediate',
+    movementType: 'dynamic',
+    graphLevel: 2,
+
+    showInTree: false,
+    category: 'pull',
+
+    targetAreas: [
+      'back',
+      'biceps',
+    ],
+
+    primaryMuscles: [
+      'latissimus-dorsi',
+      'upper-back',
+      'biceps',
+    ],
+
+    secondaryMuscles: [
+      'forearms',
+      'abdominals',
+    ],
+
+    equipment: [
+      'pull-up-bar',
+    ],
+
+    description:
+      'A fundamental upper body exercise that builds back strength, grip and overall pulling power.',
+
+    imageUrl: '/images/exercises/l-sit-pull-up.png',
+  },
+   {
+    id: 'australian-pull-up',
+    name: 'Australian Pull Up',
+
+    difficulty: 'beginner',
+    movementType: 'dynamic',
+    graphLevel: 1,
+
+    showInTree: false,
+    category: 'pull',
+
+    targetAreas: [
+      'back',
+      'biceps',
+    ],
+
+    primaryMuscles: [
+      'latissimus-dorsi',
+      'upper-back',
+      'biceps',
+    ],
+
+    secondaryMuscles: [
+      'forearms',
+      'abdominals',
+    ],
+
+    equipment: [
+      'pull-up-bar',
+    ],
+
+    description:
+      'A fundamental upper body exercise that builds back strength, grip and overall pulling power.',
+
+    imageUrl: '/images/exercises/australian-pull-up.png',
+  },
+  {
+  id: 'frog-stand',
+  name: 'Frog Stand',
+  movementType: 'static',
+  difficulty: 'beginner',
+  graphLevel: 1,
+  showInTree: false,
+  category: 'static',
+  targetAreas: ['shoulders', 'chest', 'triceps', 'core'],
+  primaryMuscles: ['front-deltoids', 'serratus-anterior', 'triceps'],
+  secondaryMuscles: ['chest', 'abdominals', 'forearms', 'hip-flexors'],
+  equipment: [],
+  description:
+    'An introductory planche hold that develops straight-arm pushing strength, scapular control and the forward lean needed for harder planche variations.',
+  imageUrl: '/images/exercises/frog-stand.png',
+},
+  {
+  id: 'plank',
+  name: 'Plank',
+  movementType: 'static',
+  difficulty: 'beginner',
+  graphLevel: 1,
+  showInTree: false,
+  category: 'static',
+  targetAreas: ['shoulders', 'chest', 'triceps', 'core'],
+  primaryMuscles: ['front-deltoids', 'serratus-anterior', 'triceps'],
+  secondaryMuscles: ['chest', 'abdominals', 'forearms', 'hip-flexors'],
+  equipment: [],
+  description:
+    'An introductory planche hold that develops straight-arm pushing strength, scapular control and the forward lean needed for harder planche variations.',
+  imageUrl: '/images/exercises/plank.png',
+},
+{
+  id: 'diamond-push-up',
+  name: 'Diamond Push Up',
+  movementType: 'dynamic',
+
+  difficulty: 'intermediate',
+  graphLevel: 2,
+
+  showInTree: false,
+  category: 'push',
+
+  targetAreas: [
+    'shoulders',
+    'triceps',
+  ],
+
+  primaryMuscles: [
+    'front-deltoids',
+    'triceps',
+  ],
+
+  secondaryMuscles: [
+    'upper-back',
+    'serratus-anterior',
+    'chest',
+    'abdominals',
+  ],
+
+  equipment: [],
+
+  description:
+    'A bodyweight vertical pressing progression that builds shoulder and triceps strength for handstand push ups.',
+
+  imageUrl: '/images/exercises/diamond-push-up.png',
+},
+{
+  id: 'decline-push-up',
+  name: 'Decline Push Up',
+  movementType: 'dynamic',
+  difficulty: 'intermediate',
+  graphLevel: 2,
+  showInTree: false,
+  category: 'push',
+  targetAreas: [
+    'shoulders',
+    'triceps',
+  ],
+  primaryMuscles: [
+    'front-deltoids',
+    'triceps',
+  ],
+  secondaryMuscles: [
+    'upper-back',
+    'serratus-anterior',
+    'chest',
+    'abdominals',
+  ],
+  equipment: [],
+  description:
+    'A bodyweight vertical pressing progression that builds shoulder and triceps strength for handstand push ups.',
+  imageUrl: '/images/exercises/decline-push-up.png',
+},
+{
+  id: 'sphinx-push-up',
+  name: 'Sphinx Push Up',
+  movementType: 'dynamic',
+  difficulty: 'intermediate',
+  graphLevel: 2,
+  showInTree: false,
+  category: 'push',
+  targetAreas: [
+    'shoulders',
+    'triceps',
+  ],
+  primaryMuscles: [
+    'front-deltoids',
+    'triceps',
+  ],
+  secondaryMuscles: [
+    'upper-back',
+    'serratus-anterior',
+    'chest',
+    'abdominals',
+  ],
+  equipment: [],
+  description:
+    'A bodyweight vertical pressing progression that builds shoulder and triceps strength for handstand push ups.',
+  imageUrl: '/images/exercises/sphinx-push-up.png',
+},
+{
+  id: 'clapping-push-up',
+  name: 'Clapping Push Up',
+  movementType: 'dynamic',
+  difficulty: 'intermediate',
+  graphLevel: 2,
+  showInTree: false,
+  category: 'push',
+  targetAreas: [
+    'shoulders',
+    'triceps',
+  ],
+  primaryMuscles: [
+    'front-deltoids',
+    'triceps',
+  ],
+  secondaryMuscles: [
+    'upper-back',
+    'serratus-anterior',
+    'chest',
+    'abdominals',
+  ],
+  equipment: [],
+  description:
+    'A bodyweight vertical pressing progression that builds shoulder and triceps strength for handstand push ups.',
+  imageUrl: '/images/exercises/clapping-push-up.png',
+},
+{
+  id: 'lean-planche-push-up',
+  name: 'Lean Planche Push Up',
+  movementType: 'dynamic',
+  difficulty: 'intermediate',
+  graphLevel: 3,
+  showInTree: false,
+  category: 'push',
+  targetAreas: [
+    'shoulders',
+    'triceps',
+  ],
+  primaryMuscles: [
+    'front-deltoids',
+    'triceps',
+  ],
+  secondaryMuscles: [
+    'upper-back',
+    'serratus-anterior',
+    'chest',
+    'abdominals',
+  ],
+  equipment: [],
+  description:
+    'A bodyweight vertical pressing progression that builds shoulder and triceps strength for handstand push ups.',
+  imageUrl: '/images/exercises/lean-planche-push-up.png',
+},
+{
+  id: 'tucked-planche-push-up',
+  name: 'Tucked Planche Push Up',
+  movementType: 'dynamic',
+  difficulty: 'intermediate',
+  graphLevel: 3,
+  showInTree: false,
+  category: 'push',
+  targetAreas: [
+    'shoulders',
+    'triceps',
+  ],
+  primaryMuscles: [
+    'front-deltoids',
+    'triceps',
+  ],
+  secondaryMuscles: [
+    'upper-back',
+    'serratus-anterior',
+    'chest',
+    'abdominals',
+  ],
+  equipment: [],
+  description:
+    'A bodyweight vertical pressing progression that builds shoulder and triceps strength for handstand push ups.',
+  imageUrl: '/images/exercises/tucked-planche-push-up.png',
+},
+{
+  id: 'x-grip-muscle-up',
+  name: 'X Grip Muscle Up',
+  difficulty: 'advanced',
+  movementType: 'dynamic',
+  graphLevel: 5,
+  showInTree: false,
+  category: 'pull',
+  targetAreas: ['back', 'biceps', 'chest', 'triceps', 'shoulders'],
+  primaryMuscles: ['latissimus-dorsi', 'upper-back', 'biceps', 'triceps'],
+  secondaryMuscles: ['chest', 'front-deltoids', 'forearms', 'abdominals'],
+  equipment: ['pull-up-bar'],
+  description:
+    'A dynamic compound skill that combines an explosive pull, a transition over the bar and a powerful dip to finish above it.',
+  imageUrl: '/images/exercises/x-grip-muscle-up.png',
+},
+{
+  id: 'l-sit-muscle-up',
+  name: 'L-Sit Muscle Up',
+  difficulty: 'advanced',
+  movementType: 'dynamic',
+  graphLevel: 4,
+  showInTree: false,
+  category: 'pull',
+  targetAreas: ['back', 'biceps', 'chest', 'triceps', 'shoulders'],
+  primaryMuscles: ['latissimus-dorsi', 'upper-back', 'biceps', 'triceps'],
+  secondaryMuscles: ['chest', 'front-deltoids', 'forearms', 'abdominals'],
+  equipment: ['pull-up-bar'],
+  description:
+    'A dynamic compound skill that combines an explosive pull, a transition over the bar and a powerful dip to finish above it.',
+  imageUrl: '/images/exercises/l-sit-muscle-up.png',
+},
+
 ];
 
 export const EXERCISE_RELATIONS: ExerciseRelation[] = [

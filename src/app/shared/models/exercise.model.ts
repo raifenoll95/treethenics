@@ -37,6 +37,8 @@ export interface Exercise {
 
   category?: ExerciseCategory;
   movementType?: ExerciseMovementType;
+  showInTree: boolean;
+
 
   /*
    * Áreas generales.

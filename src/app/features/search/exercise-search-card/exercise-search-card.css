@@ -1,0 +1,256 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.exercise-card {
+  --exercise-color: #60a5fa;
+
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 42% 1fr;
+  grid-template-rows: 1fr auto;
+
+  min-height: 260px;
+
+  padding: 12px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(24, 30, 39, 0.98),
+      rgba(15, 20, 27, 0.98)
+    );
+
+  border: 1px solid #2b3440;
+  border-radius: 13px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.18);
+
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.exercise-card:hover {
+  transform: translateY(-2px);
+
+  border-color:
+    color-mix(
+      in srgb,
+      var(--exercise-color) 45%,
+      #2b3440
+    );
+
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.26);
+}
+
+
+/* DIFFICULTY */
+
+.exercise-card--beginner {
+  --exercise-color: #34d399;
+}
+
+.exercise-card--intermediate {
+  --exercise-color: #60a5fa;
+}
+
+.exercise-card--advanced {
+  --exercise-color: #fb923c;
+}
+
+.exercise-card--elite {
+  --exercise-color: #f43f5e;
+}
+
+
+/* IMAGE */
+
+.exercise-card__image-wrapper {
+  position: relative;
+
+  min-width: 0;
+  height: 175px;
+
+  overflow: visible;
+}
+
+.exercise-card__image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: top center;
+
+  background: #0c1117;
+
+  border: 1px solid #303946;
+  border-radius: 9px;
+}
+
+
+/* STATIC / DYNAMIC */
+
+.exercise-card__movement {
+  position: absolute;
+
+  top: 10px;
+  right: 10px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 25px;
+  padding: 0 11px;
+
+  background: #10151c;
+
+  border: 1px solid;
+  border-radius: 999px;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.exercise-card__movement--static {
+  color: #60a5fa;
+  border-color: #3b82f6;
+
+  box-shadow:
+    0 0 10px rgba(59, 130, 246, 0.18);
+}
+
+.exercise-card__movement--dynamic {
+  color: #34d399;
+  border-color: #10b981;
+
+  box-shadow:
+    0 0 10px rgba(16, 185, 129, 0.18);
+}
+
+
+/* CONTENT */
+
+.exercise-card__content {
+  min-width: 0;
+
+  padding: 6px 4px 4px 16px;
+}
+
+.exercise-card__difficulty {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--exercise-color);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.exercise-card h3 {
+  margin: 0 0 8px;
+
+  color: #f8fafc;
+
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.exercise-card__description {
+  display: -webkit-box;
+
+  margin: 0 0 12px;
+
+  overflow: hidden;
+
+  color: #9ca6b5;
+
+  font-size: 11px;
+  line-height: 1.55;
+
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.exercise-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.exercise-card__tags span {
+  padding: 5px 8px;
+
+  background: #222933;
+  color: #c5ccd6;
+
+  border: 1px solid #343e4b;
+  border-radius: 5px;
+
+  font-size: 9px;
+  font-weight: 650;
+}
+
+
+/* BUTTON */
+
+.exercise-card__button {
+  grid-column: 1 / -1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  margin-top: 10px;
+  padding: 10px 13px;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: var(--exercise-color);
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 7px 20px
+    color-mix(
+      in srgb,
+      var(--exercise-color) 18%,
+      transparent
+    );
+
+  transition:
+    transform 150ms ease,
+    filter 150ms ease;
+}
+
+.exercise-card__button:hover {
+  filter: brightness(1.08);
+}
+
+.exercise-card__button:active {
+  transform: scale(0.99);
+}

@@ -1,1 +1,70 @@
-<p>exercise-search-card works!</p>
+<article
+  class="exercise-card"
+  [class.exercise-card--beginner]="exercise().difficulty === 'beginner'"
+  [class.exercise-card--intermediate]="exercise().difficulty === 'intermediate'"
+  [class.exercise-card--advanced]="exercise().difficulty === 'advanced'"
+  [class.exercise-card--elite]="exercise().difficulty === 'elite'"
+>
+
+  <div class="exercise-card__image-wrapper">
+
+    @if (exercise().imageUrl) {
+      <img
+        class="exercise-card__image"
+        [src]="exercise().imageUrl"
+        [alt]="exercise().name"
+      />
+    }
+
+    @if (exercise().movementType) {
+      <span
+        class="exercise-card__movement"
+        [class.exercise-card__movement--static]="exercise().movementType === 'static'"
+        [class.exercise-card__movement--dynamic]="exercise().movementType === 'dynamic'"
+      >
+        {{ exercise().movementType }}
+      </span>
+    }
+
+  </div>
+
+  <div class="exercise-card__content">
+
+    <span class="exercise-card__difficulty">
+      {{ exercise().difficulty }}
+    </span>
+
+    <h3>{{ exercise().name }}</h3>
+
+    @if (exercise().description) {
+      <p class="exercise-card__description">
+        {{ exercise().description }}
+      </p>
+    }
+
+    @if ((exercise().primaryMuscles?.length ?? 0) > 0) {
+      <div class="exercise-card__tags">
+
+        @for (
+          muscle of exercise().primaryMuscles ?? [];
+          track muscle
+        ) {
+          <span>
+            {{ getMuscleLabel(muscle) }}
+          </span>
+        }
+
+      </div>
+    }
+
+  </div>
+
+  <button
+    class="exercise-card__button"
+    type="button"
+  >
+    <span>View exercise</span>
+    <span>→</span>
+  </button>
+
+</article>
