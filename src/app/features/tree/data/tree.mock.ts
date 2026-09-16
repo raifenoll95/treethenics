@@ -1280,6 +1280,7 @@ export const EXERCISES: Exercise[] = [
 
     imageUrl: '/images/exercises/australian-pull-up.png',
   },
+
   {
   id: 'frog-stand',
   name: 'Frog Stand',
@@ -1513,6 +1514,38 @@ export const EXERCISES: Exercise[] = [
   description:
     'A dynamic compound skill that combines an explosive pull, a transition over the bar and a powerful dip to finish above it.',
   imageUrl: '/images/exercises/l-sit-muscle-up.png',
+},
+{
+  id: 'one-arm-muscle-up',
+  name: 'One-Arm Muscle Up',
+  difficulty: 'elite',
+  movementType: 'dynamic',
+  graphLevel: 6,
+  showInTree: false,
+  category: 'pull',
+  targetAreas: ['back', 'biceps', 'chest', 'triceps', 'shoulders'],
+  primaryMuscles: ['latissimus-dorsi', 'upper-back', 'biceps', 'triceps'],
+  secondaryMuscles: ['chest', 'front-deltoids', 'forearms', 'abdominals'],
+  equipment: ['pull-up-bar'],
+  description:
+    'A dynamic compound skill that combines an explosive pull, a transition over the bar and a powerful dip to finish above it.',
+  imageUrl: '/images/exercises/one-arm-muscle-up.png',
+},
+{
+  id: 'extreme-wide-muscle-up',
+  name: 'Extreme Wide Muscle Up',
+  difficulty: 'advanced',
+  movementType: 'dynamic',
+  graphLevel: 5,
+  showInTree: false,
+  category: 'pull',
+  targetAreas: ['back', 'biceps', 'chest', 'triceps', 'shoulders'],
+  primaryMuscles: ['latissimus-dorsi', 'upper-back', 'biceps', 'triceps'],
+  secondaryMuscles: ['chest', 'front-deltoids', 'forearms', 'abdominals'],
+  equipment: ['pull-up-bar'],
+  description:
+    'A dynamic compound skill that combines an explosive pull, a transition over the bar and a powerful dip to finish above it.',
+  imageUrl: '/images/exercises/extreme-wide-muscle-up.png',
 },
 
 ];
