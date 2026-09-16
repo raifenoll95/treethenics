@@ -226,6 +226,7 @@ export const EXERCISES: Exercise[] = [
   name: 'Handstand',
 
   difficulty: 'intermediate',
+  movementType: 'static',
   graphLevel: 2,
 
   category: 'static',
@@ -294,6 +295,7 @@ export const EXERCISES: Exercise[] = [
   name: 'Bent Arm Planche',
 
   difficulty: 'intermediate',
+  movementType: 'static',
   graphLevel: 2,
 
   category: 'static',
