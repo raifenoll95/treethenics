@@ -635,11 +635,13 @@ app-tree-canvas {
    ========================================================= */
 
 .exercise-panel__description {
+  font-family: 'Manrope', sans-serif;
+
   margin: 0 0 8px;
 
   color: #9ca6b4;
 
-  font-size: 14px;
+  font-size: 12px;
 
   line-height: 1.65;
 }

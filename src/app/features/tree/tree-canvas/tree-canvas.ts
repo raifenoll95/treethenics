@@ -85,6 +85,7 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
     });
 
     this.cy = cytoscape({
+      autoungrabify: true,
       container: this.cyContainer.nativeElement,
 
       elements: [
