@@ -649,7 +649,7 @@ app-tree-canvas {
    ========================================================= */
 
 .exercise-panel__section {
-  margin-top: 24px;
+  margin-top: 22px;
 }
 
 .exercise-panel__label {
@@ -681,15 +681,14 @@ app-tree-canvas {
 .exercise-panel__tags span {
   padding: 7px 11px;
 
-  background: #242932;
-
-  color: #d9dee7;
+  background: #292e37;
+  color: #d7dce5;
 
   border: 1px solid #3a414d;
-  border-radius: 999px;
+  border-radius: 6px;
 
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .exercise-panel__tags span {
@@ -787,6 +786,35 @@ app-tree-canvas {
   letter-spacing: 0.5px;
 
   z-index: 5;
+}
+
+.exercise-panel__muscle-group {
+  margin-top: 12px;
+}
+
+.exercise-panel__muscle-group:first-of-type {
+  margin-top: 0;
+}
+
+.exercise-panel__sublabel {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #8b95a5;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.exercise-panel__tags--secondary span {
+  background: rgba(35, 40, 49, 0.55);
+  color: #aeb7c4;
+
+  border-color: #303743;
 }
 
 /* =========================================================

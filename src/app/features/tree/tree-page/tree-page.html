@@ -154,26 +154,65 @@
           </p>
         }
 
+        <!-- MUSCLES -->
         <div class="exercise-panel__section">
           <span class="exercise-panel__label">
             Muscles
           </span>
 
-          <div class="exercise-panel__tags">
-            @for (muscle of exercise.muscles; track muscle) {
-              <span>{{ muscle }}</span>
-            }
-          </div>
+          @if ((exercise.primaryMuscles?.length ?? 0) > 0) {
+            <div class="exercise-panel__muscle-group">
+              <span class="exercise-panel__sublabel">
+                Primary
+              </span>
+
+              <div class="exercise-panel__tags">
+                @for (
+                  muscle of exercise.primaryMuscles ?? [];
+                  track muscle
+                ) {
+                  <span>
+                    {{ getMuscleLabel(muscle) }}
+                  </span>
+                }
+              </div>
+            </div>
+          }
+
+          @if ((exercise.secondaryMuscles?.length ?? 0) > 0) {
+            <div class="exercise-panel__muscle-group">
+              <span class="exercise-panel__sublabel">
+                Secondary
+              </span>
+
+              <div class="exercise-panel__tags exercise-panel__tags--secondary">
+                @for (
+                  muscle of exercise.secondaryMuscles ?? [];
+                  track muscle
+                ) {
+                  <span>
+                    {{ getMuscleLabel(muscle) }}
+                  </span>
+                }
+              </div>
+            </div>
+          }
         </div>
 
+        <!-- EQUIPMENT -->
         <div class="exercise-panel__section">
           <span class="exercise-panel__label">
             Equipment
           </span>
 
           <div class="exercise-panel__tags">
-            @for (equipment of exercise.equipment; track equipment) {
-              <span>{{ equipment }}</span>
+            @for (
+              equipment of exercise.equipment ?? [];
+              track equipment
+            ) {
+              <span>
+                {{ getEquipmentLabel(equipment) }}
+              </span>
             }
           </div>
         </div>

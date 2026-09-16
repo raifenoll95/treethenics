@@ -1,3 +1,7 @@
+import { ExerciseEquipment } from './exercise-equipment.model';
+import { ExerciseMuscle } from './exercise-muscle.model';
+import { ExerciseTargetArea } from './exercise-target-area.model';
+
 export type ExerciseDifficulty =
   | 'beginner'
   | 'intermediate'
@@ -11,7 +15,14 @@ export type ExerciseCategory =
   | 'core'
   | 'static';
 
-export type ExerciseGraphLevel = 1 | 2 | 3 | 4 | 5 | 6 | 7;
+export type ExerciseGraphLevel =
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7;
 
 export interface Exercise {
   id: string;
@@ -22,10 +33,28 @@ export interface Exercise {
 
   category?: ExerciseCategory;
 
-  description?: string;
+  /*
+   * Áreas generales.
+   * Se utilizarán principalmente para filtros.
+   */
+  targetAreas?: ExerciseTargetArea[];
 
-  muscles: string[];
-  equipment: string[];
+  /*
+   * Músculos principales del ejercicio.
+   */
+  primaryMuscles?: ExerciseMuscle[];
+
+  /*
+   * Músculos que participan de forma secundaria.
+   */
+  secondaryMuscles?: ExerciseMuscle[];
+
+  /*
+   * Material necesario.
+   */
+  equipment?: ExerciseEquipment[];
+
+  description?: string;
 
   imageUrl?: string;
 }
