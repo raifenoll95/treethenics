@@ -1,0 +1,136 @@
+<section class="search-page">
+
+  <header class="search-page__header">
+    <span class="search-page__eyebrow">
+      Search
+    </span>
+
+    <h1>Find Exercises</h1>
+
+    <p>
+      Search the Treethenics exercise library and discover your next movement.
+    </p>
+  </header>
+
+  <div class="search-box">
+
+    <span class="search-box__icon">
+      ⌕
+    </span>
+
+    <input
+      #searchInput
+      type="text"
+      placeholder="Search exercises..."
+      autocomplete="off"
+      [value]="searchTerm()"
+      (input)="updateSearch(searchInput.value)"
+    />
+
+    @if (searchTerm()) {
+      <button
+        type="button"
+        class="search-box__clear"
+        aria-label="Clear search"
+        (click)="clearSearch()"
+      >
+        ×
+      </button>
+    }
+
+  </div>
+
+
+  @if (!searchTerm().trim()) {
+
+    <div class="search-page__summary">
+      <span>Explore all exercises</span>
+      <span>{{ filteredExercises().length }} exercises</span>
+    </div>
+
+    <div class="exercise-grid">
+
+      @for (
+        exercise of filteredExercises();
+        track exercise.id
+      ) {
+        <app-exercise-search-card
+          [exercise]="exercise"
+        />
+      }
+
+    </div>
+
+  } @else {
+
+    <div class="search-page__summary">
+      <span>
+        {{ filteredExercises().length }}
+        exercises found for
+        “{{ searchTerm() }}”
+      </span>
+
+      <span>Sorted by level</span>
+    </div>
+
+    @for (
+      group of groupedResults();
+      track group.level
+    ) {
+
+      <section
+        class="level-group"
+        [attr.data-level]="group.level"
+      >
+
+        <div class="level-group__info">
+
+          <span class="level-group__number">
+            {{ group.level }}
+          </span>
+
+          <div>
+            <strong>
+              Level {{ group.level }}
+            </strong>
+
+            <span>
+              {{ group.exercises.length }}
+              {{ group.exercises.length === 1
+                ? 'exercise'
+                : 'exercises'
+              }}
+            </span>
+          </div>
+
+        </div>
+
+        <div class="level-group__exercises">
+
+          @for (
+            exercise of group.exercises;
+            track exercise.id
+          ) {
+            <app-exercise-search-card
+              [exercise]="exercise"
+            />
+          }
+
+        </div>
+
+      </section>
+
+    } @empty {
+
+      <div class="search-empty">
+        <strong>No exercises found</strong>
+        <span>
+          Try another exercise name.
+        </span>
+      </div>
+
+    }
+
+  }
+
+</section>

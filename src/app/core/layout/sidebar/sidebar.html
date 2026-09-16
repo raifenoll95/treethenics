@@ -10,7 +10,12 @@
   </div>
 
   <nav class="sidebar__nav">
-    <a class="sidebar__item sidebar__item--active">
+    <a
+      class="sidebar__item"
+      routerLink="/"
+      routerLinkActive="sidebar__item--active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
       <span class="sidebar__icon">◆</span>
       <span>Tree</span>
     </a>
@@ -20,7 +25,11 @@
       <span>What should I train?</span>
     </a>
 
-    <a class="sidebar__item">
+    <a
+      class="sidebar__item"
+      routerLink="/search"
+      routerLinkActive="sidebar__item--active"
+    >
       <span class="sidebar__icon">⌕</span>
       <span>Search</span>
     </a>
