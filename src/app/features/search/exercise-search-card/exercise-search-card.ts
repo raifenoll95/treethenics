@@ -1,4 +1,5 @@
 import { Component, input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 import { Exercise } from '../../../shared/models/exercise.model';
 import { ExerciseMuscle } from '../../../shared/models/exercise-muscle.model';
@@ -11,7 +12,7 @@ import {
 
 @Component({
   selector: 'app-exercise-search-card',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './exercise-search-card.html',
   styleUrl: './exercise-search-card.css',
 })

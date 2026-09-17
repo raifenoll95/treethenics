@@ -59,12 +59,12 @@
 
   </div>
 
-  <button
-    class="exercise-card__button"
-    type="button"
+  <a
+    class="exercise-card__details"
+    [routerLink]="['/exercises', exercise().id]"
   >
     <span>View exercise</span>
     <span>→</span>
-  </button>
+  </a>
 
 </article>
