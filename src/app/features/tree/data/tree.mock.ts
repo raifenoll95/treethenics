@@ -300,7 +300,7 @@ export const EXERCISES: Exercise[] = [
 },
 {
   id: 'bent-arm-planche',
-  name: 'Bent Arm Planche',
+  name: 'Elbow lever Planche',
 
   difficulty: 'intermediate',
   movementType: 'static',
@@ -504,7 +504,7 @@ export const EXERCISES: Exercise[] = [
 },
 {
   id: 'one-arm-bent-planche',
-  name: 'One Arm Elbow Lever',
+  name: 'One Arm Elbow Lever Planche',
   movementType: 'static',
   difficulty: 'intermediate',
   graphLevel: 3,
@@ -1056,8 +1056,8 @@ export const EXERCISES: Exercise[] = [
   id: 'full-planche-rings',
   name: 'Rings Full Planche',
   movementType: 'static',
-  difficulty: 'advanced',
-  graphLevel: 5,
+  difficulty: 'elite',
+  graphLevel: 6,
   showInTree: false,
   category: 'static',
   targetAreas: ['shoulders', 'chest', 'triceps', 'core'],
@@ -1482,6 +1482,114 @@ export const EXERCISES: Exercise[] = [
   description:
     'A bodyweight vertical pressing progression that builds shoulder and triceps strength for handstand push ups.',
   imageUrl: '/images/exercises/tucked-planche-push-up.png',
+},
+{
+  id: 'straddle-planche-push-up',
+  name: 'Straddle Planche Push Up',
+  movementType: 'dynamic',
+  difficulty: 'advanced',
+  graphLevel: 5,
+  showInTree: false,
+  category: 'push',
+  targetAreas: [
+    'shoulders',
+    'triceps',
+  ],
+  primaryMuscles: [
+    'front-deltoids',
+    'triceps',
+  ],
+  secondaryMuscles: [
+    'upper-back',
+    'serratus-anterior',
+    'chest',
+    'abdominals',
+  ],
+  equipment: [],
+  description:
+    'A bodyweight vertical pressing progression that builds shoulder and triceps strength for handstand push ups.',
+  imageUrl: '/images/exercises/straddle-planche-push-up.png',
+},
+{
+  id: 'tuck-advanced-planche-push-up',
+  name: 'Tuck Advanced Planche Push Up',
+  movementType: 'dynamic',
+  difficulty: 'advanced',
+  graphLevel: 4,
+  showInTree: false,
+  category: 'push',
+  targetAreas: [
+    'shoulders',
+    'triceps',
+  ],
+  primaryMuscles: [
+    'front-deltoids',
+    'triceps',
+  ],
+  secondaryMuscles: [
+    'upper-back',
+    'serratus-anterior',
+    'chest',
+    'abdominals',
+  ],
+  equipment: [],
+  description:
+    'A bodyweight vertical pressing progression that builds shoulder and triceps strength for handstand push ups.',
+  imageUrl: '/images/exercises/tuck-advanced-planche-push-up.png',
+},
+{
+  id: 'tuck-advanced-planche',
+  name: 'Tuck Advanced Planche',
+  movementType: 'dynamic',
+  difficulty: 'intermediate',
+  graphLevel: 3,
+  showInTree: false,
+  category: 'push',
+  targetAreas: [
+    'shoulders',
+    'triceps',
+  ],
+  primaryMuscles: [
+    'front-deltoids',
+    'triceps',
+  ],
+  secondaryMuscles: [
+    'upper-back',
+    'serratus-anterior',
+    'chest',
+    'abdominals',
+  ],
+  equipment: [],
+  description:
+    'A bodyweight vertical pressing progression that builds shoulder and triceps strength for handstand push ups.',
+  imageUrl: '/images/exercises/tuck-advanced-planche.png',
+},
+{
+  id: 'knee-push-up',
+  name: 'Knee Push Up',
+  movementType: 'dynamic',
+  difficulty: 'beginner',
+  graphLevel: 1,
+  showInTree: false,
+  category: 'push',
+  targetAreas: [
+    'shoulders',
+    'triceps',
+  ],
+  primaryMuscles: [
+    'front-deltoids',
+    'triceps',
+  ],
+  secondaryMuscles: [
+    'upper-back',
+    'serratus-anterior',
+    'chest',
+    'abdominals',
+  ],
+  equipment: [],
+  description:
+    'A bodyweight vertical pressing progression that builds shoulder and triceps strength for handstand push ups.',
+  imageUrl: '/images/exercises/knee-push-up.png',
 },
 {
   id: 'x-grip-muscle-up',

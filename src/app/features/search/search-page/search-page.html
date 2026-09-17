@@ -40,12 +40,54 @@
 
   </div>
 
+  <div class="difficulty-filters">
 
-  @if (!searchTerm().trim()) {
+    <button
+      type="button"
+      class="difficulty-filter difficulty-filter--all"
+      [class.difficulty-filter--active]="selectedDifficulty() === null"
+      (click)="showAll()"
+    >
+      All
+    </button>
+
+    @for (difficulty of difficulties; track difficulty) {
+
+      <button
+        type="button"
+        class="difficulty-filter"
+        [class.difficulty-filter--beginner]="difficulty === 'beginner'"
+        [class.difficulty-filter--intermediate]="difficulty === 'intermediate'"
+        [class.difficulty-filter--advanced]="difficulty === 'advanced'"
+        [class.difficulty-filter--elite]="difficulty === 'elite'"
+        [class.difficulty-filter--active]="selectedDifficulty() === difficulty"
+        (click)="toggleDifficulty(difficulty)"
+      >
+        {{ difficulty }}
+      </button>
+
+    }
+
+  </div>
+
+
+  @if (!searchTerm().trim() && !selectedDifficulty()) {
 
     <div class="search-page__summary">
       <span>Explore all exercises</span>
-      <span>{{ filteredExercises().length }} exercises</span>
+      <span>
+        {{ filteredExercises().length }} exercises
+
+        @if (searchTerm().trim()) {
+          found for “{{ searchTerm() }}”
+        }
+
+        @if (selectedDifficulty()) {
+          · {{ selectedDifficulty() }}
+        }
+      </span>
+
+      <span>Sorted by level</span>
     </div>
 
     <div class="exercise-grid">

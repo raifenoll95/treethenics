@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { EXERCISES } from '../../tree/data/tree.mock';
 import {
   Exercise,
+  ExerciseDifficulty,
   ExerciseGraphLevel,
 } from '../../../shared/models/exercise.model';
 
@@ -26,6 +27,15 @@ interface ExerciseLevelGroup {
 export class SearchPage {
   readonly searchTerm = signal('');
 
+  readonly selectedDifficulty = signal<ExerciseDifficulty | null>(null);
+
+  readonly difficulties: ExerciseDifficulty[] = [
+    'beginner',
+    'intermediate',
+    'advanced',
+    'elite',
+  ];
+
   /*
    * Se calcula una sola vez cuando se crea la página.
    * Al volver a entrar/refrescar, cambia el orden.
@@ -37,19 +47,31 @@ export class SearchPage {
       .trim()
       .toLowerCase();
 
-    if (!query) {
+    const difficulty = this.selectedDifficulty();
+
+    // Sin búsqueda ni filtro → orden aleatorio
+    if (!query && !difficulty) {
       return this.randomExercises;
     }
 
-    return EXERCISES.filter((exercise) =>
-      exercise.name.toLowerCase().includes(query),
-    );
+    return EXERCISES.filter((exercise) => {
+      const matchesSearch =
+        !query ||
+        exercise.name.toLowerCase().includes(query);
+
+      const matchesDifficulty =
+        !difficulty ||
+        exercise.difficulty === difficulty;
+
+      return matchesSearch && matchesDifficulty;
+    });
   });
 
   readonly groupedResults = computed<ExerciseLevelGroup[]>(() => {
-    const query = this.searchTerm().trim();
+    const hasSearch = this.searchTerm().trim().length > 0;
+    const hasDifficulty = this.selectedDifficulty() !== null;
 
-    if (!query) {
+    if (!hasSearch && !hasDifficulty) {
       return [];
     }
 
@@ -80,4 +102,17 @@ export class SearchPage {
   private shuffle(exercises: Exercise[]): Exercise[] {
     return [...exercises].sort(() => Math.random() - 0.5);
   }
+
+  toggleDifficulty(difficulty: ExerciseDifficulty): void {
+    this.selectedDifficulty.set(difficulty);
+  }
+
+  clearFilters(): void {
+    this.searchTerm.set('');
+    this.selectedDifficulty.set(null);
+  }
+
+  showAll(): void {
+  this.selectedDifficulty.set(null);
+}
 }
