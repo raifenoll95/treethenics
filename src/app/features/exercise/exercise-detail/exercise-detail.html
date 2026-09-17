@@ -1,0 +1,617 @@
+@if (exercise(); as exercise) {
+
+  <main
+    class="exercise-detail"
+    [class.exercise-detail--beginner]="exercise.difficulty === 'beginner'"
+    [class.exercise-detail--intermediate]="exercise.difficulty === 'intermediate'"
+    [class.exercise-detail--advanced]="exercise.difficulty === 'advanced'"
+    [class.exercise-detail--elite]="exercise.difficulty === 'elite'"
+  >
+
+    <a
+      class="exercise-detail__back"
+      routerLink="/search"
+    >
+      <span>←</span>
+      Back to exercises
+    </a>
+
+
+    <!-- HEADER -->
+
+    <header class="exercise-detail__header">
+
+      <div>
+        <div class="exercise-detail__eyebrow">
+
+          @if (exercise.category) {
+            <span>{{ exercise.category }}</span>
+          }
+
+          @if (exercise.graphLevel) {
+            <span class="exercise-detail__separator">•</span>
+            <span>Level {{ exercise.graphLevel }}</span>
+          }
+
+        </div>
+
+        <h1>{{ exercise.name }}</h1>
+
+        @if (exercise.description) {
+          <p>
+            {{ exercise.description }}
+          </p>
+        }
+
+      </div>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="exercise-hero">
+
+      <!-- IMAGE -->
+
+      <div class="exercise-hero__media">
+
+        @if (exercise.imageUrl) {
+          <img
+            [src]="exercise.imageUrl"
+            [alt]="exercise.name"
+          />
+        }
+
+        @if (exercise.movementType) {
+          <span
+            class="exercise-hero__movement"
+            [class.exercise-hero__movement--static]="exercise.movementType === 'static'"
+            [class.exercise-hero__movement--dynamic]="exercise.movementType === 'dynamic'"
+          >
+            {{ exercise.movementType }}
+          </span>
+        }
+
+      </div>
+
+
+      <!-- INFORMATION -->
+
+      <aside class="exercise-hero__info">
+
+        <div class="exercise-hero__top">
+
+          <div class="exercise-stat">
+            <span class="exercise-stat__label">
+              Difficulty
+            </span>
+
+            <strong class="exercise-stat__difficulty">
+              {{ exercise.difficulty }}
+            </strong>
+          </div>
+
+          @if (exercise.graphLevel) {
+            <div class="exercise-stat">
+              <span class="exercise-stat__label">
+                Level
+              </span>
+
+              <strong>
+                {{ exercise.graphLevel }}
+              </strong>
+            </div>
+          }
+
+        </div>
+
+
+        @if ((exercise.primaryMuscles?.length ?? 0) > 0) {
+
+          <div class="exercise-info-section">
+
+            <span class="exercise-info-section__label">
+              Primary muscles
+            </span>
+
+            <div class="exercise-tags">
+
+              @for (
+                muscle of exercise.primaryMuscles ?? [];
+                track muscle
+              ) {
+                <span>
+                  {{ getMuscleLabel(muscle) }}
+                </span>
+              }
+
+            </div>
+
+          </div>
+
+        }
+
+
+        @if ((exercise.secondaryMuscles?.length ?? 0) > 0) {
+
+          <div class="exercise-info-section">
+
+            <span class="exercise-info-section__label">
+              Secondary muscles
+            </span>
+
+            <div class="exercise-tags exercise-tags--secondary">
+
+              @for (
+                muscle of exercise.secondaryMuscles ?? [];
+                track muscle
+              ) {
+                <span>
+                  {{ getMuscleLabel(muscle) }}
+                </span>
+              }
+
+            </div>
+
+          </div>
+
+        }
+
+
+        <div class="exercise-info-section">
+
+          <span class="exercise-info-section__label">
+            Equipment
+          </span>
+
+          @if ((exercise.equipment?.length ?? 0) > 0) {
+
+            <div class="exercise-tags">
+
+              @for (
+                equipment of exercise.equipment ?? [];
+                track equipment
+              ) {
+                <span>
+                  {{ getEquipmentLabel(equipment) }}
+                </span>
+              }
+
+            </div>
+
+          } @else {
+
+            <span class="exercise-info-section__none">
+              No equipment
+            </span>
+
+          }
+
+        </div>
+
+      </aside>
+
+    </section>
+
+    <!-- ========================================
+     EXERCISE BODY
+========================================= -->
+
+<div class="exercise-body">
+
+  <!-- OVERVIEW -->
+
+  <section class="detail-section detail-section--overview">
+
+    <div class="detail-section__heading">
+      <div>
+        <span class="detail-section__eyebrow">Overview</span>
+        <h2>About this exercise</h2>
+      </div>
+
+      <span class="detail-section__number">01</span>
+    </div>
+
+    <div class="overview-grid">
+
+      <div class="overview-description">
+        <p>
+          {{ exercise.description }}
+        </p>
+      </div>
+
+      <div class="overview-stats">
+
+        <div class="overview-stat">
+          <span>Difficulty</span>
+          <strong class="accent-text">
+            {{ exercise.difficulty }}
+          </strong>
+        </div>
+
+        @if (exercise.graphLevel) {
+          <div class="overview-stat">
+            <span>Progression level</span>
+            <strong>
+              {{ exercise.graphLevel }} / 7
+            </strong>
+          </div>
+        }
+
+        @if (exercise.movementType) {
+          <div class="overview-stat">
+            <span>Movement</span>
+            <strong>
+              {{ exercise.movementType }}
+            </strong>
+          </div>
+        }
+
+        @if (exercise.category) {
+          <div class="overview-stat">
+            <span>Category</span>
+            <strong>
+              {{ exercise.category }}
+            </strong>
+          </div>
+        }
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- MUSCLE MAP -->
+
+  <section class="detail-section">
+
+    <div class="detail-section__heading">
+
+      <div>
+        <span class="detail-section__eyebrow">
+          Anatomy
+        </span>
+
+        <h2>Muscles involved</h2>
+
+        <p>
+          Understand which muscle groups carry most of the
+          workload during this movement.
+        </p>
+      </div>
+
+      <span class="detail-section__number">02</span>
+
+    </div>
+
+
+    <div class="muscle-layout">
+
+      <!-- PRIMARY -->
+
+      <div class="muscle-card muscle-card--primary">
+
+        <div class="muscle-card__header">
+
+          <div class="muscle-card__icon">
+            P
+          </div>
+
+          <div>
+            <span>Primary</span>
+            <strong>Main workload</strong>
+          </div>
+
+        </div>
+
+        <div class="muscle-card__list">
+
+          @for (
+            muscle of exercise.primaryMuscles ?? [];
+            track muscle
+          ) {
+
+            <div class="muscle-row">
+
+              <span class="muscle-row__dot"></span>
+
+              <span>
+                {{ getMuscleLabel(muscle) }}
+              </span>
+
+              <span class="muscle-row__role">
+                Primary
+              </span>
+
+            </div>
+
+          }
+
+        </div>
+
+      </div>
+
+
+      <!-- SECONDARY -->
+
+      <div class="muscle-card">
+
+        <div class="muscle-card__header">
+
+          <div class="muscle-card__icon">
+            S
+          </div>
+
+          <div>
+            <span>Secondary</span>
+            <strong>Supporting muscles</strong>
+          </div>
+
+        </div>
+
+        <div class="muscle-card__list">
+
+          @for (
+            muscle of exercise.secondaryMuscles ?? [];
+            track muscle
+          ) {
+
+            <div class="muscle-row">
+
+              <span class="muscle-row__dot"></span>
+
+              <span>
+                {{ getMuscleLabel(muscle) }}
+              </span>
+
+              <span class="muscle-row__role">
+                Support
+              </span>
+
+            </div>
+
+          }
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- REQUIREMENTS -->
+
+  <section class="detail-section">
+
+    <div class="detail-section__heading">
+
+      <div>
+        <span class="detail-section__eyebrow">
+          Setup
+        </span>
+
+        <h2>What you need</h2>
+
+        <p>
+          Equipment and setup required to perform the exercise.
+        </p>
+      </div>
+
+      <span class="detail-section__number">03</span>
+
+    </div>
+
+
+    <div class="requirements-grid">
+
+      <div class="requirement-card">
+
+        <span class="requirement-card__label">
+          Equipment
+        </span>
+
+        @if ((exercise.equipment?.length ?? 0) > 0) {
+
+          <div class="requirement-card__values">
+
+            @for (
+              equipment of exercise.equipment ?? [];
+              track equipment
+            ) {
+              <span>
+                {{ getEquipmentLabel(equipment) }}
+              </span>
+            }
+
+          </div>
+
+        } @else {
+
+          <strong>No equipment required</strong>
+
+        }
+
+      </div>
+
+
+      <div class="requirement-card">
+
+        <span class="requirement-card__label">
+          Movement type
+        </span>
+
+        <strong>
+          {{ exercise.movementType || '—' }}
+        </strong>
+
+      </div>
+
+
+      <div class="requirement-card">
+
+        <span class="requirement-card__label">
+          Skill level
+        </span>
+
+        <strong class="accent-text">
+          {{ exercise.difficulty }}
+        </strong>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- TECHNIQUE PREVIEW -->
+
+  <section class="detail-section">
+
+    <div class="detail-section__heading">
+
+      <div>
+        <span class="detail-section__eyebrow">
+          Technique
+        </span>
+
+        <h2>Master the movement</h2>
+
+        <p>
+          Build strength with clean execution, controlled
+          positions and consistent technique.
+        </p>
+      </div>
+
+      <span class="detail-section__number">04</span>
+
+    </div>
+
+
+    <div class="technique-grid">
+
+      <article class="technique-card">
+
+        <span class="technique-card__number">
+          01
+        </span>
+
+        <div>
+          <h3>Position</h3>
+
+          <p>
+            Establish a strong and controlled starting
+            position before initiating the movement.
+          </p>
+        </div>
+
+      </article>
+
+
+      <article class="technique-card">
+
+        <span class="technique-card__number">
+          02
+        </span>
+
+        <div>
+          <h3>Control</h3>
+
+          <p>
+            Maintain tension throughout the movement and
+            avoid relying on unnecessary momentum.
+          </p>
+        </div>
+
+      </article>
+
+
+      <article class="technique-card">
+
+        <span class="technique-card__number">
+          03
+        </span>
+
+        <div>
+          <h3>Execution</h3>
+
+          <p>
+            Prioritize clean range of motion and repeatable
+            technique over rushed repetitions.
+          </p>
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROGRESSION / FUTURE -->
+
+  <section class="detail-section progression-section">
+
+    <div class="detail-section__heading">
+
+      <div>
+        <span class="detail-section__eyebrow">
+          Progression
+        </span>
+
+        <h2>Your path forward</h2>
+
+        <p>
+          See where this exercise sits in your calisthenics
+          progression.
+        </p>
+      </div>
+
+      <span class="detail-section__number">05</span>
+
+    </div>
+
+
+    <div class="progression-preview">
+
+      <div class="progression-preview__line"></div>
+
+      <div class="progression-node progression-node--previous">
+        <span>Previous</span>
+        <strong>Foundation</strong>
+      </div>
+
+      <div class="progression-node progression-node--current">
+        <span>Current exercise</span>
+        <strong>{{ exercise.name }}</strong>
+      </div>
+
+      <div class="progression-node progression-node--next">
+        <span>Next milestone</span>
+        <strong>Advanced progression</strong>
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+  </main>
+
+} @else {
+
+  <main class="exercise-not-found">
+    <span>404</span>
+    <h1>Exercise not found</h1>
+
+    <a routerLink="/search">
+      ← Back to exercises
+    </a>
+  </main>
+
+}

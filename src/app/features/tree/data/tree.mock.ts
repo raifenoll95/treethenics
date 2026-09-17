@@ -1090,7 +1090,7 @@ export const EXERCISES: Exercise[] = [
   difficulty: 'intermediate',
   movementType: 'static',
   graphLevel: 3,
-  showInTree: true,
+  showInTree: false,
   category: 'static',
   targetAreas: ['back', 'shoulders', 'core'],
   primaryMuscles: ['latissimus-dorsi', 'rear-deltoids', 'upper-back'],
