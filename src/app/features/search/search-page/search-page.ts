@@ -26,6 +26,7 @@ interface ExerciseLevelGroup {
 })
 export class SearchPage {
   readonly searchTerm = signal('');
+  readonly totalExercises = EXERCISES.length;
 
   readonly selectedDifficulty = signal<ExerciseDifficulty | null>(null);
 

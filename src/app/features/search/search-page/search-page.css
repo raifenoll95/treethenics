@@ -3,6 +3,241 @@
   min-height: 100%;
 }
 
+/* ========================================
+   SEARCH HEADER
+======================================== */
+
+.search-header {
+  margin-bottom: 18px;
+}
+
+.search-header__main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 62px;
+  gap: 32px;
+}
+
+
+/* IDENTITY */
+
+.search-header__identity {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+
+/* SEARCH MARK */
+
+.search-header__mark {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  width: 36px;
+  height: 36px;
+
+  flex-shrink: 0;
+
+  border: 1px solid #303844;
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #181e26,
+      #10151b
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+/* círculo de la lupa */
+.search-header__mark::before {
+  content: '';
+
+  width: 10px;
+  height: 10px;
+
+  border: 2px solid #f43f5e;
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 12px rgba(244, 63, 94, 0.25);
+}
+
+/* mango de la lupa */
+.search-header__mark::after {
+  content: '';
+
+  position: absolute;
+
+  width: 7px;
+  height: 2px;
+
+  margin-top: 12px;
+  margin-left: 13px;
+
+  border-radius: 2px;
+
+  background: #f43f5e;
+
+  transform: rotate(45deg);
+}
+
+
+/* COPY */
+
+.search-header__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.search-header__title-row {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.search-header__title-row h1 {
+  margin: 0;
+
+  color: #f5f7fa;
+
+  font-size: 24px;
+  font-weight: 800;
+
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.search-header__badge {
+  padding: 4px 7px;
+
+  border: 1px solid rgba(244, 63, 94, 0.28);
+  border-radius: 5px;
+
+  background: rgba(244, 63, 94, 0.07);
+
+  color: #fb4b67;
+
+  font-size: 8px;
+  font-weight: 850;
+
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.search-header__copy p {
+  margin: 0;
+
+  color: #7f8a99;
+
+  font-size: 11px;
+  font-weight: 500;
+}
+
+
+/* STATS */
+
+.search-header__stats {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+
+  padding: 8px 13px;
+
+  border: 1px solid #262e38;
+  border-radius: 9px;
+
+  background: rgba(17, 22, 29, 0.65);
+}
+
+.search-header__stat {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.search-header__stat strong {
+  color: #e8edf3;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.search-header__stat span {
+  color: #687382;
+
+  font-size: 8px;
+  font-weight: 750;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.search-header__divider {
+  width: 1px;
+  height: 18px;
+
+  background: #303844;
+}
+
+
+/* ACCENT LINE */
+
+.search-header__line {
+  position: relative;
+
+  height: 1px;
+
+  margin-top: 7px;
+
+  overflow: hidden;
+
+  background: #222a33;
+}
+
+.search-header__line span {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 115px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #f43f5e,
+      rgba(244, 63, 94, 0)
+    );
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+  .search-header__stats {
+    display: none;
+  }
+
+  .search-header__badge {
+    display: none;
+  }
+
+  .search-header__title-row h1 {
+    font-size: 21px;
+  }
+}
+
 .search-page {
   width: 100%;
   padding: 28px 32px 60px;
