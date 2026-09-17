@@ -1,13 +1,15 @@
 <aside class="sidebar">
-  <div class="sidebar__brand">
-    <div class="sidebar__logo">
-      <span>T</span>
-    </div>
-
-    <span class="sidebar__brand-name">
-      TREE<span>THENICS</span>
-    </span>
-  </div>
+  <a
+    class="sidebar__brand"
+    routerLink="/"
+    aria-label="Go to Exercise Tree"
+  >
+    <img
+      class="sidebar__brand-logo"
+      src="/images/logo/treethenics-logo.png"
+      alt="Treethenics"
+    />
+  </a>
 
   <nav class="sidebar__nav">
     <a
@@ -20,11 +22,6 @@
       <span>Tree</span>
     </a>
 
-    <a class="sidebar__item">
-      <span class="sidebar__icon">◎</span>
-      <span>What should I train?</span>
-    </a>
-
     <a
       class="sidebar__item"
       routerLink="/search"
@@ -32,6 +29,11 @@
     >
       <span class="sidebar__icon">⌕</span>
       <span>Search</span>
+    </a>
+
+    <a class="sidebar__item">
+      <span class="sidebar__icon">◎</span>
+      <span>What should I train?</span>
     </a>
 
     <a class="sidebar__item">
