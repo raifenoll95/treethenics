@@ -152,12 +152,29 @@
 
 .level-group {
   display: grid;
+  --level-color: #60a5fa;
   grid-template-columns: 150px 1fr;
   gap: 24px;
 
   padding: 24px 0;
 
   border-bottom: 1px solid #252d38;
+}
+
+.level-group--beginner {
+  --level-color: #34d399;
+}
+
+.level-group--intermediate {
+  --level-color: #60a5fa;
+}
+
+.level-group--advanced {
+  --level-color: #fb923c;
+}
+
+.level-group--elite {
+  --level-color: #f43f5e;
 }
 
 .level-group__info {
@@ -175,11 +192,17 @@
 
   flex-shrink: 0;
 
-  border: 1px solid #3b82f6;
+  border: 1px solid var(--level-color);
   border-radius: 9px;
 
-  background: rgba(59, 130, 246, 0.12);
-  color: #60a5fa;
+  background:
+    color-mix(
+      in srgb,
+      var(--level-color) 10%,
+      transparent
+    );
+
+  color: var(--level-color);
 
   font-size: 17px;
   font-weight: 800;
@@ -192,7 +215,7 @@
 }
 
 .level-group__info strong {
-  color: #60a5fa;
+  color: var(--level-color);
 
   font-size: 11px;
   font-weight: 800;

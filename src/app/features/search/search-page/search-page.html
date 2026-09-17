@@ -81,6 +81,10 @@
       <section
         class="level-group"
         [attr.data-level]="group.level"
+        [class.level-group--beginner]="group.exercises[0].difficulty === 'beginner'"
+        [class.level-group--intermediate]="group.exercises[0].difficulty === 'intermediate'"
+        [class.level-group--advanced]="group.exercises[0].difficulty === 'advanced'"
+        [class.level-group--elite]="group.exercises[0].difficulty === 'elite'"
       >
 
         <div class="level-group__info">
