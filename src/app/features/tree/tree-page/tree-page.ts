@@ -10,6 +10,7 @@ import { EXERCISES } from '../data/tree.mock';
 import { Exercise } from '../../../shared/models/exercise.model';
 import { ExerciseEquipment } from '../../../shared/models/exercise-equipment.model';
 import { ExerciseMuscle } from '../../../shared/models/exercise-muscle.model';
+import { RouterLink } from '@angular/router';
 
 import {
   EQUIPMENT_LABELS,
@@ -21,7 +22,10 @@ type PanelSide = 'left' | 'right';
 
 @Component({
   selector: 'app-tree-page',
-  imports: [TreeCanvas],
+  imports: [
+    TreeCanvas,
+    RouterLink,
+  ],
   templateUrl: './tree-page.html',
   styleUrl: './tree-page.css',
 })

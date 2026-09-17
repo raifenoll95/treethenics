@@ -779,31 +779,38 @@ app-tree-canvas {
   justify-content: space-between;
 
   width: 100%;
-  margin-top: auto;
+  min-height: 0;
 
-  padding: 8px 14px;
+  margin-top: auto;
+  padding: 10px 14px;
 
   background: var(--exercise-color);
   color: #ffffff;
-  border: 0;
-  border-radius: 8px;
 
-  font-size: 13px;
+  border: 0;
+  border-radius: 9px;
+
+  font-size: 12px;
   font-weight: 750;
+  line-height: 1;
+
+  text-decoration: none;
 
   cursor: pointer;
 
-  box-shadow:
-    0 8px 24px
-    color-mix(
-      in srgb,
-      var(--exercise-color) 22%,
-      transparent
-    );
+  box-sizing: border-box;
 
   transition:
     transform var(--transition-fast),
     box-shadow var(--transition-fast);
+}
+
+.exercise-panel__details:visited {
+  color: #ffffff;
+}
+
+.exercise-panel__details:visited {
+  color: #ffffff;
 }
 
 .exercise-panel__details span {

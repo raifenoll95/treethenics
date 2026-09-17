@@ -231,13 +231,13 @@
           </div>
         </div>
 
-        <button
+        <a
           class="exercise-panel__details"
-          type="button"
+          [routerLink]="['/exercises', exercise.id]"
         >
-          View exercise
+          <span>View exercise</span>
           <span>→</span>
-        </button>
+        </a>
       </aside>
     }
   </div>

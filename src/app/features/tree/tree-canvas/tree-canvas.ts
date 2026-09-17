@@ -54,35 +54,49 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
   }
 
   private initializeTree(): void {
-    const nodes = EXERCISES.map((exercise) => ({
+
+    const treeExercises = EXERCISES.filter(
+      (exercise) => exercise.showInTree === true,
+    );
+
+    const nodes = treeExercises.map((exercise) => ({
       data: {
         id: exercise.id,
         label: exercise.name,
         difficulty: exercise.difficulty,
         graphLevel: exercise.graphLevel,
       },
-
       position: this.getNodePosition(
         exercise.id,
         exercise.graphLevel,
       ),
     }));
 
-    const edges = EXERCISE_RELATIONS.map((relation, index) => {
-      const targetExercise = EXERCISES.find(
-        (exercise) => exercise.id === relation.to,
-      );
+    const treeExerciseIds = new Set(
+      treeExercises.map((exercise) => exercise.id),
+    );
 
-      return {
-        data: {
-          id: `relation-${index}`,
-          source: relation.from,
-          target: relation.to,
-          type: relation.type,
-          targetDifficulty: targetExercise?.difficulty,
-        },
-      };
-    });
+    const edges = EXERCISE_RELATIONS
+      .filter(
+        (relation) =>
+          treeExerciseIds.has(relation.from) &&
+          treeExerciseIds.has(relation.to),
+      )
+      .map((relation, index) => {
+        const targetExercise = treeExercises.find(
+          (exercise) => exercise.id === relation.to,
+        );
+
+        return {
+          data: {
+            id: `relation-${index}`,
+            source: relation.from,
+            target: relation.to,
+            type: relation.type,
+            targetDifficulty: targetExercise?.difficulty,
+          },
+        };
+      });
 
     this.cy = cytoscape({
       autoungrabify: true,
