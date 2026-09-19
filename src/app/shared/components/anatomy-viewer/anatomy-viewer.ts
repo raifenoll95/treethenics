@@ -8,6 +8,11 @@ import {
 
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { input } from '@angular/core';
+
+import { ExerciseMuscle } from '../../../shared/models/exercise-muscle.model';
+
+import { ANATOMY_MUSCLE_MAP } from './anatomy-muscle-map';
 
 @Component({
   selector: 'app-anatomy-viewer',
@@ -16,6 +21,11 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
   styleUrl: './anatomy-viewer.css',
 })
 export class AnatomyViewer implements AfterViewInit, OnDestroy {
+
+
+  readonly primaryMuscles = input<ExerciseMuscle[]>([]);
+  readonly secondaryMuscles = input<ExerciseMuscle[]>([]);
+
   @ViewChild('canvasContainer', { static: true })
   private canvasContainer!: ElementRef<HTMLDivElement>;
 
@@ -62,25 +72,33 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
 
     container.appendChild(this.renderer.domElement);
 
-    // Iluminación frontal y posterior.
+    // Iluminación suave y natural.
 
     const ambientLight = new THREE.AmbientLight(
       0xffffff,
-      0.9,
+      0.85,
     );
 
     this.scene.add(ambientLight);
 
     const frontLight = new THREE.DirectionalLight(
-      0xffffff,
-      2.2,
+      0xfff0e6,
+      2,
     );
 
     frontLight.position.set(3, 5, 6);
     this.scene.add(frontLight);
 
+    const fillLight = new THREE.DirectionalLight(
+      0xdce8ff,
+      0.8,
+    );
+
+    fillLight.position.set(-4, 2, 3);
+    this.scene.add(fillLight);
+
     const backLight = new THREE.DirectionalLight(
-      0x9db4d0,
+      0xffffff,
       1.1,
     );
 
@@ -122,19 +140,20 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
 
         // Modelo original.
         const anatomy = gltf.scene;
+        this.applyMuscleColors(anatomy);
 
-        anatomy.traverse((object) => {
-        if (!(object instanceof THREE.Mesh)) {
-          return;
-        }
+        //anatomy.traverse((object) => {
+        //if (!(object instanceof THREE.Mesh)) {
+          //return;
+        //}
 
-        object.material = new THREE.MeshStandardMaterial({
-          color: 0xb9c1cb,
-          roughness: 0.82,
-          metalness: 0,
-          side: THREE.DoubleSide,
-        });
-      });
+        //object.material = new THREE.MeshStandardMaterial({
+          //color: 0xb9c1cb,
+          //roughness: 0.82,
+          //metalness: 0,
+          //side: THREE.DoubleSide,
+        //});
+      //});
 
         // El archivo viene con la altura del cuerpo en el eje Z.
         anatomy.rotation.x = -Math.PI / 2;
@@ -165,9 +184,8 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
         // Centramos el cuerpo en coordenadas del grupo exterior.
         // Al tener anatomy.rotation.x aplicada, desplazar anatomy.position
         // directamente puede dar un centrado incorrecto.
-        anatomy.position.sub(center);
-
         rotationGroup.scale.setScalar(scale);
+        rotationGroup.position.copy(center).multiplyScalar(-scale);
 
         // Guardamos el grupo que girará en la animación.
         this.model = rotationGroup;
@@ -287,6 +305,12 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
 
     this.renderer.setSize(width, height);
 
+    this.renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+    this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
+
+    this.renderer.toneMappingExposure = 1.15;
+
     if (this.model) {
       this.fitCameraToModel();
     } else {
@@ -327,5 +351,57 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
 
     this.renderer?.dispose();
     this.renderer?.domElement.remove();
+  }
+
+  private getMuscleColor(meshName: string): number {
+    const normalizedName = meshName.toLowerCase();
+
+    const isPrimary = this.primaryMuscles().some((muscle) =>
+      ANATOMY_MUSCLE_MAP[muscle].some((name) =>
+        normalizedName.includes(name),
+      ),
+    );
+
+    if (isPrimary) {
+      return 0xf43f5e;
+    }
+
+    const isSecondary = this.secondaryMuscles().some((muscle) =>
+      ANATOMY_MUSCLE_MAP[muscle].some((name) =>
+        normalizedName.includes(name),
+      ),
+    );
+
+    if (isSecondary) {
+      return 0x9f3547;
+    }
+
+    return 0xb9c1cb;
+  }
+
+  private applyMuscleColors(anatomy: THREE.Object3D): void {
+    anatomy.traverse((object) => {
+      if (!(object instanceof THREE.Mesh)) {
+        return;
+      }
+
+      const color = this.getMuscleColor(object.name);
+
+      const isPrimary = color === 0xf43f5e;
+      const isSecondary = color === 0x9f3547;
+
+      object.material = new THREE.MeshStandardMaterial({
+        color: isPrimary
+          ? 0xe5485d
+          : isSecondary
+            ? 0xb65b67
+            : 0xc99178,
+
+        roughness: 0.95,
+        metalness: 0,
+
+        side: THREE.DoubleSide,
+      });
+    });
   }
 }
