@@ -4,18 +4,20 @@
 }
 
 .sidebar {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 245px;
+  height: 100dvh;
+
+  background: #1c1d20;
+  border-right: 1px solid #30343b;
 
   display: flex;
   flex-direction: column;
 
-  width: var(--sidebar-width);
-  height: 100vh;
-
-  padding: 28px 18px 20px;
-
-  background: var(--color-surface);
-  border-right: 1px solid var(--color-border);
+  z-index: 100;
 }
 
 /* BRAND */
