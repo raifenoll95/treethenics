@@ -67,6 +67,70 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
+  padding: 0 12px;
+}
+
+/* Enlaces */
+.sidebar__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  min-height: 46px;
+  padding: 0 14px;
+
+  color: #aeb7c5;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+
+  border-radius: 8px;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+/* Iconos */
+.sidebar__link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+}
+
+/* Hover */
+.sidebar__link:hover {
+  color: #f8fafc;
+  background: #292c32;
+}
+
+/* Página activa */
+.sidebar__link--active {
+  color: #ffffff;
+  background: rgba(244, 63, 94, 0.10);
+}
+
+/* Línea roja del elemento activo */
+.sidebar__link--active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+
+  width: 3px;
+  border-radius: 3px;
+  background: #f43f5e;
+}
+
+/* Icono activo */
+.sidebar__link--active .sidebar__link-icon {
+  color: #f43f5e;
 }
 
 .sidebar__item {
