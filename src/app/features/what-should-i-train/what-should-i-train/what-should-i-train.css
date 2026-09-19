@@ -1,0 +1,586 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.train-page {
+  width: min(100%, 1440px);
+  margin: 0 auto;
+  padding: 36px 40px 64px;
+  color: #f3f4f6;
+}
+
+.train-page__header {
+  margin-bottom: 32px;
+}
+
+.train-page__eyebrow,
+.train-panel__step {
+  color: #f87171;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.train-page__header h1 {
+  margin: 10px 0 12px;
+  font-size: clamp(30px, 3vw, 44px);
+  line-height: 1.1;
+}
+
+.train-page__header p,
+.train-panel__heading p {
+  max-width: 700px;
+  color: #b8c0cc;
+  line-height: 1.6;
+}
+
+.train-panel {
+  margin-bottom: 18px;
+  padding: 26px;
+  background: #1f2937;
+  border: 1px solid #465163;
+  border-radius: 16px;
+}
+
+.train-panel__heading {
+  margin-bottom: 20px;
+}
+
+.train-panel__heading h2,
+.train-results__header h2 {
+  margin: 8px 0 0;
+  font-size: 20px;
+}
+
+.train-panel__heading p {
+  margin: 8px 0 0;
+  font-size: 13px;
+}
+
+.option-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.option-button {
+  min-height: 44px;
+  padding: 10px 18px;
+  color: #d1d5db;
+  background: #303b4b;
+  border: 1px solid #4b5563;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.option-button:hover {
+  color: #fff;
+  border-color: #f87171;
+}
+
+.option-button--selected {
+  color: #fff;
+  background: #7f1d1d;
+  border-color: #ef4444;
+}
+
+.option-button:focus-visible,
+.reset-button:focus-visible,
+.exercise-card:focus-visible {
+  outline: 2px solid #f87171;
+  outline-offset: 3px;
+}
+
+.train-results {
+  margin-top: 36px;
+}
+
+.train-results__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.reset-button {
+  padding: 10px 14px;
+  color: #d1d5db;
+  background: transparent;
+  border: 1px solid #6b7280;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.reset-button:hover {
+  color: #fff;
+  border-color: #f87171;
+}
+
+.empty-state {
+  padding: 48px 24px;
+  color: #cbd5e1;
+  text-align: center;
+  background: #1f2937;
+  border: 1px dashed #64748b;
+  border-radius: 14px;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.exercise-card {
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+  background: #1f2937;
+  border: 1px solid #465163;
+  border-radius: 14px;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.exercise-card:hover {
+  transform: translateY(-3px);
+  border-color: #ef4444;
+}
+
+.exercise-card__image,
+.exercise-card__placeholder {
+  display: block;
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  background: #111827;
+}
+
+.exercise-card__placeholder {
+  display: grid;
+  place-items: center;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.exercise-card__content {
+  padding: 16px;
+}
+
+.exercise-card__difficulty {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.exercise-card__difficulty--beginner {
+  color: #4ade80;
+}
+
+.exercise-card__difficulty--intermediate {
+  color: #60a5fa;
+}
+
+.exercise-card__difficulty--advanced {
+  color: #fb923c;
+}
+
+.exercise-card__difficulty--elite {
+  color: #fb7185;
+}
+
+.exercise-card h3 {
+  margin: 0 0 16px;
+  font-size: 17px;
+}
+
+.exercise-card__link {
+  color: #f87171;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .train-page {
+    padding: 24px 18px 48px;
+  }
+
+  .train-panel {
+    padding: 20px;
+  }
+
+  .train-results__header {
+    align-items: flex-start;
+  }
+
+  .results-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}
+
+/* Encabezado más compacto */
+.train-page {
+  padding-top: 24px;
+}
+
+.train-page__header {
+  margin-bottom: 22px;
+}
+
+.train-page__header h1 {
+  margin: 6px 0 8px;
+}
+
+.train-page__header p {
+  margin: 0;
+}
+
+/* Un único panel para los tres filtros */
+.train-filters {
+  display: grid;
+  grid-template-columns: 0.9fr 1.15fr 1.25fr;
+  gap: 0;
+
+  padding: 20px 24px;
+  background: #1f2937;
+  border: 1px solid #465163;
+  border-radius: 16px;
+}
+
+.train-filter {
+  min-width: 0;
+  padding: 0 24px;
+}
+
+/* La primera columna no necesita espacio a la izquierda */
+.train-filter:first-child {
+  padding-left: 0;
+}
+
+/* La última columna no necesita espacio a la derecha */
+.train-filter:last-child {
+  padding-right: 0;
+}
+
+.train-filter + .train-filter {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+  border-left: 1px solid #465163;
+}
+
+.train-filter__heading {
+  min-height: 58px;
+  margin-bottom: 12px;
+}
+
+.train-filter__heading h2 {
+  margin: 4px 0 0;
+  font-size: 15px;
+}
+
+.train-filter__heading p {
+  margin: 4px 0 0;
+  color: #b8c0cc;
+  font-size: 12px;
+}
+
+/* Botones más pequeños */
+.option-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.option-button {
+  min-height: 36px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+/* Resultados más cerca de los filtros */
+.train-results {
+  margin-top: 28px;
+}
+
+@media (max-width: 768px) {
+  .train-filters {
+    padding: 18px;
+  }
+
+  .train-filter + .train-filter {
+    margin-top: 16px;
+    padding-top: 16px;
+  }
+}
+
+/* Tablets y ventanas medianas */
+@media (max-width: 1250px) {
+  .train-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .train-filter {
+    padding: 0;
+  }
+
+  .train-filter + .train-filter {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  .train-filter:last-child {
+    grid-column: 1 / -1;
+    padding-top: 18px;
+    border-top: 1px solid #465163;
+  }
+
+  .train-filter__heading {
+    min-height: 0;
+  }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+  .train-filters {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 18px;
+  }
+
+  .train-filter:last-child {
+    grid-column: auto;
+  }
+
+  .train-filter + .train-filter {
+    padding-top: 18px;
+    border-top: 1px solid #465163;
+  }
+}
+
+/* Colores de dificultad, como en Search */
+.difficulty-button--beginner {
+  color: #4ade80;
+  border-color: #358467;
+}
+
+.difficulty-button--intermediate {
+  color: #60a5fa;
+  border-color: #4c78a8;
+}
+
+.difficulty-button--advanced {
+  color: #fb923c;
+  border-color: #a66b37;
+}
+
+.difficulty-button--elite {
+  color: #fb7185;
+  border-color: #a54763;
+}
+
+/* Estado seleccionado: prevalece sobre el rojo genérico */
+.difficulty-button--beginner.option-button--selected {
+  color: #4ade80;
+  background: #24483e;
+  border-color: #4ade80;
+}
+
+.difficulty-button--intermediate.option-button--selected {
+  color: #60a5fa;
+  background: #243e59;
+  border-color: #60a5fa;
+}
+
+.difficulty-button--advanced.option-button--selected {
+  color: #fb923c;
+  background: #503a2b;
+  border-color: #fb923c;
+}
+
+.difficulty-button--elite.option-button--selected {
+  color: #fb7185;
+  background: #502c3b;
+  border-color: #fb7185;
+}
+
+/* Botones de dificultad: texto en mayúsculas */
+.difficulty-button {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+
+/* Al pasar el cursor, el borde toma el color de la dificultad */
+.difficulty-button--beginner:hover {
+  color: #4ade80;
+  border-color: #4ade80;
+}
+
+.difficulty-button--intermediate:hover {
+  color: #60a5fa;
+  border-color: #60a5fa;
+}
+
+.difficulty-button--advanced:hover {
+  color: #fb923c;
+  border-color: #fb923c;
+}
+
+.difficulty-button--elite:hover {
+  color: #fb7185;
+  border-color: #fb7185;
+}
+
+/* Aprovechar todo el ancho disponible */
+.train-page {
+  width: 100%;
+  max-width: none;
+}
+
+/* Tres columnas ajustadas al espacio que necesita cada filtro */
+.train-filters {
+  grid-template-columns: 0.85fr 1.25fr 1.5fr;
+  padding: 18px 20px;
+}
+
+/* Reducir el espacio lateral entre columnas */
+.train-filter {
+  padding-right: 14px;
+  padding-left: 14px;
+}
+
+.train-filter:first-child {
+  padding-left: 0;
+}
+
+.train-filter:last-child {
+  padding-right: 0;
+}
+
+/* Mantener todos los botones de cada filtro en una sola fila */
+/* Evitar que el contenido desborde sus columnas */
+.train-filters {
+  grid-template-columns:
+    minmax(0, 0.85fr)
+    minmax(0, 1.25fr)
+    minmax(0, 1.5fr);
+}
+
+.train-filter {
+  min-width: 0;
+}
+
+.train-filter .option-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  overflow: visible;
+}
+
+.train-filter .option-button {
+  flex-shrink: 0;
+  padding: 7px 9px;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+/* Cuando no caben tres columnas, apilar los filtros */
+@media (max-width: 1400px) {
+  .train-filters {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .train-filter,
+  .train-filter:first-child,
+  .train-filter:last-child {
+    min-width: 0;
+    padding: 0;
+  }
+
+  .train-filter + .train-filter,
+  .train-filter:last-child {
+    grid-column: auto;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-left: none;
+    border-top: 1px solid #465163;
+  }
+
+  .train-filter__heading {
+    min-height: 0;
+  }
+}
+
+/* Borde de las tarjetas según la dificultad seleccionada */
+.exercise-card--beginner {
+  border-color: #358467;
+}
+
+.exercise-card--intermediate {
+  border-color: #4c78a8;
+}
+
+.exercise-card--advanced {
+  border-color: #a66b37;
+}
+
+.exercise-card--elite {
+  border-color: #a54763;
+}
+
+/* Al pasar el cursor, intensificar el color del borde */
+.exercise-card--beginner:hover {
+  border-color: #4ade80;
+}
+
+.exercise-card--intermediate:hover {
+  border-color: #60a5fa;
+}
+
+.exercise-card--advanced:hover {
+  border-color: #fb923c;
+}
+
+.exercise-card--elite:hover {
+  border-color: #fb7185;
+}
+
+/* Color de "View exercise" según la dificultad */
+.exercise-card--beginner .exercise-card__link {
+  color: #4ade80;
+}
+
+.exercise-card--intermediate .exercise-card__link {
+  color: #60a5fa;
+}
+
+.exercise-card--advanced .exercise-card__link {
+  color: #fb923c;
+}
+
+.exercise-card--elite .exercise-card__link {
+  color: #fb7185;
+}

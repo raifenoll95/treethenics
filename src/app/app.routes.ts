@@ -3,6 +3,7 @@ import { AppShell } from './core/layout/app-shell/app-shell';
 import { TreePage } from './features/tree/tree-page/tree-page';
 import { SearchPage } from './features/search/search-page/search-page';
 import { ExerciseDetail } from './features/exercise/exercise-detail/exercise-detail';
+import { WhatShouldITrain } from './features/what-should-i-train/what-should-i-train/what-should-i-train';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,10 @@ export const routes: Routes = [
       {
         path: 'search',
         component: SearchPage,
+      },
+      {
+        path: 'what-should-i-train',
+        component: WhatShouldITrain,
       },
       {
         path: 'exercises/:id',

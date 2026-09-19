@@ -1,0 +1,174 @@
+<section class="train-page">
+  <header class="train-page__header">
+    <span class="train-page__eyebrow">FIND YOUR NEXT MOVE</span>
+    <h1>What should I train?</h1>
+    <p>
+      Choose what you want to work on, tell us what equipment
+      you have, and explore exercises that match your level.
+    </p>
+  </header>
+
+  <div class="train-filters">
+    <!-- 01 / DIFFICULTY -->
+    <div class="train-filter">
+      <div class="train-filter__heading">
+        <span class="train-panel__step">01 / DIFFICULTY</span>
+        <h2>Choose your level</h2>
+      </div>
+
+      <div class="option-grid">
+        @for (difficulty of difficulties; track difficulty.value) {
+          <button
+            type="button"
+            class="option-button difficulty-button"
+            [class.option-button--selected]="selectedDifficulty() === difficulty.value"
+            [class.difficulty-button--beginner]="difficulty.value === 'beginner'"
+            [class.difficulty-button--intermediate]="difficulty.value === 'intermediate'"
+            [class.difficulty-button--advanced]="difficulty.value === 'advanced'"
+            [class.difficulty-button--elite]="difficulty.value === 'elite'"
+            [attr.aria-pressed]="selectedDifficulty() === difficulty.value"
+            (click)="selectDifficulty(difficulty.value)"
+          >
+            {{ difficulty.label }}
+          </button>
+        }
+      </div>
+    </div>
+
+    <!-- 02 / TARGET -->
+    <div class="train-filter">
+      <div class="train-filter__heading">
+        <span class="train-panel__step">02 / TARGET</span>
+        <h2>What do you want to train?</h2>
+      </div>
+
+      <div class="option-grid">
+        <button
+          type="button"
+          class="option-button"
+          [class.option-button--selected]="allTargetsSelected()"
+          [attr.aria-pressed]="allTargetsSelected()"
+          (click)="selectAllTargets()"
+        >
+          ALL
+        </button>
+
+        @for (area of targetAreas; track area.value) {
+          <button
+            type="button"
+            class="option-button"
+            [class.option-button--selected]="hasArea(area.value)"
+            [attr.aria-pressed]="hasArea(area.value)"
+            (click)="toggleArea(area.value)"
+          >
+            {{ area.label }}
+          </button>
+        }
+      </div>
+    </div>
+
+    <!-- 03 / EQUIPMENT -->
+    <div class="train-filter">
+      <div class="train-filter__heading">
+        <span class="train-panel__step">03 / EQUIPMENT</span>
+        <h2>What equipment do you have?</h2>
+        <p>Select the equipment available to you.</p>
+      </div>
+
+      <div class="option-grid">
+        <button
+          type="button"
+          class="option-button"
+          [class.option-button--selected]="allEquipmentSelected()"
+          [attr.aria-pressed]="allEquipmentSelected()"
+          (click)="selectAllEquipment()"
+        >
+          ALL
+        </button>
+
+        @for (item of equipmentOptions; track item.value) {
+          <button
+            type="button"
+            class="option-button"
+            [class.option-button--selected]="hasEquipment(item.value)"
+            [attr.aria-pressed]="hasEquipment(item.value)"
+            (click)="toggleEquipment(item.value)"
+          >
+            {{ item.label }}
+          </button>
+        }
+      </div>
+    </div>
+  </div>
+
+  <section class="train-results">
+    <div class="train-results__header">
+      <div>
+        <span class="train-panel__step">YOUR EXERCISES</span>
+        <h2>{{ results().length }} matching exercises</h2>
+      </div>
+
+      <button
+        type="button"
+        class="reset-button"
+        (click)="resetFilters()"
+      >
+        Reset filters
+      </button>
+    </div>
+
+    @if (results().length === 0) {
+      <div class="empty-state">
+        Select a muscle group to discover exercises.
+      </div>
+    } @else if (results().length === 0) {
+      <div class="empty-state">
+        No exercises match your selection. Try another difficulty
+        or select more equipment.
+      </div>
+    } @else {
+      <div class="results-grid">
+        @for (exercise of results(); track exercise.id) {
+          <a
+            class="exercise-card"
+            [class.exercise-card--beginner]="selectedDifficulty() === 'beginner'"
+            [class.exercise-card--intermediate]="selectedDifficulty() === 'intermediate'"
+            [class.exercise-card--advanced]="selectedDifficulty() === 'advanced'"
+            [class.exercise-card--elite]="selectedDifficulty() === 'elite'"
+            [routerLink]="['/exercises', exercise.id]"
+          >
+            @if (exercise.imageUrl) {
+              <img
+                class="exercise-card__image"
+                [src]="exercise.imageUrl"
+                [alt]="exercise.name"
+                loading="lazy"
+              />
+            } @else {
+              <div class="exercise-card__placeholder">
+                TREETHENICS
+              </div>
+            }
+
+            <div class="exercise-card__content">
+              <span
+                class="exercise-card__difficulty"
+                [class.exercise-card__difficulty--beginner]="exercise.difficulty === 'beginner'"
+                [class.exercise-card__difficulty--intermediate]="exercise.difficulty === 'intermediate'"
+                [class.exercise-card__difficulty--advanced]="exercise.difficulty === 'advanced'"
+                [class.exercise-card__difficulty--elite]="exercise.difficulty === 'elite'"
+              >
+                {{ exercise.difficulty }}
+              </span>
+
+              <h3>{{ exercise.name }}</h3>
+              <span class="exercise-card__link">
+                View exercise →
+              </span>
+            </div>
+          </a>
+        }
+      </div>
+    }
+  </section>
+</section>
