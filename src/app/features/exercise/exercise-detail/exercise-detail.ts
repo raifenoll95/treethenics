@@ -5,7 +5,7 @@ import { EXERCISES } from '../../tree/data/tree.mock';
 
 import { ExerciseMuscle } from '../../../shared/models/exercise-muscle.model';
 import { ExerciseEquipment } from '../../../shared/models/exercise-equipment.model';
-
+import { AnatomyViewer } from '../../../shared/components/anatomy-viewer/anatomy-viewer';
 import {
   EQUIPMENT_LABELS,
   MUSCLE_LABELS,
@@ -13,7 +13,7 @@ import {
 
 @Component({
   selector: 'app-exercise-detail',
-  imports: [RouterLink],
+  imports: [RouterLink, AnatomyViewer],
   templateUrl: './exercise-detail.html',
   styleUrl: './exercise-detail.css',
 })
