@@ -1,4 +1,10 @@
-<section class="train-page">
+<section
+  class="train-page"
+  [class.train-page--beginner]="selectedDifficulty() === 'beginner'"
+  [class.train-page--intermediate]="selectedDifficulty() === 'intermediate'"
+  [class.train-page--advanced]="selectedDifficulty() === 'advanced'"
+  [class.train-page--elite]="selectedDifficulty() === 'elite'"
+>
   <header class="train-page__header">
     <div class="train-page__header-main">
       <div class="train-page__header-icon" aria-hidden="true">◎</div>
@@ -145,6 +151,12 @@
             [class.exercise-card--advanced]="selectedDifficulty() === 'advanced'"
             [class.exercise-card--elite]="selectedDifficulty() === 'elite'"
             [routerLink]="['/exercises', exercise.id]"
+            [queryParams]="{
+              from: 'what-should-i-train',
+              difficulty: selectedDifficulty(),
+              target: selectedAreas().join(',') || null,
+              equipment: selectedEquipment().join(',') || null
+            }"
           >
             @if (exercise.imageUrl) {
               <img

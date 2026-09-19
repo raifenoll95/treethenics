@@ -637,3 +637,25 @@
 .exercise-card--elite .exercise-card__link {
   color: #fb7185;
 }
+
+/* Color de los títulos de sección según la dificultad seleccionada */
+.train-page--beginner {
+  --selected-difficulty-color: #4ade80;
+}
+
+.train-page--intermediate {
+  --selected-difficulty-color: #60a5fa;
+}
+
+.train-page--advanced {
+  --selected-difficulty-color: #fb923c;
+}
+
+.train-page--elite {
+  --selected-difficulty-color: #fb7185;
+}
+
+/* Difficulty, Target, Equipment y Your Exercises */
+.train-page .train-panel__step {
+  color: var(--selected-difficulty-color);
+}

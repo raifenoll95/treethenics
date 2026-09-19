@@ -3,6 +3,9 @@ import { RouterLink } from '@angular/router';
 
 import { EXERCISES } from '../../tree/data/tree.mock';
 
+import { inject } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import {
   Exercise,
   ExerciseDifficulty,
@@ -50,9 +53,24 @@ export class WhatShouldITrain {
     { value: 'elite', label: 'Elite' },
   ];
 
-  readonly selectedAreas = signal<ExerciseTargetArea[]>([]);
+  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
 
-  readonly selectedEquipment = signal<ExerciseEquipment[]>([]);
+  private readonly params = this.route.snapshot.queryParamMap;
+
+  readonly selectedDifficulty = signal<ExerciseDifficulty>(
+    this.isDifficulty(this.params.get('difficulty'))
+      ? this.params.get('difficulty') as ExerciseDifficulty
+      : 'beginner',
+  );
+
+  readonly selectedAreas = signal<ExerciseTargetArea[]>(
+    this.readAreas(this.params.get('target')),
+  );
+
+  readonly selectedEquipment = signal<ExerciseEquipment[]>(
+    this.readEquipment(this.params.get('equipment')),
+  );
 
   readonly allTargetsSelected = computed(
     () => this.selectedAreas().length === 0,
@@ -61,8 +79,6 @@ export class WhatShouldITrain {
   readonly allEquipmentSelected = computed(
     () => this.selectedEquipment().length === 0,
   );
-
-  readonly selectedDifficulty = signal<DifficultyOption>('beginner');
 
   readonly results = computed<Exercise[]>(() => {
     const areas = this.selectedAreas();
@@ -98,8 +114,49 @@ export class WhatShouldITrain {
     });
   });
 
+  private isDifficulty(
+    value: string | null,
+  ): value is ExerciseDifficulty {
+    return (
+      value === 'beginner' ||
+      value === 'intermediate' ||
+      value === 'advanced' ||
+      value === 'elite'
+    );
+  }
+
+  private readAreas(value: string | null): ExerciseTargetArea[] {
+    const values = value?.split(',') ?? [];
+
+    return this.targetAreas
+      .map((area) => area.value)
+      .filter((area) => values.includes(area));
+  }
+
+  private readEquipment(value: string | null): ExerciseEquipment[] {
+    const values = value?.split(',') ?? [];
+
+    return this.equipmentOptions
+      .map((item) => item.value)
+      .filter((item) => values.includes(item));
+  }
+
+  private syncUrl(): void {
+    void this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        difficulty: this.selectedDifficulty(),
+        target: this.selectedAreas().join(',') || null,
+        equipment: this.selectedEquipment().join(',') || null,
+      },
+      queryParamsHandling: 'merge',
+      replaceUrl: true,
+    });
+  }
+
   selectAllTargets(): void {
     this.selectedAreas.set([]);
+    this.syncUrl();
   }
 
   toggleArea(area: ExerciseTargetArea): void {
@@ -108,6 +165,7 @@ export class WhatShouldITrain {
         ? current.filter((item) => item !== area)
         : [...current, area],
     );
+    this.syncUrl();
   }
 
   hasArea(area: ExerciseTargetArea): boolean {
@@ -116,6 +174,7 @@ export class WhatShouldITrain {
 
   selectAllEquipment(): void {
     this.selectedEquipment.set([]);
+    this.syncUrl();
   }
 
   toggleEquipment(equipment: ExerciseEquipment): void {
@@ -124,6 +183,7 @@ export class WhatShouldITrain {
         ? current.filter((item) => item !== equipment)
         : [...current, equipment],
     );
+    this.syncUrl();
   }
 
   hasEquipment(equipment: ExerciseEquipment): boolean {
@@ -132,11 +192,13 @@ export class WhatShouldITrain {
 
   selectDifficulty(difficulty: DifficultyOption): void {
     this.selectedDifficulty.set(difficulty);
+    this.syncUrl();
   }
 
   resetFilters(): void {
     this.selectedDifficulty.set('beginner');
     this.selectedAreas.set([]);
     this.selectedEquipment.set([]);
+    this.syncUrl();
   }
 }
