@@ -79,118 +79,22 @@
 
       <!-- INFORMATION -->
 
-      <aside class="exercise-hero__info">
+      <!-- ANATOMY MODEL -->
 
-        <div class="exercise-hero__top">
+      <aside
+        class="exercise-hero__anatomy"
+        aria-label="Interactive anatomical muscle model"
+      >
+        <div class="exercise-hero__anatomy-stage">
 
-          <div class="exercise-stat">
-            <span class="exercise-stat__label">
-              Difficulty
-            </span>
-
-            <strong class="exercise-stat__difficulty">
-              {{ exercise.difficulty }}
-            </strong>
+          <!-- Aquí montaremos el modelo anatómico 3D -->
+          <div class="exercise-hero__anatomy-placeholder">
+            <span>3D ANATOMY</span>
+            <strong>Muscle visualization</strong>
+            <small>Preparing anatomical model</small>
           </div>
-
-          @if (exercise.graphLevel) {
-            <div class="exercise-stat">
-              <span class="exercise-stat__label">
-                Level
-              </span>
-
-              <strong>
-                {{ exercise.graphLevel }}
-              </strong>
-            </div>
-          }
 
         </div>
-
-
-        @if ((exercise.primaryMuscles?.length ?? 0) > 0) {
-
-          <div class="exercise-info-section">
-
-            <span class="exercise-info-section__label">
-              Primary muscles
-            </span>
-
-            <div class="exercise-tags">
-
-              @for (
-                muscle of exercise.primaryMuscles ?? [];
-                track muscle
-              ) {
-                <span>
-                  {{ getMuscleLabel(muscle) }}
-                </span>
-              }
-
-            </div>
-
-          </div>
-
-        }
-
-
-        @if ((exercise.secondaryMuscles?.length ?? 0) > 0) {
-
-          <div class="exercise-info-section">
-
-            <span class="exercise-info-section__label">
-              Secondary muscles
-            </span>
-
-            <div class="exercise-tags exercise-tags--secondary">
-
-              @for (
-                muscle of exercise.secondaryMuscles ?? [];
-                track muscle
-              ) {
-                <span>
-                  {{ getMuscleLabel(muscle) }}
-                </span>
-              }
-
-            </div>
-
-          </div>
-
-        }
-
-
-        <div class="exercise-info-section">
-
-          <span class="exercise-info-section__label">
-            Equipment
-          </span>
-
-          @if ((exercise.equipment?.length ?? 0) > 0) {
-
-            <div class="exercise-tags">
-
-              @for (
-                equipment of exercise.equipment ?? [];
-                track equipment
-              ) {
-                <span>
-                  {{ getEquipmentLabel(equipment) }}
-                </span>
-              }
-
-            </div>
-
-          } @else {
-
-            <span class="exercise-info-section__none">
-              No equipment
-            </span>
-
-          }
-
-        </div>
-
       </aside>
 
     </section>
