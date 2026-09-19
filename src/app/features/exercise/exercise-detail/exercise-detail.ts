@@ -18,7 +18,28 @@ import {
   styleUrl: './exercise-detail.css',
 })
 export class ExerciseDetail {
-  private readonly route = inject(ActivatedRoute);
+
+  readonly route = inject(ActivatedRoute);
+
+  readonly origin = this.route.snapshot.queryParamMap.get('from');
+
+  readonly backQueryParams =
+  this.origin === 'search'
+    ? {
+        q: this.route.snapshot.queryParamMap.get('q'),
+        difficulty: this.route.snapshot.queryParamMap.get('difficulty'),
+      }
+    : {};
+
+  readonly backRoute =
+    this.origin === 'tree'
+      ? '/'
+      : '/search';
+
+  readonly backLabel =
+    this.origin === 'tree'
+      ? 'Back to Tree'
+      : 'Back to Exercises';
 
   readonly exerciseId = computed(
     () => this.route.snapshot.paramMap.get('id'),

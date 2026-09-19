@@ -62,6 +62,8 @@
   <a
     class="exercise-card__details"
     [routerLink]="['/exercises', exercise().id]"
+    [queryParams]="{ from: 'search' }"
+    queryParamsHandling="merge"
   >
     <span>View exercise</span>
     <span>→</span>

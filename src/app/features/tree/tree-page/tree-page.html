@@ -281,6 +281,7 @@
         <a
           class="exercise-panel__details"
           [routerLink]="['/exercises', exercise.id]"
+          [queryParams]="{ from: 'tree' }"
         >
           <span>View exercise</span>
           <span>→</span>

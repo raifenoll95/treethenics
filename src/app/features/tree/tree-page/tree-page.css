@@ -8,6 +8,8 @@
 ======================================== */
 
 .tree-header {
+  width: 100%;
+  min-width: 0;
   margin-bottom: 18px;
 }
 
@@ -16,12 +18,12 @@
   align-items: center;
   justify-content: space-between;
 
+  width: 100%;
+  min-width: 0;
+
   min-height: 62px;
   gap: 32px;
 }
-
-
-/* LEFT */
 
 .tree-header__identity {
   display: flex;
@@ -54,7 +56,6 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.035);
 }
 
-/* pequeño nodo central */
 .tree-header__mark::before {
   content: '';
 
@@ -69,7 +70,6 @@
     0 0 12px rgba(244, 63, 94, 0.45);
 }
 
-/* conexiones */
 .tree-header__mark::after {
   content: '';
 
@@ -81,7 +81,6 @@
   background: #596371;
 }
 
-/* pequeño nodo final */
 .tree-header__mark span {
   position: absolute;
 
@@ -95,6 +94,8 @@
   background: #8993a1;
 }
 
+
+/* TEXT */
 
 .tree-header__copy {
   display: flex;
@@ -144,12 +145,10 @@
 
   font-size: 11px;
   font-weight: 500;
-
-  letter-spacing: 0.005em;
 }
 
 
-/* RIGHT STATS */
+/* STATS */
 
 .tree-header__stats {
   display: flex;
@@ -195,13 +194,13 @@
 }
 
 
-/* BOTTOM LINE */
+/* BOTTOM ACCENT */
 
 .tree-header__line {
   position: relative;
 
+  width: 100%;
   height: 1px;
-
   margin-top: 7px;
 
   overflow: hidden;
@@ -254,6 +253,8 @@
   position: relative;
 
   height: 100%;
+  width: 100%;
+  min-width: 0;
   padding: 32px;
 
   overflow: hidden;

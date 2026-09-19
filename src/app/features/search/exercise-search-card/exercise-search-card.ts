@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-import { Exercise } from '../../../shared/models/exercise.model';
+import { Exercise,ExerciseDifficulty, } from '../../../shared/models/exercise.model';
 import { ExerciseMuscle } from '../../../shared/models/exercise-muscle.model';
 import { ExerciseEquipment } from '../../../shared/models/exercise-equipment.model';
 
@@ -17,7 +17,13 @@ import {
   styleUrl: './exercise-search-card.css',
 })
 export class ExerciseSearchCard {
+
   readonly exercise = input.required<Exercise>();
+
+  readonly searchTerm = input<string>('');
+
+  readonly selectedDifficulty =
+    input<ExerciseDifficulty | null>(null);
 
   getMuscleLabel(muscle: ExerciseMuscle): string {
     return MUSCLE_LABELS[muscle];

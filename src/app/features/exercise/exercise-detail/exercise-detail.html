@@ -9,11 +9,12 @@
   >
 
     <a
+      [routerLink]="backRoute"
+      [queryParams]="backQueryParams"
       class="exercise-detail__back"
-      routerLink="/search"
     >
       <span>←</span>
-      Back to exercises
+      <span>{{ backLabel }}</span>
     </a>
 
 
@@ -609,8 +610,14 @@
     <span>404</span>
     <h1>Exercise not found</h1>
 
-    <a routerLink="/search">
-      ← Back to exercises
+    <a
+      routerLink="/search"
+      [queryParams]="{
+        q: route.snapshot.queryParamMap.get('q'),
+        difficulty: route.snapshot.queryParamMap.get('difficulty')
+      }"
+    >
+      ← Back to Exercises
     </a>
   </main>
 

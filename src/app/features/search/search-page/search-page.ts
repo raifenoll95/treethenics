@@ -1,5 +1,7 @@
 import { Component, computed, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { inject } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { EXERCISES } from '../../tree/data/tree.mock';
 import {
@@ -25,10 +27,27 @@ interface ExerciseLevelGroup {
   styleUrl: './search-page.css',
 })
 export class SearchPage {
-  readonly searchTerm = signal('');
+
+  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
+
+  private readonly initialQuery =
+    this.route.snapshot.queryParamMap.get('q') ?? '';
+
+  private readonly initialDifficulty =
+    this.route.snapshot.queryParamMap.get('difficulty');
+
+  readonly searchTerm = signal(
+    this.route.snapshot.queryParamMap.get('q') ?? ''
+  );
+
   readonly totalExercises = EXERCISES.length;
 
-  readonly selectedDifficulty = signal<ExerciseDifficulty | null>(null);
+  readonly selectedDifficulty = signal<ExerciseDifficulty | null>(
+    this.isDifficulty(this.initialDifficulty)
+      ? this.initialDifficulty
+      : null,
+  );
 
   readonly difficulties: ExerciseDifficulty[] = [
     'beginner',
@@ -94,26 +113,59 @@ export class SearchPage {
 
   updateSearch(value: string): void {
     this.searchTerm.set(value);
+
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { q: value || null },
+      queryParamsHandling: 'merge',
+      replaceUrl: true,
+    });
   }
 
   clearSearch(): void {
+    this.updateSearch('');
+  }
+
+  toggleDifficulty(difficulty: ExerciseDifficulty): void {
+    this.selectedDifficulty.set(difficulty);
+    this.syncUrl();
+  }
+
+  clearFilters(): void {
     this.searchTerm.set('');
+    this.selectedDifficulty.set(null);
+    this.syncUrl();
+  }
+
+  showAll(): void {
+    this.selectedDifficulty.set(null);
+    this.syncUrl();
   }
 
   private shuffle(exercises: Exercise[]): Exercise[] {
     return [...exercises].sort(() => Math.random() - 0.5);
   }
 
-  toggleDifficulty(difficulty: ExerciseDifficulty): void {
-    this.selectedDifficulty.set(difficulty);
+  private isDifficulty(
+    value: string | null,
+  ): value is ExerciseDifficulty {
+    return (
+      value === 'beginner' ||
+      value === 'intermediate' ||
+      value === 'advanced' ||
+      value === 'elite'
+    );
   }
 
-  clearFilters(): void {
-    this.searchTerm.set('');
-    this.selectedDifficulty.set(null);
+  private syncUrl(): void {
+    void this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        q: this.searchTerm().trim() || null,
+        difficulty: this.selectedDifficulty() || null,
+      },
+      queryParamsHandling: 'merge',
+      replaceUrl: true,
+    });
   }
-
-  showAll(): void {
-  this.selectedDifficulty.set(null);
-}
 }
