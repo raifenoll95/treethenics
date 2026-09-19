@@ -72,37 +72,44 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
 
     container.appendChild(this.renderer.domElement);
 
-    // Iluminación suave y natural.
+    // Iluminación principal: cálida y suave.
 
     const ambientLight = new THREE.AmbientLight(
       0xffffff,
-      0.85,
+      0.65,
     );
 
     this.scene.add(ambientLight);
 
     const frontLight = new THREE.DirectionalLight(
-      0xfff0e6,
-      2,
+      0xffeee4,
+      1.7,
     );
 
     frontLight.position.set(3, 5, 6);
+
     this.scene.add(frontLight);
 
-    const fillLight = new THREE.DirectionalLight(
-      0xdce8ff,
-      0.8,
+    // Luz lateral: ayuda a distinguir el volumen muscular.
+
+    const sideLight = new THREE.DirectionalLight(
+      0xffffff,
+      0.75,
     );
 
-    fillLight.position.set(-4, 2, 3);
-    this.scene.add(fillLight);
+    sideLight.position.set(-4, 2, 3);
+
+    this.scene.add(sideLight);
+
+    // Luz posterior: separa la silueta del fondo oscuro.
 
     const backLight = new THREE.DirectionalLight(
-      0xffffff,
-      1.1,
+      0xc8d8ff,
+      0.9,
     );
 
     backLight.position.set(-3, 3, -5);
+
     this.scene.add(backLight);
 
     // Cargar el modelo anatómico.
@@ -309,7 +316,7 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
 
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
 
-    this.renderer.toneMappingExposure = 1.15;
+    this.renderer.toneMappingExposure = 1.05;
 
     if (this.model) {
       this.fitCameraToModel();
@@ -390,14 +397,20 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
       const isPrimary = color === 0xf43f5e;
       const isSecondary = color === 0x9f3547;
 
-      object.material = new THREE.MeshStandardMaterial({
-        color: isPrimary
-          ? 0xe5485d
-          : isSecondary
-            ? 0xb65b67
-            : 0xc99178,
+      let materialColor: number;
 
-        roughness: 0.95,
+      if (isPrimary) {
+        materialColor = 0xe63e52;
+      } else if (isSecondary) {
+        materialColor = 0xb85b65;
+      } else {
+        materialColor = 0xc59a85;
+      }
+
+      object.material = new THREE.MeshStandardMaterial({
+        color: materialColor,
+
+        roughness: 0.94,
         metalness: 0,
 
         side: THREE.DoubleSide,
