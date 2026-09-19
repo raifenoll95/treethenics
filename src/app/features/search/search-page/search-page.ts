@@ -43,6 +43,11 @@ export class SearchPage {
 
   readonly totalExercises = EXERCISES.length;
 
+  // Cambia este número a 40, 50, etc.
+  readonly pageSize = 30;
+
+  readonly currentPage = signal(1);
+
   readonly selectedDifficulty = signal<ExerciseDifficulty | null>(
     this.isDifficulty(this.initialDifficulty)
       ? this.initialDifficulty
@@ -87,6 +92,37 @@ export class SearchPage {
     });
   });
 
+  readonly totalPages = computed(() =>
+    Math.max(
+      1,
+      Math.ceil(this.filteredExercises().length / this.pageSize),
+    ),
+  );
+
+  readonly paginatedExercises = computed(() => {
+    const start = (this.currentPage() - 1) * this.pageSize;
+
+    return this.filteredExercises().slice(
+        start,
+        start + this.pageSize,
+      );
+    });
+
+    readonly firstVisibleExercise = computed(() => {
+      if (this.filteredExercises().length === 0) {
+        return 0;
+      }
+
+      return (this.currentPage() - 1) * this.pageSize + 1;
+    });
+
+    readonly lastVisibleExercise = computed(() =>
+      Math.min(
+        this.currentPage() * this.pageSize,
+        this.filteredExercises().length,
+      ),
+    );
+
   readonly groupedResults = computed<ExerciseLevelGroup[]>(() => {
     const hasSearch = this.searchTerm().trim().length > 0;
     const hasDifficulty = this.selectedDifficulty() !== null;
@@ -95,7 +131,7 @@ export class SearchPage {
       return [];
     }
 
-    const exercises = this.filteredExercises();
+    const exercises = this.paginatedExercises();
 
     const levels: ExerciseGraphLevel[] = [
       1, 2, 3, 4, 5, 6, 7,
@@ -111,8 +147,34 @@ export class SearchPage {
       .filter((group) => group.exercises.length > 0);
   });
 
+  nextPage(): void {
+    if (this.currentPage() >= this.totalPages()) {
+      return;
+    }
+
+    this.currentPage.update((page) => page + 1);
+    this.scrollToTop();
+  }
+
+  previousPage(): void {
+    if (this.currentPage() <= 1) {
+      return;
+    }
+
+    this.currentPage.update((page) => page - 1);
+    this.scrollToTop();
+  }
+
+  private scrollToTop(): void {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
+
   updateSearch(value: string): void {
     this.searchTerm.set(value);
+    this.currentPage.set(1);
 
     this.router.navigate([], {
       relativeTo: this.route,
@@ -128,17 +190,20 @@ export class SearchPage {
 
   toggleDifficulty(difficulty: ExerciseDifficulty): void {
     this.selectedDifficulty.set(difficulty);
+    this.currentPage.set(1);
     this.syncUrl();
   }
 
   clearFilters(): void {
     this.searchTerm.set('');
     this.selectedDifficulty.set(null);
+    this.currentPage.set(1);
     this.syncUrl();
   }
 
   showAll(): void {
     this.selectedDifficulty.set(null);
+    this.currentPage.set(1);
     this.syncUrl();
   }
 

@@ -118,7 +118,43 @@
     <div class="search-page__summary">
       <span>Explore all exercises</span>
       <span>
-        {{ filteredExercises().length }} exercises
+
+        @if (totalPages() > 1) {
+          <nav class="search-pagination" aria-label="Exercise pages">
+
+            <button
+              type="button"
+              class="search-pagination__button"
+              [disabled]="currentPage() === 1"
+              (click)="previousPage()"
+              aria-label="Previous page"
+            >
+              ←
+            </button>
+
+            <div class="search-pagination__info">
+              <span>
+                {{ firstVisibleExercise() }}–{{ lastVisibleExercise() }}
+                of {{ filteredExercises().length }} exercises
+              </span>
+
+              <strong>
+                Page {{ currentPage() }} of {{ totalPages() }}
+              </strong>
+            </div>
+
+            <button
+              type="button"
+              class="search-pagination__button"
+              [disabled]="currentPage() === totalPages()"
+              (click)="nextPage()"
+              aria-label="Next page"
+            >
+              →
+            </button>
+
+          </nav>
+        }
 
         @if (searchTerm().trim()) {
           found for “{{ searchTerm() }}”
@@ -135,7 +171,7 @@
     <div class="exercise-grid">
 
       @for (
-        exercise of filteredExercises();
+        exercise of paginatedExercises();
         track exercise.id
       ) {
         <app-exercise-search-card
