@@ -826,7 +826,7 @@ export const EXERCISES: Exercise[] = [
   },
   {
     id: 'inverted-butterfly',
-    name: 'Inverted Butterfly',
+    name: 'Inverted Butterfly HACER',
     difficulty: 'elite',
     movementType: 'dynamic',
     graphLevel: 7,
@@ -842,7 +842,7 @@ export const EXERCISES: Exercise[] = [
   },
   {
     id: 'entrada-de-diablo',
-    name: 'Entrada de Diablo',
+    name: 'Entrada de Diablo HACER',
     difficulty: 'elite',
     movementType: 'dynamic',
     graphLevel: 7,
@@ -857,7 +857,7 @@ export const EXERCISES: Exercise[] = [
   },
   {
     id: 'reverse-planche',
-    name: 'Reverse Planche',
+    name: 'Reverse Planche HACER',
     movementType: 'static',
     difficulty: 'elite',
     graphLevel: 7,
@@ -882,14 +882,14 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['shoulders', 'chest', 'core'],
     primaryMuscles: ['front-deltoids', 'serratus-anterior', 'chest'],
     secondaryMuscles: ['triceps', 'abdominals', 'forearms', 'hip-flexors'],
-    equipment: [],
+    equipment: ['floor','parallettes'],
     description:
-      'An extreme unilateral planche requiring extraordinary straight-arm strength, balance and anti-rotation control while supporting the body on one arm. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Balance your body horizontally on one straight arm, keeping your core engaged, legs extended, and shoulders stable while maintaining full-body tension and control. Start with full planche holds, assisted one-arm planche variations, and controlled weight shifts to develop unilateral shoulder strength, wrist stability, and balance. Gradually transfer more weight onto your supporting arm, reduce assistance, and practice straddle one-arm planche variations before progressing toward the full one-arm planche with proper alignment and stability.',
     imageUrl: '/images/exercises/one-arm-planche.png',
   },
   {
     id: 'pelican',
-    name: 'Pelican',
+    name: 'Pelican HACER',
     difficulty: 'elite',
     movementType: 'dynamic',
     graphLevel: 7,
@@ -905,7 +905,7 @@ export const EXERCISES: Exercise[] = [
   },
   {
     id: 'zanetti',
-    name: 'Zanetti',
+    name: 'Zanetti HACER',
     difficulty: 'elite',
     movementType: 'dynamic',
     graphLevel: 7,
@@ -921,7 +921,7 @@ export const EXERCISES: Exercise[] = [
   },
   {
     id: 'inverted-cross',
-    name: 'Inverted Cross',
+    name: 'Inverted Cross HACER',
     movementType: 'static',
     difficulty: 'elite',
     graphLevel: 7,
@@ -954,9 +954,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['shoulders', 'chest', 'core'],
     primaryMuscles: ['front-deltoids', 'serratus-anterior', 'chest'],
     secondaryMuscles: ['triceps', 'abdominals', 'forearms', 'hip-flexors'],
-    equipment: [],
+    equipment: ['rings'],
     description:
-      'Hold a full planche on rings with the arms straight and the body horizontal. The unstable supports add substantial shoulder and scapular stabilization demands. Keep the rings controlled and the legs fully extended.',
+      'Support your body horizontally on gymnastic rings with your arms straight, legs fully extended, and core engaged, keeping the rings stable and your body parallel to the ground. Start with ring support holds, tuck planche variations, and assisted ring planches to develop shoulder strength, balance, and stability. Gradually progress through advanced tuck and straddle planche variations, reducing assistance while focusing on ring control and proper body alignment before attempting the full planche on rings.',
     imageUrl: '/images/exercises/full-rings.png',
   },
   {
@@ -972,7 +972,7 @@ export const EXERCISES: Exercise[] = [
     secondaryMuscles: ['latissimus-dorsi', 'serratus-anterior', 'forearms', 'abdominals'],
     equipment: ['rings'],
     description:
-      'Hold the body horizontal on rings with the arms straight and extended widely to the sides. The chest and shoulders resist the long lever while the core maintains alignment. Keep both rings stable throughout the hold.',
+      'Support your body horizontally on gymnastic rings with your arms extended straight out to the sides, keeping your body facing downward, core engaged, and shoulders stable. Start with ring support holds, planche variations, and assisted Maltese exercises to develop shoulder strength, straight-arm stability, and body control. Gradually increase your arm extension, reduce assistance, and practice controlled Maltese holds while maintaining proper alignment and ring stability as you progress toward the full movement.',
     imageUrl: '/images/exercises/maltese-rings.png',
   },
   {
@@ -986,137 +986,99 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['back', 'shoulders', 'core'],
     primaryMuscles: ['latissimus-dorsi', 'rear-deltoids', 'chest'],
     secondaryMuscles: ['biceps', 'upper-back', 'abdominals', 'glutes'],
-    equipment: ['pull-up-bar'],
+    equipment: ['rings'],
     description:
-      'Hold the body face down and horizontal beneath the rings with straight arms. Engage the shoulders and back while keeping the hips and legs aligned. The independent rings increase stabilization demands compared with a fixed bar.',
+      'Hang from gymnastic rings, rotate your body backward, and extend your legs until your body is horizontal and facing downward, keeping your arms straight, core engaged, and rings stable. Start with skin the cat, German hangs, and tuck back lever holds to develop shoulder mobility, strength, and body control. Gradually progress through advanced tuck, one-leg, and straddle variations, focusing on maintaining proper alignment and ring stability before attempting the full back lever on rings.',
     imageUrl: '/images/exercises/back-lever-rings.png',
   },
   {
     id: 'handstand-rings',
     name: 'Rings Handstand',
-
     difficulty: 'advanced',
     movementType: 'static',
     graphLevel: 5,
-
     showInTree: false,
     category: 'static',
-
     targetAreas: ['shoulders', 'core'],
-
     primaryMuscles: ['front-deltoids', 'side-deltoids', 'triceps'],
-
     secondaryMuscles: ['trapezius', 'serratus-anterior', 'forearms', 'abdominals'],
-
-    equipment: [],
-
+    equipment: ['rings'],
     description:
-      'Balance inverted on straight arms with each hand supported by a ring. Keep the shoulders elevated and the trunk braced while preventing the rings from drifting. The independent supports increase the demand on shoulder and wrist stability.',
+      'Support your body upside down on gymnastic rings with your arms straight, core engaged, and legs extended, keeping the rings stable and your body aligned. Start with floor handstands, ring support holds, and assisted ring handstands to develop shoulder strength, balance, and stability. Gradually reduce assistance, practice controlled kick-ups and weight shifts, and focus on maintaining proper alignment and ring control as you progress toward a freestanding handstand on rings.',
 
     imageUrl: '/images/exercises/handstand-rings.png',
   },
   {
       id: 'supinated-pull-up',
       name: 'Supinated Pull Up',
-
       difficulty: 'beginner',
       movementType: 'dynamic',
       graphLevel: 1,
-
-    showInTree: false,
+      showInTree: false,
       category: 'pull',
-
       targetAreas: ['back', 'biceps'],
-
       primaryMuscles: ['latissimus-dorsi', 'upper-back', 'biceps'],
-
       secondaryMuscles: ['forearms', 'rear-deltoids', 'abdominals'],
-
       equipment: [
-        'pull-up-bar',
+        'pull-up-bar','rings'
       ],
-
       description:
-        'A chin-up performed with palms facing you, increasing elbow-flexor involvement while training the lats. Pull the chin above the bar without swinging, then lower under control. Keep the ribs down and shoulders active throughout.',
+        'Grip the bar with your palms facing toward you, keep your core engaged, and pull yourself upward until your chin passes the bar, then lower yourself with control. Start with assisted chin-ups or resistance bands to build strength, gradually increasing repetitions while maintaining proper form and a full range of motion. As your strength improves, incorporate slow negatives, weighted chin-ups, or archer chin-ups to increase difficulty and develop greater pulling power.',
 
       imageUrl: '/images/exercises/supinated-pull-up.png',
     },
     {
       id: 'archer-pull-up',
       name: 'Archer Pull Up',
-
       difficulty: 'intermediate',
       movementType: 'dynamic',
       graphLevel: 2,
-
       showInTree: false,
       category: 'pull',
-
       targetAreas: ['back', 'biceps'],
-
       primaryMuscles: ['latissimus-dorsi', 'upper-back', 'biceps'],
-
       secondaryMuscles: ['forearms', 'rear-deltoids', 'abdominals'],
-
       equipment: [
-        'pull-up-bar',
+        'pull-up-bar','rings'
       ],
-
       description:
-        'Pull toward one hand while the opposite arm stays relatively straight along the bar. This shifts more load to the working side and develops unilateral pulling strength. Alternate sides while controlling rotation and the descent.',
-
+        'Grip the bar with your hands wider than shoulder-width apart, pull your body toward one hand while extending the opposite arm, and alternate sides while maintaining core tension and control. Start with wide-grip pull-ups, assisted archer pull-ups, and controlled negatives to develop unilateral pulling strength and stability. Gradually reduce assistance, increase your range of motion, and focus on keeping your extended arm straight as you progress toward strict archer pull-ups and more advanced one-arm variations.',
       imageUrl: '/images/exercises/archer-pull-up.png',
     },
    {
       id: 'l-sit-pull-up',
       name: 'L-Sit Pull Up',
-
       difficulty: 'intermediate',
       movementType: 'dynamic',
       graphLevel: 2,
-
       showInTree: false,
       category: 'pull',
-
       targetAreas: ['back', 'biceps'],
-
       primaryMuscles: ['latissimus-dorsi', 'upper-back', 'biceps'],
-
       secondaryMuscles: ['hip-flexors', 'abdominals', 'forearms', 'quadriceps'],
-
       equipment: [
-        'pull-up-bar',
+        'pull-up-bar','rings'
       ],
-
       description:
-        'Maintain straight legs in front of the hips while pulling the chin over the bar. The lats and elbow flexors drive the pull while the abs and hip flexors sustain the L position. Avoid swinging or dropping the legs between repetitions.',
-
+        'Hang from a pull-up bar with your legs extended forward at hip height, forming an L-shape, then pull your chin above the bar while keeping your core engaged and legs straight. Start with regular pull-ups, hanging leg raises, and tuck L-sit pull-ups to develop upper-body strength, core stability, and hip flexor endurance. Gradually extend your legs, improve your L-sit position, and incorporate controlled repetitions or weighted variations to increase difficulty and build greater strength.',
       imageUrl: '/images/exercises/l-sit-pull-up.png',
     },
      {
       id: 'australian-pull-up',
       name: 'Australian Pull Up',
-
       difficulty: 'beginner',
       movementType: 'dynamic',
       graphLevel: 1,
-
       showInTree: false,
       category: 'pull',
-
       targetAreas: ['back', 'biceps'],
-
       primaryMuscles: ['latissimus-dorsi', 'upper-back', 'biceps'],
-
       secondaryMuscles: ['forearms', 'rear-deltoids', 'abdominals'],
-
       equipment: [
-        'pull-up-bar',
+        'pull-up-bar','rings'
       ],
-
       description:
-        'Hang beneath a low bar with the feet on the floor and pull the chest toward the bar. This horizontal row trains the upper back, lats and elbow flexors with adjustable bodyweight resistance. Keep the torso rigid and lower slowly.',
-
+        'Position yourself beneath a low bar, grip it with your hands shoulder-width apart, and pull your chest toward the bar while keeping your body straight and core engaged. Start with your knees bent or the bar positioned higher to reduce difficulty, gradually extending your legs and lowering the bar as your strength improves. Progress by elevating your feet, slowing down the lowering phase, or adding weight to increase resistance and develop greater back and arm strength.',
       imageUrl: '/images/exercises/australian-pull-up.png',
     },
 
@@ -1131,9 +1093,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['shoulders', 'chest', 'core'],
     primaryMuscles: ['front-deltoids', 'chest', 'triceps'],
     secondaryMuscles: ['abdominals', 'forearms', 'serratus-anterior', 'obliques'],
-    equipment: [],
+    equipment: ['floor','parallettes'],
     description:
-      'Balance on the hands with bent elbows and the knees resting against the upper arms. Shift the weight forward until the feet leave the floor while keeping the core braced. This bent-arm balance builds wrist tolerance and prepares hand-supported skills.',
+      'Place your hands on the floor, rest your knees on your upper arms, and lean forward until your feet lift off the ground, maintaining balance through your hands and core. Start by practicing controlled weight shifts and supported frog stands to develop wrist strength, shoulder stability, and body awareness. Gradually increase your forward lean, improve your balance, and progress toward lifting your knees away from your arms to transition into a tuck planche.',
     imageUrl: '/images/exercises/frog-stand.png',
   },
     {
@@ -1147,33 +1109,25 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['core', 'shoulders'],
     primaryMuscles: ['abdominals', 'obliques'],
     secondaryMuscles: ['glutes', 'front-deltoids', 'serratus-anterior'],
-    equipment: [],
+    equipment: ['floor'],
     description:
-      'Hold a straight line from shoulders to heels on the forearms or hands. Brace the abdominals and glutes to resist lumbar extension while breathing steadily. Keep the hips level rather than allowing them to sag or rise.',
+      'Place your forearms on the floor with your elbows beneath your shoulders, keep your body straight from head to heels, and engage your core and glutes while maintaining a neutral spine. Start with knee planks or elevated planks to develop core strength and stability, gradually progressing to a full forearm plank with proper alignment. Increase the difficulty by incorporating shoulder taps, plank variations with alternating leg lifts, or weighted planks to challenge your balance and build greater core strength.',
     imageUrl: '/images/exercises/plank.png',
   },
   {
     id: 'diamond-push-up',
     name: 'Diamond Push Up',
     movementType: 'dynamic',
-
     difficulty: 'intermediate',
     graphLevel: 2,
-
     showInTree: false,
     category: 'push',
-
     targetAreas: ['chest', 'triceps', 'shoulders'],
-
     primaryMuscles: ['triceps', 'chest', 'front-deltoids'],
-
     secondaryMuscles: ['serratus-anterior', 'abdominals', 'obliques'],
-
-    equipment: [],
-
+    equipment: ['floor'],
     description:
-      'Place the hands close together beneath the chest and perform a controlled push-up. The narrow hand position emphasizes elbow extension and challenges the triceps while the chest still contributes. Keep the elbows controlled and the trunk rigid.',
-
+      'Place your hands close together beneath your chest, forming a diamond shape with your thumbs and index fingers, then lower your body while keeping your elbows close to your torso before pushing back up. Start with knee diamond push-ups or incline variations to develop triceps strength and upper-body control, gradually progressing to the full movement. Increase the difficulty by elevating your feet, incorporating slow negatives, or adding weight while maintaining proper form and stability.',
     imageUrl: '/images/exercises/diamond-push-up.png',
   },
   {
