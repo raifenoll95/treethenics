@@ -59,14 +59,24 @@
 
   </div>
 
-  <a
-    class="exercise-card__details"
-    [routerLink]="['/exercises', exercise().id]"
-    [queryParams]="{ from: 'search' }"
-    queryParamsHandling="merge"
-  >
-    <span>View exercise</span>
-    <span>→</span>
-  </a>
+  <div class="exercise-card__actions">
+    <a
+      class="exercise-card__details"
+      [routerLink]="['/exercises', exercise().id]"
+      [queryParams]="{ from: 'search' }"
+      queryParamsHandling="merge"
+    >
+      <span>View exercise</span>
+      <span>→</span>
+    </a>
+
+    <a
+      class="exercise-card__compare"
+      routerLink="/compare"
+      [queryParams]="{ first: exercise().id }"
+    >
+      Compare ⇄
+    </a>
+  </div>
 
 </article>

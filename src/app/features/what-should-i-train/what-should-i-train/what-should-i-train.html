@@ -144,19 +144,12 @@
     } @else {
       <div class="results-grid">
         @for (exercise of results(); track exercise.id) {
-          <a
+          <article
             class="exercise-card"
             [class.exercise-card--beginner]="selectedDifficulty() === 'beginner'"
             [class.exercise-card--intermediate]="selectedDifficulty() === 'intermediate'"
             [class.exercise-card--advanced]="selectedDifficulty() === 'advanced'"
             [class.exercise-card--elite]="selectedDifficulty() === 'elite'"
-            [routerLink]="['/exercises', exercise.id]"
-            [queryParams]="{
-              from: 'what-should-i-train',
-              difficulty: selectedDifficulty(),
-              target: selectedAreas().join(',') || null,
-              equipment: selectedEquipment().join(',') || null
-            }"
           >
             @if (exercise.imageUrl) {
               <img
@@ -183,11 +176,30 @@
               </span>
 
               <h3>{{ exercise.name }}</h3>
-              <span class="exercise-card__link">
-                View exercise →
-              </span>
+              <div class="exercise-card__actions">
+                <a
+                  class="exercise-card__link"
+                  [routerLink]="['/exercises', exercise.id]"
+                  [queryParams]="{
+                    from: 'what-should-i-train',
+                    difficulty: selectedDifficulty(),
+                    target: selectedAreas().join(',') || null,
+                    equipment: selectedEquipment().join(',') || null
+                  }"
+                >
+                  View exercise →
+                </a>
+
+                <a
+                  class="exercise-card__compare"
+                  routerLink="/compare"
+                  [queryParams]="{ first: exercise.id }"
+                >
+                  Compare ⇄
+                </a>
+              </div>
             </div>
-          </a>
+          </article>
         }
       </div>
     }

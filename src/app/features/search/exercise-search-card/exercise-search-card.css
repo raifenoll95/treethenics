@@ -256,45 +256,70 @@
   transform: scale(0.99);
 }
 
-.exercise-card__details {
+/* CONTENEDOR DE LOS DOS BOTONES */
+
+.exercise-card__actions {
+  grid-column: 1 / -1;
+
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
 
-  width: 100%;
+  margin-top: 12px;
+}
 
-  margin-top: auto;
-  padding: 11px 14px;
 
-  background: var(--exercise-color);
-  color: #ffffff;
+/* VIEW EXERCISE + COMPARE */
 
-  border: 0;
-  border-radius: 8px;
+.exercise-card__details,
+.exercise-card__compare {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  width: auto;
+  min-height: 32px;
+  padding: 7px 10px;
+
+  color: var(--exercise-color);
+  background: transparent;
+  border: 1px solid var(--exercise-color);
+  border-radius: 7px;
 
   font-size: 11px;
-  font-weight: 750;
-
+  font-weight: 700;
+  line-height: 1;
   text-decoration: none;
-
-  cursor: pointer;
+  white-space: nowrap;
 
   box-sizing: border-box;
+  cursor: pointer;
 
-  transition:
-    transform 150ms ease,
-    filter 150ms ease;
+  transition: background-color 0.2s ease;
 }
 
-.exercise-card__details:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.06);
+
+/* MANTENER EL COLOR DE LA DIFICULTAD */
+
+.exercise-card__details:visited,
+.exercise-card__compare:visited,
+.exercise-card__details:hover,
+.exercise-card__compare:hover {
+  color: var(--exercise-color);
+  text-decoration: none;
 }
 
-.exercise-card__details:visited {
-  color: #ffffff;
-}
 
-.exercise-card__details:active {
-  transform: translateY(0);
+/* EFECTO HOVER */
+
+.exercise-card__details:hover,
+.exercise-card__compare:hover {
+  background: color-mix(
+    in srgb,
+    var(--exercise-color) 12%,
+    transparent
+  );
 }
