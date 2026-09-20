@@ -748,3 +748,22 @@
   font-size: 13px;
   font-weight: 600;
 }
+
+/* Color propio de cada tarjeta, independientemente del filtro seleccionado */
+
+.exercise-card--beginner {
+  --selected-difficulty-color: #4ade80;
+}
+
+.exercise-card--intermediate {
+  --selected-difficulty-color: #60a5fa;
+}
+
+.exercise-card--advanced {
+  --selected-difficulty-color: #fb923c;
+}
+
+.exercise-card--elite {
+  --selected-difficulty-color: #fb7185;
+}
+
