@@ -42,7 +42,7 @@ export class WhatShouldITrain {
     { value: 'pull-up-bar', label: 'Pull-up bar' },
     { value: 'rings', label: 'Rings' },
     { value: 'parallettes', label: 'Parallettes' },
-    { value: 'bands', label: 'Resistance bands' },
+    { value: 'bands', label: 'Bands' },
     { value: 'added-weight', label: 'Added weight' },
   ];
 
@@ -58,10 +58,10 @@ export class WhatShouldITrain {
 
   private readonly params = this.route.snapshot.queryParamMap;
 
-  readonly selectedDifficulty = signal<ExerciseDifficulty>(
+  readonly selectedDifficulty = signal<ExerciseDifficulty | null>(
     this.isDifficulty(this.params.get('difficulty'))
       ? this.params.get('difficulty') as ExerciseDifficulty
-      : 'beginner',
+      : null,
   );
 
   readonly selectedAreas = signal<ExerciseTargetArea[]>(
@@ -87,7 +87,7 @@ export class WhatShouldITrain {
 
     return EXERCISES.filter((exercise) => {
       const matchesDifficulty =
-        exercise.difficulty === difficulty;
+        difficulty === null || exercise.difficulty === difficulty;
 
       // ALL: no filtrar por zona muscular.
       // Varias zonas: mostrar ejercicios que trabajen al menos una.
@@ -102,8 +102,8 @@ export class WhatShouldITrain {
       // de todo el material necesario para realizar el ejercicio.
       const matchesEquipment =
         availableEquipment.length === 0 ||
-        (exercise.equipment ?? []).every((item) =>
-          availableEquipment.includes(item),
+        availableEquipment.some((item) =>
+          exercise.equipment?.includes(item),
         );
 
       return (
@@ -191,12 +191,15 @@ export class WhatShouldITrain {
   }
 
   selectDifficulty(difficulty: DifficultyOption): void {
-    this.selectedDifficulty.set(difficulty);
+    this.selectedDifficulty.update((current) =>
+      current === difficulty ? null : difficulty,
+    );
+
     this.syncUrl();
   }
 
   resetFilters(): void {
-    this.selectedDifficulty.set('beginner');
+    this.selectedDifficulty.set(null);
     this.selectedAreas.set([]);
     this.selectedEquipment.set([]);
     this.syncUrl();

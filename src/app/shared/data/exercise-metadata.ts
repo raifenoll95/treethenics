@@ -28,7 +28,7 @@ export const EQUIPMENT_LABELS: Record<ExerciseEquipment, string> = {
   'pull-up-bar': 'Pull Up Bar',
   rings: 'Rings (harder)',
   parallettes: 'Parallettes',
-  bands: 'Resistance Bands',
+  bands: 'Bands',
   'added-weight': 'Added Weight',
   floor: 'Floor',
   'vertical-pole': 'Vertical Pole',

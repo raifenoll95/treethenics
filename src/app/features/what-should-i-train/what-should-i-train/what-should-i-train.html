@@ -58,16 +58,6 @@
       </div>
 
       <div class="option-grid">
-        <button
-          type="button"
-          class="option-button"
-          [class.option-button--selected]="allTargetsSelected()"
-          [attr.aria-pressed]="allTargetsSelected()"
-          (click)="selectAllTargets()"
-        >
-          ALL
-        </button>
-
         @for (area of targetAreas; track area.value) {
           <button
             type="button"
@@ -91,15 +81,6 @@
       </div>
 
       <div class="option-grid">
-        <button
-          type="button"
-          class="option-button"
-          [class.option-button--selected]="allEquipmentSelected()"
-          [attr.aria-pressed]="allEquipmentSelected()"
-          (click)="selectAllEquipment()"
-        >
-          ALL
-        </button>
 
         @for (item of equipmentOptions; track item.value) {
           <button
@@ -134,14 +115,11 @@
 
     @if (results().length === 0) {
       <div class="empty-state">
-        Select a muscle group to discover exercises.
+        No exercises match your selection. Try another difficulty,
+        target or equipment combination.
       </div>
-    } @else if (results().length === 0) {
-      <div class="empty-state">
-        No exercises match your selection. Try another difficulty
-        or select more equipment.
-      </div>
-    } @else {
+    }
+     @else {
       <div class="results-grid">
         @for (exercise of results(); track exercise.id) {
           <article
