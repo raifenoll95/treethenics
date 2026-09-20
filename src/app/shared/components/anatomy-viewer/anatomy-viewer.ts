@@ -6,6 +6,9 @@ import {
   ViewChild,
 } from '@angular/core';
 
+import { isPlatformBrowser } from '@angular/common';
+import { inject, PLATFORM_ID } from '@angular/core';
+
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { input } from '@angular/core';
@@ -22,6 +25,7 @@ import { ANATOMY_MUSCLE_MAP } from './anatomy-muscle-map';
 })
 export class AnatomyViewer implements AfterViewInit, OnDestroy {
 
+  private readonly platformId = inject(PLATFORM_ID);
 
   readonly primaryMuscles = input<ExerciseMuscle[]>([]);
   readonly secondaryMuscles = input<ExerciseMuscle[]>([]);
@@ -41,10 +45,20 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
   private destroyed = false;
 
   ngAfterViewInit(): void {
+
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     this.initializeScene();
   }
 
   private initializeScene(): void {
+
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     const container = this.canvasContainer.nativeElement;
 
     const width = Math.max(container.clientWidth, 1);

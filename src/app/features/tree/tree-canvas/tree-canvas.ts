@@ -8,6 +8,9 @@ import {
   ViewChild,
 } from '@angular/core';
 
+import { isPlatformBrowser } from '@angular/common';
+import { PLATFORM_ID,inject } from '@angular/core';
+
 import cytoscape, {
   Core,
   NodeSingular,
@@ -34,6 +37,9 @@ export interface ExerciseSelection {
   styleUrl: './tree-canvas.css',
 })
 export class TreeCanvas implements AfterViewInit, OnDestroy {
+
+  private readonly platformId = inject(PLATFORM_ID);
+
   @ViewChild('cyContainer', { static: true })
   private cyContainer!: ElementRef<HTMLDivElement>;
 
@@ -54,6 +60,10 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
   }
 
   private initializeTree(): void {
+
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
 
     const treeExercises = EXERCISES.filter(
       (exercise) => exercise.showInTree === true,
