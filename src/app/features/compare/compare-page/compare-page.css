@@ -268,3 +268,135 @@
     min-width: 620px;
   }
 }
+
+.compare-picker {
+  position: relative;
+  min-width: 0;
+}
+
+.compare-picker .compare-select {
+  box-sizing: border-box;
+}
+
+.compare-picker__selected {
+  margin-top: 7px;
+  color: #aeb9c9;
+  font-size: 12px;
+}
+
+.compare-picker__selected strong {
+  color: #f3f4f6;
+}
+
+.compare-picker__options {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+
+  max-height: 260px;
+  overflow-y: auto;
+
+  padding: 5px;
+  background: #1c2430;
+  border: 1px solid #465163;
+  border-radius: 10px;
+  box-shadow: 0 12px 28px rgb(0 0 0 / 25%);
+}
+
+.compare-picker__option {
+  display: block;
+  width: 100%;
+  padding: 11px 12px;
+
+  color: #e5e7eb;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+
+  font: inherit;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.compare-picker__option:hover,
+.compare-picker__option:focus-visible {
+  color: #fff;
+  background: #374151;
+  outline: none;
+}
+
+.compare-picker__empty {
+  padding: 12px;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+/* Color del enlace según la dificultad de cada ejercicio */
+.compare-exercise--beginner a {
+  color: #4ade80;
+}
+
+.compare-exercise--intermediate a {
+  color: #60a5fa;
+}
+
+.compare-exercise--advanced a {
+  color: #fb923c;
+}
+
+.compare-exercise--elite a {
+  color: #fb7185;
+}
+
+/* Mantener el color al pasar el cursor */
+.compare-exercise--beginner a:hover {
+  color: #4ade80;
+}
+
+.compare-exercise--intermediate a:hover {
+  color: #60a5fa;
+}
+
+.compare-exercise--advanced a:hover {
+  color: #fb923c;
+}
+
+.compare-exercise--elite a:hover {
+  color: #fb7185;
+}
+
+/* Nombres de los ejercicios en la cabecera de la tabla */
+.compare-table thead .compare-table__exercise--beginner {
+  color: #4ade80;
+}
+
+.compare-table thead .compare-table__exercise--intermediate {
+  color: #60a5fa;
+}
+
+.compare-table thead .compare-table__exercise--advanced {
+  color: #fb923c;
+}
+
+.compare-table thead .compare-table__exercise--elite {
+  color: #fb7185;
+}
+
+/* Destacar las características que son diferentes */
+.compare-table tbody tr.compare-table__row--different {
+  background: #293647;
+}
+
+/* Indicador discreto junto al nombre de la característica */
+.compare-table tbody tr.compare-table__row--different th {
+  border-left: 3px solid #fb7185;
+  padding-left: 13px;
+}
+
+/* Mantener el contraste al pasar el cursor */
+.compare-table tbody tr.compare-table__row--different:hover {
+  background: #304157;
+}

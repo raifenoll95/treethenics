@@ -22,26 +22,53 @@
           EXERCISE 01
         </label>
 
-        <select
-          id="first-exercise"
-          class="compare-select"
-          [ngModel]="firstExerciseId()"
-          (ngModelChange)="selectFirstExercise($event)"
-        >
-          <option value="">Select an exercise</option>
+        <div class="compare-picker">
+          <input
+            id="first-exercise"
+            type="text"
+            class="compare-select"
+            autocomplete="off"
+            placeholder="Search an exercise..."
+            [ngModel]="firstSearch()"
+            (ngModelChange)="firstSearch.set($event); openFirstSelector()"
+            (focus)="openFirstSelector()"
+            (keydown.escape)="closeSelectors()"
+            [attr.aria-label]="'Search first exercise'"
+          />
 
-          @for (exercise of exercises; track exercise.id) {
-            <option
-              [value]="exercise.id"
-              [disabled]="exercise.id === secondExerciseId()"
-            >
-              {{ exercise.name }}
-            </option>
+          @if (firstExercise(); as exercise) {
+            <div class="compare-picker__selected">
+              Selected: <strong>{{ exercise.name }}</strong>
+            </div>
           }
-        </select>
+
+          @if (firstSelectorOpen()) {
+            <div class="compare-picker__options">
+              @for (exercise of filteredFirstExercises(); track exercise.id) {
+                <button
+                  type="button"
+                  class="compare-picker__option"
+                  (click)="chooseFirstExercise(exercise.id)"
+                >
+                  {{ exercise.name }}
+                </button>
+              } @empty {
+                <div class="compare-picker__empty">
+                  No exercises found
+                </div>
+              }
+            </div>
+          }
+        </div>
 
         @if (firstExercise(); as exercise) {
-          <div class="compare-exercise">
+          <div
+            class="compare-exercise"
+            [class.compare-exercise--beginner]="exercise.difficulty === 'beginner'"
+            [class.compare-exercise--intermediate]="exercise.difficulty === 'intermediate'"
+            [class.compare-exercise--advanced]="exercise.difficulty === 'advanced'"
+            [class.compare-exercise--elite]="exercise.difficulty === 'elite'"
+          >
             @if (exercise.imageUrl) {
               <img
                 class="compare-exercise__image"
@@ -62,7 +89,13 @@
               {{ exercise.difficulty }}
             </span>
 
-            <a [routerLink]="['/exercises', exercise.id]">
+            <a [routerLink]="['/exercises', exercise.id]"
+                [queryParams]="{
+                from: 'compare',
+                first: firstExerciseId(),
+                second: secondExerciseId()
+              }"
+            >
               View exercise →
             </a>
           </div>
@@ -81,26 +114,53 @@
           EXERCISE 02
         </label>
 
-        <select
+        <div class="compare-picker">
+        <input
           id="second-exercise"
+          type="text"
           class="compare-select"
-          [ngModel]="secondExerciseId()"
-          (ngModelChange)="selectSecondExercise($event)"
-        >
-          <option value="">Select an exercise</option>
-
-          @for (exercise of exercises; track exercise.id) {
-            <option
-              [value]="exercise.id"
-              [disabled]="exercise.id === firstExerciseId()"
-            >
-              {{ exercise.name }}
-            </option>
-          }
-        </select>
+          autocomplete="off"
+          placeholder="Search an exercise..."
+          [ngModel]="secondSearch()"
+          (ngModelChange)="secondSearch.set($event); openSecondSelector()"
+          (focus)="openSecondSelector()"
+          (keydown.escape)="closeSelectors()"
+          [attr.aria-label]="'Search second exercise'"
+        />
 
         @if (secondExercise(); as exercise) {
-          <div class="compare-exercise">
+          <div class="compare-picker__selected">
+            Selected: <strong>{{ exercise.name }}</strong>
+          </div>
+        }
+
+        @if (secondSelectorOpen()) {
+          <div class="compare-picker__options">
+            @for (exercise of filteredSecondExercises(); track exercise.id) {
+              <button
+                type="button"
+                class="compare-picker__option"
+                (click)="chooseSecondExercise(exercise.id)"
+              >
+                {{ exercise.name }}
+              </button>
+            } @empty {
+              <div class="compare-picker__empty">
+                No exercises found
+              </div>
+            }
+          </div>
+        }
+      </div>
+
+        @if (secondExercise(); as exercise) {
+          <div
+              class="compare-exercise"
+              [class.compare-exercise--beginner]="exercise.difficulty === 'beginner'"
+              [class.compare-exercise--intermediate]="exercise.difficulty === 'intermediate'"
+              [class.compare-exercise--advanced]="exercise.difficulty === 'advanced'"
+              [class.compare-exercise--elite]="exercise.difficulty === 'elite'"
+            >
             @if (exercise.imageUrl) {
               <img
                 class="compare-exercise__image"
@@ -121,7 +181,13 @@
               {{ exercise.difficulty }}
             </span>
 
-            <a [routerLink]="['/exercises', exercise.id]">
+            <a [routerLink]="['/exercises', exercise.id]"
+                [queryParams]="{
+                from: 'compare',
+                first: firstExerciseId(),
+                second: secondExerciseId()
+              }"
+            >
               View exercise →
             </a>
           </div>
@@ -147,43 +213,48 @@
             <thead>
               <tr>
                 <th>FEATURE</th>
-                <th>{{ first.name }}</th>
-                <th>{{ second.name }}</th>
+                <th [class]="'compare-table__exercise--' + first.difficulty">
+                  {{ first.name }}
+                </th>
+
+                <th [class]="'compare-table__exercise--' + second.difficulty">
+                  {{ second.name }}
+                </th>
               </tr>
             </thead>
 
             <tbody>
-              <tr>
+              <tr [class.compare-table__row--different]="first.difficulty !== second.difficulty">
                 <th>Difficulty</th>
                 <td>{{ first.difficulty }}</td>
                 <td>{{ second.difficulty }}</td>
               </tr>
 
-              <tr>
+              <tr [class.compare-table__row--different]="first.graphLevel !== second.graphLevel">
                 <th>Progression level</th>
                 <td>{{ first.graphLevel }} / 7</td>
                 <td>{{ second.graphLevel }} / 7</td>
               </tr>
 
-              <tr>
+              <tr [class.compare-table__row--different]="getMuscles(first, 'primary') !== getMuscles(second, 'primary')">
                 <th>Primary muscles</th>
                 <td>{{ getMuscles(first, 'primary') }}</td>
                 <td>{{ getMuscles(second, 'primary') }}</td>
               </tr>
 
-              <tr>
+              <tr [class.compare-table__row--different]="getMuscles(first, 'secondary') !== getMuscles(second, 'secondary')">
                 <th>Secondary muscles</th>
                 <td>{{ getMuscles(first, 'secondary') }}</td>
                 <td>{{ getMuscles(second, 'secondary') }}</td>
               </tr>
 
-              <tr>
+              <tr [class.compare-table__row--different]="getEquipment(first) !== getEquipment(second)">
                 <th>Equipment</th>
                 <td>{{ getEquipment(first) }}</td>
                 <td>{{ getEquipment(second) }}</td>
               </tr>
 
-              <tr>
+              <tr [class.compare-table__row--different]="first.movementType !== second.movementType">
                 <th>Movement type</th>
                 <td>{{ first.movementType ?? '—' }}</td>
                 <td>{{ second.movementType ?? '—' }}</td>

@@ -35,20 +35,29 @@ export class ExerciseDetail {
           target: this.route.snapshot.queryParamMap.get('target'),
           equipment: this.route.snapshot.queryParamMap.get('equipment'),
         }
-      : {};
+      : this.origin === 'compare'
+        ? {
+            first: this.route.snapshot.queryParamMap.get('first'),
+            second: this.route.snapshot.queryParamMap.get('second'),
+          }
+        : {};
 
   readonly backRoute =
-    this.origin === 'tree'
-      ? '/'
-      : this.origin === 'what-should-i-train'
-        ? '/what-should-i-train'
+  this.origin === 'tree'
+    ? '/'
+    : this.origin === 'what-should-i-train'
+      ? '/what-should-i-train'
+      : this.origin === 'compare'
+        ? '/compare'
         : '/search';
 
   readonly backLabel =
-    this.origin === 'tree'
-      ? 'Back to Tree'
-      : this.origin === 'what-should-i-train'
-        ? 'Back to What should I train?'
+  this.origin === 'tree'
+    ? 'Back to Tree'
+    : this.origin === 'what-should-i-train'
+      ? 'Back to What should I train?'
+      : this.origin === 'compare'
+        ? 'Back to Compare'
         : 'Back to Exercises';
 
   readonly exerciseId = computed(
