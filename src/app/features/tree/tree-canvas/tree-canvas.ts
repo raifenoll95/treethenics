@@ -324,12 +324,19 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
     /*
      * Todo el árbol visible inicialmente.
      */
+    requestAnimationFrame(() => {
+    if (!this.cy) {
+      return;
+    }
+
+    this.cy.resize();
     this.cy.fit(undefined, 70);
 
     this.cy.panBy({
       x: 45,
       y: 0,
     });
+  });
 
     /*
      * Click en un ejercicio.

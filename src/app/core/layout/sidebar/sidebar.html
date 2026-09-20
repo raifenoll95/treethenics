@@ -11,7 +11,7 @@
     />
   </a>
 
-  <nav class="sidebar__nav">
+  <nav class="sidebar__nav" aria-label="Main navigation">
     <a
       class="sidebar__item"
       routerLink="/"
@@ -28,7 +28,8 @@
       routerLinkActive="sidebar__item--active"
     >
       <span class="sidebar__icon">◎</span>
-      <span>What should I train?</span>
+      <span class="sidebar__label-desktop">What should I train?</span>
+      <span class="sidebar__label-mobile">Train</span>
     </a>
 
     <a
@@ -37,7 +38,8 @@
       routerLinkActive="sidebar__item--active"
     >
       <span class="sidebar__icon">⌕</span>
-      <span>Search Exercises</span>
+      <span class="sidebar__label-desktop">Search Exercises</span>
+      <span class="sidebar__label-mobile">Search</span>
     </a>
 
     <a
@@ -46,7 +48,8 @@
       routerLinkActive="sidebar__item--active"
     >
       <span class="sidebar__icon">⇄</span>
-      <span>Compare Exercises</span>
+      <span class="sidebar__label-desktop">Compare Exercises</span>
+      <span class="sidebar__label-mobile">Compare</span>
     </a>
 
     <a
@@ -54,7 +57,7 @@
       routerLink="/about"
       routerLinkActive="sidebar__item--active"
     >
-      <span class="sidebar__icon">⇄</span>
+      <span class="sidebar__icon">◉</span>
       <span>About Me</span>
     </a>
   </nav>
