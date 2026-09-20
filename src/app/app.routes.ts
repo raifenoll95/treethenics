@@ -4,6 +4,7 @@ import { TreePage } from './features/tree/tree-page/tree-page';
 import { SearchPage } from './features/search/search-page/search-page';
 import { ExerciseDetail } from './features/exercise/exercise-detail/exercise-detail';
 import { WhatShouldITrain } from './features/what-should-i-train/what-should-i-train/what-should-i-train';
+import { ComparePage } from './features/compare/compare-page/compare-page';
 
 export const routes: Routes = [
   {
@@ -25,6 +26,10 @@ export const routes: Routes = [
       {
         path: 'exercises/:id',
         component: ExerciseDetail,
+      },
+      {
+        path: 'compare',
+        component: ComparePage,
       },
     ],
   },

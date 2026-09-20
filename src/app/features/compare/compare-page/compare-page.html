@@ -1,0 +1,197 @@
+<main class="compare-page">
+  <header class="compare-header">
+    <div class="compare-header__icon" aria-hidden="true">⇄</div>
+
+    <div>
+      <div class="compare-header__title">
+        <h1>Compare exercises</h1>
+        <span class="compare-header__badge">COMPARE</span>
+      </div>
+
+      <p>
+        Choose two exercises to explore their differences side by side.
+      </p>
+    </div>
+  </header>
+
+  <section class="compare-panel">
+    <div class="compare-grid">
+      <!-- EJERCICIO 1 -->
+      <article class="compare-column">
+        <label class="compare-column__label" for="first-exercise">
+          EXERCISE 01
+        </label>
+
+        <select
+          id="first-exercise"
+          class="compare-select"
+          [ngModel]="firstExerciseId()"
+          (ngModelChange)="selectFirstExercise($event)"
+        >
+          <option value="">Select an exercise</option>
+
+          @for (exercise of exercises; track exercise.id) {
+            <option
+              [value]="exercise.id"
+              [disabled]="exercise.id === secondExerciseId()"
+            >
+              {{ exercise.name }}
+            </option>
+          }
+        </select>
+
+        @if (firstExercise(); as exercise) {
+          <div class="compare-exercise">
+            @if (exercise.imageUrl) {
+              <img
+                class="compare-exercise__image"
+                [src]="exercise.imageUrl"
+                [alt]="exercise.name"
+              />
+            }
+
+            <h2>{{ exercise.name }}</h2>
+
+            <span
+              class="compare-difficulty"
+              [class.compare-difficulty--beginner]="exercise.difficulty === 'beginner'"
+              [class.compare-difficulty--intermediate]="exercise.difficulty === 'intermediate'"
+              [class.compare-difficulty--advanced]="exercise.difficulty === 'advanced'"
+              [class.compare-difficulty--elite]="exercise.difficulty === 'elite'"
+            >
+              {{ exercise.difficulty }}
+            </span>
+
+            <a [routerLink]="['/exercises', exercise.id]">
+              View exercise →
+            </a>
+          </div>
+        } @else {
+          <div class="compare-placeholder">
+            Select your first exercise
+          </div>
+        }
+      </article>
+
+      <div class="compare-vs" aria-hidden="true">VS</div>
+
+      <!-- EJERCICIO 2 -->
+      <article class="compare-column">
+        <label class="compare-column__label" for="second-exercise">
+          EXERCISE 02
+        </label>
+
+        <select
+          id="second-exercise"
+          class="compare-select"
+          [ngModel]="secondExerciseId()"
+          (ngModelChange)="selectSecondExercise($event)"
+        >
+          <option value="">Select an exercise</option>
+
+          @for (exercise of exercises; track exercise.id) {
+            <option
+              [value]="exercise.id"
+              [disabled]="exercise.id === firstExerciseId()"
+            >
+              {{ exercise.name }}
+            </option>
+          }
+        </select>
+
+        @if (secondExercise(); as exercise) {
+          <div class="compare-exercise">
+            @if (exercise.imageUrl) {
+              <img
+                class="compare-exercise__image"
+                [src]="exercise.imageUrl"
+                [alt]="exercise.name"
+              />
+            }
+
+            <h2>{{ exercise.name }}</h2>
+
+            <span
+              class="compare-difficulty"
+              [class.compare-difficulty--beginner]="exercise.difficulty === 'beginner'"
+              [class.compare-difficulty--intermediate]="exercise.difficulty === 'intermediate'"
+              [class.compare-difficulty--advanced]="exercise.difficulty === 'advanced'"
+              [class.compare-difficulty--elite]="exercise.difficulty === 'elite'"
+            >
+              {{ exercise.difficulty }}
+            </span>
+
+            <a [routerLink]="['/exercises', exercise.id]">
+              View exercise →
+            </a>
+          </div>
+        } @else {
+          <div class="compare-placeholder">
+            Select your second exercise
+          </div>
+        }
+      </article>
+    </div>
+  </section>
+
+  @if (firstExercise(); as first) {
+    @if (secondExercise(); as second) {
+      <section class="compare-details">
+        <div class="compare-details__heading">
+          <span>THE DIFFERENCES</span>
+          <h2>Exercise comparison</h2>
+        </div>
+
+        <div class="compare-table-wrapper">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>FEATURE</th>
+                <th>{{ first.name }}</th>
+                <th>{{ second.name }}</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <th>Difficulty</th>
+                <td>{{ first.difficulty }}</td>
+                <td>{{ second.difficulty }}</td>
+              </tr>
+
+              <tr>
+                <th>Progression level</th>
+                <td>{{ first.graphLevel }} / 7</td>
+                <td>{{ second.graphLevel }} / 7</td>
+              </tr>
+
+              <tr>
+                <th>Primary muscles</th>
+                <td>{{ getMuscles(first, 'primary') }}</td>
+                <td>{{ getMuscles(second, 'primary') }}</td>
+              </tr>
+
+              <tr>
+                <th>Secondary muscles</th>
+                <td>{{ getMuscles(first, 'secondary') }}</td>
+                <td>{{ getMuscles(second, 'secondary') }}</td>
+              </tr>
+
+              <tr>
+                <th>Equipment</th>
+                <td>{{ getEquipment(first) }}</td>
+                <td>{{ getEquipment(second) }}</td>
+              </tr>
+
+              <tr>
+                <th>Movement type</th>
+                <td>{{ first.movementType ?? '—' }}</td>
+                <td>{{ second.movementType ?? '—' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    }
+  }
+</main>

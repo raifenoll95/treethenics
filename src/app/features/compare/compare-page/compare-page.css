@@ -1,0 +1,270 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.compare-page {
+  width: 100%;
+  padding: 20px 40px 64px;
+  color: #f3f4f6;
+}
+
+.compare-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #4b5563;
+}
+
+.compare-header__icon {
+  display: grid;
+  flex: 0 0 36px;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #1c222c;
+  color: #fb7185;
+  font-size: 21px;
+}
+
+.compare-header__title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.compare-header h1 {
+  margin: 0;
+  color: #fff;
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.compare-header__badge {
+  padding: 3px 6px;
+  border: 1px solid #85414c;
+  border-radius: 5px;
+  color: #fb7185;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.compare-header p {
+  margin: 3px 0 0;
+  color: #aeb9c9;
+  font-size: 12px;
+}
+
+.compare-panel {
+  padding: 24px;
+  background: #1f2937;
+  border: 1px solid #465163;
+  border-radius: 16px;
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.compare-column {
+  min-width: 0;
+}
+
+.compare-column__label {
+  display: block;
+  margin-bottom: 10px;
+  color: #fb7185;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.compare-select {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  color: #f3f4f6;
+  background: #303b4b;
+  border: 1px solid #4b5563;
+  border-radius: 9px;
+  font: inherit;
+  font-size: 13px;
+}
+
+.compare-select:focus {
+  outline: 2px solid #fb7185;
+  outline-offset: 2px;
+}
+
+.compare-vs {
+  align-self: center;
+  color: #fb7185;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.compare-exercise {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  text-align: center;
+}
+
+.compare-exercise__image {
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  background: #171e29;
+  border-radius: 12px;
+}
+
+.compare-exercise h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.compare-difficulty {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.compare-difficulty--beginner {
+  color: #4ade80;
+}
+
+.compare-difficulty--intermediate {
+  color: #60a5fa;
+}
+
+.compare-difficulty--advanced {
+  color: #fb923c;
+}
+
+.compare-difficulty--elite {
+  color: #fb7185;
+}
+
+.compare-exercise a {
+  color: #fb7185;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.compare-exercise a:hover {
+  text-decoration: underline;
+}
+
+.compare-placeholder {
+  display: grid;
+  place-items: center;
+  min-height: 320px;
+  margin-top: 18px;
+  color: #94a3b8;
+  background: #171e29;
+  border: 1px dashed #465163;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.compare-details {
+  margin-top: 32px;
+}
+
+.compare-details__heading {
+  margin-bottom: 18px;
+}
+
+.compare-details__heading span {
+  color: #fb7185;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.compare-details__heading h2 {
+  margin: 8px 0 0;
+  font-size: 21px;
+}
+
+.compare-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid #465163;
+  border-radius: 14px;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #1f2937;
+  font-size: 13px;
+}
+
+.compare-table th,
+.compare-table td {
+  padding: 16px;
+  border-bottom: 1px solid #394556;
+  text-align: left;
+  vertical-align: top;
+}
+
+.compare-table thead th {
+  color: #fb7185;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.compare-table tbody th {
+  width: 22%;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.compare-table tbody td {
+  width: 39%;
+  color: #f3f4f6;
+}
+
+.compare-table tbody tr:last-child th,
+.compare-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .compare-page {
+    padding: 20px 18px 48px;
+  }
+
+  .compare-panel {
+    padding: 16px;
+  }
+
+  .compare-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .compare-vs {
+    padding: 4px 0;
+  }
+
+  .compare-exercise__image {
+    height: 200px;
+  }
+
+  .compare-table {
+    min-width: 620px;
+  }
+}
