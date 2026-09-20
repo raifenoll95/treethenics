@@ -18,7 +18,14 @@
     <div class="compare-grid">
       <!-- EJERCICIO 1 -->
       <article class="compare-column">
-        <label class="compare-column__label" for="first-exercise">
+        <label
+          class="compare-column__label"
+          for="first-exercise"
+          [class.compare-column__label--beginner]="!firstExercise() || firstExercise()?.difficulty === 'beginner'"
+          [class.compare-column__label--intermediate]="firstExercise()?.difficulty === 'intermediate'"
+          [class.compare-column__label--advanced]="firstExercise()?.difficulty === 'advanced'"
+          [class.compare-column__label--elite]="firstExercise()?.difficulty === 'elite'"
+        >
           EXERCISE 01
         </label>
 
@@ -100,17 +107,33 @@
             </a>
           </div>
         } @else {
-          <div class="compare-placeholder">
+          <div
+            class="compare-placeholder"
+            role="button"
+            tabindex="0"
+            (click)="$event.stopPropagation(); openFirstSelector()"
+            (keydown.enter)="openFirstSelector()"
+            (keydown.space)="$event.preventDefault(); openFirstSelector()"
+          >
             Select your first exercise
           </div>
         }
       </article>
 
-      <div class="compare-vs" aria-hidden="true">VS</div>
+      <div class="compare-vs" aria-hidden="true">
+        <img src="/images/compare/vs_logo.png" alt="" />
+      </div>
 
       <!-- EJERCICIO 2 -->
       <article class="compare-column">
-        <label class="compare-column__label" for="second-exercise">
+        <label
+          class="compare-column__label"
+          for="second-exercise"
+          [class.compare-column__label--beginner]="!secondExercise() || secondExercise()?.difficulty === 'beginner'"
+          [class.compare-column__label--intermediate]="secondExercise()?.difficulty === 'intermediate'"
+          [class.compare-column__label--advanced]="secondExercise()?.difficulty === 'advanced'"
+          [class.compare-column__label--elite]="secondExercise()?.difficulty === 'elite'"
+        >
           EXERCISE 02
         </label>
 
@@ -192,7 +215,14 @@
             </a>
           </div>
         } @else {
-          <div class="compare-placeholder">
+          <div
+            class="compare-placeholder"
+            role="button"
+            tabindex="0"
+            (click)="$event.stopPropagation(); openSecondSelector()"
+            (keydown.enter)="openSecondSelector()"
+            (keydown.space)="$event.preventDefault(); openSecondSelector()"
+          >
             Select your second exercise
           </div>
         }

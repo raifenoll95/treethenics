@@ -104,11 +104,18 @@
 }
 
 .compare-vs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   align-self: center;
-  color: #fb7185;
-  font-size: 12px;
-  font-weight: 800;
-  text-align: center;
+}
+
+.compare-vs img {
+  display: block;
+  width: 150px;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
 }
 
 .compare-exercise {
@@ -399,4 +406,38 @@
 /* Mantener el contraste al pasar el cursor */
 .compare-table tbody tr.compare-table__row--different:hover {
   background: #304157;
+}
+
+.compare-column__label--beginner {
+  color: #34d399;
+}
+
+.compare-column__label--intermediate {
+  color: #60a5fa;
+}
+
+.compare-column__label--advanced {
+  color: #fb923c;
+}
+
+.compare-column__label--elite {
+  color: #fb7185;
+}
+
+.compare-placeholder {
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.compare-placeholder:hover,
+.compare-placeholder:focus-visible {
+  border-color: #34d399;
+  background: #1c2633;
+}
+
+.compare-placeholder:focus-visible {
+  outline: 2px solid #34d399;
+  outline-offset: 3px;
 }
