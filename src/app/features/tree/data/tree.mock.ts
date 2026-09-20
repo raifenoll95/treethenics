@@ -1141,9 +1141,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['chest', 'triceps', 'shoulders'],
     primaryMuscles: ['chest', 'triceps', 'front-deltoids'],
     secondaryMuscles: ['serratus-anterior', 'abdominals', 'obliques'],
-    equipment: [],
+    equipment: ['floor','parallettes'],
     description:
-      'Elevate the feet on a stable surface and perform a push-up with the body aligned. The incline of the torso increases the demand on the shoulders and upper chest. Lower the chest under control without letting the lower back arch.',
+      'Place your feet on an elevated surface and your hands on the floor, keeping your body straight as you lower your chest toward the ground before pushing back up with control. Start with regular push-ups and gradually increase the height of your feet to develop upper chest, shoulder, and triceps strength. Progress by incorporating slow negatives, weighted variations, or transitioning toward pike push-ups to increase difficulty and build greater upper-body strength.',
     imageUrl: '/images/exercises/decline-push-up.png',
   },
   {
@@ -1157,9 +1157,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['triceps', 'chest', 'shoulders'],
     primaryMuscles: ['triceps', 'chest', 'front-deltoids'],
     secondaryMuscles: ['serratus-anterior', 'abdominals', 'forearms'],
-    equipment: [],
+    equipment: ['floor'],
     description:
-      'Start in a forearm plank and press through the hands to extend the elbows into a high plank. Reverse the movement slowly while keeping the elbows close and the trunk stable. This variation strongly challenges the triceps.',
+      'Start in a forearm plank position with your elbows beneath your shoulders, engage your core, and push through your hands to lift your forearms off the ground until your arms are fully extended, then lower yourself with control. Begin with knee-supported Sphinx push-ups and regular forearm planks to develop triceps strength, shoulder stability, and core control. Gradually progress to full Sphinx push-ups, slow eccentric repetitions, and feet-elevated variations to increase difficulty while maintaining proper body alignment.',
     imageUrl: '/images/exercises/sphinx-push-up.png',
   },
   {
@@ -1173,9 +1173,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['chest', 'triceps', 'shoulders'],
     primaryMuscles: ['chest', 'triceps', 'front-deltoids'],
     secondaryMuscles: ['serratus-anterior', 'abdominals', 'obliques'],
-    equipment: [],
+    equipment: ['floor'],
     description:
-      'Lower into a push-up, then press explosively enough for the hands to leave the floor and clap. Replace the hands in time to absorb the landing with bent elbows. Maintain a rigid torso and prioritize controlled, repeatable landings.',
+      'Start in a standard push-up position, lower your chest toward the floor, and push explosively to lift your hands off the ground, clap in mid-air, and land softly with slightly bent elbows. Begin with regular push-ups and explosive push-ups without clapping to develop upper-body strength, power, and coordination. Gradually increase your explosiveness, practice controlled landings, and progress toward multiple claps or more advanced plyometric push-up variations while maintaining proper technique.',
     imageUrl: '/images/exercises/clapping-push-up.png',
   },
   {
