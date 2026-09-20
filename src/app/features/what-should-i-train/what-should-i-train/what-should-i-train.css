@@ -703,3 +703,48 @@
   );
   text-decoration: none;
 }
+
+/* PAGINATION */
+
+.train-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+
+  margin-top: 28px;
+  padding-bottom: 24px;
+}
+
+.train-pagination__button {
+  display: grid;
+  place-items: center;
+
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid #39414d;
+  border-radius: 10px;
+
+  background: #252e3b;
+  color: #f5f7fa;
+
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.train-pagination__button:hover:not(:disabled) {
+  border-color: #f43f5e;
+  color: #f43f5e;
+}
+
+.train-pagination__button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.train-pagination__info {
+  color: #aeb7c5;
+  font-size: 13px;
+  font-weight: 600;
+}

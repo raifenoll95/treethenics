@@ -1,9 +1,18 @@
-import { Component, computed, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  signal,
+  inject,
+  PLATFORM_ID,
+  OnDestroy,
+} from '@angular/core';
+
+import { isPlatformBrowser } from '@angular/common';
+
 import { RouterLink } from '@angular/router';
 
 import { EXERCISES } from '../../tree/data/tree.mock';
 
-import { inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import {
@@ -27,23 +36,49 @@ interface SelectOption<T extends string> {
   templateUrl: './what-should-i-train.html',
   styleUrl: './what-should-i-train.css',
 })
-export class WhatShouldITrain {
-  readonly targetAreas: SelectOption<ExerciseTargetArea>[] = [
+export class WhatShouldITrain implements OnDestroy {
+
+  // Número de ejercicios por página: cambia estos valores a tu gusto.
+  readonly exercisesPerPageDesktop = 20;
+  readonly exercisesPerPageMobile = 10;
+
+  private readonly platformId = inject(PLATFORM_ID);
+
+  readonly isMobile = signal(false);
+  readonly currentPage = signal(1);
+
+  readonly pageSize = computed(() =>
+    this.isMobile()
+      ? this.exercisesPerPageMobile
+      : this.exercisesPerPageDesktop,
+  );
+
+  readonly totalPages = computed(() =>
+    Math.max(1, Math.ceil(this.results().length / this.pageSize())),
+  );
+
+  readonly paginatedResults = computed(() => {
+    const start = (this.currentPage() - 1) * this.pageSize();
+
+    return this.results().slice(start, start + this.pageSize());
+  });
+
+  readonly targetAreas: SelectOption<ExerciseTargetArea | 'arms'>[] = [
     { value: 'chest', label: 'Chest' },
     { value: 'back', label: 'Back' },
     { value: 'shoulders', label: 'Shoulders' },
-    { value: 'biceps', label: 'Biceps' },
-    { value: 'triceps', label: 'Triceps' },
+    { value: 'arms', label: 'Arms' },
     { value: 'legs', label: 'Legs' },
     { value: 'core', label: 'Core' },
   ];
 
   readonly equipmentOptions: SelectOption<ExerciseEquipment>[] = [
-    { value: 'pull-up-bar', label: 'Pull-up bar' },
+    { value: 'pull-up-bar', label: 'Bar' },
     { value: 'rings', label: 'Rings' },
     { value: 'parallettes', label: 'Parallettes' },
     { value: 'bands', label: 'Bands' },
     { value: 'added-weight', label: 'Added weight' },
+    { value: 'floor', label: 'Floor' },
   ];
 
   readonly difficulties: SelectOption<DifficultyOption>[] = [
@@ -64,7 +99,7 @@ export class WhatShouldITrain {
       : null,
   );
 
-  readonly selectedAreas = signal<ExerciseTargetArea[]>(
+  readonly selectedAreas = signal<(ExerciseTargetArea | 'arms')[]>(
     this.readAreas(this.params.get('target')),
   );
 
@@ -80,12 +115,16 @@ export class WhatShouldITrain {
     () => this.selectedEquipment().length === 0,
   );
 
+  private readonly shuffledExercises = [...EXERCISES].sort(
+    () => Math.random() - 0.5,
+  );
+
   readonly results = computed<Exercise[]>(() => {
     const areas = this.selectedAreas();
     const availableEquipment = this.selectedEquipment();
     const difficulty = this.selectedDifficulty();
 
-    return EXERCISES.filter((exercise) => {
+    return this.shuffledExercises.filter((exercise) => {
       const matchesDifficulty =
         difficulty === null || exercise.difficulty === difficulty;
 
@@ -94,7 +133,10 @@ export class WhatShouldITrain {
       const matchesArea =
         areas.length === 0 ||
         areas.some((area) =>
-          exercise.targetAreas?.includes(area),
+          area === 'arms'
+            ? exercise.targetAreas?.includes('biceps') ||
+              exercise.targetAreas?.includes('triceps')
+            : exercise.targetAreas?.includes(area),
         );
 
       // ALL: no filtrar por material.
@@ -125,7 +167,9 @@ export class WhatShouldITrain {
     );
   }
 
-  private readAreas(value: string | null): ExerciseTargetArea[] {
+  private readAreas(
+    value: string | null,
+  ): (ExerciseTargetArea | 'arms')[] {
     const values = value?.split(',') ?? [];
 
     return this.targetAreas
@@ -142,6 +186,7 @@ export class WhatShouldITrain {
   }
 
   private syncUrl(): void {
+    this.currentPage.set(1);
     void this.router.navigate([], {
       relativeTo: this.route,
       queryParams: {
@@ -159,7 +204,7 @@ export class WhatShouldITrain {
     this.syncUrl();
   }
 
-  toggleArea(area: ExerciseTargetArea): void {
+  toggleArea(area: ExerciseTargetArea | 'arms'): void {
     this.selectedAreas.update((current) =>
       current.includes(area)
         ? current.filter((item) => item !== area)
@@ -168,7 +213,7 @@ export class WhatShouldITrain {
     this.syncUrl();
   }
 
-  hasArea(area: ExerciseTargetArea): boolean {
+  hasArea(area: ExerciseTargetArea | 'arms'): boolean {
     return this.selectedAreas().includes(area);
   }
 
@@ -203,5 +248,33 @@ export class WhatShouldITrain {
     this.selectedAreas.set([]);
     this.selectedEquipment.set([]);
     this.syncUrl();
+  }
+
+  private readonly updateScreenSize = (): void => {
+    this.isMobile.set(window.innerWidth <= 768);
+    this.currentPage.set(1);
+  };
+
+  constructor() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.updateScreenSize();
+      window.addEventListener('resize', this.updateScreenSize);
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      window.removeEventListener('resize', this.updateScreenSize);
+    }
+  }
+
+  previousPage(): void {
+    this.currentPage.update((page) => Math.max(1, page - 1));
+  }
+
+  nextPage(): void {
+    this.currentPage.update((page) =>
+      Math.min(this.totalPages(), page + 1),
+    );
   }
 }

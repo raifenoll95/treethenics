@@ -27,8 +27,7 @@
     <!-- 01 / DIFFICULTY -->
     <div class="train-filter">
       <div class="train-filter__heading">
-        <span class="train-panel__step">01 / DIFFICULTY</span>
-        <h2>Choose your level</h2>
+        <span class="train-panel__step">01 / DIFFICULTY.</span>
       </div>
 
       <div class="option-grid">
@@ -54,7 +53,6 @@
     <div class="train-filter">
       <div class="train-filter__heading">
         <span class="train-panel__step">02 / TARGET</span>
-        <h2>What do you want to train?</h2>
       </div>
 
       <div class="option-grid">
@@ -76,8 +74,6 @@
     <div class="train-filter">
       <div class="train-filter__heading">
         <span class="train-panel__step">03 / EQUIPMENT</span>
-        <h2>What equipment do you have?</h2>
-        <p>Select the equipment available to you.</p>
       </div>
 
       <div class="option-grid">
@@ -121,13 +117,13 @@
     }
      @else {
       <div class="results-grid">
-        @for (exercise of results(); track exercise.id) {
+        @for (exercise of paginatedResults(); track exercise.id) {
           <article
             class="exercise-card"
-            [class.exercise-card--beginner]="selectedDifficulty() === 'beginner'"
-            [class.exercise-card--intermediate]="selectedDifficulty() === 'intermediate'"
-            [class.exercise-card--advanced]="selectedDifficulty() === 'advanced'"
-            [class.exercise-card--elite]="selectedDifficulty() === 'elite'"
+            [class.exercise-card--beginner]="exercise.difficulty === 'beginner'"
+            [class.exercise-card--intermediate]="exercise.difficulty === 'intermediate'"
+            [class.exercise-card--advanced]="exercise.difficulty === 'advanced'"
+            [class.exercise-card--elite]="exercise.difficulty === 'elite'"
           >
             @if (exercise.imageUrl) {
               <img
@@ -180,6 +176,34 @@
           </article>
         }
       </div>
+
+      @if (totalPages() > 1) {
+        <nav class="train-pagination" aria-label="Exercise pages">
+          <button
+            type="button"
+            class="train-pagination__button"
+            [disabled]="currentPage() === 1"
+            (click)="previousPage()"
+            aria-label="Previous page"
+          >
+            ←
+          </button>
+
+          <span class="train-pagination__info">
+            Page {{ currentPage() }} of {{ totalPages() }}
+          </span>
+
+          <button
+            type="button"
+            class="train-pagination__button"
+            [disabled]="currentPage() === totalPages()"
+            (click)="nextPage()"
+            aria-label="Next page"
+          >
+            →
+          </button>
+        </nav>
+}
     }
   </section>
 </section>
