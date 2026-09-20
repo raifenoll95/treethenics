@@ -236,19 +236,25 @@
                 <td>{{ second.graphLevel }} / 7</td>
               </tr>
 
-              <tr [class.compare-table__row--different]="getMuscles(first, 'primary') !== getMuscles(second, 'primary')">
+              <tr
+                [class.compare-table__row--different]="!samePrimaryMuscles(first, second)"
+              >
                 <th>Primary muscles</th>
                 <td>{{ getMuscles(first, 'primary') }}</td>
                 <td>{{ getMuscles(second, 'primary') }}</td>
               </tr>
 
-              <tr [class.compare-table__row--different]="getMuscles(first, 'secondary') !== getMuscles(second, 'secondary')">
+              <tr
+                [class.compare-table__row--different]="!sameSecondaryMuscles(first, second)"
+              >
                 <th>Secondary muscles</th>
                 <td>{{ getMuscles(first, 'secondary') }}</td>
                 <td>{{ getMuscles(second, 'secondary') }}</td>
               </tr>
 
-              <tr [class.compare-table__row--different]="getEquipment(first) !== getEquipment(second)">
+              <tr
+                [class.compare-table__row--different]="!sameEquipment(first, second)"
+              >
                 <th>Equipment</th>
                 <td>{{ getEquipment(first) }}</td>
                 <td>{{ getEquipment(second) }}</td>

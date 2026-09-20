@@ -38,6 +38,34 @@ export class ComparePage {
 
   private readonly params = this.route.snapshot.queryParamMap;
 
+  private sameItems<T>(first: T[] = [], second: T[] = []): boolean {
+    return (
+      first.length === second.length &&
+      first.every((item) => second.includes(item))
+    );
+  }
+
+  samePrimaryMuscles(first: Exercise, second: Exercise): boolean {
+    return this.sameItems(
+      first.primaryMuscles,
+      second.primaryMuscles,
+    );
+  }
+
+  sameSecondaryMuscles(first: Exercise, second: Exercise): boolean {
+    return this.sameItems(
+      first.secondaryMuscles,
+      second.secondaryMuscles,
+    );
+  }
+
+  sameEquipment(first: Exercise, second: Exercise): boolean {
+    return this.sameItems(
+      first.equipment,
+      second.equipment,
+    );
+  }
+
   @HostListener('document:click', ['$event'])
     onDocumentClick(event: MouseEvent): void {
       const target = event.target;
