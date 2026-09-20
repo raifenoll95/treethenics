@@ -278,14 +278,25 @@
           </div>
         </div>
 
-        <a
-          class="exercise-panel__details"
-          [routerLink]="['/exercises', exercise.id]"
-          [queryParams]="{ from: 'tree' }"
-        >
-          <span>View exercise</span>
-          <span>→</span>
-        </a>
+        <div class="exercise-panel__actions">
+          <a
+            class="exercise-panel__details"
+            [routerLink]="['/exercises', exercise.id]"
+            [queryParams]="{ from: 'tree' }"
+          >
+            <span>View exercise</span>
+            <span>→</span>
+          </a>
+
+          <a
+            class="exercise-panel__compare"
+            routerLink="/compare"
+            [queryParams]="{ first: exercise.id }"
+          >
+            <span>Compare</span>
+            <span>⇄</span>
+          </a>
+        </div>
       </aside>
     }
   </div>

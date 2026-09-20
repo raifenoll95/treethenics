@@ -948,6 +948,11 @@ app-tree-canvas {
   font-size: 12px;
 
   line-height: 1.65;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
 }
 
 /* =========================================================
@@ -1206,4 +1211,82 @@ app-tree-canvas {
 
     padding: 20px;
   }
+}
+
+/* BOTONES DEL PANEL */
+
+.exercise-panel__actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.exercise-panel__details,
+.exercise-panel__compare {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 38px;
+  margin-top: 0;
+  padding: 10px 12px;
+
+  border-radius: 8px;
+  box-sizing: border-box;
+
+  font-size: 11px;
+  font-weight: 750;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+
+  cursor: pointer;
+  transition: transform 150ms ease, filter 150ms ease;
+}
+
+/* View exercise: fondo del color de la dificultad */
+
+.exercise-panel__details {
+  background: var(--exercise-color);
+  border: 1px solid var(--exercise-color);
+  color: #fff;
+}
+
+.exercise-panel__details:visited,
+.exercise-panel__details:hover {
+  color: #fff;
+}
+
+/* Compare: fondo oscuro y contorno de la dificultad */
+
+.exercise-panel__compare {
+  background: #252e3b;
+  border: 1px solid var(--exercise-color);
+  color: var(--exercise-color);
+}
+
+.exercise-panel__compare:visited,
+.exercise-panel__compare:hover {
+  color: var(--exercise-color);
+}
+
+.exercise-panel__details:hover,
+.exercise-panel__compare:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
+
+/* Evita que la flecha herede el tamaño anterior de 18px */
+
+.exercise-panel__actions a span {
+  font-size: inherit;
+}
+
+.exercise-panel__actions a span:last-child {
+  font-size: 14px;
 }
