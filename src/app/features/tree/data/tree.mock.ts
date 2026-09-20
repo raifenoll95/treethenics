@@ -13,7 +13,7 @@ export const EXERCISES: Exercise[] = [
     movementType: 'dynamic',
     graphLevel: 1,
 
-  showInTree: true,
+    showInTree: true,
     category: 'pull',
 
     targetAreas: ['back', 'biceps'],
@@ -23,11 +23,11 @@ export const EXERCISES: Exercise[] = [
     secondaryMuscles: ['forearms', 'rear-deltoids', 'abdominals'],
 
     equipment: [
-      'pull-up-bar',
+      'pull-up-bar', 'rings', 'added-weight'
     ],
 
     description:
-      'A fundamental upper body exercise that builds back strength, grip and overall pulling power. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Grip the bar with your palms facing away and pull your chest toward the bar, keeping your core engaged and lowering yourself with control. Start with assisted pull-ups or resistance bands to build strength, gradually increasing repetitions while maintaining proper form. Once you can perform 10–12 clean reps, add extra weight to increase the difficulty and continue building strength.',
 
     imageUrl: '/images/exercises/pull-up.png',
   },
@@ -39,7 +39,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: 'beginner',
     graphLevel: 1,
 
-  showInTree: true,
+    showInTree: true,
     category: 'push',
 
     targetAreas: ['chest', 'triceps', 'shoulders'],
@@ -49,11 +49,11 @@ export const EXERCISES: Exercise[] = [
     secondaryMuscles: ['serratus-anterior', 'abdominals', 'forearms'],
 
     equipment: [
-      'parallettes',
+      'parallettes', 'added-weight', 'rings'
     ],
 
     description:
-      'A compound pushing exercise that develops upper body pressing strength through the chest, triceps and shoulders. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Grip the parallel bars, lower your body by bending your elbows, and push back up while keeping your core engaged and movements controlled. Start with assisted dips or resistance bands to build strength, gradually increasing repetitions while maintaining proper form. Once you can perform 10–12 clean reps, add extra weight to increase the difficulty and continue building upper-body strength.',
 
     imageUrl: '/images/exercises/dips.png',
   },
@@ -65,7 +65,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: 'beginner',
     graphLevel: 1,
 
-  showInTree: true,
+    showInTree: true,
     category: 'push',
 
     targetAreas: ['chest', 'triceps', 'shoulders'],
@@ -74,10 +74,10 @@ export const EXERCISES: Exercise[] = [
 
     secondaryMuscles: ['serratus-anterior', 'abdominals', 'obliques'],
 
-    equipment: [],
+    equipment: ['floor', 'rings', 'added-weight'],
 
     description:
-      'A fundamental bodyweight pushing exercise that develops chest, triceps and shoulder strength while requiring full-body control. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Place your hands slightly wider than shoulder-width apart, keep your body straight, and lower your chest toward the floor before pushing back up with control. Start with knee push-ups or incline push-ups to build strength, gradually increasing repetitions while maintaining proper form. Once you can perform 15–20 clean reps, progress to decline push-ups, diamond push-ups, or weighted push-ups to increase the difficulty and build upper-body strength.',
 
     imageUrl: '/images/exercises/push-ups.png',
   },
@@ -107,7 +107,7 @@ export const EXERCISES: Exercise[] = [
     ],
 
     description:
-      'Introductory front lever progressions that develop straight-arm pulling strength, core tension and body control. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Hang from a pull-up bar, bring your knees toward your chest, and engage your core and back muscles to hold your body parallel to the ground. Start with short holds of 5–10 seconds, gradually increasing the duration while maintaining proper form and body control. Once you can hold the position for 15–20 seconds, progress to the advanced tuck front lever or one-leg front lever to build greater strength and stability.',
 
     imageUrl: '/images/exercises/tuck-front.png',
   },
@@ -133,7 +133,7 @@ export const EXERCISES: Exercise[] = [
     ],
 
     description:
-      'An explosive pulling exercise that increases range of motion and develops the strength needed to pull the chest toward the bar. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Grip the bar slightly wider than shoulder-width apart, engage your core, and pull yourself up until your chest touches the bar, then lower yourself with control. Start with regular pull-ups or assisted chest-to-bar pull-ups to build strength, gradually increasing repetitions while maintaining proper form. Once you can perform 10–12 clean reps, add extra weight or progress to explosive chest-to-bar pull-ups to increase difficulty and develop upper-body strength.',
 
     imageUrl: '/images/exercises/chest-to-bar.png',
   },
@@ -156,11 +156,11 @@ export const EXERCISES: Exercise[] = [
 
     equipment: [
       'parallettes',
-      'rings'
+      'rings', 'floor'
     ],
 
     description:
-      'A static hold that develops core compression, hip flexor strength and straight-arm support control. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Support your body on parallel bars or the floor, keep your arms straight, and lift your legs until they are parallel to the ground while engaging your core. Start with tuck L-sits or bent-knee holds, gradually increasing the duration and extending your legs as your strength improves. Once you can hold a full L-sit for 15–20 seconds, progress to longer holds, weighted L-sits, or V-sits to increase difficulty and build greater core strength.',
 
     imageUrl: '/images/exercises/l-sit.png',
   },
@@ -181,10 +181,10 @@ export const EXERCISES: Exercise[] = [
 
     secondaryMuscles: ['trapezius', 'serratus-anterior', 'forearms', 'abdominals'],
 
-    equipment: [],
+    equipment: ['parallettes','floor'],
 
     description:
-      'A fundamental inverted skill that develops balance, overhead stability, shoulder strength and full-body control. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Place your hands shoulder-width apart, kick your legs overhead, and maintain a straight body position while engaging your core and shoulders. Start by practicing handstands against a wall to develop balance, strength, and body awareness. Gradually reduce your reliance on the wall, practice controlled kick-ups, and work toward holding a freestanding handstand with proper alignment and stability.',
 
     imageUrl: '/images/exercises/handstand.png',
   },
@@ -205,10 +205,10 @@ export const EXERCISES: Exercise[] = [
 
     secondaryMuscles: ['serratus-anterior', 'trapezius', 'abdominals'],
 
-    equipment: [],
+    equipment: ['floor','parallettes'],
 
     description:
-      'A bodyweight vertical pressing progression that builds shoulder and triceps strength for handstand push ups. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Start in a downward dog position with your hips raised, hands shoulder-width apart, and legs straight, then bend your elbows to lower your head toward the floor before pushing back up. Begin with regular pike push-ups, focusing on controlled movements and proper shoulder engagement to build strength. Gradually elevate your feet to increase difficulty, progressing toward wall-assisted handstand push-ups as your shoulder strength and stability improve.',
 
     imageUrl: '/images/exercises/pike-push-up.png',
   },
@@ -229,10 +229,10 @@ export const EXERCISES: Exercise[] = [
 
     secondaryMuscles: ['abdominals', 'forearms', 'serratus-anterior', 'obliques'],
 
-    equipment: [],
+    equipment: ['floor','parallettes'],
 
     description:
-      'A bent-arm horizontal hold that develops pressing strength, forward lean control and full-body tension. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Place your hands on the floor, bend your elbows into your abdomen, and lean forward while lifting your legs to balance your body horizontally. Start by practicing with your feet on the ground or one leg extended to develop balance, wrist strength, and core stability. Gradually shift more weight onto your hands, extend both legs, and work toward maintaining a stable elbow lever with full body control.',
 
     imageUrl: '/images/exercises/bent-arm-planche.png',
   },
@@ -258,7 +258,7 @@ export const EXERCISES: Exercise[] = [
     ],
 
     description:
-      'A controlled rotational movement that develops shoulder mobility, pulling control and strength through an inverted position. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Hang from a pull-up bar or gymnastic rings, tuck your knees toward your chest, and rotate your body backward through your arms into a controlled inverted position. Start with assisted rotations and partial movements to develop shoulder mobility, core strength, and body control. Gradually increase your range of motion, progressing toward a full rotation into the German hang position and returning to the starting position with control.',
 
     imageUrl: '/images/exercises/skin-the-cat.png',
   },
@@ -268,7 +268,7 @@ export const EXERCISES: Exercise[] = [
    */
   {
     id: 'hang-to-inverted-press',
-    name: 'Inverted Press',
+    name: 'Inverted Press HACER',
     difficulty: 'intermediate',
     movementType: 'dynamic',
     graphLevel: 3,
@@ -293,9 +293,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['core'],
     primaryMuscles: ['abdominals', 'obliques'],
     secondaryMuscles: ['latissimus-dorsi', 'hip-flexors', 'glutes'],
-    equipment: [],
+    equipment: ['floor'],
     description:
-      'A demanding core exercise that develops exceptional trunk strength and full-body tension while controlling the body as a rigid unit. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'ie on your back, grip a stable support behind your head, and lift your body while keeping your shoulders on the ground and your core engaged. Lower your body slowly in a straight line without letting your hips drop or your lower back arch. Start with bent-knee dragon flags or controlled negatives, gradually extending your legs and increasing your range of motion until you can perform the full movement with proper technique.',
     imageUrl: '/images/exercises/dragon-flag.png',
   },
   {
@@ -309,9 +309,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['back', 'chest', 'biceps', 'triceps', 'shoulders'],
     primaryMuscles: ['latissimus-dorsi', 'biceps', 'triceps', 'chest'],
     secondaryMuscles: ['upper-back', 'front-deltoids', 'forearms', 'abdominals'],
-    equipment: ['pull-up-bar'],
+    equipment: ['pull-up-bar','rings','added-weight'],
     description:
-      'A dynamic compound skill that combines an explosive pull, a transition over the bar and a powerful dip to finish above it. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Hang from a pull-up bar, pull yourself explosively upward, transition your chest over the bar, and push up until your arms are fully extended. Start with explosive pull-ups, straight-bar dips, and assisted muscle-ups to develop the strength and coordination needed for the movement. Gradually reduce assistance, improve your transition technique, and work toward performing strict muscle-ups with controlled movements and minimal momentum.',
     imageUrl: '/images/exercises/muscle-up.png',
   },
   {
@@ -327,7 +327,7 @@ export const EXERCISES: Exercise[] = [
     secondaryMuscles: ['serratus-anterior', 'abdominals', 'forearms'],
     equipment: ['parallettes'],
     description:
-      'A demanding dip variation that places exceptional emphasis on the triceps through a mechanically challenging range of motion. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Start on parallel bars with your arms straight, then slowly lower your body by bending your elbows while keeping your forearms close to the bars and maintaining full-body control. Begin with regular dips, deep dips, and assisted impossible dips to develop the triceps, shoulder strength, and mobility required for the movement. Gradually reduce assistance, practice controlled negatives, and work toward performing the full impossible dip with proper technique and stability.',
     imageUrl: '/images/exercises/impossible-dip.png',
   },
   {
@@ -341,14 +341,14 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['chest', 'triceps', 'shoulders'],
     primaryMuscles: ['triceps', 'chest', 'front-deltoids'],
     secondaryMuscles: ['serratus-anterior', 'abdominals', 'forearms'],
-    equipment: ['pull-up-bar'],
+    equipment: ['parallettes'],
     description:
-      'A behind-the-bar dip variation that develops pressing strength, shoulder extension control and stability through a challenging range of motion. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Position yourself on a straight bar with your hands behind your body, then bend your elbows to lower yourself while maintaining control and keeping your shoulders stable. Start with regular dips and straight-bar dips to develop upper-body strength, gradually introducing assisted Korean dips to improve shoulder mobility and stability. As your strength and flexibility improve, reduce assistance and focus on performing the full movement with proper technique and a controlled range of motion.',
     imageUrl: '/images/exercises/korean-dip.png',
   },
   {
     id: 'handstand-press',
-    name: 'Handstand Press',
+    name: 'Handstand Press HACER',
     difficulty: 'intermediate',
     movementType: 'dynamic',
     graphLevel: 3,
@@ -372,9 +372,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['shoulders', 'chest', 'core'],
     primaryMuscles: ['front-deltoids', 'serratus-anterior', 'chest'],
     secondaryMuscles: ['triceps', 'abdominals', 'forearms', 'hip-flexors'],
-    equipment: [],
+    equipment: ['floor','parallettes'],
     description:
-      'An introductory planche hold that develops straight-arm pushing strength, scapular control and the forward lean needed for harder planche variations. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Place your hands on the floor, lean forward, and lift your feet off the ground while keeping your knees tucked toward your chest and your arms straight. Start with planche leans and frog stands to develop wrist strength, shoulder stability, and core control. Gradually increase your forward lean, improve your balance, and progress toward the advanced tuck planche by extending your hips and moving your knees farther away from your chest.',
     imageUrl: '/images/exercises/tuck-planche.png',
   },
   {
@@ -388,9 +388,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['shoulders', 'triceps', 'chest'],
     primaryMuscles: ['front-deltoids', 'triceps', 'chest'],
     secondaryMuscles: ['serratus-anterior', 'trapezius', 'abdominals'],
-    equipment: [],
+    equipment: ['floor','parallettes'],
     description:
-      'A vertical bodyweight press performed from a handstand that develops powerful shoulders, triceps and overhead pressing control. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Start in a handstand position with your hands shoulder-width apart, bend your elbows to lower your head toward the floor, and push back up while maintaining a stable body position. Begin with pike push-ups and wall-assisted handstand push-ups to develop shoulder strength, balance, and control. Gradually increase your range of motion, reduce wall assistance, and progress toward freestanding handstand push-ups with proper technique and stability.',
     imageUrl: '/images/exercises/hspu3.png',
   },
   {
@@ -404,9 +404,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['shoulders', 'chest', 'core'],
     primaryMuscles: ['front-deltoids', 'chest', 'triceps'],
     secondaryMuscles: ['abdominals', 'forearms', 'serratus-anterior', 'obliques'],
-    equipment: [],
+    equipment: ['floor'],
     description:
-      'A unilateral elbow lever that requires balance, core tension and upper-body stability while supporting the body horizontally on one arm. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Balance your body horizontally on one bent arm, keeping your core engaged and your legs extended while maintaining full-body tension and control. Start with tuck planche holds, bent-arm planche variations, and assisted one-arm balances to develop the necessary shoulder strength and stability. Gradually shift more weight onto your supporting arm, reduce assistance, and work toward extending your legs while maintaining proper alignment and balance.',
     imageUrl: '/images/exercises/one-arm-elbow-lever.png',
   },
   {
@@ -418,11 +418,11 @@ export const EXERCISES: Exercise[] = [
     showInTree: true,
     category: 'static',
     targetAreas: ['back', 'shoulders', 'core'],
-    primaryMuscles: ['latissimus-dorsi', 'rear-deltoids', 'chest'],
-    secondaryMuscles: ['biceps', 'upper-back', 'abdominals', 'glutes'],
+    primaryMuscles: ['rear-deltoids', 'chest', 'biceps'],
+    secondaryMuscles: ['forearms', 'abdominals', 'glutes'],
     equipment: ['pull-up-bar'],
     description:
-      'A straight-arm static hold with the body horizontal and facing the ground, requiring strong shoulders, back and full-body tension. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Hang from a pull-up bar or gymnastic rings, rotate your body backward, and extend your legs until your body is horizontal, keeping your arms straight and core engaged. Start with tuck back lever holds and assisted variations to develop shoulder strength, mobility, and body control. Gradually progress to the advanced tuck, one-leg, and straddle back lever before attempting the full position with proper alignment and stability.',
     imageUrl: '/images/exercises/back-lever.png',
   },
 
@@ -440,9 +440,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['back', 'core'],
     primaryMuscles: ['latissimus-dorsi', 'upper-back', 'abdominals'],
     secondaryMuscles: ['rear-deltoids', 'biceps', 'forearms', 'glutes'],
-    equipment: ['pull-up-bar'],
+    equipment: ['pull-up-bar','rings'],
     description:
-      'A straight-arm horizontal hold that demands exceptional pulling strength, scapular control and full-body tension. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Hang from a pull-up bar with your arms straight, engage your core and back muscles, and lift your body until it is parallel to the ground while maintaining a straight body position. Start with tuck front lever holds and controlled front lever raises to develop core strength, shoulder stability, and body control. Gradually progress through advanced tuck, one-leg, and straddle variations before attempting the full front lever with proper alignment and stability.',
     imageUrl: '/images/exercises/front-lever.png',
   },
   {
@@ -456,9 +456,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['back', 'biceps'],
     primaryMuscles: ['latissimus-dorsi', 'upper-back', 'biceps'],
     secondaryMuscles: ['forearms', 'rear-deltoids', 'abdominals'],
-    equipment: ['pull-up-bar'],
+    equipment: ['pull-up-bar','rings'],
     description:
-      'A unilateral pull up requiring exceptional back, arm and grip strength to lift the entire body with one arm. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Hang from a pull-up bar using one hand, engage your core and back muscles, and pull yourself upward until your chin reaches the bar, then lower yourself with control. Start with weighted pull-ups, archer pull-ups, and assisted one-arm pull-ups to develop unilateral strength and grip stability. Gradually reduce assistance, incorporate controlled one-arm negatives, and work toward performing a full one-arm pull-up with proper technique and minimal momentum.',
     imageUrl: '/images/exercises/oap.png',
   },
   {
@@ -474,7 +474,7 @@ export const EXERCISES: Exercise[] = [
     secondaryMuscles: ['forearms', 'rear-deltoids', 'abdominals'],
     equipment: ['pull-up-bar'],
     description:
-      'A high-range pulling exercise where the body is pulled toward the bar at waist level, developing powerful and explosive pulling strength. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Hang from a pull-up bar with an overhand grip, engage your core, and pull explosively until the bar reaches your waist, keeping your body controlled throughout the movement. Start with regular pull-ups, chest-to-bar pull-ups, and explosive high pull-ups to develop the strength and power needed for this exercise. Gradually increase your pulling height, improve your coordination, and focus on generating explosive power while minimizing momentum to achieve a controlled waist-level pull-up.',
     imageUrl: '/images/exercises/waist-pull-up.png',
   },
   {
@@ -488,9 +488,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['core', 'shoulders', 'back'],
     primaryMuscles: ['obliques', 'latissimus-dorsi', 'front-deltoids'],
     secondaryMuscles: ['triceps', 'upper-back', 'abdominals', 'forearms'],
-    equipment: ['pull-up-bar'],
+    equipment: ['vertical-pole'],
     description:
-      'A lateral static hold that requires powerful shoulders, back and core to keep the body horizontal against gravity. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Grip a vertical pole with both hands, push with your lower arm and pull with your upper arm to lift your body horizontally while keeping your core engaged and legs extended. Start with vertical flag holds, tuck human flags, and assisted variations to develop shoulder strength, core stability, and body control. Gradually progress to one-leg and straddle human flags, focusing on maintaining proper alignment and balance before attempting the full human flag.',
     imageUrl: '/images/exercises/human-flag.png',
   },
   {
@@ -506,7 +506,7 @@ export const EXERCISES: Exercise[] = [
     secondaryMuscles: ['chest', 'forearms', 'upper-back', 'abdominals'],
     equipment: ['pull-up-bar'],
     description:
-      'A demanding behind-the-back pulling skill that requires exceptional biceps strength, shoulder extension and controlled pulling power. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Hang from a bar or gymnastic rings with a supinated grip, rotate your shoulders backward, and pull your body upward from a German hang position until you reach a supported position with your arms extended. Start with assisted Hefesto transitions, German hangs, and reverse curls to develop biceps strength, shoulder mobility, and control. Gradually reduce assistance, incorporate controlled negative repetitions, and work toward performing the full Hefesto with proper technique and stability.',
     imageUrl: '/images/exercises/hefesto.png',
   },
   {
@@ -520,9 +520,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['core', 'shoulders'],
     primaryMuscles: ['hip-flexors', 'abdominals', 'triceps'],
     secondaryMuscles: ['quadriceps', 'front-deltoids', 'forearms', 'obliques'],
-    equipment: [],
+    equipment: ['floor','parallettes'],
     description:
-      'An advanced compression hold that raises the legs beyond an L-Sit, requiring exceptional core and hip flexor strength. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Support your body on parallel bars or the floor with your arms straight, engage your core, and lift your legs upward to form a V-shape while keeping your knees extended and maintaining balance. Start with L-sits, seated leg raises, and compression exercises to develop core strength, hip flexor endurance, and flexibility. Gradually increase your leg elevation, improve your hamstring flexibility, and progress toward a full V-sit with proper body alignment and control.',
     imageUrl: '/images/exercises/v-sit.png',
   },
   {
@@ -536,9 +536,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['shoulders', 'chest', 'core'],
     primaryMuscles: ['front-deltoids', 'serratus-anterior', 'chest'],
     secondaryMuscles: ['triceps', 'abdominals', 'forearms', 'hip-flexors'],
-    equipment: [],
+    equipment: ['floor','parallettes'],
     description:
-      'An advanced straight-arm hold where the body remains horizontal with the legs spread to reduce leverage compared with a full planche. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Place your hands on the floor, lean forward, and lift your body horizontally with your arms straight and legs spread apart, keeping your core engaged and shoulders stable. Start with tuck planche and advanced tuck planche variations to develop shoulder strength, wrist stability, and body control. Gradually extend your legs into a wider straddle position, increase your forward lean, and practice assisted holds and controlled negatives to achieve a full straddle planche with proper alignment and balance.',
     imageUrl: '/images/exercises/straddle-planche.png',
   },
   {
@@ -552,9 +552,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['shoulders', 'triceps', 'chest'],
     primaryMuscles: ['front-deltoids', 'triceps', 'chest'],
     secondaryMuscles: ['serratus-anterior', 'trapezius', 'abdominals'],
-    equipment: [],
+    equipment: ['floor','parallettes'],
     description:
-      'An advanced handstand pressing movement that lowers the body toward a horizontal position before pressing back to the handstand. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Start in a handstand position, bend your elbows, and lower your body into a horizontal bent-arm planche before pushing back up into a handstand with control. Begin with handstand push-ups, planche leans, and bent-arm planche holds to develop shoulder strength, balance, and body control. Gradually incorporate assisted transitions and controlled negatives, reducing assistance as you build the strength and coordination needed to perform the full movement.',
   },
   {
     id: 'one-arm-push-up-clean-form',
@@ -567,9 +567,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['chest', 'triceps', 'shoulders'],
     primaryMuscles: ['chest', 'triceps', 'front-deltoids'],
     secondaryMuscles: ['serratus-anterior', 'abdominals', 'obliques'],
-    equipment: [],
+    equipment: ['floor'],
     description:
-      'A strict unilateral push up that develops powerful pressing strength while demanding significant anti-rotation core control. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Place one hand on the floor beneath your shoulder, keep your body straight and hips level, and lower your chest toward the ground before pushing back up without twisting your torso. Start with regular push-ups, archer push-ups, and assisted one-arm push-ups to develop unilateral strength and core stability. Gradually reduce assistance, narrow your foot stance, and focus on maintaining proper alignment and control until you can perform a strict one-arm push-up with minimal body rotation.',
     imageUrl: '/images/exercises/one-arm-push-up.png',
   },
   {
@@ -583,9 +583,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['back', 'shoulders', 'core'],
     primaryMuscles: ['latissimus-dorsi', 'rear-deltoids', 'chest'],
     secondaryMuscles: ['biceps', 'upper-back', 'abdominals', 'glutes'],
-    equipment: ['pull-up-bar'],
+    equipment: ['pull-up-bar','rings'],
     description:
-      'A unilateral back lever that dramatically increases the strength, stability and anti-rotation demands of the standard back lever. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Hang from a bar or gymnastic rings with one arm, rotate your body backward, and extend your legs until your body is horizontal, keeping your core engaged and shoulders stable. Start with regular back levers, assisted one-arm holds, and one-arm hanging exercises to develop shoulder strength, grip endurance, and body control. Gradually reduce assistance, practice controlled one-arm negatives, and work toward maintaining a full one-arm back lever with proper alignment and stability.',
     imageUrl: '/images/exercises/one-arm-back-lever.png',
   },
 
@@ -605,7 +605,7 @@ export const EXERCISES: Exercise[] = [
     secondaryMuscles: ['rear-deltoids', 'biceps', 'forearms', 'glutes'],
     equipment: ['pull-up-bar'],
     description:
-      'A harder front lever variation that brings the torso closer to the bar, significantly increasing pulling and scapular strength demands. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Hang from a pull-up bar with your arms straight, engage your core and back muscles, and lift your body into a horizontal position before pulling your hips toward the bar while maintaining full-body tension. Start with regular front lever holds, tuck front lever rows, and assisted touch front levers to develop pulling strength and body control. Gradually progress to advanced tuck and straddle variations, reducing assistance and focusing on bringing your hips closer to the bar without losing proper alignment or stability.',
     imageUrl: '/images/exercises/touch-front.png',
   },
   {
@@ -621,7 +621,7 @@ export const EXERCISES: Exercise[] = [
     secondaryMuscles: ['abdominals', 'rear-deltoids', 'forearms', 'glutes'],
     equipment: ['pull-up-bar'],
     description:
-      'A dynamic front lever exercise that combines horizontal body tension with powerful pulling through a demanding range of motion. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Hang from a pull-up bar, extend your body into a horizontal front lever position, and pull your torso toward the bar while keeping your core engaged and body straight. Start with tuck front lever pull-ups, front lever rows, and assisted variations to develop back strength, core stability, and pulling power. Gradually progress through advanced tuck, one-leg, and straddle variations, focusing on maintaining a horizontal body position and controlled movement before attempting full front lever pull-ups.',
     imageUrl: '/images/exercises/front-lever-pull.png',
   },
   {
@@ -635,9 +635,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['core', 'shoulders', 'back', 'biceps'],
     primaryMuscles: ['obliques', 'latissimus-dorsi', 'biceps'],
     secondaryMuscles: ['front-deltoids', 'triceps', 'upper-back', 'forearms'],
-    equipment: ['pull-up-bar'],
+    equipment: ['vertical-pole'],
     description:
-      'A dynamic human flag variation that adds vertical pulling while maintaining lateral body control and full-body tension. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Grip a vertical pole with both hands, lift your body into a horizontal human flag position, and pull yourself upward by bending your upper arm while keeping your core engaged and body aligned. Start with static human flag holds, assisted flag pull-ups, and controlled partial repetitions to develop shoulder strength, core stability, and pulling power. Gradually increase your range of motion, reduce assistance, and progress toward full human flag pull-ups while maintaining proper technique and body control.',
     imageUrl: '/images/exercises/human-flag-pu.png',
   },
   {
@@ -653,7 +653,7 @@ export const EXERCISES: Exercise[] = [
     secondaryMuscles: ['chest', 'forearms', 'upper-back', 'abdominals'],
     equipment: ['pull-up-bar'],
     description:
-      'Transition behind the bar while maintaining active shoulders and controlled elbow flexion. The biceps and lats contribute to the pull as the trunk stabilizes the body. Avoid forcing the shoulders into an uncontrolled end range.',
+      'Start in a supported position on a pull-up bar, lean your torso forward, and rotate your body backward while maintaining straight arms and controlled shoulder movement to transition into a back lever position. Begin with skin the cat, German hangs, and tuck back lever transitions to develop shoulder mobility, strength, and body awareness. Gradually increase your range of motion, practice assisted entries, and reduce assistance as you improve your control and coordination throughout the movement.',
     imageUrl: '/images/exercises/entrada-angel.png',
   },
   {
@@ -667,9 +667,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['shoulders', 'chest', 'core'],
     primaryMuscles: ['front-deltoids', 'serratus-anterior', 'chest'],
     secondaryMuscles: ['triceps', 'abdominals', 'forearms', 'hip-flexors'],
-    equipment: [],
+    equipment: ['floor','parallettes'],
     description:
-      'A straight-arm horizontal hold with the legs fully extended, requiring exceptional shoulder strength, scapular control and total-body tension. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Place your hands on the floor, lean forward, and lift your entire body horizontally with your arms straight and legs fully extended, keeping your core engaged and shoulders protracted. Start with tuck planche, advanced tuck planche, and straddle planche variations to develop shoulder strength, wrist stability, and body control. Gradually bring your legs closer together from the straddle position, practice assisted full planche holds, and focus on maintaining proper alignment and balance as you progress toward the full movement.',
     imageUrl: '/images/exercises/full-planche.png',
   },
   {
@@ -683,9 +683,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['shoulders', 'core'],
     primaryMuscles: ['front-deltoids', 'side-deltoids', 'triceps'],
     secondaryMuscles: ['trapezius', 'serratus-anterior', 'forearms', 'abdominals'],
-    equipment: [],
+    equipment: ['floor','parallettes'],
     description:
-      'A one-arm balance skill requiring exceptional shoulder stability, hand control, body alignment and precise weight transfer. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Balance your body upside down on one hand, keeping your supporting arm straight, core engaged, and legs extended while maintaining proper alignment and stability. Start with regular handstands, wall-assisted weight shifts, and fingertip-supported one-arm holds to develop shoulder strength, balance, and body awareness. Gradually transfer more weight onto your supporting hand, reduce fingertip assistance, and practice controlled one-arm balances until you can maintain a stable freestanding one-arm handstand.',
     imageUrl: '/images/exercises/oah2.png',
   },
   {
@@ -701,7 +701,7 @@ export const EXERCISES: Exercise[] = [
     secondaryMuscles: ['latissimus-dorsi', 'serratus-anterior', 'forearms', 'abdominals'],
     equipment: ['rings'],
     description:
-      'A classic rings strength hold with both arms extended horizontally, demanding extreme shoulder, chest and straight-arm strength. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Support your body on gymnastic rings with your arms extended horizontally to the sides, keeping your elbows straight, shoulders stable, and core engaged. Start with ring support holds, assisted iron cross variations, and controlled cross pulls to develop shoulder strength, tendon resilience, and stability. Gradually reduce assistance using resistance bands or a pulley system, focusing on maintaining proper alignment and control as you progress toward the full iron cross.',
     imageUrl: '/images/exercises/iron-cross.png',
   },
 
@@ -721,7 +721,7 @@ export const EXERCISES: Exercise[] = [
     secondaryMuscles: ['rear-deltoids', 'biceps', 'forearms', 'glutes'],
     equipment: ['pull-up-bar'],
     description:
-      'An elite unilateral front lever requiring extraordinary pulling strength, scapular stability and resistance to body rotation. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Hang from a pull-up bar with one arm, engage your core and back muscles, and extend your body horizontally while maintaining full-body tension and shoulder stability. Start with regular front levers, assisted one-arm holds, and one-arm hanging exercises to develop unilateral strength, grip endurance, and body control. Gradually reduce assistance, practice controlled one-arm negatives, and progress toward maintaining a full one-arm front lever with proper alignment and minimal body rotation.',
     imageUrl: '/images/exercises/one-arm-front.png',
   },
   {
@@ -737,12 +737,12 @@ export const EXERCISES: Exercise[] = [
     secondaryMuscles: ['rear-deltoids', 'biceps', 'forearms', 'glutes'],
     equipment: ['rings'],
     description:
-      'An elite rings strength hold with the body horizontal and supported through the arms, demanding exceptional posterior-chain and straight-arm strength.',
+      'Hang from a pull-up bar or gymnastic rings and extend your body horizontally, facing upward, with your arms straight and positioned alongside your torso while keeping your core engaged and body aligned. Start with regular front levers, advanced tuck Victorian holds, and assisted variations to develop shoulder strength, core stability, and body control. Gradually extend your legs, reduce assistance, and practice controlled transitions to build the strength and stability needed to perform the full Victorian Front Lever.',
     imageUrl: '/images/exercises/victorian.png',
   },
   {
     id: 'butterfly',
-    name: 'Butterfly Muscle Up',
+    name: 'Butterfly Muscle Up HACER',
     difficulty: 'elite',
     movementType: 'dynamic',
     graphLevel: 6,
@@ -767,9 +767,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['core', 'shoulders'],
     primaryMuscles: ['hip-flexors', 'abdominals', 'triceps'],
     secondaryMuscles: ['quadriceps', 'front-deltoids', 'forearms', 'obliques'],
-    equipment: [],
+    equipment: ['floor','parallettes'],
     description:
-      'An extreme compression hold that elevates the hips and legs far beyond a V-Sit, requiring exceptional mobility, core strength and support control. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Support your body on the floor or parallel bars with your hands beside your hips, keep your arms straight, and lift your legs and hips upward until your body forms a horizontal position with your legs extended behind your torso. Start with L-sits, V-sits, and seated compression exercises to develop core strength, shoulder mobility, and flexibility. Gradually increase your hip elevation, improve your shoulder extension, and practice assisted manna holds to build the strength and control needed to achieve the full position.',
     imageUrl: '/images/exercises/manna.png',
   },
   {
@@ -783,9 +783,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['shoulders', 'chest', 'triceps', 'core'],
     primaryMuscles: ['front-deltoids', 'chest', 'triceps'],
     secondaryMuscles: ['serratus-anterior', 'abdominals', 'forearms', 'glutes'],
-    equipment: [],
+    equipment: ['floor','parallettes'],
     description:
-      'An elite dynamic planche exercise that combines a full horizontal hold with controlled pressing through repeated push up repetitions. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Start in a full planche position with your arms straight, body horizontal, and legs extended, then bend your elbows to lower your body before pushing back up while maintaining balance and control. Begin with planche leans, tuck planche push-ups, and straddle planche push-ups to develop shoulder strength, core stability, and pushing power. Gradually progress to assisted full planche push-ups, reduce assistance, and focus on maintaining proper body alignment and controlled movement throughout the exercise.',
     imageUrl: '/images/exercises/full-planche-pu.png',
   },
   {
@@ -799,9 +799,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['shoulders', 'chest', 'biceps', 'core'],
     primaryMuscles: ['chest', 'front-deltoids', 'biceps'],
     secondaryMuscles: ['latissimus-dorsi', 'serratus-anterior', 'forearms', 'abdominals'],
-    equipment: ['rings'],
+    equipment: ['rings','floor','parallettes'],
     description:
-      'Hold the body horizontal on rings with the arms straight and extended widely to the sides. The chest, shoulders and elbow flexors sustain a very demanding straight-arm position. Keep the trunk rigid and the rings controlled.',
+      'Support your body horizontally on gymnastic rings with your arms extended straight out to the sides at shoulder level, keeping your core engaged and maintaining full-body tension. Start with planche holds, Maltese leans, and assisted Maltese variations to develop shoulder strength, straight-arm stability, and body control. Gradually increase your arm extension, reduce assistance, and practice controlled Maltese holds while maintaining proper alignment and stability as you progress toward the full movement.',
     imageUrl: '/images/exercises/maltese.png',
   },
 
@@ -810,7 +810,7 @@ export const EXERCISES: Exercise[] = [
    */
   {
     id: 'caruso',
-    name: 'Caruso',
+    name: 'Caruso HACER',
     difficulty: 'elite',
     movementType: 'dynamic',
     graphLevel: 7,

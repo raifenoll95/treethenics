@@ -30,6 +30,8 @@ export const EQUIPMENT_LABELS: Record<ExerciseEquipment, string> = {
   parallettes: 'Parallettes',
   bands: 'Resistance Bands',
   'added-weight': 'Added Weight',
+  floor: 'Floor',
+  'vertical-pole': 'Vertical Pole',
 };
 
 export const TARGET_AREA_LABELS: Record<ExerciseTargetArea, string> = {
