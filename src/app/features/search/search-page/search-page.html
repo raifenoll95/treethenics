@@ -119,43 +119,6 @@
       <span>Explore all exercises</span>
       <span>
 
-        @if (totalPages() > 1) {
-          <nav class="search-pagination" aria-label="Exercise pages">
-
-            <button
-              type="button"
-              class="search-pagination__button"
-              [disabled]="currentPage() === 1"
-              (click)="previousPage()"
-              aria-label="Previous page"
-            >
-              ←
-            </button>
-
-            <div class="search-pagination__info">
-              <span>
-                {{ firstVisibleExercise() }}–{{ lastVisibleExercise() }}
-                of {{ filteredExercises().length }} exercises
-              </span>
-
-              <strong>
-                Page {{ currentPage() }} of {{ totalPages() }}
-              </strong>
-            </div>
-
-            <button
-              type="button"
-              class="search-pagination__button"
-              [disabled]="currentPage() === totalPages()"
-              (click)="nextPage()"
-              aria-label="Next page"
-            >
-              →
-            </button>
-
-          </nav>
-        }
-
         @if (searchTerm().trim()) {
           found for “{{ searchTerm() }}”
         }
@@ -257,6 +220,34 @@
 
     }
 
+  }
+
+  @if (totalPages() > 1) {
+    <nav class="search-pagination" aria-label="Exercise pages">
+      <button
+        type="button"
+        class="search-pagination__button"
+        [disabled]="currentPage() === 1"
+        (click)="previousPage()"
+        aria-label="Previous page"
+      >
+        ←
+      </button>
+
+      <span class="search-pagination__info">
+        Page {{ currentPage() }} of {{ totalPages() }}
+      </span>
+
+      <button
+        type="button"
+        class="search-pagination__button"
+        [disabled]="currentPage() === totalPages()"
+        (click)="nextPage()"
+        aria-label="Next page"
+      >
+        →
+      </button>
+    </nav>
   }
 
 </section>

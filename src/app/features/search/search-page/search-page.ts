@@ -1,6 +1,14 @@
-import { Component, computed, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { inject } from '@angular/core';
+import {
+  Component,
+  computed,
+  signal,
+  inject,
+  PLATFORM_ID,
+  OnDestroy,
+} from '@angular/core';
+
+import { isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { EXERCISES } from '../../tree/data/tree.mock';
@@ -26,7 +34,7 @@ interface ExerciseLevelGroup {
   templateUrl: './search-page.html',
   styleUrl: './search-page.css',
 })
-export class SearchPage {
+export class SearchPage implements OnDestroy {
 
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
@@ -44,9 +52,42 @@ export class SearchPage {
   readonly totalExercises = EXERCISES.length;
 
   // Cambia este número a 40, 50, etc.
-  readonly pageSize = 30;
+  // Número de ejercicios por página: cambia estos valores a tu gusto.
+  readonly exercisesPerPageDesktop = 12;
+  readonly exercisesPerPageMobile = 4;
 
+  private readonly platformId = inject(PLATFORM_ID);
+
+  readonly isMobile = signal(false);
   readonly currentPage = signal(1);
+
+  readonly pageSize = computed(() =>
+    this.isMobile()
+      ? this.exercisesPerPageMobile
+      : this.exercisesPerPageDesktop,
+  );
+
+  private readonly updateScreenSize = (): void => {
+    const mobile = window.innerWidth <= 768;
+
+    if (this.isMobile() !== mobile) {
+      this.isMobile.set(mobile);
+      this.currentPage.set(1);
+    }
+  };
+
+  constructor() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.updateScreenSize();
+      window.addEventListener('resize', this.updateScreenSize);
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      window.removeEventListener('resize', this.updateScreenSize);
+    }
+  }
 
   readonly selectedDifficulty = signal<ExerciseDifficulty | null>(
     this.isDifficulty(this.initialDifficulty)
@@ -95,33 +136,18 @@ export class SearchPage {
   readonly totalPages = computed(() =>
     Math.max(
       1,
-      Math.ceil(this.filteredExercises().length / this.pageSize),
+      Math.ceil(this.filteredExercises().length / this.pageSize()),
     ),
   );
 
   readonly paginatedExercises = computed(() => {
-    const start = (this.currentPage() - 1) * this.pageSize;
+    const start = (this.currentPage() - 1) * this.pageSize();
 
     return this.filteredExercises().slice(
-        start,
-        start + this.pageSize,
-      );
-    });
-
-    readonly firstVisibleExercise = computed(() => {
-      if (this.filteredExercises().length === 0) {
-        return 0;
-      }
-
-      return (this.currentPage() - 1) * this.pageSize + 1;
-    });
-
-    readonly lastVisibleExercise = computed(() =>
-      Math.min(
-        this.currentPage() * this.pageSize,
-        this.filteredExercises().length,
-      ),
+      start,
+      start + this.pageSize(),
     );
+  });
 
   readonly groupedResults = computed<ExerciseLevelGroup[]>(() => {
     const hasSearch = this.searchTerm().trim().length > 0;
@@ -147,22 +173,14 @@ export class SearchPage {
       .filter((group) => group.exercises.length > 0);
   });
 
-  nextPage(): void {
-    if (this.currentPage() >= this.totalPages()) {
-      return;
-    }
-
-    this.currentPage.update((page) => page + 1);
-    this.scrollToTop();
+  previousPage(): void {
+    this.currentPage.update((page) => Math.max(1, page - 1));
   }
 
-  previousPage(): void {
-    if (this.currentPage() <= 1) {
-      return;
-    }
-
-    this.currentPage.update((page) => page - 1);
-    this.scrollToTop();
+  nextPage(): void {
+    this.currentPage.update((page) =>
+      Math.min(this.totalPages(), page + 1),
+    );
   }
 
   private scrollToTop(): void {
