@@ -65,8 +65,10 @@
       type="text"
       placeholder="Search exercises..."
       autocomplete="off"
+      enterkeyhint="search"
       [value]="searchTerm()"
       (input)="updateSearch(searchInput.value)"
+      (keydown.enter)="searchInput.blur()"
     />
 
     @if (searchTerm()) {
