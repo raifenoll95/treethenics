@@ -12,17 +12,20 @@
 
 /* Cabecera con el mismo estilo visual que Search */
 .train-page__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-
+  display: block;
   margin-bottom: 18px;
-  padding-bottom: 18px;
-  border-bottom: 1px solid #4b5563;
+  padding-bottom: 0;
+  border-bottom: 0;
 }
 
 .train-page__header-main {
+  display: flex;
+  align-items: center;
+  min-height: 62px;
+  min-width: 0;
+}
+
+.train-page__header-identity {
   display: flex;
   align-items: center;
   gap: 14px;
@@ -31,19 +34,26 @@
 
 .train-page__header-icon {
   display: grid;
-  flex: 0 0 36px;
   place-items: center;
-
+  flex: 0 0 36px;
   width: 36px;
   height: 36px;
-  border-radius: 10px;
 
-  background: #1c222c;
-  color: #fb7185;
+  border: 1px solid #303844;
+  border-radius: 9px;
+  background: linear-gradient(145deg, #181e26, #10151b);
+
+  color: #f43f5e;
   font-size: 21px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
 }
 
 .train-page__header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   min-width: 0;
 }
 
@@ -51,32 +61,77 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 11px;
 }
 
-.train-page__title-row h1 {
+.train-page__title-row h1,
+.train-page__header h1 {
   margin: 0;
-  color: #fff;
-  font-size: 23px;
+  color: #f5f7fa;
+  font-size: 24px;
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1;
+  letter-spacing: -0.035em;
 }
 
 .train-page__badge {
-  padding: 3px 6px;
-  border: 1px solid #85414c;
+  padding: 4px 7px;
+
+  border: 1px solid rgba(244, 63, 94, 0.28);
   border-radius: 5px;
-  color: #fb7185;
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
+  background: rgba(244, 63, 94, 0.07);
+
+  color: #fb4b67;
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
 }
 
-.train-page__header-content p {
-  margin: 3px 0 0;
-  color: #aeb9c9;
-  font-size: 12px;
+.train-page__header-content p,
+.train-page__header p {
+  margin: 0;
+  color: #7f8a99;
+  font-size: 11px;
+  font-weight: 500;
   line-height: 1.4;
+}
+
+/* Línea inferior con acento rojo */
+
+.train-page__header-line {
+  position: relative;
+  height: 1px;
+  margin-top: 7px;
+  overflow: hidden;
+  background: #222a33;
+}
+
+.train-page__header-line span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 115px;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    #f43f5e,
+    rgba(244, 63, 94, 0)
+  );
+}
+
+/* Móvil */
+
+@media (max-width: 800px) {
+  .train-page__title-row h1,
+  .train-page__header h1 {
+    font-size: 21px;
+  }
+
+  .train-page__badge {
+    display: none;
+  }
 }
 
 .train-page__eyebrow,
