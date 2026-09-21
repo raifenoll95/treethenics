@@ -1371,3 +1371,26 @@ app-tree-canvas {
   }
 }
 
+.tree-reset-button {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 5;
+
+  padding: 9px 12px;
+  border: 1px solid #475569;
+  border-radius: 8px;
+  background: #161b22;
+  color: #f8fafc;
+
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tree-reset-button:hover {
+  border-color: #f43f5e;
+  color: #f43f5e;
+}
+

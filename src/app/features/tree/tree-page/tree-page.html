@@ -182,6 +182,16 @@
       (backgroundClicked)="closeExercise()"
     />
 
+    <button
+      type="button"
+      class="tree-reset-button"
+      (click)="treeCanvas.resetTree()"
+      aria-label="Reset tree position and zoom"
+      title="Reset tree position and zoom"
+    >
+      ↺ Reset tree
+    </button>
+
     @if (selectedExercise(); as exercise) {
       <aside
         class="exercise-panel"

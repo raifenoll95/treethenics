@@ -51,12 +51,28 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
 
   private cy?: Core;
 
+  private initialViewport?: {
+    zoom: number;
+    pan: { x: number; y: number };
+  };
+
   ngAfterViewInit(): void {
     this.initializeTree();
   }
 
   ngOnDestroy(): void {
     this.cy?.destroy();
+  }
+
+  resetTree(): void {
+    if (!this.cy || !this.initialViewport) {
+      return;
+    }
+
+    this.cy.viewport({
+      zoom: this.initialViewport.zoom,
+      pan: { ...this.initialViewport.pan },
+    });
   }
 
   private initializeTree(): void {
@@ -376,6 +392,12 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
 
       // Guardamos la posición vertical una vez terminado el encuadre.
       const fixedPanY = cy.pan().y;
+      const initialZoom = cy.zoom();
+
+      this.initialViewport = {
+        zoom: cy.zoom(),
+        pan: { ...cy.pan() },
+      };
 
       // Límites horizontales basados en el contenido del árbol.
       const bounds = cy.elements().boundingBox();
@@ -389,16 +411,18 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
         }
 
         const viewportWidth = cy.width();
+        const viewportHeight = cy.height();
         const zoom = cy.zoom();
         const currentPan = cy.pan();
 
         const contentWidth = bounds.w * zoom;
+        const contentHeight = bounds.h * zoom;
 
+        // Límites horizontales: conservamos el comportamiento actual.
         let minPanX: number;
         let maxPanX: number;
 
         if (contentWidth <= viewportWidth - padding * 2) {
-          // Si el árbol cabe, permanece centrado horizontalmente.
           const centeredPanX =
             (viewportWidth - contentWidth) / 2 -
             bounds.x1 * zoom;
@@ -406,7 +430,6 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
           minPanX = centeredPanX;
           maxPanX = centeredPanX;
         } else {
-          // Si no cabe, permitimos recorrerlo sin dejar grandes huecos.
           minPanX =
             viewportWidth - padding - bounds.x2 * zoom;
 
@@ -419,29 +442,46 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
           Math.min(maxPanX, currentPan.x),
         );
 
+        // Límites verticales: solo permitimos desplazar
+        // si el árbol es más alto que el área disponible.
+        let limitedPanY: number;
+
+        if (
+          zoom <= initialZoom + 0.0001 ||
+          contentHeight <= viewportHeight - padding * 2
+        ) {
+          // Sin ampliar el zoom, el árbol permanece fijo verticalmente.
+          limitedPanY = fixedPanY;
+        } else {
+          // El árbol no cabe: permitir recorrerlo verticalmente
+          // sin dejar grandes espacios vacíos arriba o abajo.
+          const minPanY =
+            viewportHeight - padding - bounds.y2 * zoom;
+
+          const maxPanY =
+            padding - bounds.y1 * zoom;
+
+          limitedPanY = Math.max(
+            minPanY,
+            Math.min(maxPanY, currentPan.y),
+          );
+        }
+
         if (
           currentPan.x !== limitedPanX ||
-          currentPan.y !== fixedPanY
+          currentPan.y !== limitedPanY
         ) {
           correctingPan = true;
 
           cy.pan({
             x: limitedPanX,
-            y: fixedPanY,
-          });
-
-          console.log('Tree viewport:', {
-            containerHeight: cy.height(),
-            zoom: cy.zoom(),
-            pan: cy.pan(),
-            firstLevelY: 100 * cy.zoom() + cy.pan().y,
-            lastLevelY: 1000 * cy.zoom() + cy.pan().y,
+            y: limitedPanY,
           });
 
           correctingPan = false;
         }
       });
-});
+  });
 
   /*
   * Permitir desplazar horizontalmente el árbol
@@ -449,6 +489,7 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
   */
   let draggingFromNode = false;
   let lastPointerX = 0;
+  let lastPointerY = 0;
   let movedFromNode = false;
 
   this.cy.on('mousedown touchstart', 'node', (event) => {
@@ -464,40 +505,61 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
     draggingFromNode = true;
     movedFromNode = false;
 
-    lastPointerX =
-      'touches' in originalEvent
-        ? originalEvent.touches[0]?.clientX ?? 0
-        : originalEvent.clientX;
+    if ('touches' in originalEvent) {
+        lastPointerX = originalEvent.touches[0]?.clientX ?? 0;
+        lastPointerY = originalEvent.touches[0]?.clientY ?? 0;
+      } else {
+        lastPointerX = originalEvent.clientX;
+        lastPointerY = originalEvent.clientY;
+      }
   });
 
   this.cy.on('mousemove touchmove', (event) => {
-    if (!draggingFromNode || !this.cy) {
-      return;
-    }
+  if (!draggingFromNode || !this.cy) {
+    return;
+  }
 
-    const originalEvent = event.originalEvent as
-      | MouseEvent
-      | TouchEvent
-      | undefined;
+  const originalEvent = event.originalEvent as
+    | MouseEvent
+    | TouchEvent
+    | undefined;
 
-    if (!originalEvent) {
-      return;
-    }
+  if (!originalEvent) {
+    return;
+  }
 
-    const pointerX =
-      'touches' in originalEvent
-        ? originalEvent.touches[0]?.clientX ?? lastPointerX
-        : originalEvent.clientX;
+  const pointerX =
+    'touches' in originalEvent
+      ? originalEvent.touches[0]?.clientX ?? lastPointerX
+      : originalEvent.clientX;
 
-    const deltaX = pointerX - lastPointerX;
+  const pointerY =
+    'touches' in originalEvent
+      ? originalEvent.touches[0]?.clientY ?? lastPointerY
+      : originalEvent.clientY;
 
-    if (Math.abs(deltaX) > 0) {
-      movedFromNode = true;
-      this.cy.panBy({ x: deltaX, y: 0 });
-    }
+  const deltaX = pointerX - lastPointerX;
+  const deltaY = pointerY - lastPointerY;
 
-    lastPointerX = pointerX;
-  });
+  // Evita que un pequeño temblor del dedo se interprete
+  // como un arrastre y bloquee la apertura de la tarjeta.
+  if (
+    Math.abs(deltaX) > 3 ||
+    Math.abs(deltaY) > 3
+  ) {
+    movedFromNode = true;
+  }
+
+  if (movedFromNode) {
+    this.cy.panBy({
+      x: deltaX,
+      y: deltaY,
+    });
+  }
+
+  lastPointerX = pointerX;
+  lastPointerY = pointerY;
+});
 
   this.cy.on('mouseup touchend', () => {
     draggingFromNode = false;
