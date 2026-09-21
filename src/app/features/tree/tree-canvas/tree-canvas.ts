@@ -443,10 +443,75 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
       });
 });
 
+  /*
+  * Permitir desplazar horizontalmente el árbol
+  * cuando el gesto comienza sobre un nodo.
+  */
+  let draggingFromNode = false;
+  let lastPointerX = 0;
+  let movedFromNode = false;
+
+  this.cy.on('mousedown touchstart', 'node', (event) => {
+    const originalEvent = event.originalEvent as
+      | MouseEvent
+      | TouchEvent
+      | undefined;
+
+    if (!originalEvent) {
+      return;
+    }
+
+    draggingFromNode = true;
+    movedFromNode = false;
+
+    lastPointerX =
+      'touches' in originalEvent
+        ? originalEvent.touches[0]?.clientX ?? 0
+        : originalEvent.clientX;
+  });
+
+  this.cy.on('mousemove touchmove', (event) => {
+    if (!draggingFromNode || !this.cy) {
+      return;
+    }
+
+    const originalEvent = event.originalEvent as
+      | MouseEvent
+      | TouchEvent
+      | undefined;
+
+    if (!originalEvent) {
+      return;
+    }
+
+    const pointerX =
+      'touches' in originalEvent
+        ? originalEvent.touches[0]?.clientX ?? lastPointerX
+        : originalEvent.clientX;
+
+    const deltaX = pointerX - lastPointerX;
+
+    if (Math.abs(deltaX) > 0) {
+      movedFromNode = true;
+      this.cy.panBy({ x: deltaX, y: 0 });
+    }
+
+    lastPointerX = pointerX;
+  });
+
+  this.cy.on('mouseup touchend', () => {
+    draggingFromNode = false;
+  });
+
     /*
      * Click en un ejercicio.
      */
     this.cy.on('tap', 'node', (event) => {
+      if (movedFromNode) {
+        movedFromNode = false;
+        return;
+      }
+
       const node = event.target as NodeSingular;
 
       this.highlightPath(node);
