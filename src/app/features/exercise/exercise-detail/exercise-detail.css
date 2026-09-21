@@ -472,11 +472,11 @@
 ======================================== */
 
 .exercise-body {
-  margin-top: 70px;
+  margin-top: 32px;
 }
 
 .detail-section {
-  padding: 58px 0;
+  padding: 32px 0;
 
   border-top: 1px solid #252d37;
 }
@@ -758,73 +758,115 @@
   text-transform: uppercase;
 }
 
-
 /* ========================================
    REQUIREMENTS
 ======================================== */
 
 .requirements-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
-
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
 }
 
 .requirement-card {
-  min-height: 110px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
+  min-width: 0;
+  min-height: 150px;
   padding: 19px;
 
-  background: #121820;
+  overflow: hidden;
+  isolation: isolate;
 
+  background: #121820;
   border: 1px solid #29323d;
   border-radius: 11px;
 }
 
+/* Imagen de fondo */
+.requirement-card::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  inset: -8px;
+
+  background-image: var(--equipment-image, none);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  filter: blur(3px);
+  opacity: 0.55;
+}
+
+/* Degradado para que el texto sea legible */
+.requirement-card::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(18, 24, 32, 0.96) 0%,
+    rgba(18, 24, 32, 0.78) 48%,
+    rgba(18, 24, 32, 0.30) 100%
+  );
+}
+
+.requirement-card__content {
+  position: relative;
+  z-index: 1;
+}
+
 .requirement-card__label {
   display: block;
+  margin-bottom: 12px;
 
-  margin-bottom: 17px;
-
-  color: #707b8a;
-
+  color: #aeb9c9;
   font-size: 9px;
   font-weight: 800;
-
   letter-spacing: 0.09em;
   text-transform: uppercase;
 }
 
 .requirement-card strong {
-  color: #e8edf3;
-
+  color: #fff;
   font-size: 14px;
   font-weight: 750;
-
-  text-transform: capitalize;
+  line-height: 1.4;
 }
 
-.requirement-card__values {
-  display: flex;
-  flex-wrap: wrap;
-
-  gap: 7px;
+.requirement-card--bar {
+  --equipment-image: url('/images/equipment/pull-up-bar.png');
 }
 
-.requirement-card__values span {
-  padding: 7px 10px;
-
-  background: #222a34;
-
-  border: 1px solid #37414e;
-  border-radius: 6px;
-
-  color: #c8d0da;
-
-  font-size: 10px;
-  font-weight: 650;
+.requirement-card--rings {
+  --equipment-image: url('/images/equipment/rings.png');
 }
 
+.requirement-card--parallettes {
+  --equipment-image: url('/images/equipment/parallettes.png');
+}
+
+.requirement-card--bands {
+  --equipment-image: url('/images/equipment/bands.png');
+}
+
+.requirement-card--floor {
+  --equipment-image: url('/images/equipment/floor.png');
+}
+
+.requirement-card--pole {
+  --equipment-image: url('/images/equipment/vertical-pole.png');
+}
+
+.requirement-card--weight {
+  --equipment-image: url('/images/equipment/added-weight.png');
+}
 
 /* ========================================
    TECHNIQUE

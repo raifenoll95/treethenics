@@ -277,86 +277,48 @@
 
   </section>
 
-
   <!-- REQUIREMENTS -->
 
   <section class="detail-section">
 
     <div class="detail-section__heading">
-
       <div>
-        <span class="detail-section__eyebrow">
-          Setup
-        </span>
+        <span class="detail-section__eyebrow">Setup</span>
 
         <h2>What you need</h2>
 
-        <p>
-          Equipment and setup required to perform the exercise.
-        </p>
+        <p>Equipment required to perform the exercise.</p>
       </div>
 
       <span class="detail-section__number">03</span>
-
     </div>
-
 
     <div class="requirements-grid">
 
+      @for (equipment of exercise.equipment ?? []; track equipment) {
+      <div
+        class="requirement-card"
+        [class.requirement-card--bar]="equipment === 'pull-up-bar'"
+        [class.requirement-card--rings]="equipment === 'rings'"
+        [class.requirement-card--parallettes]="equipment === 'parallettes'"
+        [class.requirement-card--bands]="equipment === 'bands'"
+        [class.requirement-card--floor]="equipment === 'floor'"
+        [class.requirement-card--pole]="equipment === 'vertical-pole'"
+        [class.requirement-card--weight]="equipment === 'added-weight'"
+      >
+        <div class="requirement-card__content">
+          <span class="requirement-card__label">Equipment</span>
+          <strong>{{ getEquipmentLabel(equipment) }}</strong>
+        </div>
+      </div>
+    } @empty {
       <div class="requirement-card">
-
-        <span class="requirement-card__label">
-          Equipment
-        </span>
-
-        @if ((exercise.equipment?.length ?? 0) > 0) {
-
-          <div class="requirement-card__values">
-
-            @for (
-              equipment of exercise.equipment ?? [];
-              track equipment
-            ) {
-              <span>
-                {{ getEquipmentLabel(equipment) }}
-              </span>
-            }
-
-          </div>
-
-        } @else {
-
+        <div class="requirement-card__content">
+          <span class="requirement-card__label">Equipment</span>
           <strong>No equipment required</strong>
-
-        }
-
+        </div>
       </div>
-
-
-      <div class="requirement-card">
-
-        <span class="requirement-card__label">
-          Movement type
-        </span>
-
-        <strong>
-          {{ exercise.movementType || '—' }}
-        </strong>
-
-      </div>
-
-
-      <div class="requirement-card">
-
-        <span class="requirement-card__label">
-          Skill level
-        </span>
-
-        <strong class="accent-text">
-          {{ exercise.difficulty }}
-        </strong>
-
-      </div>
+    }
 
     </div>
 
