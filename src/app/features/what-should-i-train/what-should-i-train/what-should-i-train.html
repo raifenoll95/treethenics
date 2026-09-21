@@ -78,7 +78,7 @@
         @for (area of targetAreas; track area.value) {
           <button
             type="button"
-            class="option-button"
+            class="option-button option-button--chip"
             [class.option-button--selected]="hasArea(area.value)"
             [attr.aria-pressed]="hasArea(area.value)"
             (click)="toggleArea(area.value)"
@@ -100,7 +100,7 @@
         @for (item of equipmentOptions; track item.value) {
           <button
             type="button"
-            class="option-button"
+            class="option-button option-button--chip"
             [class.option-button--selected]="hasEquipment(item.value)"
             [attr.aria-pressed]="hasEquipment(item.value)"
             (click)="toggleEquipment(item.value)"

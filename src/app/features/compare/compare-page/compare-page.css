@@ -61,7 +61,7 @@
 
 .compare-panel {
   padding: 24px;
-  background: #1f2937;
+  background: #12171f;
   border: 1px solid #465163;
   border-radius: 16px;
 }
@@ -163,15 +163,56 @@
   color: #fb7185;
 }
 
+/* Botón View exercise */
+
 .compare-exercise a {
-  color: #fb7185;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 38px;
+  padding: 9px 16px;
+
+  border: 1px solid currentColor;
+  border-radius: 9px;
+
+  background: transparent;
   font-size: 12px;
   font-weight: 700;
   text-decoration: none;
+
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease;
 }
 
 .compare-exercise a:hover {
-  text-decoration: underline;
+  background: color-mix(in srgb, currentColor 10%, transparent);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.compare-exercise a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* Color según la dificultad */
+
+.compare-exercise--beginner a {
+  color: #4ade80;
+}
+
+.compare-exercise--intermediate a {
+  color: #60a5fa;
+}
+
+.compare-exercise--advanced a {
+  color: #fb923c;
+}
+
+.compare-exercise--elite a {
+  color: #fb7185;
 }
 
 .compare-placeholder {
@@ -341,39 +382,6 @@
   font-size: 12px;
 }
 
-/* Color del enlace según la dificultad de cada ejercicio */
-.compare-exercise--beginner a {
-  color: #4ade80;
-}
-
-.compare-exercise--intermediate a {
-  color: #60a5fa;
-}
-
-.compare-exercise--advanced a {
-  color: #fb923c;
-}
-
-.compare-exercise--elite a {
-  color: #fb7185;
-}
-
-/* Mantener el color al pasar el cursor */
-.compare-exercise--beginner a:hover {
-  color: #4ade80;
-}
-
-.compare-exercise--intermediate a:hover {
-  color: #60a5fa;
-}
-
-.compare-exercise--advanced a:hover {
-  color: #fb923c;
-}
-
-.compare-exercise--elite a:hover {
-  color: #fb7185;
-}
 
 /* Nombres de los ejercicios en la cabecera de la tabla */
 .compare-table thead .compare-table__exercise--beginner {

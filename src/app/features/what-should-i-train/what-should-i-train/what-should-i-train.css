@@ -367,7 +367,7 @@
   gap: 0;
 
   padding: 20px 24px;
-  background: #1f2937;
+  background: #12171f;
   border: 1px solid #465163;
   border-radius: 16px;
 }
@@ -820,5 +820,69 @@
 
 .exercise-card--elite {
   --selected-difficulty-color: #fb7185;
+}
+
+/* ========================================
+   TARGET & EQUIPMENT — SELECTION CHIPS
+======================================== */
+
+.option-button--chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 36px;
+  padding: 8px 13px;
+
+  border: 1px solid #465263;
+  border-radius: 8px;
+
+  background: #293340;
+  color: #cbd5e1;
+
+  font: inherit;
+  font-size: 11px;
+  font-weight: 650;
+  line-height: 1.2;
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.option-button--chip:hover {
+  border-color: #778396;
+  background: #344151;
+  color: #ffffff;
+}
+
+.option-button--chip.option-button--selected {
+  border-color: #f43f5e;
+  background: rgba(244, 63, 94, 0.12);
+  color: #ff7189;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(244, 63, 94, 0.08);
+}
+
+.option-button--chip.option-button--selected:hover {
+  background: rgba(244, 63, 94, 0.18);
+}
+
+.option-button--chip:focus-visible {
+  outline: 2px solid #fb7185;
+  outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+  .option-button--chip {
+    min-height: 38px;
+    padding: 9px 12px;
+  }
 }
 
