@@ -1145,6 +1145,7 @@ app-tree-canvas {
 
   .tree-page {
     padding: 16px;
+    height: calc(100dvh - 60px);
   }
 
   .tree-page__header {
@@ -1305,5 +1306,68 @@ app-tree-canvas {
 
 .exercise-panel__actions a span:last-child {
   font-size: 14px;
+}
+
+
+/* Leyenda: por defecto, solo se muestra dentro del grafo */
+
+.tree-legend--mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  /* Ocultar la leyenda del interior del grafo */
+  .tree-legend--desktop {
+    display: none;
+  }
+
+  /* Encabezado: título a la izquierda, leyenda a la derecha */
+ .tree-header__main {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .tree-page__header > div {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .tree-legend--mobile {
+    margin-left: auto;
+  }
+
+  .tree-header__identity {
+    min-width: 0;
+    flex: 1;
+  }
+
+  /* Mostrar la leyenda fuera del grafo */
+  .tree-legend--mobile {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+
+    flex-shrink: 0;
+    gap: 7px 10px;
+    padding: 9px 10px;
+  }
+
+  .tree-legend--mobile .tree-legend__item {
+    gap: 5px;
+    font-size: 9px;
+  }
+
+  .tree-legend--mobile .tree-legend__dot {
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+  }
+
+  /* Dejar espacio al título sin cambiar el grafo */
+  .tree-header__title-row h1 {
+    font-size: 18px;
+    white-space: nowrap;
+  }
 }
 

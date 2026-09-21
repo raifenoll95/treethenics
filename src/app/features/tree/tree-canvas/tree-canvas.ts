@@ -110,6 +110,7 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
 
     this.cy = cytoscape({
       autoungrabify: true,
+      userPanningEnabled: true,
       container: this.cyContainer.nativeElement,
 
       elements: [
@@ -325,18 +326,122 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
      * Todo el árbol visible inicialmente.
      */
     requestAnimationFrame(() => {
-    if (!this.cy) {
-      return;
-    }
+      if (!this.cy) {
+        return;
+      }
 
-    this.cy.resize();
-    this.cy.fit(undefined, 70);
+      const cy = this.cy;
 
-    this.cy.panBy({
-      x: 45,
-      y: 0,
-    });
-  });
+      cy.resize();
+
+      const isMobile = window.innerWidth <= 768;
+
+      if (isMobile) {
+        const verticalPadding = 16;
+        const horizontalPadding = 45;
+
+        // Medimos los límites reales de TODOS los nodos,
+        // incluyendo sus bordes y etiquetas.
+        const nodeBounds = cy.nodes().boundingBox({
+          includeLabels: true,
+          includeOverlays: false,
+        });
+
+        const availableHeight = cy.height() - verticalPadding * 2;
+
+        // La escala depende de la altura real del árbol,
+        // no de coordenadas ni tamaños de nodo supuestos.
+        const zoom = availableHeight / nodeBounds.h;
+
+        cy.minZoom(Math.min(cy.minZoom(), zoom));
+        cy.zoom(zoom);
+
+        cy.pan({
+          // Conservamos el árbol ancho y desplazable horizontalmente.
+          x: horizontalPadding - nodeBounds.x1 * zoom,
+
+          // El borde superior del primer nodo queda a 16 px.
+          // El borde inferior del último queda también a 16 px.
+          y: verticalPadding - nodeBounds.y1 * zoom,
+        });
+      } else {
+        // PC: conservar exactamente el encuadre que ya funciona.
+        cy.fit(undefined, 70);
+
+        cy.panBy({
+          x: 45,
+          y: 0,
+        });
+      }
+
+      // Guardamos la posición vertical una vez terminado el encuadre.
+      const fixedPanY = cy.pan().y;
+
+      // Límites horizontales basados en el contenido del árbol.
+      const bounds = cy.elements().boundingBox();
+      const padding = 40;
+
+      let correctingPan = false;
+
+      cy.on('pan', () => {
+        if (correctingPan) {
+          return;
+        }
+
+        const viewportWidth = cy.width();
+        const zoom = cy.zoom();
+        const currentPan = cy.pan();
+
+        const contentWidth = bounds.w * zoom;
+
+        let minPanX: number;
+        let maxPanX: number;
+
+        if (contentWidth <= viewportWidth - padding * 2) {
+          // Si el árbol cabe, permanece centrado horizontalmente.
+          const centeredPanX =
+            (viewportWidth - contentWidth) / 2 -
+            bounds.x1 * zoom;
+
+          minPanX = centeredPanX;
+          maxPanX = centeredPanX;
+        } else {
+          // Si no cabe, permitimos recorrerlo sin dejar grandes huecos.
+          minPanX =
+            viewportWidth - padding - bounds.x2 * zoom;
+
+          maxPanX =
+            padding - bounds.x1 * zoom;
+        }
+
+        const limitedPanX = Math.max(
+          minPanX,
+          Math.min(maxPanX, currentPan.x),
+        );
+
+        if (
+          currentPan.x !== limitedPanX ||
+          currentPan.y !== fixedPanY
+        ) {
+          correctingPan = true;
+
+          cy.pan({
+            x: limitedPanX,
+            y: fixedPanY,
+          });
+
+          console.log('Tree viewport:', {
+            containerHeight: cy.height(),
+            zoom: cy.zoom(),
+            pan: cy.pan(),
+            firstLevelY: 100 * cy.zoom() + cy.pan().y,
+            lastLevelY: 1000 * cy.zoom() + cy.pan().y,
+          });
+
+          correctingPan = false;
+        }
+      });
+});
 
     /*
      * Click en un ejercicio.
