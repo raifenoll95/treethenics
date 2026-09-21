@@ -52,7 +52,7 @@
 .about-card {
   padding: 24px;
   background:
-    linear-gradient(145deg, #202a38 0%, #1b2431 100%);
+    linear-gradient(145deg, #12171f 0%, #12171f 100%);
   border: 1px solid #465163;
   border-radius: 16px;
   box-shadow: 0 14px 36px rgb(0 0 0 / 12%);
@@ -451,7 +451,7 @@
   margin-top: 7px;
   overflow: hidden;
 
-  background: #222a33;
+  background: #12171f;
 }
 
 .about-header__line span {
@@ -465,7 +465,7 @@
   background: linear-gradient(
     90deg,
     #f43f5e,
-    rgba(244, 63, 94, 0)
+    #12171f
   );
 }
 

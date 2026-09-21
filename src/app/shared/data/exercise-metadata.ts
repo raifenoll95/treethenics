@@ -26,7 +26,7 @@ export const MUSCLE_LABELS: Record<ExerciseMuscle, string> = {
 
 export const EQUIPMENT_LABELS: Record<ExerciseEquipment, string> = {
   'pull-up-bar': 'Pull Up Bar',
-  rings: 'Rings (harder)',
+  rings: 'Rings',
   parallettes: 'Parallettes',
   bands: 'Bands',
   'added-weight': 'Added Weight',
