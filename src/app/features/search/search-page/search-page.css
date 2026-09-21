@@ -637,3 +637,41 @@
   font-size: 13px;
   font-weight: 600;
 }
+
+/* MÓVIL: filtros de dificultad ajustados al ancho del buscador */
+@media (max-width: 768px) {
+  .difficulty-filters {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 6px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .difficulty-filter {
+    min-width: 0;
+    width: 100%;
+    padding: 9px 2px;
+    font-size: 8px;
+    letter-spacing: 0;
+    text-align: center;
+    white-space: nowrap;
+  }
+}
+
+/* MÓVIL: ocultar la columna de niveles y ampliar las tarjetas */
+@media (max-width: 768px) {
+  .level-group {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .level-group__info {
+    display: none;
+  }
+
+  .level-group__exercises {
+    grid-template-columns: minmax(0, 1fr);
+    min-width: 0;
+  }
+}
