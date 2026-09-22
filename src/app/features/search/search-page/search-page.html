@@ -118,7 +118,7 @@
   @if (!searchTerm().trim() && !selectedDifficulty()) {
 
     <div class="search-page__summary">
-      <span>Explore all exercises</span>
+      <span>Explore all {{ totalExercises }} exercises</span>
       <span>
 
         @if (searchTerm().trim()) {

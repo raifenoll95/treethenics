@@ -6,6 +6,7 @@ import { ExerciseDetail } from './features/exercise/exercise-detail/exercise-det
 import { WhatShouldITrain } from './features/what-should-i-train/what-should-i-train/what-should-i-train';
 import { ComparePage } from './features/compare/compare-page/compare-page';
 import { AboutPage } from './features/about/about-page/about-page';
+import { ProPage } from './features/pro/pro-page/pro-page';
 
 export const routes: Routes = [
   {
@@ -35,6 +36,10 @@ export const routes: Routes = [
       {
         path: 'about',
         component: AboutPage,
+      },
+      {
+        path: 'pro',
+        component: ProPage,
       },
     ],
   },
