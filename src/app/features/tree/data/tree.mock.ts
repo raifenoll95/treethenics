@@ -742,7 +742,7 @@ export const EXERCISES: Exercise[] = [
   },
   {
     id: 'butterfly',
-    name: 'Butterfly Muscle Up HACER',
+    name: 'Butterfly Muscle Up',
     difficulty: 'elite',
     movementType: 'dynamic',
     graphLevel: 6,
@@ -753,7 +753,7 @@ export const EXERCISES: Exercise[] = [
     secondaryMuscles: ['triceps', 'upper-back', 'forearms', 'abdominals'],
     equipment: ['rings'],
     description:
-      'An elite rings strength movement that combines straight-arm control with powerful pulling through a highly demanding transition. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Start by hanging from gymnastic rings with your arms straight, transition into an Iron Cross position with your legs extended forward, and press upward until you reach a stable support position above the rings. Begin with assisted Iron Cross holds, ring support exercises, and controlled cross presses to develop shoulder strength, straight-arm stability, and body control. Gradually reduce assistance, improve your transition technique, and practice controlled repetitions to perform the full Butterfly with proper alignment and stability.',
     imageUrl: '/images/exercises/butterfly.png',
   },
   {
