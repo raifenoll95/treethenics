@@ -348,7 +348,7 @@ export const EXERCISES: Exercise[] = [
   },
   {
     id: 'handstand-press',
-    name: 'Handstand Press HACER',
+    name: 'Handstand Press',
     difficulty: 'intermediate',
     movementType: 'dynamic',
     graphLevel: 3,
@@ -357,9 +357,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['shoulders', 'core'],
     primaryMuscles: ['front-deltoids', 'serratus-anterior', 'hip-flexors'],
     secondaryMuscles: ['triceps', 'abdominals', 'trapezius', 'forearms'],
-    equipment: [],
+    equipment: ['floor','parallettes'],
     description:
-      'A controlled press into a handstand that requires shoulder strength, compression, balance and precise full-body control. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Start with your hands on the floor and your feet grounded, lean your shoulders forward, and lift your legs overhead using controlled strength until you reach a stable handstand without jumping or kicking. Begin with pike compressions, L-sit holds, and wall-assisted press handstands to develop shoulder strength, core control, and flexibility. Gradually reduce assistance, practice slow negative presses, and improve your hip mobility and balance to achieve a smooth freestanding handstand press with proper technique.',
   },
   {
     id: 'early-planche-progressions',
