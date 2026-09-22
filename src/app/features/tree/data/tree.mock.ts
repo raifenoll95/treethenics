@@ -1010,7 +1010,7 @@ export const EXERCISES: Exercise[] = [
   },
   {
       id: 'supinated-pull-up',
-      name: 'Supinated Pull Up',
+      name: 'Chin Up',
       difficulty: 'beginner',
       movementType: 'dynamic',
       graphLevel: 1,
