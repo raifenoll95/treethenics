@@ -810,7 +810,7 @@ export const EXERCISES: Exercise[] = [
    */
   {
     id: 'caruso',
-    name: 'Caruso HACER',
+    name: 'Caruso',
     difficulty: 'elite',
     movementType: 'dynamic',
     graphLevel: 7,
@@ -821,7 +821,7 @@ export const EXERCISES: Exercise[] = [
     secondaryMuscles: ['abdominals', 'biceps', 'forearms', 'obliques'],
     equipment: ['pull-up-bar'],
     description:
-      'Perform the Caruso strength element with controlled shoulder positioning and a rigid trunk. The straight-arm pulling demand loads the back and shoulder stabilizers while the core resists rotation. Confirm the intended variation against your reference image before publishing.',
+      'tart in a front lever position on gymnastic rings with your body horizontal and arms straight, then transition into a Victorian Cross by lowering your body between the rings while maintaining full-body tension and control. Begin with front lever holds, assisted Victorian Cross variations, and controlled transition exercises to develop shoulder strength, core stability, and straight-arm control. Gradually reduce assistance, improve your shoulder mobility, and practice smooth transitions between both positions while maintaining proper body alignment and ring stability.',
     imageUrl: '/images/exercises/caruso.png',
   },
   {
@@ -889,7 +889,7 @@ export const EXERCISES: Exercise[] = [
   },
   {
     id: 'pelican',
-    name: 'Pelican HACER',
+    name: 'Pelican',
     difficulty: 'elite',
     movementType: 'dynamic',
     graphLevel: 7,
@@ -900,12 +900,12 @@ export const EXERCISES: Exercise[] = [
     secondaryMuscles: ['chest', 'forearms', 'upper-back', 'abdominals'],
     equipment: ['rings'],
     description:
-      'Lower the body between the rings into deep shoulder extension and return by flexing the elbows and controlling the shoulders. The biceps experience high loading in an extended position. Progress the range gradually and keep the rings stable.',
+      'Start in a back lever position on gymnastic rings with your body horizontal and arms straight, then rotate your shoulders and transition into a full planche while maintaining core tension and body alignment. Begin with back lever holds, assisted planche variations, and controlled transition exercises to develop shoulder strength, mobility, and straight-arm stability. Gradually reduce assistance, practice slow and controlled transitions, and focus on maintaining proper technique and ring stability as you progress toward performing the full Pelican.',
     imageUrl: '/images/exercises/pelican.png',
   },
   {
     id: 'zanetti',
-    name: 'Zanetti HACER',
+    name: 'Zanetti',
     difficulty: 'elite',
     movementType: 'dynamic',
     graphLevel: 7,
@@ -916,7 +916,7 @@ export const EXERCISES: Exercise[] = [
     secondaryMuscles: ['latissimus-dorsi', 'serratus-anterior', 'forearms', 'abdominals'],
     equipment: ['rings'],
     description:
-      'Perform the Zanetti rings strength transition with controlled straight-arm loading and shoulder alignment. Maintain tension through the chest, back and trunk as the body changes position. Verify the precise start and finish positions for your chosen variation.',
+      'Start in a back lever position on gymnastic rings with your body horizontal and arms straight, then transition into a Victorian Cross by rotating your body while maintaining full-body tension and shoulder stability. Begin with back lever holds, assisted Victorian Cross variations, and controlled transition exercises to develop shoulder strength, straight-arm stability, and body control. Gradually reduce assistance, improve your shoulder mobility, and practice smooth transitions between both positions while maintaining proper alignment and ring stability.',
     imageUrl: '/images/exercises/zanetti.png',
   },
   {
