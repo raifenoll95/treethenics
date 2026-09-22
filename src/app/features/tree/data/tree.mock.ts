@@ -395,7 +395,7 @@ export const EXERCISES: Exercise[] = [
   },
   {
     id: 'one-arm-bent-planche',
-    name: 'One Arm Elbow Lever Planche',
+    name: 'One Arm Elbow Planche',
     movementType: 'static',
     difficulty: 'intermediate',
     graphLevel: 3,
