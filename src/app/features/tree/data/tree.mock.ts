@@ -842,7 +842,7 @@ export const EXERCISES: Exercise[] = [
   },
   {
     id: 'entrada-de-diablo',
-    name: 'Entrada de Diablo HACER',
+    name: 'Entrada de Diablo',
     difficulty: 'elite',
     movementType: 'dynamic',
     graphLevel: 7,
@@ -853,11 +853,11 @@ export const EXERCISES: Exercise[] = [
     secondaryMuscles: ['chest', 'forearms', 'upper-back', 'abdominals'],
     equipment: ['pull-up-bar'],
     description:
-      'Move through a demanding behind-the-bar transition using controlled shoulder extension and elbow flexion. Keep the bar close and avoid dropping suddenly into the end range. The biceps, lats and shoulder stabilizers control the movement.',
+      'Start in a supported position on a pull-up bar with a fully reversed grip, lean your torso forward, and rotate your body backward through a controlled shoulder dislocation to transition into a back lever position. Begin with skin the cat, German hangs, and assisted shoulder rotation exercises to develop shoulder mobility, strength, and body control. Gradually increase your range of motion, practice assisted Devil Entry transitions, and reduce assistance while maintaining proper technique and avoiding excessive shoulder strain.',
   },
   {
     id: 'reverse-planche',
-    name: 'Reverse Planche HACER',
+    name: 'Reverse Planche',
     movementType: 'static',
     difficulty: 'elite',
     graphLevel: 7,
@@ -866,9 +866,9 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['shoulders', 'back', 'core'],
     primaryMuscles: ['rear-deltoids', 'triceps', 'upper-back'],
     secondaryMuscles: ['latissimus-dorsi', 'glutes', 'abdominals', 'forearms'],
-    equipment: [],
+    equipment: ['floor','parallettes'],
     description:
-      'An extreme horizontal hold performed with the body orientation reversed from a standard planche, demanding exceptional shoulder extension and total-body strength.',
+      'Place your hands on the floor behind your hips with your arms straight, lift your entire body horizontally, and keep your legs extended while engaging your core, triceps, and rear shoulders. Start with reverse plank holds, L-sits, and assisted reverse planche variations to develop shoulder extension strength, scapular retraction, and body control. Gradually increase your hip elevation, extend your legs, and reduce assistance while maintaining straight arms and proper body alignment as you progress toward the full reverse planche.s',
     imageUrl: '/images/exercises/reverse-planche.png',
   },
   {
