@@ -826,7 +826,7 @@ export const EXERCISES: Exercise[] = [
   },
   {
     id: 'inverted-butterfly',
-    name: 'Inverted Butterfly HACER',
+    name: 'Inverted Butterfly',
     difficulty: 'elite',
     movementType: 'dynamic',
     graphLevel: 7,
@@ -837,7 +837,7 @@ export const EXERCISES: Exercise[] = [
     secondaryMuscles: ['triceps', 'upper-back', 'forearms', 'abdominals'],
     equipment: ['rings'],
     description:
-      'An extreme inverted rings strength movement requiring exceptional straight-arm control, pulling power and shoulder stability. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Start in an inverted hang on gymnastic rings, lower your body into an inverted Iron Cross with your arms extended to the sides, and press upward into a stable handstand position while maintaining full-body tension and control. Begin with assisted inverted Iron Cross holds, ring handstands, and controlled cross presses to develop shoulder strength, straight-arm stability, and balance. Gradually reduce assistance, improve your transition technique, and practice controlled repetitions while maintaining proper alignment and ring stability as you progress toward the full Inverted Butterfly.',
     imageUrl: '/images/exercises/inverted-butterfly.png',
   },
   {
@@ -921,7 +921,7 @@ export const EXERCISES: Exercise[] = [
   },
   {
     id: 'inverted-cross',
-    name: 'Inverted Cross HACER',
+    name: 'Inverted Cross',
     movementType: 'static',
     difficulty: 'elite',
     graphLevel: 7,
@@ -932,7 +932,7 @@ export const EXERCISES: Exercise[] = [
     secondaryMuscles: ['triceps', 'chest', 'abdominals'],
     equipment: ['rings'],
     description:
-      'An extreme inverted rings hold with the arms extended laterally, demanding exceptional shoulder strength, stability and precise body control. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'tart in a handstand position on gymnastic rings, extend your arms horizontally to the sides, and maintain your body vertically inverted while keeping your elbows straight, core engaged, and shoulders stable. Begin with ring handstands, assisted inverted cross holds, and controlled shoulder exercises to develop straight-arm strength, balance, and stability. Gradually reduce assistance, increase your arm extension, and practice controlled transitions from a handstand into the inverted cross while maintaining proper body alignment and ring control.',
     imageUrl: '/images/exercises/inverted-cross.png',
   },
 
