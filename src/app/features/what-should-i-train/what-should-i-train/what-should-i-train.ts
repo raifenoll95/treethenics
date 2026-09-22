@@ -251,8 +251,12 @@ export class WhatShouldITrain implements OnDestroy {
   }
 
   private readonly updateScreenSize = (): void => {
-    this.isMobile.set(window.innerWidth <= 768);
-    this.currentPage.set(1);
+    const mobile = window.innerWidth <= 768;
+
+    if (this.isMobile() !== mobile) {
+      this.isMobile.set(mobile);
+      this.currentPage.set(1);
+    }
   };
 
   constructor() {
