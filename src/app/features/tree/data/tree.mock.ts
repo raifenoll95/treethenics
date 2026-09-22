@@ -1500,7 +1500,7 @@ export const EXERCISES: Exercise[] = [
   },
     {
     id: 'tricep-extensions',
-    name: 'Tricep Extensions HACER',
+    name: 'Tricep Extensions',
     movementType: 'static',
     difficulty: 'intermediate',
     graphLevel: 2,
@@ -1511,7 +1511,7 @@ export const EXERCISES: Exercise[] = [
     secondaryMuscles: ['serratus-anterior', 'abdominals', 'forearms'],
     equipment: [],
     description:
-      'An introductory planche hold that develops straight-arm pushing strength, scapular control and the forward lean needed for harder planche variations. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Grip a horizontal bar with both hands, lean forward with your body straight, and bend your elbows to lower your head toward the bar before extending your arms to push back up. Start with a higher bar and a more upright body position to develop triceps strength, shoulder stability, and core control. Gradually lower the bar, increase your body angle, and incorporate slow negatives or single-arm assisted variations to increase difficulty while maintaining proper technique.',
     imageUrl: '/images/exercises/tricep-extensions.png',
   },
     {
