@@ -274,6 +274,19 @@
   margin-bottom: 24px;
 }
 
+/* Solo escritorio: la cabecera ocupa todo el ancho disponible */
+@media (min-width: 801px) {
+  .tree-page__header > div {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .tree-header__stats {
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+}
+
 .tree-page__eyebrow {
   display: block;
 
