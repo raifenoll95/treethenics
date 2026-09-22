@@ -41,16 +41,27 @@ export class WhatShouldITrain implements OnDestroy {
   // Número de ejercicios por página: cambia estos valores a tu gusto.
   readonly exercisesPerPageDesktop = 24;
   readonly exercisesPerPageMobile = 10;
+  readonly exercisesPerPageList = 50;
 
   private readonly platformId = inject(PLATFORM_ID);
 
   readonly isMobile = signal(false);
   readonly currentPage = signal(1);
+  readonly viewMode = signal<'grid' | 'list'>(
+    isPlatformBrowser(this.platformId) &&
+    sessionStorage.getItem('train-view-mode') === 'list'
+      ? 'list'
+      : 'grid',
+  );
+
+
 
   readonly pageSize = computed(() =>
-    this.isMobile()
-      ? this.exercisesPerPageMobile
-      : this.exercisesPerPageDesktop,
+    this.viewMode() === 'list'
+      ? this.exercisesPerPageList
+      : this.isMobile()
+        ? this.exercisesPerPageMobile
+        : this.exercisesPerPageDesktop,
   );
 
   readonly totalPages = computed(() =>
@@ -93,6 +104,21 @@ export class WhatShouldITrain implements OnDestroy {
 
   private readonly params = this.route.snapshot.queryParamMap;
 
+  updateSearch(event: Event): void {
+    const input = event.target as HTMLInputElement;
+
+    this.searchQuery.set(input.value);
+    this.currentPage.set(1);
+  }
+
+  saveSearch(): void {
+    this.syncUrl();
+  }
+
+  readonly searchQuery = signal(
+    this.params.get('q') ?? '',
+  );
+
   readonly selectedDifficulty = signal<ExerciseDifficulty | null>(
     this.isDifficulty(this.params.get('difficulty'))
       ? this.params.get('difficulty') as ExerciseDifficulty
@@ -123,8 +149,12 @@ export class WhatShouldITrain implements OnDestroy {
     const areas = this.selectedAreas();
     const availableEquipment = this.selectedEquipment();
     const difficulty = this.selectedDifficulty();
+    const query = this.searchQuery().trim().toLocaleLowerCase();
 
     return this.shuffledExercises.filter((exercise) => {
+      const matchesName =
+        query === '' ||
+        exercise.name.toLocaleLowerCase().includes(query);
       const matchesDifficulty =
         difficulty === null || exercise.difficulty === difficulty;
 
@@ -151,7 +181,8 @@ export class WhatShouldITrain implements OnDestroy {
       return (
         matchesDifficulty &&
         matchesArea &&
-        matchesEquipment
+        matchesEquipment &&
+        matchesName
       );
     });
   });
@@ -187,12 +218,14 @@ export class WhatShouldITrain implements OnDestroy {
 
   private syncUrl(): void {
     this.currentPage.set(1);
+
     void this.router.navigate([], {
       relativeTo: this.route,
       queryParams: {
         difficulty: this.selectedDifficulty(),
         target: this.selectedAreas().join(',') || null,
         equipment: this.selectedEquipment().join(',') || null,
+        q: this.searchQuery().trim() || null,
       },
       queryParamsHandling: 'merge',
       replaceUrl: true,
@@ -258,6 +291,15 @@ export class WhatShouldITrain implements OnDestroy {
       this.currentPage.set(1);
     }
   };
+
+  setViewMode(mode: 'grid' | 'list'): void {
+    this.viewMode.set(mode);
+    this.currentPage.set(1);
+
+    if (isPlatformBrowser(this.platformId)) {
+      sessionStorage.setItem('train-view-mode', mode);
+    }
+  }
 
   constructor() {
     if (isPlatformBrowser(this.platformId)) {

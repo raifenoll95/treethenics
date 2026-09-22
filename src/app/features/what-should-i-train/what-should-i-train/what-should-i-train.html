@@ -112,11 +112,55 @@
     </div>
   </div>
 
+  <div
+    class="train-search"
+    [class.train-search--beginner]="selectedDifficulty() === 'beginner'"
+    [class.train-search--intermediate]="selectedDifficulty() === 'intermediate'"
+    [class.train-search--advanced]="selectedDifficulty() === 'advanced'"
+    [class.train-search--elite]="selectedDifficulty() === 'elite'"
+  >
+    <span class="train-search__icon" aria-hidden="true">⌕</span>
+
+    <input
+      #searchInput
+      type="search"
+      class="train-search__input"
+      placeholder="Search exercises by name..."
+      aria-label="Search exercises by name"
+      enterkeyhint="search"
+      [value]="searchQuery()"
+      (input)="updateSearch($event)"
+      (blur)="saveSearch()"
+      (keydown.enter)="searchInput.blur()"
+    />
+  </div>
+
   <section class="train-results">
     <div class="train-results__header">
-      <div>
+      <div class="train-results__summary">
         <span class="train-panel__step">YOUR EXERCISES</span>
         <h2>{{ results().length }} matching exercises</h2>
+      </div>
+
+      <div class="train-results__actions">
+  <div class="train-view-toggle" aria-label="Results view">
+    <button
+      type="button"
+      [class.train-view-toggle__button--active]="viewMode() === 'grid'"
+      [attr.aria-pressed]="viewMode() === 'grid'"
+      (click)="setViewMode('grid')"
+    >
+      ▦ Grid
+    </button>
+
+    <button
+          type="button"
+          [class.train-view-toggle__button--active]="viewMode() === 'list'"
+          [attr.aria-pressed]="viewMode() === 'list'"
+          (click)="setViewMode('list')"
+        >
+          ☰ List
+        </button>
       </div>
 
       <button
@@ -127,6 +171,7 @@
         Reset filters
       </button>
     </div>
+    </div>
 
     @if (results().length === 0) {
       <div class="empty-state">
@@ -135,7 +180,10 @@
       </div>
     }
      @else {
-      <div class="results-grid">
+      <div
+        class="results-grid"
+        [class.results-grid--list]="viewMode() === 'list'"
+      >
         @for (exercise of paginatedResults(); track exercise.id) {
           <article
             class="exercise-card"
@@ -144,31 +192,48 @@
             [class.exercise-card--advanced]="exercise.difficulty === 'advanced'"
             [class.exercise-card--elite]="exercise.difficulty === 'elite'"
           >
-            @if (exercise.imageUrl) {
-              <img
-                class="exercise-card__image"
-                [src]="exercise.imageUrl"
-                [alt]="exercise.name"
-                loading="lazy"
-              />
-            } @else {
-              <div class="exercise-card__placeholder">
-                TREETHENICS
-              </div>
-            }
+            <div class="exercise-card__media">
+              @if (exercise.imageUrl) {
+                <img
+                  class="exercise-card__image"
+                  [src]="exercise.imageUrl"
+                  [alt]="exercise.name"
+                  loading="lazy"
+                />
+              } @else {
+                <div class="exercise-card__placeholder">
+                  TREETHENICS
+                </div>
+              }
+            </div>
 
             <div class="exercise-card__content">
-              <span
-                class="exercise-card__difficulty"
-                [class.exercise-card__difficulty--beginner]="exercise.difficulty === 'beginner'"
-                [class.exercise-card__difficulty--intermediate]="exercise.difficulty === 'intermediate'"
-                [class.exercise-card__difficulty--advanced]="exercise.difficulty === 'advanced'"
-                [class.exercise-card__difficulty--elite]="exercise.difficulty === 'elite'"
-              >
-                {{ exercise.difficulty }}
-              </span>
+              <div class="exercise-card__meta">
+                <span
+                  class="exercise-card__difficulty"
+                  [class.exercise-card__difficulty--beginner]="exercise.difficulty === 'beginner'"
+                  [class.exercise-card__difficulty--intermediate]="exercise.difficulty === 'intermediate'"
+                  [class.exercise-card__difficulty--advanced]="exercise.difficulty === 'advanced'"
+                  [class.exercise-card__difficulty--elite]="exercise.difficulty === 'elite'"
+                >
+                  {{ exercise.difficulty }}
+                </span>
+
+                <span
+                  class="exercise-card__movement"
+                  [class.exercise-card__movement--static]="exercise.movementType === 'static'"
+                  [class.exercise-card__movement--dynamic]="exercise.movementType === 'dynamic'"
+                >
+                  {{ exercise.movementType }}
+                </span>
+              </div>
 
               <h3>{{ exercise.name }}</h3>
+
+              <p class="exercise-card__description">
+                {{ exercise.description }}
+              </p>
+
               <div class="exercise-card__actions">
                 <a
                   class="exercise-card__link"
@@ -177,7 +242,8 @@
                     from: 'what-should-i-train',
                     difficulty: selectedDifficulty(),
                     target: selectedAreas().join(',') || null,
-                    equipment: selectedEquipment().join(',') || null
+                    equipment: selectedEquipment().join(',') || null,
+                    q: searchQuery() || null
                   }"
                 >
                   View →

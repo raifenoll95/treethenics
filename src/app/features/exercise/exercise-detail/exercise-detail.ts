@@ -34,6 +34,7 @@ export class ExerciseDetail {
           difficulty: this.route.snapshot.queryParamMap.get('difficulty'),
           target: this.route.snapshot.queryParamMap.get('target'),
           equipment: this.route.snapshot.queryParamMap.get('equipment'),
+          q: this.route.snapshot.queryParamMap.get('q'),
         }
       : this.origin === 'compare'
         ? {

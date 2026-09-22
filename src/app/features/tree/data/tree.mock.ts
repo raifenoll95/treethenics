@@ -1612,7 +1612,7 @@ export const EXERCISES: Exercise[] = [
   },
     {
     id: 'tulloch',
-    name: 'Tulloch HACER',
+    name: 'Tulloch',
     movementType: 'dynamic',
     difficulty: 'elite',
     graphLevel: 7,
