@@ -39,7 +39,7 @@ interface SelectOption<T extends string> {
 export class WhatShouldITrain implements OnDestroy {
 
   // Número de ejercicios por página: cambia estos valores a tu gusto.
-  readonly exercisesPerPageDesktop = 20;
+  readonly exercisesPerPageDesktop = 24;
   readonly exercisesPerPageMobile = 10;
 
   private readonly platformId = inject(PLATFORM_ID);
