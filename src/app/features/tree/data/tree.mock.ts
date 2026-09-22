@@ -268,7 +268,7 @@ export const EXERCISES: Exercise[] = [
    */
   {
     id: 'hang-to-inverted-press',
-    name: 'Inverted Press HACER',
+    name: 'Inverted Press',
     difficulty: 'intermediate',
     movementType: 'dynamic',
     graphLevel: 3,
@@ -279,7 +279,7 @@ export const EXERCISES: Exercise[] = [
     secondaryMuscles: ['upper-back', 'biceps', 'forearms', 'hip-flexors'],
     equipment: ['pull-up-bar'],
     description:
-      'A controlled pulling skill that raises the body from a hanging position into an inverted position using back, shoulder and core strength. Keep the movement controlled, maintain active shoulder positioning and avoid compensating with momentum.',
+      'Hang from a pull-up bar with your arms extended, engage your core, and pull your body upward while keeping your legs straight until you reach a fully inverted position with your hips close to the bar. Start with hanging leg raises, inverted hangs, and assisted inverted presses to develop core strength, pulling power, and body control. Gradually reduce assistance, incorporate controlled negatives, and focus on maintaining straight legs and smooth movement throughout the transition to perform the full inverted press with proper technique.',
     imageUrl: '/images/exercises/inverted.png',
   },
   {
