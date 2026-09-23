@@ -209,6 +209,7 @@
                   [src]="exercise.imageUrl | imageVersion"
                   [alt]="exercise.name"
                   loading="lazy"
+                  decoding="async"
                   draggable="false"
                   (contextmenu)="$event.preventDefault()"
                   (dragstart)="$event.preventDefault()"
