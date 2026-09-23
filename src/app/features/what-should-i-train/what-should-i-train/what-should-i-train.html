@@ -142,8 +142,18 @@
         <h2>{{ results().length }} matching exercises</h2>
       </div>
 
+      <button
+        type="button"
+        class="train-sort-button"
+        [class.train-sort-button--active]="sortByLevel()"
+        [attr.aria-pressed]="sortByLevel()"
+        (click)="toggleSortByLevel()"
+      >
+        ↕ Sort by level
+      </button>
+
       <div class="train-results__actions">
-  <div class="train-view-toggle" aria-label="Results view">
+      <div class="train-view-toggle" aria-label="Results view">
     <button
       type="button"
       [class.train-view-toggle__button--active]="viewMode() === 'grid'"

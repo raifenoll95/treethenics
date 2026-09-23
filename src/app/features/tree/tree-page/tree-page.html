@@ -225,6 +225,9 @@
             <img
               [src]="exercise.imageUrl"
               [alt]="exercise.name"
+              draggable="false"
+              (contextmenu)="$event.preventDefault()"
+              (dragstart)="$event.preventDefault()"
             />
           </div>
 

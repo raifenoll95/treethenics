@@ -9,11 +9,9 @@ import {
 
 import { isPlatformBrowser } from '@angular/common';
 
-import { RouterLink } from '@angular/router';
+import { RouterLink, ActivatedRoute, Router } from '@angular/router';
 
 import { EXERCISES } from '../../tree/data/tree.mock';
-
-import { ActivatedRoute, Router } from '@angular/router';
 
 import {
   Exercise,
@@ -40,15 +38,20 @@ interface SelectOption<T extends string> {
 })
 export class WhatShouldITrain implements OnDestroy {
 
-  // Número de ejercicios por página: cambia estos valores a tu gusto.
+  // Número de ejercicios por página.
   readonly exercisesPerPageDesktop = 24;
   readonly exercisesPerPageMobile = 10;
   readonly exercisesPerPageList = 50;
 
   private readonly platformId = inject(PLATFORM_ID);
+  private readonly route = inject(ActivatedRoute);
+  private readonly router = inject(Router);
+
+  private readonly params = this.route.snapshot.queryParamMap;
 
   readonly isMobile = signal(false);
   readonly currentPage = signal(1);
+
   readonly viewMode = signal<'grid' | 'list'>(
     isPlatformBrowser(this.platformId) &&
     sessionStorage.getItem('train-view-mode') === 'list'
@@ -56,7 +59,13 @@ export class WhatShouldITrain implements OnDestroy {
       : 'grid',
   );
 
+  // Ordenación desactivada inicialmente.
+  readonly sortByLevel = signal(false);
 
+  toggleSortByLevel(): void {
+    this.sortByLevel.update((enabled) => !enabled);
+    this.currentPage.set(1);
+  }
 
   readonly pageSize = computed(() =>
     this.viewMode() === 'list'
@@ -101,22 +110,6 @@ export class WhatShouldITrain implements OnDestroy {
     { value: 'elite', label: 'Elite' },
   ];
 
-  private readonly route = inject(ActivatedRoute);
-  private readonly router = inject(Router);
-
-  private readonly params = this.route.snapshot.queryParamMap;
-
-  updateSearch(event: Event): void {
-    const input = event.target as HTMLInputElement;
-
-    this.searchQuery.set(input.value);
-    this.currentPage.set(1);
-  }
-
-  saveSearch(): void {
-    this.syncUrl();
-  }
-
   readonly searchQuery = signal(
     this.params.get('q') ?? '',
   );
@@ -153,10 +146,12 @@ export class WhatShouldITrain implements OnDestroy {
     const difficulty = this.selectedDifficulty();
     const query = this.searchQuery().trim().toLocaleLowerCase();
 
-    return this.shuffledExercises.filter((exercise) => {
+    // Primero aplicamos todos los filtros y la búsqueda.
+    const filteredExercises = this.shuffledExercises.filter((exercise) => {
       const matchesName =
         query === '' ||
         exercise.name.toLocaleLowerCase().includes(query);
+
       const matchesDifficulty =
         difficulty === null || exercise.difficulty === difficulty;
 
@@ -172,8 +167,6 @@ export class WhatShouldITrain implements OnDestroy {
         );
 
       // ALL: no filtrar por material.
-      // Si se selecciona material, el usuario debe disponer
-      // de todo el material necesario para realizar el ejercicio.
       const matchesEquipment =
         availableEquipment.length === 0 ||
         availableEquipment.some((item) =>
@@ -187,6 +180,25 @@ export class WhatShouldITrain implements OnDestroy {
         matchesName
       );
     });
+
+    // Si la ordenación está desactivada, mantenemos el orden original.
+    if (!this.sortByLevel()) {
+      return filteredExercises;
+    }
+
+    // Si está activada: Beginner → Intermediate → Advanced → Elite.
+    const difficultyOrder: Record<ExerciseDifficulty, number> = {
+      beginner: 0,
+      intermediate: 1,
+      advanced: 2,
+      elite: 3,
+    };
+
+    return [...filteredExercises].sort(
+      (a, b) =>
+        difficultyOrder[a.difficulty] -
+        difficultyOrder[b.difficulty],
+    );
   });
 
   private isDifficulty(
@@ -234,6 +246,17 @@ export class WhatShouldITrain implements OnDestroy {
     });
   }
 
+  updateSearch(event: Event): void {
+    const input = event.target as HTMLInputElement;
+
+    this.searchQuery.set(input.value);
+    this.currentPage.set(1);
+  }
+
+  saveSearch(): void {
+    this.syncUrl();
+  }
+
   selectAllTargets(): void {
     this.selectedAreas.set([]);
     this.syncUrl();
@@ -245,6 +268,7 @@ export class WhatShouldITrain implements OnDestroy {
         ? current.filter((item) => item !== area)
         : [...current, area],
     );
+
     this.syncUrl();
   }
 
@@ -263,6 +287,7 @@ export class WhatShouldITrain implements OnDestroy {
         ? current.filter((item) => item !== equipment)
         : [...current, equipment],
     );
+
     this.syncUrl();
   }
 

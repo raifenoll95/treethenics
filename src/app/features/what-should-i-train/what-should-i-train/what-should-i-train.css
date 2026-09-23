@@ -1432,5 +1432,65 @@
   -webkit-user-drag: none;
 }
 
+/* SORT BY LEVEL */
+
+.train-results__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.train-sort-button {
+  margin-left: auto;
+  padding: 9px 12px;
+  border: 1px solid #566171;
+  border-radius: 9px;
+  background: transparent;
+  color: #c5ceda;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.train-sort-button:hover {
+  background: #414e5e;
+  color: #fff;
+}
+
+.train-sort-button--active {
+  border-color: #f43f5e;
+  background: rgba(244, 63, 94, 0.12);
+  color: #ff8298;
+}
+
+.train-results__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .train-results__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* El botón ocupa una fila completa encima del contador */
+  .train-sort-button {
+    order: -1;
+    flex: 0 0 100%;
+    width: fit-content;
+    margin: 0;
+    justify-self: start;
+  }
+}
+
 
 
