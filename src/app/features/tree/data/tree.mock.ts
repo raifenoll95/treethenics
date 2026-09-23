@@ -589,6 +589,22 @@ export const EXERCISES: Exercise[] = [
       'Hang from a bar or gymnastic rings with one arm, rotate your body backward, and extend your legs until your body is horizontal, keeping your core engaged and shoulders stable. Start with regular back levers, assisted one-arm holds, and one-arm hanging exercises to develop shoulder strength, grip endurance, and body control. Gradually reduce assistance, practice controlled one-arm negatives, and work toward maintaining a full one-arm back lever with proper alignment and stability.',
     imageUrl: '/images/exercises/one-arm-back-lever.png',
   },
+  {
+    id: 'back-lever-pull-up',
+    name: 'Back Lever Pull Up',
+    movementType: 'dynamic',
+    difficulty: 'advanced',
+    graphLevel: 5,
+    showInTree: false,
+    category: 'pull',
+    targetAreas: ['back', 'shoulders', 'core'],
+    primaryMuscles: ['latissimus-dorsi', 'rear-deltoids', 'chest'],
+    secondaryMuscles: ['biceps', 'upper-back', 'abdominals', 'glutes'],
+    equipment: ['pull-up-bar','rings'],
+    description:
+      'Start in a horizontal back lever position with your arms straight, engage your core and back muscles, and bend your elbows to pull your body toward the bar while maintaining full-body tension and control. Begin with tuck back lever pull-ups, assisted variations, and controlled negatives to develop pulling strength, shoulder stability, and body control. Gradually progress through advanced tuck, one-leg, and straddle variations, reducing assistance while maintaining proper alignment and a controlled range of motion as you work toward full back lever pull-ups.',
+    imageUrl: '/images/exercises/back-lever-pull-up.png',
+  },
 
   /*
    * LEVEL 5 — ADVANCED
@@ -867,7 +883,7 @@ export const EXERCISES: Exercise[] = [
     equipment: ['rings','floor','parallettes'],
     description:
       'Support your body horizontally on gymnastic rings with your arms extended straight out to the sides at shoulder level, keeping your core engaged and maintaining full-body tension. Start with planche holds, Maltese leans, and assisted Maltese variations to develop shoulder strength, straight-arm stability, and body control. Gradually increase your arm extension, reduce assistance, and practice controlled Maltese holds while maintaining proper alignment and stability as you progress toward the full movement.',
-    imageUrl: '/images/exercises/maltese.png',
+    imageUrl: '/images/exercises/maltese1.png',
   },
 
   /*
