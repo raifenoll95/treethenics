@@ -1115,3 +1115,10 @@
   height: 100%;
   object-fit: cover;
 }
+
+/* Evitar selección y arrastre de la imagen principal */
+.exercise-hero__media > img {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}

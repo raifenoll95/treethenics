@@ -55,6 +55,9 @@
           <img
             [src]="exercise.imageUrl | imageVersion"
             [alt]="exercise.name"
+            draggable="false"
+            (contextmenu)="$event.preventDefault()"
+            (dragstart)="$event.preventDefault()"
           />
         }
 

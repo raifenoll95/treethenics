@@ -199,6 +199,9 @@
                   [src]="exercise.imageUrl | imageVersion"
                   [alt]="exercise.name"
                   loading="lazy"
+                  draggable="false"
+                  (contextmenu)="$event.preventDefault()"
+                  (dragstart)="$event.preventDefault()"
                 />
               } @else {
                 <div class="exercise-card__placeholder">

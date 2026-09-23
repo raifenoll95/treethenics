@@ -1426,5 +1426,11 @@
   border-color: #fb7185;
 }
 
+.exercise-card__image {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
 
 
