@@ -347,8 +347,8 @@ export const EXERCISES: Exercise[] = [
     imageUrl: '/images/exercises/korean-dip.png',
   },
   {
-    id: 'handstand-press',
-    name: 'Handstand Press',
+    id: 'press-to-handstand',
+    name: 'Press To Handstand',
     difficulty: 'intermediate',
     movementType: 'dynamic',
     graphLevel: 3,
@@ -360,6 +360,7 @@ export const EXERCISES: Exercise[] = [
     equipment: ['floor','parallettes'],
     description:
       'Start with your hands on the floor and your feet grounded, lean your shoulders forward, and lift your legs overhead using controlled strength until you reach a stable handstand without jumping or kicking. Begin with pike compressions, L-sit holds, and wall-assisted press handstands to develop shoulder strength, core control, and flexibility. Gradually reduce assistance, practice slow negative presses, and improve your hip mobility and balance to achieve a smooth freestanding handstand press with proper technique.',
+      imageUrl: '/images/exercises/press-to-handstand.png',
   },
   {
     id: 'early-planche-progressions',
@@ -1835,10 +1836,90 @@ export const EXERCISES: Exercise[] = [
     targetAreas: ['shoulders', 'core'],
     primaryMuscles: ['front-deltoids', 'side-deltoids', 'triceps'],
     secondaryMuscles: ['trapezius', 'serratus-anterior', 'forearms', 'abdominals'],
-    equipment: ['floor'],
+    equipment: ['floor','parallettes'],
     description:
       'Place your hands shoulder-width apart on the floor, kick your legs up against a wall, and maintain a straight body position while engaging your core and shoulders. Start with wall walks and chest-to-wall handstands to develop shoulder strength, balance, and body awareness. Gradually practice controlled weight shifts, heel pulls, and freestanding handstand attempts to improve stability and reduce your reliance on the wall.',
     imageUrl: '/images/exercises/wall-handstand.png',
+  },
+    {
+    id: 'tuck-planche-press-to-handstand',
+    name: 'Tuck Planche Press To Handstand',
+    movementType: 'dynamic',
+    difficulty: 'advanced',
+    graphLevel: 4,
+    showInTree: false,
+    category: 'push',
+    targetAreas: ['shoulders', 'core'],
+    primaryMuscles: ['front-deltoids', 'side-deltoids', 'triceps','obliques'],
+    secondaryMuscles: ['trapezius', 'serratus-anterior', 'forearms', 'abdominals'],
+    equipment: ['floor','parallettes'],
+    description:
+      'Start in a tuck planche position with your arms straight, knees tucked toward your chest, and feet lifted off the ground, then press your hips upward and extend your legs into a stable handstand. Begin with tuck planche holds, wall-assisted handstand presses, and controlled transitions to develop shoulder strength, core stability, and balance. Gradually reduce assistance, improve your hip elevation and leg extension, and practice smooth transitions while maintaining straight arms and proper body alignment throughout the movement.',
+    imageUrl: '/images/exercises/tuck-planche-press-to-handstand.png',
+  },
+  {
+    id: 'straddle-planche-press-to-handstand',
+    name: 'Straddle Planche Press To Handstand',
+    movementType: 'dynamic',
+    difficulty: 'advanced',
+    graphLevel: 5,
+    showInTree: false,
+    category: 'push',
+    targetAreas: ['shoulders', 'core'],
+    primaryMuscles: ['front-deltoids', 'side-deltoids', 'triceps','obliques'],
+    secondaryMuscles: ['trapezius', 'serratus-anterior', 'forearms', 'abdominals'],
+    equipment: ['floor','parallettes'],
+    description:
+      'Start in a straddle planche position with your arms straight, legs spread apart, and body horizontal, then press your hips upward while lifting your legs into a stable handstand. Begin with straddle planche holds, assisted handstand presses, and controlled planche-to-handstand transitions to develop shoulder strength, core stability, and balance. Gradually reduce assistance, improve your hip elevation and shoulder control, and practice smooth transitions while maintaining straight arms and proper body alignment throughout the movement.',
+    imageUrl: '/images/exercises/straddle-planche-press-to-handstand.png',
+  },
+  {
+    id: 'full-planche-press-to-handstand',
+    name: 'Full Planche Press To Handstand',
+    movementType: 'dynamic',
+    difficulty: 'elite',
+    graphLevel: 6,
+    showInTree: false,
+    category: 'push',
+    targetAreas: ['shoulders', 'core'],
+    primaryMuscles: ['front-deltoids', 'side-deltoids', 'triceps','obliques'],
+    secondaryMuscles: ['trapezius', 'serratus-anterior', 'forearms', 'abdominals'],
+    equipment: ['floor','parallettes'],
+    description:
+      'Start in a full planche position with your arms straight, legs extended, and body horizontal, then press your hips upward and lift your legs into a stable handstand while maintaining full-body tension. Begin with full planche holds, straddle planche presses, and assisted handstand transitions to develop shoulder strength, core stability, and balance. Gradually reduce assistance, practice controlled negative transitions from handstand to planche, and focus on maintaining straight arms and proper body alignment throughout the movement.',
+    imageUrl: '/images/exercises/full-planche-press-to-handstand.png',
+  },
+  {
+    id: 'l-sit-to-handstand',
+    name: 'L-sit To Handstand',
+    movementType: 'dynamic',
+    difficulty: 'intermediate',
+    graphLevel: 3,
+    showInTree: false,
+    category: 'push',
+    targetAreas: ['shoulders', 'core'],
+    primaryMuscles: ['front-deltoids', 'side-deltoids', 'triceps','obliques'],
+    secondaryMuscles: ['trapezius', 'serratus-anterior', 'forearms', 'abdominals'],
+    equipment: ['floor','parallettes'],
+    description:
+      'Start in an L-sit position with your arms straight and legs extended forward, then lean your shoulders forward, lift your hips, and press your body upward into a stable handstand. Begin with L-sit holds, tuck planche exercises, and assisted handstand presses to develop shoulder strength, core stability, and balance. Gradually reduce assistance, improve your hip elevation and compression strength, and practice controlled transitions while maintaining straight arms and proper body alignment throughout the movement.',
+    imageUrl: '/images/exercises/l-sit-to-handstand.png',
+  },
+  {
+    id: 'straddle-press-to-handstand',
+    name: 'Straddle Press To Handstand',
+    movementType: 'dynamic',
+    difficulty: 'intermediate',
+    graphLevel: 3,
+    showInTree: false,
+    category: 'push',
+    targetAreas: ['shoulders', 'core'],
+    primaryMuscles: ['front-deltoids', 'side-deltoids', 'triceps','obliques'],
+    secondaryMuscles: ['trapezius', 'serratus-anterior', 'forearms', 'abdominals'],
+    equipment: ['floor','parallettes'],
+    description:
+      'Start with your hands on the floor and legs spread wide, lean your shoulders forward, and lift your hips and legs upward into a stable handstand while keeping your arms straight and core engaged. Begin with seated straddle leg lifts, pike compressions, and wall-assisted handstand presses to develop shoulder strength, hip mobility, and core control. Gradually reduce assistance, improve your straddle flexibility, and practice controlled negative presses to achieve a smooth freestanding straddle press to handstand with proper technique.',
+    imageUrl: '/images/exercises/straddle-press-to-handstand.png',
   },
     {
     id: 'comando-pull-up',
@@ -2016,7 +2097,7 @@ export const EXERCISE_RELATIONS: ExerciseRelation[] = [
    */
   {
     from: 'handstand',
-    to: 'handstand-press',
+    to: 'press-to-handstand',
     type: 'progression',
   },
   {
@@ -2031,7 +2112,7 @@ export const EXERCISE_RELATIONS: ExerciseRelation[] = [
   },
 
   {
-    from: 'handstand-press',
+    from: 'press-to-handstand',
     to: 'straddle-planche',
     type: 'progression',
   },

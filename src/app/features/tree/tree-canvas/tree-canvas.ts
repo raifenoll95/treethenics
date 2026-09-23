@@ -685,7 +685,7 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
       'impossible-dip': 900,
       'korean-dip': 1100,
 
-      'handstand-press': 1400,
+      'press-to-handstand': 1400,
       'early-planche-progressions': 1630,
 
       'handstand-push-up': 1800,
