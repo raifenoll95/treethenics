@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
+    "prebuild": "node scripts/generate-image-version.mjs",
     "build": "npm run generate:sitemap && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",

@@ -1102,3 +1102,16 @@
     min-height: 340px;
   }
 }
+
+/* Foto principal: rellenar todo el espacio disponible */
+.exercise-hero__media {
+  padding: 0;
+  overflow: hidden;
+}
+
+.exercise-hero__media > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

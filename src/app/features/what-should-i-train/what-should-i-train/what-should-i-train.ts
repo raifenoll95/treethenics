@@ -23,6 +23,8 @@ import {
 import { ExerciseTargetArea } from '../../../shared/models/exercise-target-area.model';
 import { ExerciseEquipment } from '../../../shared/models/exercise-equipment.model';
 
+import { ImageVersionPipe } from '../../../shared/pipes/image-version.pipe';
+
 type DifficultyOption = ExerciseDifficulty;
 
 interface SelectOption<T extends string> {
@@ -32,7 +34,7 @@ interface SelectOption<T extends string> {
 
 @Component({
   selector: 'app-what-should-i-train',
-  imports: [RouterLink],
+  imports: [RouterLink, ImageVersionPipe],
   templateUrl: './what-should-i-train.html',
   styleUrl: './what-should-i-train.css',
 })

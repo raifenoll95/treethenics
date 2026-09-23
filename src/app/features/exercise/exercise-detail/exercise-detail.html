@@ -53,7 +53,7 @@
 
         @if (exercise.imageUrl) {
           <img
-            [src]="exercise.imageUrl"
+            [src]="exercise.imageUrl | imageVersion"
             [alt]="exercise.name"
           />
         }

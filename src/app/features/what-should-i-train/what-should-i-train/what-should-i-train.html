@@ -196,7 +196,7 @@
               @if (exercise.imageUrl) {
                 <img
                   class="exercise-card__image"
-                  [src]="exercise.imageUrl"
+                  [src]="exercise.imageUrl | imageVersion"
                   [alt]="exercise.name"
                   loading="lazy"
                 />

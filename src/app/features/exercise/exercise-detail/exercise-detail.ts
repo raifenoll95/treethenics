@@ -11,9 +11,11 @@ import {
   MUSCLE_LABELS,
 } from '../../../shared/data/exercise-metadata';
 
+import { ImageVersionPipe } from '../../../shared/pipes/image-version.pipe';
+
 @Component({
   selector: 'app-exercise-detail',
-  imports: [RouterLink, AnatomyViewer],
+  imports: [RouterLink, AnatomyViewer, ImageVersionPipe],
   templateUrl: './exercise-detail.html',
   styleUrl: './exercise-detail.css',
 })
