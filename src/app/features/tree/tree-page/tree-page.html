@@ -223,7 +223,7 @@
 
           <div class="exercise-panel__image">
             <img
-              [src]="exercise.imageUrl"
+              [src]="exercise.imageUrl | optimizedImage:'card'"
               [alt]="exercise.name"
               draggable="false"
               (contextmenu)="$event.preventDefault()"

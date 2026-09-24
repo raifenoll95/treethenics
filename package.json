@@ -5,7 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
-    "prebuild": "node scripts/generate-image-version.mjs",
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "prebuild": "node scripts/generate-image-version.mjs && npm run optimize:images",
     "build": "npm run generate:sitemap && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -38,6 +39,7 @@
     "@types/three": "^0.186.0",
     "jsdom": "^28.0.0",
     "prettier": "^3.8.1",
+    "sharp": "^0.35.4",
     "typescript": "~6.0.2",
     "vitest": "^4.0.8"
   }

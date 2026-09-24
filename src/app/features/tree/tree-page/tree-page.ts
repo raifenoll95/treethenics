@@ -11,6 +11,7 @@ import { Exercise } from '../../../shared/models/exercise.model';
 import { ExerciseEquipment } from '../../../shared/models/exercise-equipment.model';
 import { ExerciseMuscle } from '../../../shared/models/exercise-muscle.model';
 import { RouterLink } from '@angular/router';
+import { OptimizedImagePipe } from '../../../shared/pipes/optimized-image.pipe';
 
 import {
   EQUIPMENT_LABELS,
@@ -25,6 +26,7 @@ type PanelSide = 'left' | 'right';
   imports: [
     TreeCanvas,
     RouterLink,
+    OptimizedImagePipe,
   ],
   templateUrl: './tree-page.html',
   styleUrl: './tree-page.css',

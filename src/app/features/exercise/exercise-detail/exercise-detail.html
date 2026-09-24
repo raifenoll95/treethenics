@@ -53,7 +53,7 @@
 
         @if (exercise.imageUrl) {
           <img
-            [src]="exercise.imageUrl | imageVersion"
+            [src]="exercise.imageUrl | optimizedImage:'detail'"
             [alt]="exercise.name"
             draggable="false"
             (contextmenu)="$event.preventDefault()"
