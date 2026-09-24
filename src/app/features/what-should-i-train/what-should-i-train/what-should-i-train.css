@@ -1492,5 +1492,42 @@
   }
 }
 
+@media (max-width: 768px) {
+  .results-grid:not(.results-grid--list) .exercise-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .results-grid:not(.results-grid--list) .exercise-card__media {
+    display: block;
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    aspect-ratio: auto;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .results-grid:not(.results-grid--list) .exercise-card__media > img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    aspect-ratio: auto;
+    object-fit: contain;
+    margin: 0;
+    padding: 0;
+  }
+
+  .results-grid:not(.results-grid--list) .exercise-card__content {
+    flex: 1;
+    margin: 0;
+  }
+}
+
 
 
