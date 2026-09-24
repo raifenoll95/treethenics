@@ -503,3 +503,17 @@
     );
   }
 }
+
+
+/* Impedir selección y arrastre de las imágenes de Welcome */
+
+.welcome-section__visual > img {
+  -webkit-user-select: none;
+  user-select: none;
+
+  -webkit-user-drag: none;
+
+  /* Reduce las opciones que aparecen al mantener pulsada
+     una imagen en navegadores móviles compatibles. */
+  -webkit-touch-callout: none;
+}

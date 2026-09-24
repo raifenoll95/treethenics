@@ -24,9 +24,11 @@
 
     <div class="welcome-section__visual welcome-section__visual--tree">
       <img
-        src="/images/tree.png"
+        src="/images/treev3.png"
         alt="Athlete performing a front lever"
         fetchpriority="high"
+        draggable="false"
+        (contextmenu)="$event.preventDefault()"
       />
     </div>
   </section>
@@ -38,6 +40,8 @@
         src="/images/exercises/maltese.png"
         alt=""
         loading="lazy"
+        draggable="false"
+        (contextmenu)="$event.preventDefault()"
       />
     </div>
 
@@ -89,6 +93,8 @@
         src="/images/versus.png"
         alt="Athlete performing a planche"
         loading="lazy"
+        draggable="false"
+        (contextmenu)="$event.preventDefault()"
       />
     </div>
   </section>
