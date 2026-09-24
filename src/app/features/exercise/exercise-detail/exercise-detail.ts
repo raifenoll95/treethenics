@@ -53,7 +53,7 @@ export class ExerciseDetail {
 
   readonly backRoute =
   this.origin === 'tree'
-    ? '/'
+    ? '/tree'
     : this.origin === 'what-should-i-train'
       ? '/what-should-i-train'
       : this.origin === 'compare'

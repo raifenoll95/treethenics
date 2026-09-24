@@ -7,6 +7,7 @@ import { WhatShouldITrain } from './features/what-should-i-train/what-should-i-t
 import { ComparePage } from './features/compare/compare-page/compare-page';
 import { AboutPage } from './features/about/about-page/about-page';
 import { ProPage } from './features/pro/pro-page/pro-page';
+import { WelcomePage } from './features/welcome/welcome-page/welcome-page';
 
 export const routes: Routes = [
   {
@@ -15,6 +16,11 @@ export const routes: Routes = [
     children: [
       {
         path: '',
+        pathMatch: 'full',
+        component: WelcomePage,
+      },
+      {
+        path: 'tree',
         component: TreePage,
       },
       {
