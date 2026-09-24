@@ -198,33 +198,26 @@
 
 .exercise-hero__media {
   position: relative;
-
+  min-width: 0;
   min-height: 490px;
-
   overflow: hidden;
 
-  background:
-    radial-gradient(
-      circle at 50% 40%,
-      #18202a,
-      #0b0f14 70%
-    );
-
+  background: #0c1117;
   border: 1px solid #2c3541;
   border-radius: 15px;
 }
 
-.exercise-hero__media img {
+.exercise-hero__media > img {
   display: block;
-
   width: 100%;
   height: 100%;
-  min-height: 490px;
 
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
 
-  background: #0c1117;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 
@@ -443,11 +436,6 @@
   .exercise-hero {
     grid-template-columns: 1fr;
   }
-
-  .exercise-hero__media,
-  .exercise-hero__media img {
-    min-height: 380px;
-  }
 }
 
 @media (max-width: 600px) {
@@ -457,11 +445,6 @@
 
   .exercise-detail__header h1 {
     font-size: 34px;
-  }
-
-  .exercise-hero__media,
-  .exercise-hero__media img {
-    min-height: 300px;
   }
 }
 
@@ -1103,22 +1086,20 @@
   }
 }
 
-/* Foto principal: rellenar todo el espacio disponible */
-.exercise-hero__media {
-  padding: 0;
-  overflow: hidden;
-}
+/* Imagen del ejercicio en móvil */
+@media (max-width: 768px) {
+  .exercise-hero__media {
+    min-height: 0;
+    height: auto;
+    aspect-ratio: auto;
+  }
 
-.exercise-hero__media > img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+  .exercise-hero__media > img {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: none;
 
-/* Evitar selección y arrastre de la imagen principal */
-.exercise-hero__media > img {
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-user-drag: none;
+    object-fit: contain;
+  }
 }
