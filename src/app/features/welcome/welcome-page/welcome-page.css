@@ -318,3 +318,188 @@
     padding: 12px;
   }
 }
+
+/* Imágenes de las secciones de bienvenida */
+
+.welcome-section__visual > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Ajustes individuales de encuadre */
+
+.welcome-section__visual--tree > img {
+  object-position: center;
+}
+
+.welcome-section__visual--train > img {
+  object-position: center;
+}
+
+.welcome-section__visual--compare > img {
+  object-position: center;
+}
+
+/* Móvil */
+
+@media (max-width: 768px) {
+  .welcome-section__visual > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* TREE: transición suave entre texto e imagen */
+
+.welcome-section__visual--tree {
+  position: relative;
+  overflow: hidden;
+  background: #171d25;
+}
+
+.welcome-section__visual--tree > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  /* Desenfoque ligero del árbol */
+  filter: blur(1.5px);
+
+  /* Evita que el desenfoque deje bordes visibles */
+  transform: scale(1.015);
+}
+
+/* Degradado desde el fondo del texto hacia la imagen */
+.welcome-section__visual--tree::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to right,
+    #171d25 0%,
+    rgba(23, 29, 37, 0.85) 8%,
+    rgba(23, 29, 37, 0.35) 23%,
+    transparent 45%
+  );
+}
+
+@media (max-width: 768px) {
+  .welcome-section__visual--tree::after {
+    background: linear-gradient(
+      to bottom,
+      transparent 35%,
+      rgba(23, 29, 37, 0.35) 65%,
+      #171d25 100%
+    );
+  }
+}
+
+/* TRAIN: transición suave entre imagen y texto */
+
+.welcome-section__visual--train {
+  position: relative;
+  overflow: hidden;
+  background: #171d25;
+}
+
+.welcome-section__visual--train > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  /* Desenfoque ligero */
+  filter: blur(1.5px);
+
+  /* Evita bordes visibles provocados por el desenfoque */
+  transform: scale(1.015);
+}
+
+/* La imagen se funde con el fondo por la derecha */
+.welcome-section__visual--train::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to left,
+    #171d25 0%,
+    rgba(23, 29, 37, 0.85) 8%,
+    rgba(23, 29, 37, 0.35) 23%,
+    transparent 45%
+  );
+}
+
+@media (max-width: 768px) {
+  .welcome-section__visual--train::after {
+    background: linear-gradient(
+      to bottom,
+      transparent 35%,
+      rgba(23, 29, 37, 0.35) 65%,
+      #171d25 100%
+    );
+  }
+}
+
+/* COMPARE: transición suave entre texto e imagen */
+
+.welcome-section__visual--compare {
+  position: relative;
+  overflow: hidden;
+  background: #171d25;
+}
+
+.welcome-section__visual--compare > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  /* Desenfoque ligero */
+  filter: blur(1.5px);
+
+  /* Evita bordes visibles provocados por el desenfoque */
+  transform: scale(1.015);
+}
+
+/* La imagen se funde con el fondo por la izquierda */
+.welcome-section__visual--compare::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to right,
+    #171d25 0%,
+    rgba(23, 29, 37, 0.85) 8%,
+    rgba(23, 29, 37, 0.35) 23%,
+    transparent 45%
+  );
+}
+
+@media (max-width: 768px) {
+  .welcome-section__visual--compare::after {
+    background: linear-gradient(
+      to bottom,
+      transparent 35%,
+      rgba(23, 29, 37, 0.35) 65%,
+      #171d25 100%
+    );
+  }
+}
