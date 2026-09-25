@@ -8,6 +8,8 @@
     [class.exercise-detail--elite]="exercise.difficulty === 'elite'"
   >
 
+    <!-- BACK -->
+
     <a
       [routerLink]="backRoute"
       [queryParams]="backQueryParams"
@@ -18,11 +20,14 @@
     </a>
 
 
-    <!-- HEADER -->
+    <!-- ========================================
+         HEADER
+    ========================================= -->
 
     <header class="exercise-detail__header">
 
       <div>
+
         <div class="exercise-detail__eyebrow">
 
           @if (exercise.category) {
@@ -38,26 +43,30 @@
 
         <h1>{{ exercise.name }}</h1>
 
+        <p>
+          Learn the {{ exercise.name }} with proper technique,
+          muscles worked, equipment and structured progressions.
+        </p>
+
       </div>
 
     </header>
 
 
-    <!-- HERO -->
+    <!-- ========================================
+         HERO
+    ========================================= -->
 
     <section class="exercise-hero">
 
-      <!-- IMAGE -->
+      <!-- EXERCISE IMAGE -->
 
       <div class="exercise-hero__media">
 
         @if (exercise.imageUrl) {
           <img
             [src]="exercise.imageUrl | optimizedImage:'detail'"
-            [alt]="exercise.name"
-            draggable="false"
-            (contextmenu)="$event.preventDefault()"
-            (dragstart)="$event.preventDefault()"
+            [alt]="'Athlete performing the ' + exercise.name + ' calisthenics exercise'"
             draggable="false"
             (contextmenu)="$event.preventDefault()"
             (dragstart)="$event.preventDefault()"
@@ -77,308 +86,911 @@
       </div>
 
 
-      <!-- INFORMATION -->
-
-      <!-- ANATOMY MODEL -->
+      <!-- ANATOMY -->
 
       <aside
         class="exercise-hero__anatomy"
-        aria-label="Interactive anatomical muscle model"
+        [attr.aria-label]="exercise.name + ' muscles anatomical model'"
       >
+
         <div class="exercise-hero__anatomy-stage">
+
           <app-anatomy-viewer
             [primaryMuscles]="exercise.primaryMuscles ?? []"
             [secondaryMuscles]="exercise.secondaryMuscles ?? []"
           />
+
         </div>
+
       </aside>
 
     </section>
 
+
     <!-- ========================================
-     EXERCISE BODY
-========================================= -->
+         EXERCISE BODY
+    ========================================= -->
 
-<div class="exercise-body">
-
-  <!-- OVERVIEW -->
-
-  <section class="detail-section detail-section--overview">
-
-    <div class="detail-section__heading">
-      <div>
-        <span class="detail-section__eyebrow">Overview</span>
-        <h2>About this exercise</h2>
-      </div>
-
-      <span class="detail-section__number">01</span>
-    </div>
-
-    <div class="overview-grid">
-
-      <div class="overview-description">
-        <p>
-          {{ exercise.description }}
-        </p>
-      </div>
-
-      <div class="overview-stats">
-
-        <div class="overview-stat">
-          <span>Difficulty</span>
-          <strong class="accent-text">
-            {{ exercise.difficulty }}
-          </strong>
-        </div>
-
-        @if (exercise.graphLevel) {
-          <div class="overview-stat">
-            <span>Progression level</span>
-            <strong>
-              {{ exercise.graphLevel }} / 7
-            </strong>
-          </div>
-        }
-
-        @if (exercise.movementType) {
-          <div class="overview-stat">
-            <span>Movement</span>
-            <strong>
-              {{ exercise.movementType }}
-            </strong>
-          </div>
-        }
-
-        @if (exercise.category) {
-          <div class="overview-stat">
-            <span>Category</span>
-            <strong>
-              {{ exercise.category }}
-            </strong>
-          </div>
-        }
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- MUSCLE MAP -->
-
-  <section class="detail-section">
-
-    <div class="detail-section__heading">
-
-      <div>
-        <span class="detail-section__eyebrow">
-          Anatomy
-        </span>
-
-        <h2>Muscles involved</h2>
-
-        <p>
-          Understand which muscle groups carry most of the
-          workload during this movement.
-        </p>
-      </div>
-
-      <span class="detail-section__number">02</span>
-
-    </div>
+    <div class="exercise-body">
 
 
-    <div class="muscle-layout">
+      <!-- ========================================
+           01 — OVERVIEW
+      ========================================= -->
 
-      <!-- PRIMARY -->
+      <section class="detail-section detail-section--overview">
 
-      <div class="muscle-card muscle-card--primary">
-
-        <div class="muscle-card__header">
-
-          <div class="muscle-card__icon">
-            P
-          </div>
+        <div class="detail-section__heading">
 
           <div>
-            <span>Primary</span>
-            <strong>Main workload</strong>
+
+            <span class="detail-section__eyebrow">
+              Overview
+            </span>
+
+            <h2>
+              What Is the {{ exercise.name }}?
+            </h2>
+
           </div>
+
+          <span class="detail-section__number">
+            01
+          </span>
 
         </div>
 
-        <div class="muscle-card__list">
 
-          @for (
-            muscle of exercise.primaryMuscles ?? [];
-            track muscle
-          ) {
+        <div class="overview-grid">
 
-            <div class="muscle-row">
+          <div class="overview-description">
 
-              <span class="muscle-row__dot"></span>
+            <p>
+              {{ exercise.overview ?? exercise.description }}
+            </p>
 
-              <span>
-                {{ getMuscleLabel(muscle) }}
-              </span>
+          </div>
 
-              <span class="muscle-row__role">
-                Primary
-              </span>
+
+          <div class="overview-stats">
+
+            <div class="overview-stat">
+
+              <span>Difficulty</span>
+
+              <strong class="accent-text">
+                {{ exercise.difficulty }}
+              </strong>
 
             </div>
 
-          }
+
+            @if (exercise.graphLevel) {
+
+              <div class="overview-stat">
+
+                <span>Progression level</span>
+
+                <strong>
+                  {{ exercise.graphLevel }} / 7
+                </strong>
+
+              </div>
+
+            }
+
+
+            @if (exercise.movementType) {
+
+              <div class="overview-stat">
+
+                <span>Movement</span>
+
+                <strong>
+                  {{ exercise.movementType }}
+                </strong>
+
+              </div>
+
+            }
+
+
+            @if (exercise.category) {
+
+              <div class="overview-stat">
+
+                <span>Category</span>
+
+                <strong>
+                  {{ exercise.category }}
+                </strong>
+
+              </div>
+
+            }
+
+          </div>
 
         </div>
 
-      </div>
+      </section>
 
 
-      <!-- SECONDARY -->
+      <!-- ========================================
+           02 — MUSCLES & EQUIPMENT
+      ========================================= -->
 
-      <div class="muscle-card">
+      <section class="detail-section anatomy-setup-section">
 
-        <div class="muscle-card__header">
-
-          <div class="muscle-card__icon">
-            S
-          </div>
+        <div class="detail-section__heading">
 
           <div>
-            <span>Secondary</span>
-            <strong>Supporting muscles</strong>
+
+            <span class="detail-section__eyebrow">
+              Anatomy & Setup
+            </span>
+
+            <h2>
+              {{ exercise.name }} Muscles & Equipment
+            </h2>
+
+            <p>
+              Muscles involved and equipment used to perform and train
+              the {{ exercise.name }}.
+            </p>
+
           </div>
+
+          <span class="detail-section__number">
+            02
+          </span>
 
         </div>
 
-        <div class="muscle-card__list">
 
-          @for (
-            muscle of exercise.secondaryMuscles ?? [];
-            track muscle
-          ) {
+        <div class="anatomy-setup-grid">
 
-            <div class="muscle-row">
 
-              <span class="muscle-row__dot"></span>
+          <!-- MUSCLES -->
 
-              <span>
-                {{ getMuscleLabel(muscle) }}
-              </span>
+          <div class="exercise-info-panel">
 
-              <span class="muscle-row__role">
-                Support
-              </span>
+            <span class="exercise-info-panel__label">
+              Muscles worked
+            </span>
+
+
+            <div class="muscle-table">
+
+
+              <!-- PRIMARY -->
+
+              <div class="muscle-table__group">
+
+                <div class="muscle-table__type">
+
+                  <span class="muscle-table__badge">
+                    P
+                  </span>
+
+                  <div>
+                    <span>Primary</span>
+                    <strong>Main muscles</strong>
+                  </div>
+
+                </div>
+
+
+                <div class="muscle-table__muscles">
+
+                  @for (
+                    muscle of exercise.primaryMuscles ?? [];
+                    track muscle
+                  ) {
+
+                    <span>
+                      {{ getMuscleLabel(muscle) }}
+                    </span>
+
+                  }
+
+                </div>
+
+              </div>
+
+
+              <!-- SECONDARY -->
+
+              <div class="muscle-table__group">
+
+                <div class="muscle-table__type">
+
+                  <span class="muscle-table__badge">
+                    S
+                  </span>
+
+                  <div>
+                    <span>Secondary</span>
+                    <strong>Supporting muscles</strong>
+                  </div>
+
+                </div>
+
+
+                <div class="muscle-table__muscles">
+
+                  @for (
+                    muscle of exercise.secondaryMuscles ?? [];
+                    track muscle
+                  ) {
+
+                    <span>
+                      {{ getMuscleLabel(muscle) }}
+                    </span>
+
+                  }
+
+                </div>
+
+              </div>
 
             </div>
 
-          }
+          </div>
+
+
+          <!-- EQUIPMENT -->
+
+          <div class="exercise-info-panel">
+
+            <span class="exercise-info-panel__label">
+              Equipment
+            </span>
+
+
+            <div class="compact-equipment-list">
+
+              @for (
+                equipment of exercise.equipment ?? [];
+                track equipment
+              ) {
+
+                <div
+                  class="compact-equipment"
+                  [class.compact-equipment--bar]="equipment === 'pull-up-bar'"
+                  [class.compact-equipment--rings]="equipment === 'rings'"
+                  [class.compact-equipment--parallettes]="equipment === 'parallettes'"
+                  [class.compact-equipment--bands]="equipment === 'bands'"
+                  [class.compact-equipment--floor]="equipment === 'floor'"
+                  [class.compact-equipment--pole]="equipment === 'vertical-pole'"
+                  [class.compact-equipment--weight]="equipment === 'added-weight'"
+                >
+
+                  <span>Equipment</span>
+
+                  <strong>
+                    {{ getEquipmentLabel(equipment) }}
+                  </strong>
+
+                </div>
+
+              } @empty {
+
+                <div class="compact-equipment">
+
+                  <span>Equipment</span>
+
+                  <strong>
+                    No equipment required
+                  </strong>
+
+                </div>
+
+              }
+
+            </div>
+
+          </div>
 
         </div>
 
-      </div>
+      </section>
+
+
+      <!-- ========================================
+           03 — HOW TO
+      ========================================= -->
+
+      @if ((exercise.howTo?.length ?? 0) > 0) {
+
+        <section class="detail-section detail-section--how-to">
+
+          <div class="detail-section__heading">
+
+            <div>
+
+              <span class="detail-section__eyebrow">
+                How To
+              </span>
+
+              <h2>
+                How to Do the {{ exercise.name }}
+              </h2>
+
+              <p>
+                Follow these steps to perform the
+                {{ exercise.name }} with proper technique
+                and body control.
+              </p>
+
+            </div>
+
+            <span class="detail-section__number">
+              03
+            </span>
+
+          </div>
+
+
+          <div class="how-to-grid">
+
+            @for (
+              step of exercise.howTo ?? [];
+              track $index
+            ) {
+
+              <article class="how-to-card">
+
+                <span class="how-to-card__number">
+                  {{ $index + 1 }}
+                </span>
+
+                <div class="how-to-card__content">
+
+                  <h3>
+                    {{ step.title }}
+                  </h3>
+
+                  <p>
+                    {{ step.description }}
+                  </p>
+
+                </div>
+
+              </article>
+
+            }
+
+          </div>
+
+        </section>
+
+      }
+
+
+      <!-- ========================================
+           04 — COMMON MISTAKES
+      ========================================= -->
+
+      @if ((exercise.commonMistakes?.length ?? 0) > 0) {
+
+        <section class="detail-section detail-section--mistakes">
+
+          <div class="detail-section__heading">
+
+            <div>
+
+              <span class="detail-section__eyebrow">
+                Technique
+              </span>
+
+              <h2>
+                Common {{ exercise.name }} Mistakes
+              </h2>
+
+              <p>
+                Avoid these common errors to improve your
+                technique and train the {{ exercise.name }}
+                more effectively.
+              </p>
+
+            </div>
+
+            <span class="detail-section__number">
+              04
+            </span>
+
+          </div>
+
+
+          <div class="mistakes-grid">
+
+            @for (
+              mistake of exercise.commonMistakes ?? [];
+              track $index
+            ) {
+
+              <article class="mistake-card">
+
+                <span
+                  class="mistake-card__icon"
+                  aria-hidden="true"
+                >
+                  ×
+                </span>
+
+                <div class="mistake-card__content">
+
+                  <h3>
+                    {{ mistake.title }}
+                  </h3>
+
+                  <p>
+                    {{ mistake.description }}
+                  </p>
+
+                </div>
+
+              </article>
+
+            }
+
+          </div>
+
+        </section>
+
+      }
+
+
+      <!-- ========================================
+           05 — PROGRESSION
+      ========================================= -->
+
+      @if (
+        previousProgressions().length > 0 ||
+        nextProgressions().length > 0
+      ) {
+
+        <section class="detail-section progression-section">
+
+          <div class="detail-section__heading">
+
+            <div>
+
+              <span class="detail-section__eyebrow">
+                Progression
+              </span>
+
+              <h2>
+                {{ exercise.name }} Progression
+              </h2>
+
+              <p>
+                Build the strength and control required for
+                the {{ exercise.name }}, then explore more
+                advanced variations and movements.
+              </p>
+
+            </div>
+
+            <span class="detail-section__number">
+              05
+            </span>
+
+          </div>
+
+
+          <div class="progression-path">
+
+
+            <!-- PREVIOUS -->
+
+            @if (previousProgressions().length > 0) {
+
+              <div class="progression-group">
+
+                <div class="progression-group__heading">
+
+                  <span class="progression-group__direction">
+                    Easier
+                  </span>
+
+                  <h3>
+                    Previous progressions
+                  </h3>
+
+                </div>
+
+
+                <div class="progression-cards">
+
+                  @for (
+                    item of previousProgressions();
+                    track item.id
+                  ) {
+
+                    <a
+                      class="progression-card"
+                      [routerLink]="['/exercises', item.id]"
+                    >
+
+                      <div class="progression-card__media">
+
+                        @if (item.imageUrl) {
+
+                          <img
+                            [src]="item.imageUrl | optimizedImage:'card'"
+                            [alt]="item.name + ' calisthenics progression'"
+                            loading="lazy"
+                            decoding="async"
+                          />
+
+                        }
+
+                      </div>
+
+
+                      <div class="progression-card__content">
+
+                        <span class="progression-card__meta">
+
+                          {{ item.difficulty }}
+
+                          @if (item.graphLevel) {
+                            <span aria-hidden="true"> • </span>
+                            Level {{ item.graphLevel }}
+                          }
+
+                        </span>
+
+                        <h4>
+                          {{ item.name }}
+                        </h4>
+
+                        <span class="progression-card__action">
+                          View exercise
+                          <span aria-hidden="true">→</span>
+                        </span>
+
+                      </div>
+
+                    </a>
+
+                  }
+
+                </div>
+
+              </div>
+
+            }
+
+
+            <!-- CURRENT -->
+
+            <div class="progression-current">
+
+              <div class="progression-current__marker">
+                You are here
+              </div>
+
+              <div class="progression-current__content">
+
+                <span>
+                  Current exercise
+                </span>
+
+                <strong>
+                  {{ exercise.name }}
+                </strong>
+
+                @if (exercise.graphLevel) {
+
+                  <small>
+                    {{ exercise.difficulty }}
+                    · Level {{ exercise.graphLevel }}
+                  </small>
+
+                }
+
+              </div>
+
+            </div>
+
+
+            <!-- NEXT -->
+
+            @if (nextProgressions().length > 0) {
+
+              <div class="progression-group">
+
+                <div class="progression-group__heading">
+
+                  <span class="progression-group__direction">
+                    Harder
+                  </span>
+
+                  <h3>
+                    Advanced progressions
+                  </h3>
+
+                </div>
+
+
+                <div class="progression-cards progression-cards--next">
+
+                  @for (
+                    item of nextProgressions();
+                    track item.id
+                  ) {
+
+                    <a
+                      class="progression-card"
+                      [routerLink]="['/exercises', item.id]"
+                    >
+
+                      <div class="progression-card__media">
+
+                        @if (item.imageUrl) {
+
+                          <img
+                            [src]="item.imageUrl | optimizedImage:'card'"
+                            [alt]="item.name + ' advanced calisthenics exercise'"
+                            loading="lazy"
+                            decoding="async"
+                          />
+
+                        }
+
+                      </div>
+
+
+                      <div class="progression-card__content">
+
+                        <span class="progression-card__meta">
+
+                          {{ item.difficulty }}
+
+                          @if (item.graphLevel) {
+                            <span aria-hidden="true"> • </span>
+                            Level {{ item.graphLevel }}
+                          }
+
+                        </span>
+
+                        <h4>
+                          {{ item.name }}
+                        </h4>
+
+                        <span class="progression-card__action">
+                          View exercise
+                          <span aria-hidden="true">→</span>
+                        </span>
+
+                      </div>
+
+                    </a>
+
+                  }
+
+                </div>
+
+              </div>
+
+            }
+
+          </div>
+
+        </section>
+
+      }
+
+
+      <!-- ========================================
+           06 — RELATED EXERCISES
+      ========================================= -->
+
+      @if (relatedExercises().length > 0) {
+
+        <section class="detail-section related-section">
+
+          <div class="detail-section__heading">
+
+            <div>
+
+              <span class="detail-section__eyebrow">
+                Related
+              </span>
+
+              <h2>
+                Exercises Related to the {{ exercise.name }}
+              </h2>
+
+              <p>
+                Explore other calisthenics exercises with related
+                movement patterns, strength demands or muscle involvement.
+              </p>
+
+            </div>
+
+            <span class="detail-section__number">
+              06
+            </span>
+
+          </div>
+
+
+          <div class="related-exercises-grid">
+
+            @for (
+              item of relatedExercises();
+              track item.id
+            ) {
+
+              <a
+                class="related-exercise-card"
+                [routerLink]="['/exercises', item.id]"
+              >
+
+                <div class="related-exercise-card__media">
+
+                  @if (item.imageUrl) {
+
+                    <img
+                      [src]="item.imageUrl | optimizedImage:'card'"
+                      [alt]="item.name + ' calisthenics exercise'"
+                      loading="lazy"
+                      decoding="async"
+                    />
+
+                  }
+
+                  @if (item.movementType) {
+
+                    <span class="related-exercise-card__movement">
+                      {{ item.movementType }}
+                    </span>
+
+                  }
+
+                </div>
+
+
+                <div class="related-exercise-card__content">
+
+                  <div class="related-exercise-card__meta">
+
+                    <span>
+                      {{ item.difficulty }}
+                    </span>
+
+                    @if (item.graphLevel) {
+                      <span>
+                        Level {{ item.graphLevel }}
+                      </span>
+                    }
+
+                  </div>
+
+
+                  <h3>
+                    {{ item.name }}
+                  </h3>
+
+
+                  <span class="related-exercise-card__action">
+                    View exercise
+                    <span aria-hidden="true">→</span>
+                  </span>
+
+                </div>
+
+              </a>
+
+            }
+
+          </div>
+
+        </section>
+
+      }
+
+
+      <!-- ========================================
+           07 — FAQ
+      ========================================= -->
+
+      @if ((exercise.faq?.length ?? 0) > 0) {
+
+        <section class="detail-section faq-section">
+
+          <div class="detail-section__heading">
+
+            <div>
+
+              <span class="detail-section__eyebrow">
+                FAQ
+              </span>
+
+              <h2>
+                {{ exercise.name }} Frequently Asked Questions
+              </h2>
+
+              <p>
+                Common questions about learning, training and progressing
+                toward the {{ exercise.name }}.
+              </p>
+
+            </div>
+
+            <span class="detail-section__number">
+              07
+            </span>
+
+          </div>
+
+
+          <div class="faq-list">
+
+            @for (
+              item of exercise.faq ?? [];
+              track item.question;
+              let index = $index
+            ) {
+
+              <details class="faq-item">
+
+                <summary class="faq-item__question">
+
+                  <span class="faq-item__number">
+                    {{ (index + 1).toString().padStart(2, '0') }}
+                  </span>
+
+                  <h3>
+                    {{ item.question }}
+                  </h3>
+
+                  <span
+                    class="faq-item__icon"
+                    aria-hidden="true"
+                  >
+                    +
+                  </span>
+
+                </summary>
+
+
+                <div class="faq-item__answer">
+
+                  <p>
+                    {{ item.answer }}
+                  </p>
+
+                </div>
+
+              </details>
+
+            }
+
+          </div>
+
+        </section>
+
+      }
+
 
     </div>
-
-  </section>
-
-  <!-- REQUIREMENTS -->
-
-  <section class="detail-section">
-
-    <div class="detail-section__heading">
-      <div>
-        <span class="detail-section__eyebrow">Setup</span>
-
-        <h2>What you need</h2>
-      </div>
-
-      <span class="detail-section__number">03</span>
-    </div>
-
-    <div class="requirements-grid">
-
-      @for (equipment of exercise.equipment ?? []; track equipment) {
-      <div
-        class="requirement-card"
-        [class.requirement-card--bar]="equipment === 'pull-up-bar'"
-        [class.requirement-card--rings]="equipment === 'rings'"
-        [class.requirement-card--parallettes]="equipment === 'parallettes'"
-        [class.requirement-card--bands]="equipment === 'bands'"
-        [class.requirement-card--floor]="equipment === 'floor'"
-        [class.requirement-card--pole]="equipment === 'vertical-pole'"
-        [class.requirement-card--weight]="equipment === 'added-weight'"
-      >
-        <div class="requirement-card__content">
-          <span class="requirement-card__label">Equipment</span>
-          <strong>{{ getEquipmentLabel(equipment) }}</strong>
-        </div>
-      </div>
-    } @empty {
-      <div class="requirement-card">
-        <div class="requirement-card__content">
-          <span class="requirement-card__label">Equipment</span>
-          <strong>No equipment required</strong>
-        </div>
-      </div>
-    }
-
-    </div>
-
-  </section>
-
-  <!-- PROGRESSION / FUTURE -->
-
-  <section class="detail-section progression-section">
-
-    <div class="detail-section__heading">
-
-      <div>
-        <span class="detail-section__eyebrow">
-          Progression
-        </span>
-
-        <h2>Your path forward</h2>
-      </div>
-
-      <span class="detail-section__number">04</span>
-
-    </div>
-
-
-    <div class="progression-preview">
-
-      <div class="progression-preview__line"></div>
-
-      <div class="progression-node progression-node--previous">
-        <span>Previous</span>
-        <strong>Foundation</strong>
-      </div>
-
-      <div class="progression-node progression-node--current">
-        <span>Current exercise</span>
-        <strong>{{ exercise.name }}</strong>
-      </div>
-
-      <div class="progression-node progression-node--next">
-        <span>Next milestone</span>
-        <strong>Advanced progression</strong>
-      </div>
-
-    </div>
-
-  </section>
-
-</div>
 
   </main>
 
 } @else {
 
   <main class="exercise-not-found">
+
     <span>404</span>
-    <h1>Exercise not found</h1>
+
+    <h1>
+      Exercise not found
+    </h1>
 
     <a
       routerLink="/search"
@@ -389,6 +1001,7 @@
     >
       ← Back to Exercises
     </a>
+
   </main>
 
 }

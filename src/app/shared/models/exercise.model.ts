@@ -64,4 +64,33 @@ export interface Exercise {
   description?: string;
 
   imageUrl?: string;
+
+  overview?: string;
+
+  howTo?: {
+    title: string;
+    description: string;
+  }[];
+
+  commonMistakes?: {
+    title: string;
+    description: string;
+  }[];
+
+  progression?: {
+    previous: string[];
+    next: string[];
+  };
+
+  relatedExercises?: string[];
+
+  faq?: {
+    question: string;
+    answer: string;
+  }[];
+
+  seo?: {
+    title: string;
+    description: string;
+  };
 }

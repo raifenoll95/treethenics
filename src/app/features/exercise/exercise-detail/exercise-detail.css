@@ -1103,3 +1103,1521 @@
     object-fit: contain;
   }
 }
+
+/* =========================================================
+   HOW TO
+========================================================= */
+
+.detail-section--how-to {
+  position: relative;
+}
+
+.how-to-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.how-to-card {
+  position: relative;
+  min-height: 230px;
+
+  padding: 28px 24px 26px;
+
+  background:
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--exercise-color) 6%, transparent),
+      transparent 45%
+    ),
+    #101720;
+
+  border: 1px solid #26313d;
+  border-radius: 14px;
+
+  overflow: hidden;
+}
+
+.how-to-card::before {
+  content: '';
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background: var(--exercise-color);
+
+  opacity: 0.8;
+}
+
+.how-to-card__number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  margin-bottom: 38px;
+
+  border: 1px solid
+    color-mix(in srgb, var(--exercise-color) 65%, transparent);
+
+  border-radius: 9px;
+
+  background:
+    color-mix(in srgb, var(--exercise-color) 10%, transparent);
+
+  color: var(--exercise-color);
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.how-to-card__content h3 {
+  margin: 0 0 13px;
+
+  color: #f4f7fb;
+
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.how-to-card__content p {
+  margin: 0;
+
+  color: #9cacbd;
+
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   COMMON MISTAKES
+========================================================= */
+
+.mistakes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+
+  margin-top: 32px;
+}
+
+.mistake-card {
+  position: relative;
+
+  display: flex;
+  gap: 18px;
+
+  min-height: 170px;
+
+  padding: 26px;
+
+  background: #101720;
+
+  border: 1px solid #26313d;
+  border-radius: 14px;
+}
+
+.mistake-card__icon {
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  border: 1px solid rgba(239, 68, 68, 0.45);
+  border-radius: 9px;
+
+  background: rgba(239, 68, 68, 0.08);
+
+  color: #f87171;
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.mistake-card__content {
+  min-width: 0;
+}
+
+.mistake-card__content h3 {
+  margin: 2px 0 11px;
+
+  color: #f4f7fb;
+
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.mistake-card__content p {
+  margin: 0;
+
+  color: #9cacbd;
+
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   PROGRESSION
+========================================================= */
+
+.progression-path {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 34px;
+
+  margin-top: 34px;
+}
+
+
+/* ---------------------------------------------------------
+   GROUP HEADING
+--------------------------------------------------------- */
+
+.progression-group__heading {
+  margin-bottom: 18px;
+}
+
+.progression-group__direction {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: var(--exercise-color);
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.progression-group__heading h3 {
+  margin: 0;
+
+  color: #f4f7fb;
+
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+
+/* ---------------------------------------------------------
+   CARDS
+--------------------------------------------------------- */
+
+.progression-cards {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(220px, 280px)
+  );
+
+  gap: 16px;
+}
+
+.progression-cards--next {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.progression-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  color: inherit;
+  text-decoration: none;
+
+  background: #101720;
+
+  border: 1px solid #26313d;
+  border-radius: 14px;
+
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.progression-card:hover {
+  transform: translateY(-3px);
+
+  border-color:
+    color-mix(in srgb, var(--exercise-color) 65%, #26313d);
+
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.18);
+}
+
+
+/* IMAGE */
+
+.progression-card__media {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+
+  background: #0c1219;
+
+  border-bottom: 1px solid #26313d;
+}
+
+.progression-card__media::after {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(10, 15, 21, 0.45),
+      transparent 55%
+    );
+}
+
+.progression-card__media img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 220ms ease;
+}
+
+.progression-card:hover .progression-card__media img {
+  transform: scale(1.025);
+}
+
+
+/* CONTENT */
+
+.progression-card__content {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+
+  padding: 18px;
+}
+
+.progression-card__meta {
+  margin-bottom: 8px;
+
+  color: var(--exercise-color);
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.progression-card__content h4 {
+  margin: 0 0 20px;
+
+  color: #f4f7fb;
+
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.progression-card__action {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-top: auto;
+
+  color: #93a5b8;
+
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+
+  transition: color 160ms ease;
+}
+
+.progression-card:hover .progression-card__action {
+  color: var(--exercise-color);
+}
+
+
+/* =========================================================
+   CURRENT EXERCISE
+========================================================= */
+
+.progression-current {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  min-height: 100px;
+
+  padding: 22px 26px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--exercise-color) 10%, transparent),
+      transparent 55%
+    ),
+    #101720;
+
+  border: 1px solid var(--exercise-color);
+  border-radius: 14px;
+}
+
+.progression-current::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 3px;
+
+  background: var(--exercise-color);
+}
+
+.progression-current__marker {
+  flex: 0 0 auto;
+
+  margin-right: 28px;
+  padding: 8px 11px;
+
+  color: var(--exercise-color);
+
+  background:
+    color-mix(in srgb, var(--exercise-color) 10%, transparent);
+
+  border: 1px solid
+    color-mix(in srgb, var(--exercise-color) 55%, transparent);
+
+  border-radius: 7px;
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.progression-current__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.progression-current__content > span {
+  margin-bottom: 4px;
+
+  color: #71849a;
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.progression-current__content strong {
+  color: #f4f7fb;
+
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.progression-current__content small {
+  margin-top: 5px;
+
+  color: var(--exercise-color);
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 8px;
+  font-weight: 800;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .how-to-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mistakes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .progression-cards--next {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .how-to-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+
+    margin-top: 22px;
+  }
+
+  .how-to-card {
+    display: flex;
+    gap: 16px;
+
+    min-height: 0;
+
+    padding: 19px;
+  }
+
+  .how-to-card__number {
+    flex: 0 0 auto;
+
+    width: 34px;
+    height: 34px;
+
+    margin-bottom: 0;
+  }
+
+  .how-to-card__content h3 {
+    margin-top: 1px;
+  }
+
+
+  /* MISTAKES */
+
+  .mistakes-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+
+    margin-top: 22px;
+  }
+
+  .mistake-card {
+    min-height: 0;
+
+    padding: 19px;
+  }
+
+
+  /* PROGRESSION */
+
+  .progression-path {
+    gap: 26px;
+
+    margin-top: 24px;
+  }
+
+  .progression-cards,
+  .progression-cards--next {
+    grid-template-columns: 1fr;
+  }
+
+  .progression-card {
+    display: grid;
+    grid-template-columns: 125px 1fr;
+  }
+
+  .progression-card__media {
+    height: 100%;
+    min-height: 125px;
+
+    aspect-ratio: auto;
+
+    border-right: 1px solid #26313d;
+    border-bottom: 0;
+  }
+
+  .progression-card__content {
+    padding: 16px;
+  }
+
+  .progression-card__content h4 {
+    margin-bottom: 14px;
+  }
+
+
+  /* CURRENT */
+
+  .progression-current {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 14px;
+
+    min-height: 0;
+
+    padding: 19px;
+  }
+
+  .progression-current__marker {
+    margin-right: 0;
+  }
+
+}
+
+/* =========================================================
+   RELATED EXERCISES
+========================================================= */
+
+.related-exercises-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+
+  margin-top: 32px;
+}
+
+.related-exercise-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  color: inherit;
+  text-decoration: none;
+
+  background: #101720;
+
+  border: 1px solid #26313d;
+  border-radius: 14px;
+
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.related-exercise-card:hover {
+  transform: translateY(-3px);
+
+  border-color:
+    color-mix(
+      in srgb,
+      var(--exercise-color) 65%,
+      #26313d
+    );
+
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.18);
+}
+
+
+/* IMAGE */
+
+.related-exercise-card__media {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+
+  background: #0c1219;
+
+  border-bottom: 1px solid #26313d;
+}
+
+.related-exercise-card__media::after {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(10, 15, 21, 0.55),
+      transparent 60%
+    );
+}
+
+.related-exercise-card__media img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 220ms ease;
+}
+
+.related-exercise-card:hover
+.related-exercise-card__media img {
+  transform: scale(1.025);
+}
+
+
+/* MOVEMENT BADGE */
+
+.related-exercise-card__movement {
+  position: absolute;
+
+  right: 12px;
+  bottom: 12px;
+
+  z-index: 2;
+
+  padding: 5px 9px;
+
+  color: #f4f7fb;
+
+  background: rgba(10, 15, 21, 0.82);
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 7px;
+  font-weight: 900;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+
+/* CONTENT */
+
+.related-exercise-card__content {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+
+  padding: 18px;
+}
+
+.related-exercise-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 8px;
+
+  color: var(--exercise-color);
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.related-exercise-card__meta span + span::before {
+  content: '•';
+
+  margin-right: 10px;
+
+  color: #526274;
+}
+
+.related-exercise-card__content h3 {
+  margin: 0 0 20px;
+
+  color: #f4f7fb;
+
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.related-exercise-card__action {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-top: auto;
+
+  color: #93a5b8;
+
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+
+  transition: color 160ms ease;
+}
+
+.related-exercise-card:hover
+.related-exercise-card__action {
+  color: var(--exercise-color);
+}
+
+
+/* TABLET */
+
+@media (max-width: 1100px) {
+
+  .related-exercises-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+  .related-exercises-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+
+    margin-top: 22px;
+  }
+
+  .related-exercise-card {
+    display: grid;
+    grid-template-columns: 125px 1fr;
+  }
+
+  .related-exercise-card__media {
+    height: 100%;
+    min-height: 125px;
+
+    aspect-ratio: auto;
+
+    border-right: 1px solid #26313d;
+    border-bottom: 0;
+  }
+
+  .related-exercise-card__content {
+    padding: 16px;
+  }
+
+  .related-exercise-card__content h3 {
+    margin-bottom: 14px;
+  }
+
+}
+
+/* =========================================================
+   COMPACT DETAIL SECTIONS
+========================================================= */
+
+/* Menos espacio general */
+
+.detail-section {
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+.detail-section__heading {
+  margin-bottom: 22px;
+}
+
+.detail-section__heading p {
+  margin-top: 6px;
+}
+
+
+/* =========================================================
+   01 — OVERVIEW
+========================================================= */
+
+.overview-grid {
+  align-items: center;
+  gap: 48px;
+}
+
+.overview-description p {
+  margin: 0;
+
+  max-width: 680px;
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.overview-stats {
+  min-height: 0;
+}
+
+.overview-stat {
+  min-height: 68px;
+  padding: 14px 18px;
+}
+
+
+/* =========================================================
+   02 — MUSCLES
+========================================================= */
+
+.muscle-layout {
+  gap: 14px;
+}
+
+.muscle-card {
+  min-height: 0;
+  padding: 18px 20px;
+}
+
+.muscle-card__header {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+}
+
+.muscle-card__icon {
+  width: 32px;
+  height: 32px;
+}
+
+.muscle-row {
+  min-height: 34px;
+  padding: 7px 0;
+}
+
+
+/* =========================================================
+   03 — EQUIPMENT
+========================================================= */
+
+.requirements-grid {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+.requirement-card {
+  flex: 0 0 220px;
+
+  min-height: 76px;
+
+  border-radius: 10px;
+}
+
+.requirement-card__content {
+  padding: 16px 18px;
+}
+
+.requirement-card__label {
+  margin-bottom: 6px;
+}
+
+.requirement-card::after {
+  opacity: 0.22;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .detail-section {
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+
+  .detail-section__heading {
+    margin-bottom: 18px;
+  }
+
+  .overview-grid {
+    gap: 20px;
+  }
+
+  .overview-description p {
+    font-size: 13px;
+  }
+
+  .requirements-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .requirement-card {
+    min-width: 0;
+    min-height: 70px;
+  }
+
+}
+
+/* =========================================================
+   02 — MUSCLES / COMPACT
+========================================================= */
+
+.muscle-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+
+.muscle-card {
+  min-height: 0;
+  height: auto;
+
+  padding: 14px 18px;
+
+  border-radius: 10px;
+}
+
+
+/* HEADER */
+
+.muscle-card__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: 0 0 8px;
+  padding: 0 0 9px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.muscle-card__icon {
+  width: 30px;
+  height: 30px;
+
+  flex: 0 0 30px;
+}
+
+.muscle-card__header span {
+  font-size: 8px;
+}
+
+.muscle-card__header strong {
+  font-size: 11px;
+}
+
+
+/* LIST */
+
+.muscle-card__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.muscle-row {
+  min-height: 0;
+
+  padding: 7px 0;
+
+  font-size: 10px;
+}
+
+.muscle-row__dot {
+  width: 4px;
+  height: 4px;
+}
+
+.muscle-row__role {
+  font-size: 7px;
+}
+
+
+/* No extra space after final muscle */
+
+.muscle-row:last-child {
+  padding-bottom: 2px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+  .muscle-layout {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .muscle-card {
+    padding: 13px 15px;
+  }
+
+}
+
+/* =========================================================
+   02 — ANATOMY & EQUIPMENT
+========================================================= */
+
+.anatomy-setup-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(260px, 0.65fr);
+  gap: 14px;
+}
+
+
+/* PANEL */
+
+.exercise-info-panel {
+  min-width: 0;
+
+  padding: 18px 20px;
+
+  background: #101720;
+
+  border: 1px solid #26313d;
+  border-radius: 12px;
+}
+
+.exercise-info-panel__label {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: #778ba1;
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   MUSCLE TABLE
+========================================================= */
+
+.muscle-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.muscle-table__group {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 24px;
+
+  padding: 14px 0;
+
+  border-top: 1px solid #26313d;
+}
+
+.muscle-table__group:last-child {
+  padding-bottom: 2px;
+}
+
+
+/* LEFT */
+
+.muscle-table__type {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.muscle-table__badge {
+  display: grid;
+  place-items: center;
+
+  width: 30px;
+  height: 30px;
+
+  flex: 0 0 30px;
+
+  color: var(--exercise-color);
+
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--exercise-color) 55%,
+      transparent
+    );
+
+  border-radius: 7px;
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.muscle-table__type div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.muscle-table__type div > span {
+  color: #71869c;
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 7px;
+  font-weight: 900;
+
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.muscle-table__type strong {
+  color: #f4f7fb;
+
+  font-size: 10px;
+}
+
+
+/* MUSCLES */
+
+.muscle-table__muscles {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 7px;
+}
+
+.muscle-table__muscles > span {
+  padding: 6px 9px;
+
+  color: #dce6f0;
+  background: #151e28;
+
+  border: 1px solid #293542;
+  border-radius: 6px;
+
+  font-size: 9px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   EQUIPMENT
+========================================================= */
+
+.compact-equipment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.compact-equipment {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  min-height: 58px;
+
+  padding: 10px 14px;
+
+  overflow: hidden;
+
+  background: #151e28;
+
+  border: 1px solid #293542;
+  border-radius: 8px;
+}
+
+.compact-equipment::before {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.13;
+
+  background-position: center;
+  background-size: cover;
+
+  pointer-events: none;
+}
+
+.compact-equipment--bar::before {
+  background-image: url('/images/equipment/pull-up-bar.png');
+}
+
+.compact-equipment--rings::before {
+  background-image: url('/images/equipment/rings.png');
+}
+
+.compact-equipment > span,
+.compact-equipment > strong {
+  position: relative;
+  z-index: 1;
+}
+
+.compact-equipment > span {
+  margin-bottom: 4px;
+
+  color: #8296aa;
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 7px;
+  font-weight: 900;
+
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.compact-equipment > strong {
+  color: #f4f7fb;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .anatomy-setup-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .muscle-table__group {
+    grid-template-columns: 130px 1fr;
+    gap: 14px;
+  }
+
+  .compact-equipment-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 520px) {
+
+  .exercise-info-panel {
+    padding: 15px;
+  }
+
+  .muscle-table__group {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .muscle-table__muscles {
+    padding-left: 40px;
+  }
+
+}
+
+/* =========================================================
+   07 — FAQ
+========================================================= */
+
+.faq-list {
+  margin-top: 28px;
+
+  border-top: 1px solid #2a3541;
+}
+
+.faq-item {
+  border-bottom: 1px solid #2a3541;
+}
+
+
+/* QUESTION */
+
+.faq-item__question {
+  display: grid;
+  grid-template-columns: 42px 1fr 30px;
+  align-items: center;
+  gap: 16px;
+
+  min-height: 72px;
+
+  padding: 0 4px;
+
+  cursor: pointer;
+
+  list-style: none;
+}
+
+.faq-item__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item__number {
+  color: var(--exercise-color);
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 0.08em;
+}
+
+.faq-item__question h3 {
+  margin: 0;
+
+  color: #f4f7fb;
+
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.35;
+
+  transition: color 150ms ease;
+}
+
+.faq-item__question:hover h3 {
+  color: var(--exercise-color);
+}
+
+
+/* PLUS */
+
+.faq-item__icon {
+  display: grid;
+  place-items: center;
+
+  width: 28px;
+  height: 28px;
+
+  color: #8395a8;
+
+  border: 1px solid #344150;
+  border-radius: 7px;
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 15px;
+
+  transition:
+    transform 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
+}
+
+.faq-item[open] .faq-item__icon {
+  transform: rotate(45deg);
+
+  color: var(--exercise-color);
+
+  border-color:
+    color-mix(
+      in srgb,
+      var(--exercise-color) 55%,
+      #344150
+    );
+}
+
+
+/* ANSWER */
+
+.faq-item__answer {
+  padding:
+    0 58px
+    22px 62px;
+}
+
+.faq-item__answer p {
+  max-width: 850px;
+
+  margin: 0;
+
+  color: #a7b6c6;
+
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+
+/* OPEN QUESTION */
+
+.faq-item[open] .faq-item__question h3 {
+  color: var(--exercise-color);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+  .faq-list {
+    margin-top: 20px;
+  }
+
+  .faq-item__question {
+    grid-template-columns: 30px 1fr 28px;
+
+    gap: 10px;
+
+    min-height: 66px;
+  }
+
+  .faq-item__question h3 {
+    font-size: 13px;
+  }
+
+  .faq-item__answer {
+    padding:
+      0 38px
+      20px 40px;
+  }
+
+}
+
+

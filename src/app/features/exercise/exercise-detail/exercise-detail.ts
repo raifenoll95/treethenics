@@ -13,8 +13,6 @@ import {
 
 import { OptimizedImagePipe } from '../../../shared/pipes/optimized-image.pipe';
 
-import { ImageVersionPipe } from '../../../shared/pipes/image-version.pipe';
-
 @Component({
   selector: 'app-exercise-detail',
   imports: [
@@ -79,6 +77,42 @@ export class ExerciseDetail {
     return EXERCISES.find(
       (exercise) => exercise.id === id,
     );
+  });
+
+  readonly previousProgressions = computed(() => {
+    const exercise = this.exercise();
+
+    if (!exercise?.progression?.previous) {
+      return [];
+    }
+
+    return exercise.progression.previous
+      .map((id) => EXERCISES.find((item) => item.id === id))
+      .filter((item) => item !== undefined);
+  });
+
+  readonly nextProgressions = computed(() => {
+    const exercise = this.exercise();
+
+    if (!exercise?.progression?.next) {
+      return [];
+    }
+
+    return exercise.progression.next
+      .map((id) => EXERCISES.find((item) => item.id === id))
+      .filter((item) => item !== undefined);
+  });
+
+  readonly relatedExercises = computed(() => {
+    const exercise = this.exercise();
+
+    if (!exercise?.relatedExercises) {
+      return [];
+    }
+
+    return exercise.relatedExercises
+      .map((id) => EXERCISES.find((item) => item.id === id))
+      .filter((item) => item !== undefined);
   });
 
   getMuscleLabel(muscle: ExerciseMuscle): string {
