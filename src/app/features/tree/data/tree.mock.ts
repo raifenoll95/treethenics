@@ -511,18 +511,6 @@ export const EXERCISES: Exercise[] = [
     },
   ],
 
-  progression: {
-  previous: [
-    'early-front-lever-progressions',
-  ],
-  next: [
-    'touch-front-lever',
-    'front-lever-pull-up',
-    'front-lever-press',
-    'x-grip-front-lever',
-  ],
-  },
-
   relatedExercises: [
     'back-lever',
   ],

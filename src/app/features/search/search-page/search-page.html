@@ -204,6 +204,8 @@
           ) {
             <app-exercise-search-card
               [exercise]="exercise"
+              [searchTerm]="searchTerm()"
+              [selectedDifficulty]="selectedDifficulty()"
             />
           }
 
