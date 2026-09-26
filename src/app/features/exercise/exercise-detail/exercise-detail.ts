@@ -189,7 +189,7 @@ export class ExerciseDetail {
               '@type': 'ListItem',
               position: 2,
               name: 'Exercise Library',
-              item: 'https://www.treethenics.com/search',
+              item: 'https://www.treethenics.com/what-should-i-train',
             },
             {
               '@type': 'ListItem',

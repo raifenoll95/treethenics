@@ -78,6 +78,8 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
       alpha: true,
     });
 
+    this.renderer.setClearColor(0x000000, 0);
+
     this.renderer.setPixelRatio(
       Math.min(window.devicePixelRatio, 2),
     );
