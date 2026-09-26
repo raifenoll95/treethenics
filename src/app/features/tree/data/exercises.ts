@@ -117,6 +117,9 @@ import { FULL_PLANCHE_PRESS_TO_HANDSTAND } from './exercises/full-planche-press-
 import { L_SIT_TO_HANDSTAND } from './exercises/l-sit-to-handstand.exercise';
 import { STRADDLE_PRESS_TO_HANDSTAND } from './exercises/straddle-press-to-handstand.exercise';
 import { COMANDO_PULL_UP } from './exercises/comando-pull-up.exercise';
+import { TUCK_ADVANCED_FRONT_LEVER } from './exercises/tuck-advanced-front-lever.exercise';
+import { TUCK_ADVANCED_FRONT_LEVER_PULL_UP } from './exercises/tuck-advanced-front-lever-pull-up.exercise';
+import { STRADDLE_FRONT_LEVER } from './exercises/straddle-front-lever-pull-up.exercise';
 
 export const EXERCISES: Exercise[] = [
   FRONT_LEVER,
@@ -236,4 +239,7 @@ export const EXERCISES: Exercise[] = [
   L_SIT_TO_HANDSTAND,
   STRADDLE_PRESS_TO_HANDSTAND,
   COMANDO_PULL_UP,
+  TUCK_ADVANCED_FRONT_LEVER,
+  TUCK_ADVANCED_FRONT_LEVER_PULL_UP,
+  STRADDLE_FRONT_LEVER
 ];
