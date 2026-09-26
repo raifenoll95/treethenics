@@ -2620,4 +2620,51 @@
 
 }
 
+.exercise-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin: -12px 0 22px;
+
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.exercise-breadcrumb a {
+  color: #94a3b8;
+  text-decoration: none;
+
+  transition:
+    color 150ms ease;
+}
+
+.exercise-breadcrumb a:hover {
+  color: var(--exercise-color);
+}
+
+.exercise-breadcrumb__separator {
+  color: #4c5968;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.exercise-breadcrumb__current {
+  color: #d1d9e3;
+}
+
+@media (max-width: 600px) {
+
+  .exercise-breadcrumb {
+    gap: 6px;
+
+    margin-top: -10px;
+    margin-bottom: 18px;
+
+    font-size: 9px;
+  }
+
+}
+
 
