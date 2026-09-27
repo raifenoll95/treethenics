@@ -26,22 +26,22 @@ export const DIPS: Exercise = {
     howTo: [
     {
       title: 'Start by supporting yourself on the parallel bars',
-      imageUrl: '/images/progressions/dips/1.png',
+      imageUrl: '/images/progressions/step-1.png',
       description:
 'The first step is to be able to support your body on the parallel bars with your arms straight. Slightly protract your shoulder blades to create a strong and stable position, while keeping your shoulders protected throughout the hold.'    },
   {
       title: 'Start with negative dips',
-      imageUrl: '/images/progressions/dips/2.png',
+      imageUrl: '/images/progressions/step-2.png',
       description:
         'Begin by slowly lowering yourself between the parallel bars in a controlled motion. Keep your elbows relatively close to your torso and continue lowering until your feet reach the ground. You should feel your chest working throughout the movement, although your triceps will also be heavily involved. In my experience, your elbow position and the width of your grip can influence whether the chest or triceps does more of the work.'    },
     {
       title: 'Achieve your first dip',
-      imageUrl: '/images/progressions/dips/3.png',
+      imageUrl: '/images/progressions/step-3.png',
       description:
         'Keep practicing until you can perform your first full dip. Start with your arms fully extended, lower your body until your elbows reach roughly a 90-degree angle, then push yourself back up to the starting position. Maintain a strong and secure grip on the bars, as your grip plays an important role in keeping proper form throughout the movement.'    },
     {
       title: 'Build up to 15+ dips',
-      imageUrl: '/images/progressions/dips/4.png',
+      imageUrl: '/images/progressions/step-4.png',
       description:
         'Keep training until you can perform around 15–20 clean dips. You can use methods such as EMOM training to gradually increase your total number of reps. Always prioritize proper technique, and pay close attention to your shoulder and elbow position throughout every rep.'    },
     ],

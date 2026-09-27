@@ -17,5 +17,5 @@ export type ExerciseMuscle =
   | 'glutes'
   | 'quadriceps'
   | 'hamstrings'
-  | 'calves';
+  | 'calves'
   'rotator-cuff';

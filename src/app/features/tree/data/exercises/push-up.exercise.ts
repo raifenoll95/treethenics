@@ -26,22 +26,22 @@ export const PUSH_UP: Exercise = {
     howTo: [
     {
       title: 'Start with knee push ups',
-      imageUrl: '/images/progressions/push-up/1.png',
+      imageUrl: '/images/progressions/step-1.png',
       description:
         'If regular push-ups are too difficult at first, start by keeping your knees on the ground. Place your hands around shoulder-width apart and lower your body until your chest touches the floor, then push yourself back up while maintaining the same form. Pay attention to your elbows throughout the movement. There’s no need to flare them out to the sides; keep them relatively close to your torso for a more controlled and stable movement.'    },
     {
       title: 'Hold the bottom position for a few seconds',
-      imageUrl: '/images/progressions/push-up/2.png',
+      imageUrl: '/images/progressions/step-2.png',
       description:
         'Another good way to start is by holding the bottom position of the push-up for a few seconds, with your chest close to the floor. Pay attention to the position of your elbows and make sure your body stays properly aligned throughout the hold.'    },
     {
       title: 'Achieve your first push up',
-      imageUrl: '/images/progressions/push-up/3.png',
+      imageUrl: '/images/progressions/step-3.png',
       description:
         'Keep practicing and building your strength until you can perform your first full push-up. Use easier variations such as knee push-ups, push-up holds, and other beginner-friendly progressions to gradually develop the strength and control you need for a full rep.'    },
     {
       title: 'Build up to 10+ push ups',
-      imageUrl: '/images/progressions/push-up/4.png',
+      imageUrl: '/images/progressions/step-4.png',
       description:
         'Once you can perform your first push up, keep training until you can complete 10 or more reps. Endurance plays an important role here: the more reps you can perform, the more you’ll develop your pushing strength and overall capacity.'    },
     ],

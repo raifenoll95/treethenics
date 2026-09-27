@@ -7,7 +7,7 @@ export const FRONT_LEVER: Exercise = {
   difficulty: 'advanced',
   graphLevel: 4,
   showInTree: true,
-  category: 'static',
+  category: 'pull',
 
   targetAreas: ['back', 'core'],
 
@@ -19,112 +19,111 @@ export const FRONT_LEVER: Exercise = {
 
   secondaryMuscles: [
     'rear-deltoids',
-    'biceps',
+    'obliques',
     'forearms',
     'glutes'
   ],
 
-  equipment: [
-    'pull-up-bar',
-    'rings'
-  ],
+  equipment: ['pull-up-bar', 'rings'],
 
   description:
-    'Hang from a pull-up bar with your arms straight, engage your core and back muscles, and lift your body until it is parallel to the ground while maintaining a straight body position. Start with tuck front lever holds and controlled front lever raises to develop core strength, shoulder stability, and body control. Gradually progress through advanced tuck, one-leg, and straddle variations before attempting the full front lever with proper alignment and stability.',
+    'The Front Lever is an advanced static pulling skill where you hang beneath a bar or rings with straight arms while holding your entire body horizontally. It requires powerful straight-arm pulling strength from the back together with enough core and hip tension to keep your body rigid from shoulders to feet.',
 
   overview:
-    'The front lever is an advanced static calisthenics skill performed while hanging from a pull-up bar or gymnastic rings. The body is held horizontally with the arms straight and the torso, hips, and legs aligned. It requires strong lats, significant core tension, straight-arm strength, and full-body control to maintain a stable position parallel to the ground.',
+    'The Front Lever is built by progressively increasing the length of your body lever. Start with your knees tucked close to your chest, then gradually open the hips through advanced tuck, one-leg, and straddle variations before bringing both legs together. In every progression, keep your elbows straight, your shoulders active, and your hips high. Progress based on the quality of your position rather than forcing longer holds with bent arms or a sagging body line.',
 
   howTo: [
     {
-      title: 'Start from a dead hang',
+      title: 'Build your tuck front lever',
+      imageUrl: '/images/progressions/step-1.png',
       description:
-        'Grip the bar around shoulder width and begin from a controlled dead hang with your arms completely straight.',
+        'Hang from the bar with straight arms, bring your knees towards your chest, and raise your hips until your back is approximately parallel to the floor. Keep your shoulders active and learn to hold the position without bending your elbows.'
     },
     {
-      title: 'Set your shoulders',
+      title: 'Open into an advanced tuck',
+      imageUrl: '/images/progressions/step-2.png',
       description:
-        'Depress your shoulders and engage your lats before lifting your body. Keep your elbows locked throughout the movement.',
+        'Move your knees farther away from your chest and open your hips while keeping your knees bent. Work towards a flatter back and keep your hips around shoulder height instead of allowing them to drop.'
     },
     {
-      title: 'Create full-body tension',
+      title: 'Extend the lever',
+      imageUrl: '/images/progressions/step-3.png',
       description:
-        'Brace your core, squeeze your glutes, and keep your legs together to create a rigid body line from your shoulders to your feet.',
+        'Progress to a one-leg or straddle front lever. Keep the extended knee straight and maintain the same shoulder and hip position you developed in the shorter progressions.'
     },
     {
-      title: 'Raise into the front lever',
+      title: 'Narrow your straddle',
+      imageUrl: '/images/progressions/step-4.png',
       description:
-        'Lift your body until it becomes parallel to the ground while maintaining straight arms and keeping your hips in line with your shoulders.',
+        'If you use a straddle progression, gradually bring your legs closer together while keeping both knees straight. Narrowing the legs increases the effective lever without requiring you to jump immediately to the full position.'
     },
     {
-      title: 'Hold the position',
+      title: 'Hold the full front lever',
+      imageUrl: '/images/progressions/step-5.png',
       description:
-        'Maintain the horizontal position with controlled breathing and full-body tension, then lower yourself under control.',
+        'Bring your legs together and keep your knees and elbows completely straight. Brace your abs and glutes while maintaining a straight line from your shoulders to your feet with your body approximately parallel to the ground.'
     },
   ],
 
   commonMistakes: [
     {
-      title: 'Letting the hips drop',
+      title: 'Bending your elbows',
       description:
-        'Dropping the hips breaks the horizontal body line and reduces the tension required for a clean front lever. Keep your glutes and core engaged throughout the hold.',
+        'The standard Front Lever is a straight-arm skill. Bending your elbows changes the mechanics and makes the position easier. If you cannot maintain locked elbows, return to a shorter lever progression.'
     },
     {
-      title: 'Bending the elbows',
+      title: 'Letting your hips drop',
       description:
-        'The front lever is a straight-arm skill. Bending the elbows changes the strength demand and usually indicates that the current progression is too difficult.',
+        'Do not count a hold simply because your feet are off the ground. Your hips should remain around the same height as your shoulders. If they progressively fall during the hold, shorten the lever and rebuild the position.'
     },
     {
-      title: 'Losing shoulder tension',
+      title: 'Arching your lower back',
       description:
-        'Relaxing the shoulders makes the position unstable and reduces effective lat engagement. Maintain active shoulders throughout the entire hold.',
+        'Keep your ribs and pelvis controlled and maintain tension through your abs and glutes. Excessive lower-back arch usually breaks the rigid body line and makes it harder to transfer your strength into the full lever.'
+    },
+    {
+      title: 'Progressing based only on hold time',
+      description:
+        'A long hold with bent arms, tucked hips, or a sagging body is not necessarily better than a short clean hold. Increase the lever only when you can maintain the intended shape with straight arms and controlled hips.'
     },
   ],
 
   relatedExercises: [
-    'back-lever',
+    'tuck-front-lever',
+    'straddle-front-lever',
+    'front-lever-pull-up'
   ],
 
   faq: [
     {
-      question: 'How long does it take to learn the Front Lever?',
+      question: 'What muscles does the Front Lever work?',
       answer:
-        'The time required to learn the Front Lever varies considerably depending on your starting strength, body composition, training experience and consistency. Athletes with a strong pulling and core-strength base may progress faster, while others may need many months or longer. Focus on mastering each progression rather than rushing toward the full Front Lever.',
+        'The Front Lever heavily challenges the lats and upper back to maintain the straight-arm pulling position. Your abs and obliques help keep your torso and pelvis rigid, while your rear deltoids, forearms, glutes, and other stabilizers contribute to maintaining the complete body line.'
     },
     {
-      question: 'How strong do you need to be for a Front Lever?',
+      question: 'Should my arms be straight in a Front Lever?',
       answer:
-        'You need strong lats, upper back and core muscles together with good straight-arm strength and body tension. There is no single strength test that guarantees a Front Lever, but being comfortable with pull-ups, hanging exercises and easier Front Lever progressions provides a useful foundation.',
+        'Yes. A standard Front Lever is performed with fully extended elbows. If you have to bend your arms to maintain the position, use an easier lever such as tuck or advanced tuck until you can keep the elbows locked.'
     },
     {
-      question: 'How often should you train the Front Lever?',
+      question: 'Should I learn one-leg or straddle Front Lever first?',
       answer:
-        'For many athletes, two to three focused Front Lever sessions per week can provide enough practice while allowing time for recovery. Training frequency should depend on your experience, total training volume and recovery. High-quality holds and controlled progressions are generally more useful than repeatedly training the skill while fatigued.',
+        'Either can be useful. Different body proportions and mobility can make one progression feel more natural than the other. The important goal is to gradually lengthen the lever while preserving straight arms, high hips, and a controlled body line.'
     },
     {
-      question: 'Is the Front Lever harder than the Back Lever?',
+      question: 'How do I progress from Straddle to Full Front Lever?',
       answer:
-        'They place different demands on the body, so the relative difficulty depends on the athlete. The Front Lever requires substantial pulling strength from the lats and upper back together with strong core tension, while the Back Lever places different demands on the shoulders and straight-arm position. Many athletes find one easier than the other.',
-    },
-    {
-      question: 'Can you train the Front Lever on rings?',
-      answer:
-        'Yes. The Front Lever can be performed on both a pull-up bar and gymnastic rings. Rings introduce additional instability and require you to control each ring independently, so a pull-up bar may be easier when first learning the movement.',
-    },
-    {
-      question: 'Why do my hips drop during the Front Lever?',
-      answer:
-        'Dropping hips usually means you are losing the full-body tension required to keep your body horizontal or that the progression is currently too demanding. Engage your core and glutes, maintain active shoulders and use an easier progression if you cannot keep your shoulders, hips and legs aligned.',
+        'Gradually narrow your straddle while keeping your knees straight and hips high. You can also use full Front Lever negatives or light assistance to experience the legs-together position. Progress when you can preserve your body line rather than relying on a specific hold-time target.'
     },
   ],
 
   seo: {
-      title:
-        'Front Lever: How to Do It, Muscles & Progressions | Treethenics',
+    title:
+      'Front Lever: Technique, Muscles & Progressions | Treethenics',
 
-      description:
-        'Learn how to do the Front Lever with proper technique, muscles worked, common mistakes, equipment and progressions from easier to advanced variations.',
-    },
+    description:
+      'Learn the Front Lever with proper technique, muscles worked, common mistakes and progressions from Tuck to a Full Front Lever.',
+  },
 
   imageUrl: '/images/exercises/front-lever.png',
 };

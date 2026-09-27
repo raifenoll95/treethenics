@@ -42,6 +42,7 @@ export const TARGET_AREA_LABELS: Record<ExerciseTargetArea, string> = {
   triceps: 'Triceps',
   legs: 'Legs',
   core: 'Core',
+  glutes: 'Glutes',
 };
 
 export const TARGET_AREA_OPTIONS = Object.entries(

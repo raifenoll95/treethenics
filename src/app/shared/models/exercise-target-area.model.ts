@@ -5,4 +5,6 @@ export type ExerciseTargetArea =
   | 'biceps'
   | 'triceps'
   | 'legs'
-  | 'core';
+  | 'core'
+  | 'glutes'
+
