@@ -1023,19 +1023,54 @@
 
 .exercise-hero__anatomy {
   position: relative;
+
   min-width: 0;
   min-height: 490px;
+
   overflow: hidden;
 
   background: transparent;
-
   border: 0;
   border-radius: 0;
+
+  isolation: isolate;
 }
 
+/* Imagen difuminada del fondo */
+.exercise-hero__anatomy::before {
+  content: '';
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 150%;
+  height: 150%;
+
+  z-index: -1;
+
+  background-image:
+    url('/images/anatomy/anatomy-background.png');
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  filter: blur(6px);
+
+  opacity: 0.35;
+
+  transform: translate(-50%, -50%);
+}
+
+/* Modelo 3D */
 .exercise-hero__anatomy-stage {
   position: absolute;
   inset: 0;
+
+  z-index: 1;
+
   display: grid;
   place-items: center;
 }
@@ -2639,6 +2674,19 @@
     font-size: 9px;
   }
 
+}
+
+@media (max-width: 768px) {
+  .exercise-hero__anatomy-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .exercise-hero__anatomy-stage anatomy-viewer {
+    width: 100%;
+    margin-inline: auto;
+  }
 }
 
 
