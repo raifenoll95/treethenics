@@ -101,6 +101,8 @@
           <img
             [src]="exercise.imageUrl | optimizedImage:'detail'"
             [alt]="'Athlete performing the ' + exercise.name + ' calisthenics exercise'"
+            fetchpriority="high"
+            decoding="async"
             draggable="false"
             (contextmenu)="$event.preventDefault()"
             (dragstart)="$event.preventDefault()"
@@ -129,10 +131,12 @@
 
         <div class="exercise-hero__anatomy-stage">
 
+          <!--
           <app-anatomy-viewer
             [primaryMuscles]="exercise.primaryMuscles ?? []"
             [secondaryMuscles]="exercise.secondaryMuscles ?? []"
           />
+          -->
 
         </div>
 
