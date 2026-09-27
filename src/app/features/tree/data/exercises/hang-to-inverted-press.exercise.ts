@@ -6,7 +6,7 @@ export const HANG_TO_INVERTED_PRESS: Exercise = {
     difficulty: 'intermediate',
     movementType: 'dynamic',
     graphLevel: 3,
-    showInTree: true,
+    showInTree: false,
     category: 'pull',
     targetAreas: ['back', 'shoulders', 'core'],
     primaryMuscles: ['latissimus-dorsi', 'abdominals', 'front-deltoids'],

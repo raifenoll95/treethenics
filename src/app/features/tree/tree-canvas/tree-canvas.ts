@@ -678,7 +678,7 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
       /*
        * LEVEL 3
        */
-      'hang-to-inverted-press': 250,
+      'tuck-advanced-front-lever': 90,
       'dragon-flag': 540,
 
       'muscle-up': 720,

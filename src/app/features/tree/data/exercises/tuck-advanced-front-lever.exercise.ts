@@ -1,12 +1,12 @@
 import { Exercise } from '../../../../shared/models/exercise.model';
 
 export const TUCK_ADVANCED_FRONT_LEVER: Exercise = {
-  id: 'tuck-advancded-front-lever',
+  id: 'tuck-advanced-front-lever',
   name: 'Tuck Advanced Front Lever',
   movementType: 'static',
   difficulty: 'advanced',
-  graphLevel: 4,
-  showInTree: false,
+  graphLevel: 3,
+  showInTree: true,
   category: 'static',
 
   targetAreas: ['back', 'core'],

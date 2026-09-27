@@ -22,16 +22,11 @@ export const EXERCISE_RELATIONS: ExerciseRelation[] = [
 
   {
     from: 'early-front-lever-progressions',
-    to: 'hang-to-inverted-press',
+    to: 'tuck-advanced-front-lever',
     type: 'progression',
   },
   {
-    from: 'early-front-lever-progressions',
-    to: 'front-lever',
-    type: 'progression',
-  },
-  {
-    from: 'hang-to-inverted-press',
+    from: 'tuck-advanced-front-lever',
     to: 'front-lever',
     type: 'progression',
   },
