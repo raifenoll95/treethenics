@@ -70,7 +70,7 @@ export const PULL_UP: Exercise = {
   ],
 
   relatedExercises: [
-    'back-lever',
+    'archer-pull-up','comando-pull-up','l-sit-pull-up'
   ],
 
   faq: [
