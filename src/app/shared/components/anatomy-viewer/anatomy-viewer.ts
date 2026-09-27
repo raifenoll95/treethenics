@@ -51,6 +51,9 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
   private scene?: THREE.Scene;
   private camera?: THREE.PerspectiveCamera;
   private model?: THREE.Group;
+  private normalMaterial?: THREE.MeshStandardMaterial;
+  private primaryMaterial?: THREE.MeshStandardMaterial;
+  private secondaryMaterial?: THREE.MeshStandardMaterial;
 
   private resizeObserver?: ResizeObserver;
   private animationFrameId?: number;
@@ -79,6 +82,7 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
     const height = Math.max(container.clientHeight, 1);
 
     this.scene = new THREE.Scene();
+    this.createMaterials();
 
     this.camera = new THREE.PerspectiveCamera(
       35,
@@ -210,8 +214,12 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
 
       this.fitCameraToModel();
 
-      this.clock.start();
-      this.animate();
+      if (this.renderer && this.scene && this.camera) {
+        this.renderer.render(
+          this.scene,
+          this.camera,
+        );
+      }
     } catch (error) {
       console.error(
         'Error al cargar anatomy.glb:',
@@ -268,6 +276,29 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
     this.camera.lookAt(0, 0, 0);
 
     this.camera.updateProjectionMatrix();
+  }
+
+  private createMaterials(): void {
+    this.normalMaterial = new THREE.MeshStandardMaterial({
+      color: 0xc59a85,
+      roughness: 0.94,
+      metalness: 0,
+      side: THREE.DoubleSide,
+    });
+
+    this.primaryMaterial = new THREE.MeshStandardMaterial({
+      color: 0xe63e52,
+      roughness: 0.94,
+      metalness: 0,
+      side: THREE.DoubleSide,
+    });
+
+    this.secondaryMaterial = new THREE.MeshStandardMaterial({
+      color: 0xb85b65,
+      roughness: 0.94,
+      metalness: 0,
+      side: THREE.DoubleSide,
+    });
   }
 
   private animate = (): void => {
@@ -344,25 +375,6 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
     });
   }
 
-  private disposeInstanceMaterials(
-    object: THREE.Object3D,
-  ): void {
-
-    object.traverse((child) => {
-      if (!(child instanceof THREE.Mesh)) {
-        return;
-      }
-
-      const materials = Array.isArray(child.material)
-        ? child.material
-        : [child.material];
-
-      materials.forEach((material) => {
-        material.dispose();
-      });
-    });
-  }
-
   ngOnDestroy(): void {
     this.destroyed = true;
 
@@ -373,12 +385,17 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
     this.resizeObserver?.disconnect();
 
     if (this.model) {
-      this.disposeInstanceMaterials(this.model);
-
       this.scene?.remove(this.model);
-
       this.model = undefined;
     }
+
+    this.normalMaterial?.dispose();
+    this.primaryMaterial?.dispose();
+    this.secondaryMaterial?.dispose();
+
+    this.normalMaterial = undefined;
+    this.primaryMaterial = undefined;
+    this.secondaryMaterial = undefined;
 
     this.renderer?.dispose();
     this.renderer?.domElement.remove();
@@ -410,7 +427,9 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
     return 0xb9c1cb;
   }
 
-  private applyMuscleColors(anatomy: THREE.Object3D): void {
+  private applyMuscleColors(
+    anatomy: THREE.Object3D,
+  ): void {
     anatomy.traverse((object) => {
       if (!(object instanceof THREE.Mesh)) {
         return;
@@ -418,27 +437,17 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
 
       const color = this.getMuscleColor(object.name);
 
-      const isPrimary = color === 0xf43f5e;
-      const isSecondary = color === 0x9f3547;
-
-      let materialColor: number;
-
-      if (isPrimary) {
-        materialColor = 0xe63e52;
-      } else if (isSecondary) {
-        materialColor = 0xb85b65;
-      } else {
-        materialColor = 0xc59a85;
+      if (color === 0xf43f5e) {
+        object.material = this.primaryMaterial!;
+        return;
       }
 
-      object.material = new THREE.MeshStandardMaterial({
-        color: materialColor,
+      if (color === 0x9f3547) {
+        object.material = this.secondaryMaterial!;
+        return;
+      }
 
-        roughness: 0.94,
-        metalness: 0,
-
-        side: THREE.DoubleSide,
-      });
+      object.material = this.normalMaterial!;
     });
   }
 }
