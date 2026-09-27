@@ -34,7 +34,7 @@
         /
       </span>
 
-      <a routerLink="/search">
+      <a routerLink="/what-should-i-train">
         Exercise Library
       </a>
 
@@ -473,7 +473,14 @@
               track $index
             ) {
 
-              <article class="how-to-card">
+              <article
+                class="how-to-card"
+                [style.--step-image]="
+                  step.imageUrl
+                    ? 'url(' + step.imageUrl + ')'
+                    : 'none'
+                "
+              >
 
                 <span class="how-to-card__number">
                   {{ $index + 1 }}
@@ -758,11 +765,11 @@
                   ) {
 
                     <a
-                      class="progression-card"
+                      class="related-exercise-card"
                       [routerLink]="['/exercises', item.id]"
                     >
 
-                      <div class="progression-card__media">
+                      <div class="related-exercise-card__media">
 
                         @if (item.imageUrl) {
 
@@ -778,24 +785,27 @@
                       </div>
 
 
-                      <div class="progression-card__content">
+                      <div class="related-exercise-card__content">
 
-                        <span class="progression-card__meta">
+                        <div class="related-exercise-card__meta">
 
-                          {{ item.difficulty }}
+                          <span>
+                            {{ item.difficulty }}
+                          </span>
 
                           @if (item.graphLevel) {
-                            <span aria-hidden="true"> • </span>
-                            Level {{ item.graphLevel }}
+                            <span>
+                              Level {{ item.graphLevel }}
+                            </span>
                           }
 
-                        </span>
+                        </div>
 
                         <h4>
                           {{ item.name }}
                         </h4>
 
-                        <span class="progression-card__action">
+                        <span class="related-exercise-card__action">
                           View exercise
                           <span aria-hidden="true">→</span>
                         </span>

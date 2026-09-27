@@ -28,38 +28,43 @@ export const PULL_UP: Exercise = {
     howTo: [
     {
       title: 'Start by hanging from the bar',
+      imageUrl: '/images/progressions/pull-up/1.png',
       description:
         'The first step is to be able to hang from the bar for several seconds. This will help your body get used to supporting your weight and becoming comfortable in this position.'    },
     {
       title: 'Start with resistance bands',
+      imageUrl: '/images/progressions/pull-up/2.png',
       description:
         'At first, you can use resistance bands to help you perform your first pull-up. This will allow you to get used to the movement and understand how the exercise works.'    },
     {
       title: 'Try half reps',
+      imageUrl: '/images/progressions/pull-up/3.png',
       description:
         'At first, it’s normal if you can’t perform a full pull-up starting with your arms fully extended. If that’s the case, you can begin with half reps. Start with your arms slightly bent, or from whatever position feels comfortable for you, and gradually work towards performing a full pull-up.'    },
     {
       title: 'Perform your first pull up',
+      imageUrl: '/images/progressions/pull-up/4.png',
       description:
         'Once you can perform several partial reps, it’s time to work on a full pull-up with proper form. Start with your arms fully extended, pull your body up until your chin is above the bar, then lower yourself back down in a controlled motion.'    },
 
     {
       title: 'Build up to 10+ pull ups',
+      imageUrl: '/images/progressions/pull-up/5.png',
       description:
         'Once you can perform your first pull-up, keep training until you can complete 10 or more reps. Endurance plays an important role here: the more reps you can perform, the more you’ll develop your pulling strength and overall capacity.'    },
     ],
 
   commonMistakes: [
     {
-      title: 'More is not always better',
+      title: 'More is always better',
       description:
 'It’s better to perform 5 pull-ups with proper form than 15 with poor technique. Focus on the quality of each rep rather than simply trying to do more.'    },
     {
-      title: 'Not train pull ups every day',
+      title: 'Train pull ups every day',
       description:
 'Pull-ups are a demanding exercise that works several muscle groups at the same time. Training them too often without enough recovery can lead to excessive fatigue, making it harder to perform at your best and maintain proper form.'    },
     {
-      title: 'Get your chin above the bar',
+      title: 'Dont Get your chin above the bar',
       description:
 'A full pull-up starts with your arms fully extended and finishes when your chin passes above the bar. Make sure you complete the full range of motion on every rep.'    },
   ],

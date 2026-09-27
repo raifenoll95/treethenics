@@ -70,6 +70,7 @@ export interface Exercise {
   howTo?: {
     title: string;
     description: string;
+    imageUrl?: string;
   }[];
 
   commonMistakes?: {
