@@ -86,10 +86,10 @@ export const PULL_UP: Exercise = {
 
   seo: {
       title:
-        'Front Lever: How to Do It, Muscles & Progressions | Treethenics',
+        'Pull Up: How to Do It, Muscles & Progressions | Treethenics',
 
       description:
-        'Learn how to do the Front Lever with proper technique, muscles worked, common mistakes, equipment and progressions from easier to advanced variations.',
+        'Learn how to do the Pull Up with proper technique, muscles worked, common mistakes, equipment and progressions from easier to advanced variations.',
     },
 
   imageUrl: '/images/exercises/pull-up.png',
