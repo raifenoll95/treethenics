@@ -254,20 +254,18 @@
   backdrop-filter: blur(8px);
 }
 
-.exercise-hero__movement--static {
-  color: #60a5fa;
-  border-color: #3b82f6;
-
-  box-shadow:
-    0 0 14px rgba(59, 130, 246, 0.18);
-}
-
+.exercise-hero__movement--static,
 .exercise-hero__movement--dynamic {
-  color: #34d399;
-  border-color: #10b981;
+  color: var(--exercise-color);
+  border-color: var(--exercise-color);
 
   box-shadow:
-    0 0 14px rgba(16, 185, 129, 0.18);
+    0 0 14px
+    color-mix(
+      in srgb,
+      var(--exercise-color) 22%,
+      transparent
+    );
 }
 
 
@@ -1382,22 +1380,35 @@
   display: flex;
   flex-direction: column;
 
-  min-height: 305px;
-  padding: 0;
+  min-width: 0;
+  min-height: 0;
 
   overflow: hidden;
 
-  border: 1px solid #27313c;
-  border-top-color: #22c99a;
+  color: inherit;
+  text-decoration: none;
+
+  background: #101720;
+
+  border: 1px solid #26313d;
   border-radius: 14px;
 
-  background: #0f1922;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
 }
 
 .progression-card__media {
+  position: relative;
+
   width: 100%;
-  height: 270px;
+  aspect-ratio: 16 / 9;
+
   overflow: hidden;
+
+  background: #0c1219;
+  border-bottom: 1px solid #26313d;
 }
 
 .progression-card__media img {
@@ -1461,7 +1472,7 @@
 }
 
 .progression-card__content h4 {
-  margin: 0 0 20px;
+  margin: 0 0 14px;
 
   color: #f4f7fb;
 
@@ -1476,7 +1487,7 @@
   align-items: center;
   gap: 7px;
 
-  margin-top: auto;
+  margin-top: 0;
 
   color: #93a5b8;
 
