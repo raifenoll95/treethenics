@@ -57,6 +57,11 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
 
   private resizeObserver?: ResizeObserver;
   private animationFrameId?: number;
+  private intersectionObserver?: IntersectionObserver;
+  private isVisible = false;
+  private isAnimating = false;
+  private readonly targetFps = 30;
+  private lastFrameTime = 0;
 
   private readonly clock = new THREE.Clock();
   private destroyed = false;
@@ -160,6 +165,52 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
     });
 
     this.resizeObserver.observe(container);
+
+    this.intersectionObserver =
+      new IntersectionObserver(
+        ([entry]) => {
+          this.isVisible = entry.isIntersecting;
+
+          if (this.isVisible) {
+            this.startAnimation();
+          } else {
+            this.stopAnimation();
+          }
+        },
+        {
+          threshold: 0.1,
+        },
+      );
+
+    this.intersectionObserver.observe(container);
+  }
+
+  private startAnimation(): void {
+    if (
+      this.isAnimating ||
+      this.destroyed ||
+      !this.model
+    ) {
+      return;
+    }
+
+    this.isAnimating = true;
+    this.lastFrameTime = 0;
+    this.clock.start();
+
+    this.animate();
+  }
+
+  private stopAnimation(): void {
+    this.isAnimating = false;
+
+    if (this.animationFrameId !== undefined) {
+      cancelAnimationFrame(this.animationFrameId);
+      this.animationFrameId = undefined;
+    }
+
+    this.lastFrameTime = 0;
+    this.clock.stop();
   }
 
   private async loadAnatomyModel(): Promise<void> {
@@ -219,6 +270,9 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
           this.scene,
           this.camera,
         );
+      }
+      if (this.isVisible) {
+        this.startAnimation();
       }
     } catch (error) {
       console.error(
@@ -301,24 +355,46 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
     });
   }
 
-  private animate = (): void => {
-    if (this.destroyed) {
+  private animate = (time = performance.now()): void => {
+    if (
+      this.destroyed ||
+      !this.isAnimating ||
+      !this.isVisible
+    ) {
+      this.isAnimating = false;
+      this.animationFrameId = undefined;
       return;
     }
 
-    this.animationFrameId = requestAnimationFrame(
-      this.animate,
+    this.animationFrameId =
+      requestAnimationFrame(this.animate);
+
+    const frameInterval = 1000 / this.targetFps;
+
+    if (
+      this.lastFrameTime !== 0 &&
+      time - this.lastFrameTime < frameInterval
+    ) {
+      return;
+    }
+
+    this.lastFrameTime =
+      time - ((time - this.lastFrameTime) % frameInterval);
+
+    const delta = Math.min(
+      this.clock.getDelta(),
+      0.05,
     );
 
-    const delta = this.clock.getDelta();
-
     if (this.model) {
-      // Rotación continua, independiente de los FPS.
-
       this.model.rotation.y += delta * 0.35;
     }
 
-    if (this.renderer && this.scene && this.camera) {
+    if (
+      this.renderer &&
+      this.scene &&
+      this.camera
+    ) {
       this.renderer.render(
         this.scene,
         this.camera,
@@ -378,10 +454,8 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     this.destroyed = true;
 
-    if (this.animationFrameId !== undefined) {
-      cancelAnimationFrame(this.animationFrameId);
-    }
-
+    this.stopAnimation();
+    this.intersectionObserver?.disconnect();
     this.resizeObserver?.disconnect();
 
     if (this.model) {
