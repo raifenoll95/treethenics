@@ -17,6 +17,20 @@ import { ExerciseMuscle } from '../../../shared/models/exercise-muscle.model';
 
 import { ANATOMY_MUSCLE_MAP } from './anatomy-muscle-map';
 
+let anatomyModelPromise: Promise<THREE.Group> | null = null;
+
+function loadCachedAnatomyModel(): Promise<THREE.Group> {
+  if (!anatomyModelPromise) {
+    const loader = new GLTFLoader();
+
+    anatomyModelPromise = loader
+      .loadAsync('/models/anatomy/anatomy.glb')
+      .then((gltf) => gltf.scene);
+  }
+
+  return anatomyModelPromise;
+}
+
 @Component({
   selector: 'app-anatomy-viewer',
   imports: [],
@@ -144,99 +158,66 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
     this.resizeObserver.observe(container);
   }
 
-  private loadAnatomyModel(): void {
-    const loader = new GLTFLoader();
+  private async loadAnatomyModel(): Promise<void> {
 
-    loader.load(
-      '/models/anatomy/anatomy.glb',
+    try {
+      const cachedAnatomy = await loadCachedAnatomyModel();
 
-      (gltf) => {
-        // Evitar añadir el modelo si el usuario ya salió
-        // de la página mientras se descargaba.
+      if (this.destroyed || !this.scene) {
+        return;
+      }
 
-        if (this.destroyed || !this.scene) {
-          this.disposeObject(gltf.scene);
-          return;
-        }
+      /*
+      * Necesitamos nuestra propia instancia del árbol de objetos
+      * porque este componente va a modificar rotación, posición,
+      * escala y materiales.
+      *
+      * Las geometrías pueden seguir siendo compartidas.
+      */
+      const anatomy = cachedAnatomy.clone(true);
 
-        // Grupo exterior: lo utilizaremos para centrar y girar el cuerpo.
-        const rotationGroup = new THREE.Group();
+      const rotationGroup = new THREE.Group();
 
-        // Modelo original.
-        const anatomy = gltf.scene;
-        this.applyMuscleColors(anatomy);
+      this.applyMuscleColors(anatomy);
 
-        //anatomy.traverse((object) => {
-        //if (!(object instanceof THREE.Mesh)) {
-          //return;
-        //}
+      anatomy.rotation.x = -Math.PI / 2;
 
-        //object.material = new THREE.MeshStandardMaterial({
-          //color: 0xb9c1cb,
-          //roughness: 0.82,
-          //metalness: 0,
-          //side: THREE.DoubleSide,
-        //});
-      //});
+      rotationGroup.add(anatomy);
 
-        // El archivo viene con la altura del cuerpo en el eje Z.
-        anatomy.rotation.x = -Math.PI / 2;
+      const boundingBox =
+        new THREE.Box3().setFromObject(rotationGroup);
 
-        // Añadimos el modelo al grupo ANTES de calcular sus dimensiones.
-        rotationGroup.add(anatomy);
+      const center = boundingBox.getCenter(
+        new THREE.Vector3(),
+      );
 
-        // Calculamos el tamaño del cuerpo ya orientado.
-        const boundingBox = new THREE.Box3().setFromObject(
-          rotationGroup,
-        );
+      const size = boundingBox.getSize(
+        new THREE.Vector3(),
+      );
 
-        const center = boundingBox.getCenter(
-          new THREE.Vector3(),
-        );
+      const desiredHeight = 3.5;
+      const scale = desiredHeight / size.y;
 
-        const size = boundingBox.getSize(
-          new THREE.Vector3(),
-        );
+      rotationGroup.scale.setScalar(scale);
 
-        console.log('ANATOMY SIZE', size.toArray());
+      rotationGroup.position
+        .copy(center)
+        .multiplyScalar(-scale);
 
-        // Centramos el cuerpo desplazando el grupo exterior.
-        // Así evitamos desplazar el modelo en sus ejes locales rotados.
-        const desiredHeight = 3.5;
-        const scale = desiredHeight / size.y;
+      this.model = rotationGroup;
 
-        // Centramos el cuerpo en coordenadas del grupo exterior.
-        // Al tener anatomy.rotation.x aplicada, desplazar anatomy.position
-        // directamente puede dar un centrado incorrecto.
-        rotationGroup.scale.setScalar(scale);
-        rotationGroup.position.copy(center).multiplyScalar(-scale);
+      this.scene.add(this.model);
 
-        // Guardamos el grupo que girará en la animación.
-        this.model = rotationGroup;
+      this.fitCameraToModel();
 
-        this.scene.add(this.model);
-
-        // Ajustar la cámara al modelo.
-
-        this.fitCameraToModel();
-
-        this.clock.start();
-        this.animate();
-
-        console.log(
-          'Modelo anatómico cargado correctamente.',
-        );
-      },
-
-      undefined,
-
-      (error) => {
-        console.error(
-          'Error al cargar anatomy.glb:',
-          error,
-        );
-      },
-    );
+      this.clock.start();
+      this.animate();
+    } catch (error) {
+      console.error(
+        'Error al cargar anatomy.glb:',
+        error,
+      );
+    }
   }
 
   private fitCameraToModel(): void {
@@ -363,6 +344,25 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
     });
   }
 
+  private disposeInstanceMaterials(
+    object: THREE.Object3D,
+  ): void {
+
+    object.traverse((child) => {
+      if (!(child instanceof THREE.Mesh)) {
+        return;
+      }
+
+      const materials = Array.isArray(child.material)
+        ? child.material
+        : [child.material];
+
+      materials.forEach((material) => {
+        material.dispose();
+      });
+    });
+  }
+
   ngOnDestroy(): void {
     this.destroyed = true;
 
@@ -373,7 +373,11 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
     this.resizeObserver?.disconnect();
 
     if (this.model) {
-      this.disposeObject(this.model);
+      this.disposeInstanceMaterials(this.model);
+
+      this.scene?.remove(this.model);
+
+      this.model = undefined;
     }
 
     this.renderer?.dispose();
