@@ -80,9 +80,12 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
 
     this.renderer.setClearColor(0x000000, 0);
 
-    this.renderer.setPixelRatio(
-      Math.min(window.devicePixelRatio, 2),
-    );
+    const pixelRatio =
+      window.innerWidth <= 768
+        ? 1
+        : Math.min(window.devicePixelRatio, 1.5);
+
+    this.renderer.setPixelRatio(pixelRatio);
 
     this.renderer.setSize(width, height);
 
@@ -139,8 +142,6 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
     });
 
     this.resizeObserver.observe(container);
-
-    this.animate();
   }
 
   private loadAnatomyModel(): void {
@@ -218,6 +219,9 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
         // Ajustar la cámara al modelo.
 
         this.fitCameraToModel();
+
+        this.clock.start();
+        this.animate();
 
         console.log(
           'Modelo anatómico cargado correctamente.',
