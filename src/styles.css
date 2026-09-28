@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
   --color-bg: #1c232b;
-  --color-surface: #17181c;
+  --color-surface: #1c232b;
   --color-surface-hover: #202126;
 
   --color-text: #f4f4f5;
@@ -35,7 +35,7 @@ body {
 
 body {
   min-height: 100vh;
-  background-color: #202832;
+  background-color: #1c232b;
 
   color: var(--color-text);
   font-family:
