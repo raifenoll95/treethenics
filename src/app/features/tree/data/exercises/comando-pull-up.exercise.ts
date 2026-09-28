@@ -125,5 +125,5 @@ export const COMANDO_PULL_UP: Exercise = {
       'Learn how to do Commando Pull Ups with proper grip, alternating technique, muscles worked and the most common mistakes to avoid.',
   },
 
-  imageUrl: '/images/exercises/commando-pull-up.png',
+  imageUrl: '/images/exercises/comando-pull-up.png',
 };

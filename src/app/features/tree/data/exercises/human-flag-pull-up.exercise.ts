@@ -126,5 +126,5 @@ export const HUMAN_FLAG_PULL_UP: Exercise = {
       'Learn the Human Flag Pull Up with proper technique, muscles worked, progressions and common mistakes for clean horizontal repetitions.',
   },
 
-  imageUrl: '/images/exercises/human-flag-pull-up.png',
+  imageUrl: '/images/exercises/human-flag-pu.png',
 };

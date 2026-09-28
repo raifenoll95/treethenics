@@ -126,5 +126,5 @@ export const FULL_PLANCHE_RINGS: Exercise = {
       'Learn the Full Planche on Rings with proper straight-arm technique, ring stabilization, common mistakes and progressions from Tuck to Full.',
   },
 
-  imageUrl: '/images/exercises/full-planche-rings.png',
+  imageUrl: '/images/exercises/full-rings.png',
 };

@@ -130,5 +130,5 @@ export const TOUCH_FRONT_LEVER: Exercise = {
       'Learn the Touch Front Lever with proper horizontal pulling technique, muscles worked, progressions and common mistakes.',
   },
 
-  imageUrl: '/images/exercises/touch-front-lever.png',
+  imageUrl: '/images/exercises/touch-front.png',
 };

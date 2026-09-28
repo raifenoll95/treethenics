@@ -125,5 +125,5 @@ export const CLEAN_ONE_ARM_HANDSTAND: Exercise = {
       'Learn the Clean One Arm Handstand with proper technique, weight shifts, fingertip progressions and the path from straddle to a legs-together hold.',
   },
 
-  imageUrl: '/images/exercises/clean-one-arm-handstand.png',
+  imageUrl: '/images/exercises/oah2.png',
 };
