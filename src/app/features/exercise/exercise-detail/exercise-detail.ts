@@ -22,6 +22,8 @@ import {
   MUSCLE_LABELS,
 } from '../../../shared/data/exercise-metadata';
 
+import { signal } from '@angular/core';
+
 import { OptimizedImagePipe } from '../../../shared/pipes/optimized-image.pipe';
 
 import {
@@ -269,6 +271,56 @@ export class ExerciseDetail {
   private readonly document = inject(DOCUMENT);
 
   readonly route = inject(ActivatedRoute);
+
+  readonly overviewCollapsed = signal(false);
+  readonly anatomySetupCollapsed = signal(false);
+  readonly howToCollapsed = signal(false);
+  readonly mistakesCollapsed = signal(false);
+  readonly relatedCollapsed = signal(false);
+  readonly faqCollapsed = signal(false);
+  readonly progressionCollapsed = signal(false);
+
+  toggleProgression(): void {
+    this.progressionCollapsed.update(
+      (collapsed) => !collapsed,
+    );
+  }
+
+  toggleFaq(): void {
+    this.faqCollapsed.update(
+      (collapsed) => !collapsed,
+    );
+  }
+
+  toggleRelated(): void {
+    this.relatedCollapsed.update(
+      (collapsed) => !collapsed,
+    );
+  }
+
+  toggleMistakes(): void {
+    this.mistakesCollapsed.update(
+      (collapsed) => !collapsed,
+    );
+  }
+
+  toggleHowTo(): void {
+    this.howToCollapsed.update(
+      (collapsed) => !collapsed,
+    );
+  }
+
+  toggleOverview(): void {
+    this.overviewCollapsed.update(
+      (collapsed) => !collapsed,
+    );
+  }
+
+  toggleAnatomySetup(): void {
+    this.anatomySetupCollapsed.update(
+      (collapsed) => !collapsed,
+    );
+  }
 
   private setJsonLd(id: string, data: object): void {
 

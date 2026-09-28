@@ -2700,4 +2700,83 @@
   }
 }
 
+.detail-section__toggle {
+  width: 100%;
+  padding: 0;
+
+  color: inherit;
+  background: transparent;
+
+  border: 0;
+
+  font: inherit;
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.detail-section__heading-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.detail-section__collapse-icon {
+  display: grid;
+  place-items: center;
+
+  width: 32px;
+  height: 32px;
+
+  flex: 0 0 32px;
+
+  color: var(--exercise-color);
+  background:
+    color-mix(
+      in srgb,
+      var(--exercise-color) 8%,
+      transparent
+    );
+
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--exercise-color) 30%,
+      transparent
+    );
+
+  border-radius: 8px;
+
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+
+.detail-section__toggle:hover
+.detail-section__collapse-icon {
+  background:
+    color-mix(
+      in srgb,
+      var(--exercise-color) 14%,
+      transparent
+    );
+
+  border-color:
+    color-mix(
+      in srgb,
+      var(--exercise-color) 55%,
+      transparent
+    );
+}
+
+.detail-section__toggle:focus-visible {
+  outline: 2px solid var(--exercise-color);
+  outline-offset: 6px;
+  border-radius: 4px;
+}
+
 

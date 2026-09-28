@@ -158,7 +158,12 @@
 
       <section class="detail-section detail-section--overview">
 
-        <div class="detail-section__heading">
+        <button
+          type="button"
+          class="detail-section__heading detail-section__toggle"
+          (click)="toggleOverview()"
+          [attr.aria-expanded]="!overviewCollapsed()"
+        >
 
           <div>
 
@@ -172,84 +177,98 @@
 
           </div>
 
-          <span class="detail-section__number">
-            01
-          </span>
+          <div class="detail-section__heading-actions">
 
-        </div>
+            <span class="detail-section__number">
+              01
+            </span>
 
-
-        <div class="overview-grid">
-
-          <div class="overview-description">
-
-            <p>
-              {{ exercise.overview ?? exercise.description }}
-            </p>
+            <span
+              class="detail-section__collapse-icon"
+              aria-hidden="true"
+            >
+              {{ overviewCollapsed() ? '+' : '−' }}
+            </span>
 
           </div>
 
+        </button>
 
-          <div class="overview-stats">
+        @if (!overviewCollapsed()) {
 
-            <div class="overview-stat">
+          <div class="overview-grid">
 
-              <span>Difficulty</span>
+            <div class="overview-description">
 
-              <strong class="accent-text">
-                {{ exercise.difficulty }}
-              </strong>
+              <p>
+                {{ exercise.overview ?? exercise.description }}
+              </p>
 
             </div>
 
 
-            @if (exercise.graphLevel) {
+            <div class="overview-stats">
 
               <div class="overview-stat">
 
-                <span>Progression level</span>
+                <span>Difficulty</span>
 
-                <strong>
-                  {{ exercise.graphLevel }} / 7
+                <strong class="accent-text">
+                  {{ exercise.difficulty }}
                 </strong>
 
               </div>
 
-            }
+
+              @if (exercise.graphLevel) {
+
+                <div class="overview-stat">
+
+                  <span>Progression level</span>
+
+                  <strong>
+                    {{ exercise.graphLevel }} / 7
+                  </strong>
+
+                </div>
+
+              }
 
 
-            @if (exercise.movementType) {
+              @if (exercise.movementType) {
 
-              <div class="overview-stat">
+                <div class="overview-stat">
 
-                <span>Movement</span>
+                  <span>Movement</span>
 
-                <strong>
-                  {{ exercise.movementType }}
-                </strong>
+                  <strong>
+                    {{ exercise.movementType }}
+                  </strong>
 
-              </div>
+                </div>
 
-            }
+              }
 
 
-            @if (exercise.category) {
+              @if (exercise.category) {
 
-              <div class="overview-stat">
+                <div class="overview-stat">
 
-                <span>Category</span>
+                  <span>Category</span>
 
-                <strong>
-                  {{ exercise.category }}
-                </strong>
+                  <strong>
+                    {{ exercise.category }}
+                  </strong>
 
-              </div>
+                </div>
 
-            }
+              }
+
+            </div>
 
           </div>
 
-        </div>
+        }
 
       </section>
 
@@ -260,7 +279,12 @@
 
       <section class="detail-section anatomy-setup-section">
 
-        <div class="detail-section__heading">
+        <button
+          type="button"
+          class="detail-section__heading detail-section__toggle"
+          (click)="toggleAnatomySetup()"
+          [attr.aria-expanded]="!anatomySetupCollapsed()"
+        >
 
           <div>
 
@@ -279,94 +303,108 @@
 
           </div>
 
-          <span class="detail-section__number">
-            02
-          </span>
+          <div class="detail-section__heading-actions">
 
-        </div>
-
-
-        <div class="anatomy-setup-grid">
-
-
-          <!-- MUSCLES -->
-
-          <div class="exercise-info-panel">
-
-            <span class="exercise-info-panel__label">
-              Muscles worked
+            <span class="detail-section__number">
+              02
             </span>
 
+            <span
+              class="detail-section__collapse-icon"
+              aria-hidden="true"
+            >
+              {{ anatomySetupCollapsed() ? '+' : '−' }}
+            </span>
 
-            <div class="muscle-table">
+          </div>
+
+        </button>
+
+        @if (!anatomySetupCollapsed()) {
+
+          <div class="anatomy-setup-grid">
 
 
-              <!-- PRIMARY -->
+            <!-- MUSCLES -->
 
-              <div class="muscle-table__group">
+            <div class="exercise-info-panel">
 
-                <div class="muscle-table__type">
+              <span class="exercise-info-panel__label">
+                Muscles worked
+              </span>
 
-                  <span class="muscle-table__badge">
-                    P
-                  </span>
 
-                  <div>
-                    <span>Primary</span>
-                    <strong>Main muscles</strong>
+              <div class="muscle-table">
+
+
+                <!-- PRIMARY -->
+
+                <div class="muscle-table__group">
+
+                  <div class="muscle-table__type">
+
+                    <span class="muscle-table__badge">
+                      P
+                    </span>
+
+                    <div>
+                      <span>Primary</span>
+                      <strong>Main muscles</strong>
+                    </div>
+
+                  </div>
+
+
+                  <div class="muscle-table__muscles">
+
+                    @for (
+                      muscle of exercise.primaryMuscles ?? [];
+                      track muscle
+                    ) {
+
+                      <span>
+                        {{ getMuscleLabel(muscle) }}
+                      </span>
+
+                    }
+
                   </div>
 
                 </div>
 
 
-                <div class="muscle-table__muscles">
+                <!-- SECONDARY -->
 
-                  @for (
-                    muscle of exercise.primaryMuscles ?? [];
-                    track muscle
-                  ) {
+                <div class="muscle-table__group">
 
-                    <span>
-                      {{ getMuscleLabel(muscle) }}
+                  <div class="muscle-table__type">
+
+                    <span class="muscle-table__badge">
+                      S
                     </span>
 
-                  }
+                    <div>
+                      <span>Secondary</span>
+                      <strong>Supporting muscles</strong>
+                    </div>
 
-                </div>
-
-              </div>
-
-
-              <!-- SECONDARY -->
-
-              <div class="muscle-table__group">
-
-                <div class="muscle-table__type">
-
-                  <span class="muscle-table__badge">
-                    S
-                  </span>
-
-                  <div>
-                    <span>Secondary</span>
-                    <strong>Supporting muscles</strong>
                   </div>
 
-                </div>
 
+                  <div class="muscle-table__muscles">
 
-                <div class="muscle-table__muscles">
+                    @for (
+                      muscle of exercise.secondaryMuscles ?? [];
+                      track muscle
+                    ) {
 
-                  @for (
-                    muscle of exercise.secondaryMuscles ?? [];
-                    track muscle
-                  ) {
+                      <span>
+                        {{ getMuscleLabel(muscle) }}
+                      </span>
 
-                    <span>
-                      {{ getMuscleLabel(muscle) }}
-                    </span>
+                    }
 
-                  }
+                  </div>
 
                 </div>
 
@@ -374,63 +412,63 @@
 
             </div>
 
-          </div>
+
+            <!-- EQUIPMENT -->
+
+            <div class="exercise-info-panel">
+
+              <span class="exercise-info-panel__label">
+                Equipment
+              </span>
 
 
-          <!-- EQUIPMENT -->
+              <div class="compact-equipment-list">
 
-          <div class="exercise-info-panel">
+                @for (
+                  equipment of exercise.equipment ?? [];
+                  track equipment
+                ) {
 
-            <span class="exercise-info-panel__label">
-              Equipment
-            </span>
+                  <div
+                    class="compact-equipment"
+                    [class.compact-equipment--bar]="equipment === 'pull-up-bar'"
+                    [class.compact-equipment--rings]="equipment === 'rings'"
+                    [class.compact-equipment--parallettes]="equipment === 'parallettes'"
+                    [class.compact-equipment--bands]="equipment === 'bands'"
+                    [class.compact-equipment--floor]="equipment === 'floor'"
+                    [class.compact-equipment--pole]="equipment === 'vertical-pole'"
+                    [class.compact-equipment--weight]="equipment === 'added-weight'"
+                  >
 
+                    <span>Equipment</span>
 
-            <div class="compact-equipment-list">
+                    <strong>
+                      {{ getEquipmentLabel(equipment) }}
+                    </strong>
 
-              @for (
-                equipment of exercise.equipment ?? [];
-                track equipment
-              ) {
+                  </div>
 
-                <div
-                  class="compact-equipment"
-                  [class.compact-equipment--bar]="equipment === 'pull-up-bar'"
-                  [class.compact-equipment--rings]="equipment === 'rings'"
-                  [class.compact-equipment--parallettes]="equipment === 'parallettes'"
-                  [class.compact-equipment--bands]="equipment === 'bands'"
-                  [class.compact-equipment--floor]="equipment === 'floor'"
-                  [class.compact-equipment--pole]="equipment === 'vertical-pole'"
-                  [class.compact-equipment--weight]="equipment === 'added-weight'"
-                >
+                } @empty {
 
-                  <span>Equipment</span>
+                  <div class="compact-equipment">
 
-                  <strong>
-                    {{ getEquipmentLabel(equipment) }}
-                  </strong>
+                    <span>Equipment</span>
 
-                </div>
+                    <strong>
+                      No equipment required
+                    </strong>
 
-              } @empty {
+                  </div>
 
-                <div class="compact-equipment">
+                }
 
-                  <span>Equipment</span>
-
-                  <strong>
-                    No equipment required
-                  </strong>
-
-                </div>
-
-              }
+              </div>
 
             </div>
 
           </div>
 
-        </div>
+        }
 
       </section>
 
@@ -443,7 +481,12 @@
 
         <section class="detail-section detail-section--how-to">
 
-          <div class="detail-section__heading">
+          <button
+            type="button"
+            class="detail-section__heading detail-section__toggle"
+            (click)="toggleHowTo()"
+            [attr.aria-expanded]="!howToCollapsed()"
+          >
 
             <div>
 
@@ -463,50 +506,63 @@
 
             </div>
 
-            <span class="detail-section__number">
-              03
-            </span>
+            <div class="detail-section__heading-actions">
 
-          </div>
+              <span class="detail-section__number">
+                03
+              </span>
 
-
-          <div class="how-to-grid">
-
-            @for (
-              step of exercise.howTo ?? [];
-              track $index
-            ) {
-
-              <article
-                class="how-to-card"
-                [style.--step-image]="
-                  step.imageUrl
-                    ? 'url(' + step.imageUrl + ')'
-                    : 'none'
-                "
+              <span
+                class="detail-section__collapse-icon"
+                aria-hidden="true"
               >
+                {{ howToCollapsed() ? '+' : '−' }}
+              </span>
 
-                <span class="how-to-card__number">
-                  {{ $index + 1 }}
-                </span>
+            </div>
 
-                <div class="how-to-card__content">
+          </button>
 
-                  <h3>
-                    {{ step.title }}
-                  </h3>
 
-                  <p>
-                    {{ step.description }}
-                  </p>
+          @if (!howToCollapsed()) {
+            <div class="how-to-grid">
 
-                </div>
+              @for (
+                step of exercise.howTo ?? [];
+                track $index
+              ) {
 
-              </article>
+                <article
+                  class="how-to-card"
+                  [style.--step-image]="
+                    step.imageUrl
+                      ? 'url(' + step.imageUrl + ')'
+                      : 'none'
+                  "
+                >
 
-            }
+                  <span class="how-to-card__number">
+                    {{ $index + 1 }}
+                  </span>
 
-          </div>
+                  <div class="how-to-card__content">
+
+                    <h3>
+                      {{ step.title }}
+                    </h3>
+
+                    <p>
+                      {{ step.description }}
+                    </p>
+
+                  </div>
+
+                </article>
+
+              }
+
+            </div>
+          }
 
         </section>
 
@@ -521,7 +577,12 @@
 
         <section class="detail-section detail-section--mistakes">
 
-          <div class="detail-section__heading">
+          <button
+            type="button"
+            class="detail-section__heading detail-section__toggle"
+            (click)="toggleMistakes()"
+            [attr.aria-expanded]="!mistakesCollapsed()"
+          >
 
             <div>
 
@@ -541,46 +602,60 @@
 
             </div>
 
-            <span class="detail-section__number">
-              04
-            </span>
+            <div class="detail-section__heading-actions">
 
-          </div>
+              <span class="detail-section__number">
+                04
+              </span>
 
+              <span
+                class="detail-section__collapse-icon"
+                aria-hidden="true"
+              >
+                {{ mistakesCollapsed() ? '+' : '−' }}
+              </span>
 
-          <div class="mistakes-grid">
+            </div>
 
-            @for (
-              mistake of exercise.commonMistakes ?? [];
-              track $index
-            ) {
+          </button>
 
-              <article class="mistake-card">
+          @if (!mistakesCollapsed()) {
 
-                <span
-                  class="mistake-card__icon"
-                  aria-hidden="true"
-                >
-                  ×
-                </span>
+            <div class="mistakes-grid">
 
-                <div class="mistake-card__content">
+              @for (
+                mistake of exercise.commonMistakes ?? [];
+                track $index
+              ) {
 
-                  <h3>
-                    {{ mistake.title }}
-                  </h3>
+                <article class="mistake-card">
 
-                  <p>
-                    {{ mistake.description }}
-                  </p>
+                  <span
+                    class="mistake-card__icon"
+                    aria-hidden="true"
+                  >
+                    ×
+                  </span>
 
-                </div>
+                  <div class="mistake-card__content">
 
-              </article>
+                    <h3>
+                      {{ mistake.title }}
+                    </h3>
 
-            }
+                    <p>
+                      {{ mistake.description }}
+                    </p>
 
-          </div>
+                  </div>
+
+                </article>
+
+              }
+
+            </div>
+
+          }
 
         </section>
 
@@ -598,7 +673,12 @@
 
         <section class="detail-section progression-section">
 
-          <div class="detail-section__heading">
+          <button
+            type="button"
+            class="detail-section__heading detail-section__toggle"
+            (click)="toggleProgression()"
+            [attr.aria-expanded]="!progressionCollapsed()"
+          >
 
             <div>
 
@@ -618,205 +698,135 @@
 
             </div>
 
-            <span class="detail-section__number">
-              05
-            </span>
+            <div class="detail-section__heading-actions">
 
-          </div>
+              <span class="detail-section__number">
+                05
+              </span>
 
-
-          <div class="progression-path">
-
-
-            <!-- PREVIOUS -->
-
-            @if (previousProgressions().length > 0) {
-
-              <div class="progression-group">
-
-                <div class="progression-group__heading">
-
-                  <span class="progression-group__direction">
-                    Easier
-                  </span>
-
-                  <h3>
-                    Previous progressions
-                  </h3>
-
-                </div>
-
-
-                <div class="progression-cards">
-
-                  @for (
-                    item of previousProgressions();
-                    track item.id
-                  ) {
-
-                    <a
-                      class="progression-card"
-                      [routerLink]="['/exercises', item.id]"
-                    >
-
-                      <div class="progression-card__media">
-
-                        @if (item.imageUrl) {
-
-                          <img
-                            [src]="item.imageUrl | optimizedImage:'card'"
-                            [alt]="item.name + ' calisthenics progression'"
-                            loading="lazy"
-                            decoding="async"
-                          />
-
-                        }
-
-                      </div>
-
-
-                      <div class="progression-card__content">
-
-                        <span class="progression-card__meta">
-
-                          {{ item.difficulty }}
-
-                          @if (item.graphLevel) {
-                            <span aria-hidden="true"> • </span>
-                            Level {{ item.graphLevel }}
-                          }
-
-                        </span>
-
-                        <h4>
-                          {{ item.name }}
-                        </h4>
-
-                        <span class="progression-card__action">
-                          View exercise
-                          <span aria-hidden="true">→</span>
-                        </span>
-
-                      </div>
-
-                    </a>
-
-                  }
-
-                </div>
-
-              </div>
-
-            }
-
-
-            <!-- CURRENT -->
-
-            <div class="progression-current">
-
-              <div class="progression-current__marker">
-                You are here
-              </div>
-
-              <div class="progression-current__content">
-
-                <span>
-                  Current exercise
-                </span>
-
-                <strong>
-                  {{ exercise.name }}
-                </strong>
-
-                @if (exercise.graphLevel) {
-
-                  <small>
-                    {{ exercise.difficulty }}
-                    · Level {{ exercise.graphLevel }}
-                  </small>
-
-                }
-
-              </div>
+              <span
+                class="detail-section__collapse-icon"
+                aria-hidden="true"
+              >
+                {{ progressionCollapsed() ? '+' : '−' }}
+              </span>
 
             </div>
 
-
-            <!-- NEXT -->
-
-            @if (nextProgressions().length > 0) {
-
-              <div class="progression-group">
-
-                <div class="progression-group__heading">
-
-                  <span class="progression-group__direction">
-                    Harder
-                  </span>
-
-                  <h3>
-                    Advanced progressions
-                  </h3>
-
-                </div>
+          </button>
 
 
-                <div class="progression-cards progression-cards--next">
+          @if (!progressionCollapsed()) {
 
-                  @for (
-                    item of nextProgressions();
-                    track item.id
-                  ) {
-
-                    <a
-                      class="related-exercise-card"
-                      [routerLink]="['/exercises', item.id]"
-                    >
-
-                      <div class="related-exercise-card__media">
-
-                        @if (item.imageUrl) {
-
-                          <img
-                            [src]="item.imageUrl | optimizedImage:'card'"
-                            [alt]="item.name + ' advanced calisthenics exercise'"
-                            loading="lazy"
-                            decoding="async"
-                          />
-
-                        }
-
-                      </div>
+            <div class="progression-path">
 
 
-                      <div class="related-exercise-card__content">
+              <!-- PREVIOUS -->
 
-                        <div class="related-exercise-card__meta">
+              @if (previousProgressions().length > 0) {
 
-                          <span>
-                            {{ item.difficulty }}
-                          </span>
+                <div class="progression-group">
 
-                          @if (item.graphLevel) {
-                            <span>
-                              Level {{ item.graphLevel }}
-                            </span>
+                  <div class="progression-group__heading">
+
+                    <span class="progression-group__direction">
+                      Easier
+                    </span>
+
+                    <h3>
+                      Previous progressions
+                    </h3>
+
+                  </div>
+
+
+                  <div class="progression-cards">
+
+                    @for (
+                      item of previousProgressions();
+                      track item.id
+                    ) {
+
+                      <a
+                        class="progression-card"
+                        [routerLink]="['/exercises', item.id]"
+                      >
+
+                        <div class="progression-card__media">
+
+                          @if (item.imageUrl) {
+
+                            <img
+                              [src]="item.imageUrl | optimizedImage:'card'"
+                              [alt]="item.name + ' calisthenics progression'"
+                              loading="lazy"
+                              decoding="async"
+                            />
+
                           }
 
                         </div>
 
-                        <h4>
-                          {{ item.name }}
-                        </h4>
 
-                        <span class="related-exercise-card__action">
-                          View exercise
-                          <span aria-hidden="true">→</span>
-                        </span>
+                        <div class="progression-card__content">
 
-                      </div>
+                          <span class="progression-card__meta">
 
-                    </a>
+                            {{ item.difficulty }}
+
+                            @if (item.graphLevel) {
+                              <span aria-hidden="true"> • </span>
+                              Level {{ item.graphLevel }}
+                            }
+
+                          </span>
+
+                          <h4>
+                            {{ item.name }}
+                          </h4>
+
+                          <span class="progression-card__action">
+                            View exercise
+                            <span aria-hidden="true">→</span>
+                          </span>
+
+                        </div>
+
+                      </a>
+
+                    }
+
+                  </div>
+
+                </div>
+
+              }
+
+
+              <!-- CURRENT -->
+
+              <div class="progression-current">
+
+                <div class="progression-current__marker">
+                  You are here
+                </div>
+
+                <div class="progression-current__content">
+
+                  <span>
+                    Current exercise
+                  </span>
+
+                  <strong>
+                    {{ exercise.name }}
+                  </strong>
+
+                  @if (exercise.graphLevel) {
+
+                    <small>
+                      {{ exercise.difficulty }}
+                      · Level {{ exercise.graphLevel }}
+                    </small>
 
                   }
 
@@ -824,12 +834,96 @@
 
               </div>
 
-            }
 
-          </div>
+              <!-- NEXT -->
+
+              @if (nextProgressions().length > 0) {
+
+                <div class="progression-group">
+
+                  <div class="progression-group__heading">
+
+                    <span class="progression-group__direction">
+                      Harder
+                    </span>
+
+                    <h3>
+                      Advanced progressions
+                    </h3>
+
+                  </div>
+
+
+                  <div class="progression-cards progression-cards--next">
+
+                    @for (
+                      item of nextProgressions();
+                      track item.id
+                    ) {
+
+                      <a
+                        class="related-exercise-card"
+                        [routerLink]="['/exercises', item.id]"
+                      >
+
+                        <div class="related-exercise-card__media">
+
+                          @if (item.imageUrl) {
+
+                            <img
+                              [src]="item.imageUrl | optimizedImage:'card'"
+                              [alt]="item.name + ' advanced calisthenics exercise'"
+                              loading="lazy"
+                              decoding="async"
+                            />
+
+                          }
+
+                        </div>
+
+
+                        <div class="related-exercise-card__content">
+
+                          <div class="related-exercise-card__meta">
+
+                            <span>
+                              {{ item.difficulty }}
+                            </span>
+
+                            @if (item.graphLevel) {
+                              <span>
+                                Level {{ item.graphLevel }}
+                              </span>
+                            }
+
+                          </div>
+
+                          <h4>
+                            {{ item.name }}
+                          </h4>
+
+                          <span class="related-exercise-card__action">
+                            View exercise
+                            <span aria-hidden="true">→</span>
+                          </span>
+
+                        </div>
+
+                      </a>
+
+                    }
+
+                  </div>
+
+                </div>
+
+              }
+
+            </div>
+
+          }
 
         </section>
-
       }
 
 
@@ -841,7 +935,12 @@
 
         <section class="detail-section related-section">
 
-          <div class="detail-section__heading">
+          <button
+            type="button"
+            class="detail-section__heading detail-section__toggle"
+            (click)="toggleRelated()"
+            [attr.aria-expanded]="!relatedCollapsed()"
+          >
 
             <div>
 
@@ -860,83 +959,97 @@
 
             </div>
 
-            <span class="detail-section__number">
-              06
-            </span>
+            <div class="detail-section__heading-actions">
 
-          </div>
+              <span class="detail-section__number">
+                06
+              </span>
 
-
-          <div class="related-exercises-grid">
-
-            @for (
-              item of relatedExercises();
-              track item.id
-            ) {
-
-              <a
-                class="related-exercise-card"
-                [routerLink]="['/exercises', item.id]"
+              <span
+                class="detail-section__collapse-icon"
+                aria-hidden="true"
               >
+                {{ relatedCollapsed() ? '+' : '−' }}
+              </span>
 
-                <div class="related-exercise-card__media">
+            </div>
 
-                  @if (item.imageUrl) {
+          </button>
 
-                    <img
-                      [src]="item.imageUrl | optimizedImage:'card'"
-                      [alt]="item.name + ' calisthenics exercise'"
-                      loading="lazy"
-                      decoding="async"
-                    />
+          @if (!relatedCollapsed()) {
 
-                  }
+            <div class="related-exercises-grid">
 
-                  @if (item.movementType) {
+              @for (
+                item of relatedExercises();
+                track item.id
+              ) {
 
-                    <span class="related-exercise-card__movement">
-                      {{ item.movementType }}
-                    </span>
+                <a
+                  class="related-exercise-card"
+                  [routerLink]="['/exercises', item.id]"
+                >
 
-                  }
+                  <div class="related-exercise-card__media">
 
-                </div>
+                    @if (item.imageUrl) {
 
+                      <img
+                        [src]="item.imageUrl | optimizedImage:'card'"
+                        [alt]="item.name + ' calisthenics exercise'"
+                        loading="lazy"
+                        decoding="async"
+                      />
 
-                <div class="related-exercise-card__content">
+                    }
 
-                  <div class="related-exercise-card__meta">
+                    @if (item.movementType) {
 
-                    <span>
-                      {{ item.difficulty }}
-                    </span>
-
-                    @if (item.graphLevel) {
-                      <span>
-                        Level {{ item.graphLevel }}
+                      <span class="related-exercise-card__movement">
+                        {{ item.movementType }}
                       </span>
+
                     }
 
                   </div>
 
 
-                  <h3>
-                    {{ item.name }}
-                  </h3>
+                  <div class="related-exercise-card__content">
+
+                    <div class="related-exercise-card__meta">
+
+                      <span>
+                        {{ item.difficulty }}
+                      </span>
+
+                      @if (item.graphLevel) {
+                        <span>
+                          Level {{ item.graphLevel }}
+                        </span>
+                      }
+
+                    </div>
 
 
-                  <span class="related-exercise-card__action">
-                    View exercise
-                    <span aria-hidden="true">→</span>
-                  </span>
+                    <h3>
+                      {{ item.name }}
+                    </h3>
 
-                </div>
 
-              </a>
+                    <span class="related-exercise-card__action">
+                      View exercise
+                      <span aria-hidden="true">→</span>
+                    </span>
 
-            }
+                  </div>
 
-          </div>
+                </a>
+
+              }
+
+            </div>
+
+          }
 
         </section>
 
@@ -951,7 +1064,12 @@
 
         <section class="detail-section faq-section">
 
-          <div class="detail-section__heading">
+          <button
+            type="button"
+            class="detail-section__heading detail-section__toggle"
+            (click)="toggleFaq()"
+            [attr.aria-expanded]="!faqCollapsed()"
+          >
 
             <div>
 
@@ -970,56 +1088,71 @@
 
             </div>
 
-            <span class="detail-section__number">
-              07
-            </span>
+            <div class="detail-section__heading-actions">
 
-          </div>
+              <span class="detail-section__number">
+                07
+              </span>
 
+              <span
+                class="detail-section__collapse-icon"
+                aria-hidden="true"
+              >
+                {{ faqCollapsed() ? '+' : '−' }}
+              </span>
 
-          <div class="faq-list">
+            </div>
 
-            @for (
-              item of exercise.faq ?? [];
-              track item.question;
-              let index = $index
-            ) {
-
-              <details class="faq-item">
-
-                <summary class="faq-item__question">
-
-                  <span class="faq-item__number">
-                    {{ (index + 1).toString().padStart(2, '0') }}
-                  </span>
-
-                  <h3>
-                    {{ item.question }}
-                  </h3>
-
-                  <span
-                    class="faq-item__icon"
-                    aria-hidden="true"
-                  >
-                    +
-                  </span>
-
-                </summary>
+          </button>
 
 
-                <div class="faq-item__answer">
+          @if (!faqCollapsed()) {
 
-                  <p>
-                    {{ item.answer }}
-                  </p>
+            <div class="faq-list">
 
-                </div>
+              @for (
+                item of exercise.faq ?? [];
+                track item.question;
+                let index = $index
+              ) {
 
-              </details>
+                <details class="faq-item">
 
-            }
+                  <summary class="faq-item__question">
 
-          </div>
+                    <span class="faq-item__number">
+                      {{ (index + 1).toString().padStart(2, '0') }}
+                    </span>
+
+                    <h3>
+                      {{ item.question }}
+                    </h3>
+
+                    <span
+                      class="faq-item__icon"
+                      aria-hidden="true"
+                    >
+                      +
+                    </span>
+
+                  </summary>
+
+
+                  <div class="faq-item__answer">
+
+                    <p>
+                      {{ item.answer }}
+                    </p>
+
+                  </div>
+
+                </details>
+
+              }
+
+            </div>
+
+          }
 
         </section>
 
