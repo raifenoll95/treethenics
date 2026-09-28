@@ -6,7 +6,7 @@ export const BACK_LEVER_PULL_UP: Exercise = {
   movementType: 'dynamic',
   difficulty: 'advanced',
   graphLevel: 5,
-  showInTree: true,
+  showInTree: false,
   category: 'pull',
 
   targetAreas: ['back', 'biceps', 'shoulders'],
