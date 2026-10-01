@@ -12,6 +12,7 @@ import { ExerciseEquipment } from '../../../shared/models/exercise-equipment.mod
 import { ExerciseMuscle } from '../../../shared/models/exercise-muscle.model';
 import { RouterLink } from '@angular/router';
 import { OptimizedImagePipe } from '../../../shared/pipes/optimized-image.pipe';
+import { IMAGE_VERSION } from '../../../core/config/image-version';
 
 import {
   EQUIPMENT_LABELS,
@@ -32,6 +33,9 @@ type PanelSide = 'left' | 'right';
   styleUrl: './tree-page.css',
 })
 export class TreePage {
+
+  readonly treeBackgroundImage =
+  `url("https://assets.treethenics.com/optimized/detail/calisthenics-park.webp?v=${IMAGE_VERSION}")`;
 
   panelSide = signal<PanelSide>('right');
   readonly selectedExercise = signal<Exercise | undefined>(undefined);

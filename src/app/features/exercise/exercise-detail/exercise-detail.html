@@ -2,6 +2,7 @@
 
   <main
     class="exercise-detail"
+    [style.--anatomy-background-image]="anatomyBackgroundImage"
     [class.exercise-detail--beginner]="exercise.difficulty === 'beginner'"
     [class.exercise-detail--intermediate]="exercise.difficulty === 'intermediate'"
     [class.exercise-detail--advanced]="exercise.difficulty === 'advanced'"
@@ -431,6 +432,7 @@
 
                   <div
                     class="compact-equipment"
+                    [style.--equipment-image]="equipmentImage(equipment)"
                     [class.compact-equipment--bar]="equipment === 'pull-up-bar'"
                     [class.compact-equipment--rings]="equipment === 'rings'"
                     [class.compact-equipment--parallettes]="equipment === 'parallettes'"

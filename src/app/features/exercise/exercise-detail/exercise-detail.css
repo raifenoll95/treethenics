@@ -821,34 +821,6 @@
   line-height: 1.4;
 }
 
-.requirement-card--bar {
-  --equipment-image: url('https://assets.treethenics.com/optimized/detail/equipment/pull-up-bar.webp');
-}
-
-.requirement-card--rings {
-  --equipment-image: url('https://assets.treethenics.com/optimized/detail/equipment/rings.webp');
-}
-
-.requirement-card--parallettes {
-  --equipment-image: url('https://assets.treethenics.com/optimized/detail/equipment/parallettes.webp');
-}
-
-.requirement-card--bands {
-  --equipment-image: url('https://assets.treethenics.com/optimized/detail/equipment/bands.webp');
-}
-
-.requirement-card--floor {
-  --equipment-image: url('https://assets.treethenics.com/optimized/detail/equipment/floor.webp');
-}
-
-.requirement-card--pole {
-  --equipment-image: url('https://assets.treethenics.com/optimized/detail/equipment/vertical-pole.webp');
-}
-
-.requirement-card--weight {
-  --equipment-image: url('https://assets.treethenics.com/optimized/detail/equipment/added-weight.webp');
-}
-
 /* ========================================
    TECHNIQUE
 ======================================== */
@@ -1049,7 +1021,7 @@
   z-index: -1;
 
   background-image:
-    url('https://assets.treethenics.com/optimized/detail/anatomy/anatomy-background.webp');
+    var(--anatomy-background-image);
 
   background-size: contain;
   background-position: center;
@@ -2402,19 +2374,12 @@
   inset: 0;
 
   opacity: 0.13;
+  background-image: var(--equipment-image, none);
 
   background-position: center;
   background-size: cover;
 
   pointer-events: none;
-}
-
-.compact-equipment--bar::before {
-  background-image: url('https://assets.treethenics.com/optimized/detail/equipment/pull-up-bar.webp');
-}
-
-.compact-equipment--rings::before {
-  background-image: url('https://assets.treethenics.com/optimized/detail/equipment/rings.webp');
 }
 
 .compact-equipment > span,

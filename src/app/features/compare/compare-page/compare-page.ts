@@ -22,6 +22,7 @@ import {
 
 import { ExerciseEquipment } from '../../../shared/models/exercise-equipment.model';
 import { ExerciseMuscle } from '../../../shared/models/exercise-muscle.model';
+import { IMAGE_VERSION } from '../../../core/config/image-version';
 
 @Component({
   selector: 'app-compare-page',
@@ -30,6 +31,9 @@ import { ExerciseMuscle } from '../../../shared/models/exercise-muscle.model';
   styleUrl: './compare-page.css',
 })
 export class ComparePage {
+
+  readonly vsLogoUrl =
+  `https://assets.treethenics.com/optimized/detail/compare/vs_logo.webp?v=${IMAGE_VERSION}`;
 
   private readonly elementRef = inject(ElementRef<HTMLElement>);
 

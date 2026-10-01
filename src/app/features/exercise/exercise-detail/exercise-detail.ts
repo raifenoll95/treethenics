@@ -25,6 +25,7 @@ import {
 import { signal } from '@angular/core';
 
 import { OptimizedImagePipe } from '../../../shared/pipes/optimized-image.pipe';
+import { IMAGE_VERSION } from '../../../core/config/image-version';
 
 import {
   Meta,
@@ -44,6 +45,12 @@ import { DOCUMENT } from '@angular/common';
   styleUrl: './exercise-detail.css',
 })
 export class ExerciseDetail {
+
+  readonly anatomyBackgroundImage =
+  `url("https://assets.treethenics.com/optimized/detail/anatomy/anatomy-background.webp?v=${IMAGE_VERSION}")`;
+
+  readonly equipmentImage = (name: string): string =>
+  `url("https://assets.treethenics.com/optimized/detail/equipment/${name}.webp?v=${IMAGE_VERSION}")`;
 
   constructor() {
 

@@ -352,7 +352,7 @@
   position: absolute;
   inset: 0;
 
-  background-image: url('https://assets.treethenics.com/optimized/detail/calisthenics-park.webp');
+  background-image: var(--tree-background-image);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
