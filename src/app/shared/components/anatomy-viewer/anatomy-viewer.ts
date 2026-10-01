@@ -4,6 +4,7 @@ import {
   ElementRef,
   OnDestroy,
   ViewChild,
+  effect,
 } from '@angular/core';
 
 import { isPlatformBrowser } from '@angular/common';
@@ -79,6 +80,24 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
 
   private readonly clock = new THREE.Clock();
   private destroyed = false;
+
+  private readonly muscleColorsEffect = effect(() => {
+    this.primaryMuscles();
+    this.secondaryMuscles();
+
+    if (!this.model) {
+      return;
+    }
+
+    this.applyMuscleColors(this.model);
+
+    if (this.renderer && this.scene && this.camera) {
+      this.renderer.render(
+        this.scene,
+        this.camera,
+      );
+    }
+  });
 
   ngAfterViewInit(): void {
 
