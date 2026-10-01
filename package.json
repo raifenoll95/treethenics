@@ -6,8 +6,11 @@
     "start": "ng serve",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
     "optimize:images": "node scripts/optimize-images.mjs",
+    "upload:images": "node scripts/upload-images-r2.mjs",
+    "prepare:deploy": "npm run build && npm run upload:images",
     "prebuild": "node scripts/generate-image-version.mjs && npm run optimize:images",
     "build": "npm run generate:sitemap && ng build",
+    "build:render": "npm run generate:sitemap && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:treethenics": "node dist/treethenics/server/server.mjs"

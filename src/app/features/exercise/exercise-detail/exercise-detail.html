@@ -536,7 +536,7 @@
                   class="how-to-card"
                   [style.--step-image]="
                     step.imageUrl
-                      ? 'url(' + step.imageUrl + ')'
+                      ? 'url(' + (step.imageUrl | optimizedImage:'detail') + ')'
                       : 'none'
                   "
                 >

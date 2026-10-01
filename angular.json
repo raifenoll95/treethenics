@@ -22,6 +22,23 @@
             "assets": [
               {
                 "glob": "**/*",
+                "input": "public/draco",
+                "output": "draco"
+              },
+              {
+                "glob": "robots.txt",
+                "input": "public"
+              },
+              {
+                "glob": "sitemap.xml",
+                "input": "public"
+              },
+              {
+                "glob": "treethenics-preview.png",
+                "input": "public"
+              },
+              {
+                "glob": "treethenics.ico",
                 "input": "public"
               }
             ],

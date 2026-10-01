@@ -822,31 +822,31 @@
 }
 
 .requirement-card--bar {
-  --equipment-image: url('/images/equipment/pull-up-bar.png');
+  --equipment-image: url('https://assets.treethenics.com/optimized/detail/equipment/pull-up-bar.webp');
 }
 
 .requirement-card--rings {
-  --equipment-image: url('/images/equipment/rings.png');
+  --equipment-image: url('https://assets.treethenics.com/optimized/detail/equipment/rings.webp');
 }
 
 .requirement-card--parallettes {
-  --equipment-image: url('/images/equipment/parallettes.png');
+  --equipment-image: url('https://assets.treethenics.com/optimized/detail/equipment/parallettes.webp');
 }
 
 .requirement-card--bands {
-  --equipment-image: url('/images/equipment/bands.png');
+  --equipment-image: url('https://assets.treethenics.com/optimized/detail/equipment/bands.webp');
 }
 
 .requirement-card--floor {
-  --equipment-image: url('/images/equipment/floor.png');
+  --equipment-image: url('https://assets.treethenics.com/optimized/detail/equipment/floor.webp');
 }
 
 .requirement-card--pole {
-  --equipment-image: url('/images/equipment/vertical-pole.png');
+  --equipment-image: url('https://assets.treethenics.com/optimized/detail/equipment/vertical-pole.webp');
 }
 
 .requirement-card--weight {
-  --equipment-image: url('/images/equipment/added-weight.png');
+  --equipment-image: url('https://assets.treethenics.com/optimized/detail/equipment/added-weight.webp');
 }
 
 /* ========================================
@@ -1049,7 +1049,7 @@
   z-index: -1;
 
   background-image:
-    url('/images/anatomy/anatomy-background.png');
+    url('https://assets.treethenics.com/optimized/detail/anatomy/anatomy-background.webp');
 
   background-size: contain;
   background-position: center;
@@ -2410,11 +2410,11 @@
 }
 
 .compact-equipment--bar::before {
-  background-image: url('/images/equipment/pull-up-bar.png');
+  background-image: url('https://assets.treethenics.com/optimized/detail/equipment/pull-up-bar.webp');
 }
 
 .compact-equipment--rings::before {
-  background-image: url('/images/equipment/rings.png');
+  background-image: url('https://assets.treethenics.com/optimized/detail/equipment/rings.webp');
 }
 
 .compact-equipment > span,

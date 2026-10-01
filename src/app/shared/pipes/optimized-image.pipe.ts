@@ -26,6 +26,6 @@ export class OptimizedImagePipe implements PipeTransform {
       .replace(/^\/images\//, `/optimized/${variant}/`)
       .replace(/\.[^.\/]+$/, '.webp');
 
-    return `${optimizedPath}?v=${IMAGE_VERSION}`;
+    return `https://assets.treethenics.com${optimizedPath}?v=${IMAGE_VERSION}`;
   }
 }
