@@ -11,6 +11,8 @@ import { inject, PLATFORM_ID } from '@angular/core';
 
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'three/examples/jsm/libs/meshopt_decoder.module.js';
+import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import { input } from '@angular/core';
 
 import { ExerciseMuscle } from '../../../shared/models/exercise-muscle.model';
@@ -23,8 +25,17 @@ function loadCachedAnatomyModel(): Promise<THREE.Group> {
   if (!anatomyModelPromise) {
     const loader = new GLTFLoader();
 
+    // Meshopt support.
+    loader.setMeshoptDecoder(MeshoptDecoder);
+
+    // Draco support.
+    const dracoLoader = new DRACOLoader();
+    dracoLoader.setDecoderPath('/draco/');
+
+    loader.setDRACOLoader(dracoLoader);
+
     anatomyModelPromise = loader
-      .loadAsync('/models/anatomy/anatomy.glb')
+      .loadAsync('/models/anatomy/anatomy-treethenics-draco.glb')
       .then((gltf) => gltf.scene);
   }
 
@@ -62,6 +73,7 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
   private isAnimating = false;
   private readonly targetFps = 30;
   private lastFrameTime = 0;
+  private anatomyLoadStarted = false;
 
   private readonly clock = new THREE.Clock();
   private destroyed = false;
@@ -156,7 +168,7 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
 
     // Cargar el modelo anatómico.
 
-    this.loadAnatomyModel();
+    //this.loadAnatomyModel();
 
     // Adaptación al tamaño de la tarjeta.
 
@@ -172,6 +184,11 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
           this.isVisible = entry.isIntersecting;
 
           if (this.isVisible) {
+            if (!this.anatomyLoadStarted) {
+              this.anatomyLoadStarted = true;
+              this.loadAnatomyModel();
+            }
+
             this.startAnimation();
           } else {
             this.stopAnimation();
@@ -179,6 +196,7 @@ export class AnatomyViewer implements AfterViewInit, OnDestroy {
         },
         {
           threshold: 0.1,
+          rootMargin: '300px 0px',
         },
       );
 
