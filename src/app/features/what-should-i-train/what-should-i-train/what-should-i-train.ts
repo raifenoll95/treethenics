@@ -5,6 +5,7 @@ import {
   inject,
   PLATFORM_ID,
   OnDestroy,
+  effect,
 } from '@angular/core';
 
 import { isPlatformBrowser } from '@angular/common';
@@ -22,6 +23,7 @@ import { ExerciseTargetArea } from '../../../shared/models/exercise-target-area.
 import { ExerciseEquipment } from '../../../shared/models/exercise-equipment.model';
 
 import { OptimizedImagePipe } from '../../../shared/pipes/optimized-image.pipe';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 type DifficultyOption = ExerciseDifficulty;
 
@@ -52,8 +54,17 @@ export class WhatShouldITrain implements OnDestroy {
 
   private readonly params = this.route.snapshot.queryParamMap;
 
+  private readonly queryParamMap = toSignal(
+    this.route.queryParamMap,
+    {
+      initialValue: this.route.snapshot.queryParamMap,
+    },
+  );
+
   readonly isMobile = signal(false);
-  readonly currentPage = signal(1);
+  readonly currentPage = signal(
+    Math.max(1, Number(this.params.get('page')) || 1),
+  );
 
   readonly viewMode = signal<'grid' | 'list'>(
     isPlatformBrowser(this.platformId) &&
@@ -80,6 +91,13 @@ export class WhatShouldITrain implements OnDestroy {
 
   readonly totalPages = computed(() =>
     Math.max(1, Math.ceil(this.results().length / this.pageSize())),
+  );
+
+  readonly paginationPages = computed(() =>
+    Array.from(
+      { length: this.totalPages() },
+      (_, index) => index + 1,
+    ),
   );
 
   readonly paginatedResults = computed(() => {
@@ -139,9 +157,7 @@ export class WhatShouldITrain implements OnDestroy {
     () => this.selectedEquipment().length === 0,
   );
 
-  private readonly shuffledExercises = [...EXERCISES].sort(
-    () => Math.random() - 0.5,
-  );
+  private readonly shuffledExercises = [...EXERCISES];
 
   readonly results = computed<Exercise[]>(() => {
     const areas = this.selectedAreas();
@@ -243,6 +259,7 @@ export class WhatShouldITrain implements OnDestroy {
         target: this.selectedAreas().join(',') || null,
         equipment: this.selectedEquipment().join(',') || null,
         q: this.searchQuery().trim() || null,
+        page: null,
       },
       queryParamsHandling: 'merge',
       replaceUrl: true,
@@ -332,6 +349,17 @@ export class WhatShouldITrain implements OnDestroy {
   }
 
   constructor() {
+
+    effect(() => {
+      const page = Number(this.queryParamMap().get('page'));
+
+      this.currentPage.set(
+        Number.isFinite(page) && page >= 1
+          ? Math.floor(page)
+          : 1,
+      );
+    });
+
     if (isPlatformBrowser(this.platformId)) {
       this.updateScreenSize();
       window.addEventListener('resize', this.updateScreenSize);
@@ -345,12 +373,33 @@ export class WhatShouldITrain implements OnDestroy {
   }
 
   previousPage(): void {
-    this.currentPage.update((page) => Math.max(1, page - 1));
+    const page = Math.max(1, this.currentPage() - 1);
+
+    this.currentPage.set(page);
+
+    void this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        page: page === 1 ? null : page,
+      },
+      queryParamsHandling: 'merge',
+    });
   }
 
   nextPage(): void {
-    this.currentPage.update((page) =>
-      Math.min(this.totalPages(), page + 1),
+    const page = Math.min(
+      this.totalPages(),
+      this.currentPage() + 1,
     );
+
+    this.currentPage.set(page);
+
+    void this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        page,
+      },
+      queryParamsHandling: 'merge',
+    });
   }
 }

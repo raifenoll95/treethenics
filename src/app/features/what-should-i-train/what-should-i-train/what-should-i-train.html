@@ -288,9 +288,18 @@
             ←
           </button>
 
-          <span class="train-pagination__info">
-            Page {{ currentPage() }} of {{ totalPages() }}
-          </span>
+          <div class="train-pagination__info">
+            @for (page of paginationPages(); track page) {
+              <a
+                [routerLink]="[]"
+                [queryParams]="{ page: page === 1 ? null : page }"
+                queryParamsHandling="merge"
+                [attr.aria-current]="currentPage() === page ? 'page' : null"
+              >
+                {{ page }}
+              </a>
+            }
+          </div>
 
           <button
             type="button"
