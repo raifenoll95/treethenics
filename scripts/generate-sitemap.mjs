@@ -27,6 +27,14 @@ if (exerciseIds.length === 0) {
 // Evita duplicados por seguridad.
 const uniqueIds = [...new Set(exerciseIds)].sort();
 
+const EXERCISES_PER_PAGE = 24;
+const totalPages = Math.ceil(uniqueIds.length / EXERCISES_PER_PAGE);
+
+const paginationPaths = Array.from(
+  { length: Math.max(0, totalPages - 1) },
+  (_, index) => `/what-should-i-train/page/${index + 2}`,
+);
+
 // -----------------------------------------------------
 // Rutas estáticas
 // -----------------------------------------------------
@@ -46,6 +54,7 @@ const staticPaths = [
 
 const urls = [
   ...staticPaths,
+  ...paginationPaths,
   ...uniqueIds.map(
     (id) => `/exercises/${encodeURIComponent(id)}`,
   ),

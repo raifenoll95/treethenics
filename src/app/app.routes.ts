@@ -32,6 +32,10 @@ export const routes: Routes = [
         component: WhatShouldITrain,
       },
       {
+        path: 'what-should-i-train/page/:page',
+        component: WhatShouldITrain,
+      },
+      {
         path: 'exercises/:id',
         component: ExerciseDetail,
       },

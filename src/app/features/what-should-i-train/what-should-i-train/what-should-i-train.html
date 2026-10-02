@@ -291,9 +291,17 @@
           <div class="train-pagination__info">
             @for (page of paginationPages(); track page) {
               <a
-                [routerLink]="[]"
-                [queryParams]="{ page: page === 1 ? null : page }"
-                queryParamsHandling="merge"
+                [routerLink]="
+                  page === 1
+                    ? ['/what-should-i-train']
+                    : ['/what-should-i-train/page', page]
+                "
+                [queryParams]="{
+                  difficulty: selectedDifficulty(),
+                  target: selectedAreas().join(',') || null,
+                  equipment: selectedEquipment().join(',') || null,
+                  q: searchQuery() || null
+                }"
                 [attr.aria-current]="currentPage() === page ? 'page' : null"
               >
                 {{ page }}

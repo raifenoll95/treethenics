@@ -8,7 +8,7 @@ import {
   effect,
 } from '@angular/core';
 
-import { isPlatformBrowser } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
 import { RouterLink, ActivatedRoute, Router } from '@angular/router';
 
@@ -51,6 +51,7 @@ export class WhatShouldITrain implements OnDestroy {
   private readonly platformId = inject(PLATFORM_ID);
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
+  private readonly document = inject(DOCUMENT);
 
   private readonly params = this.route.snapshot.queryParamMap;
 
@@ -58,6 +59,13 @@ export class WhatShouldITrain implements OnDestroy {
     this.route.queryParamMap,
     {
       initialValue: this.route.snapshot.queryParamMap,
+    },
+  );
+
+  private readonly routeParamMap = toSignal(
+    this.route.paramMap,
+    {
+      initialValue: this.route.snapshot.paramMap,
     },
   );
 
@@ -250,20 +258,18 @@ export class WhatShouldITrain implements OnDestroy {
   }
 
   private syncUrl(): void {
-    this.currentPage.set(1);
-
-    void this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams: {
-        difficulty: this.selectedDifficulty(),
-        target: this.selectedAreas().join(',') || null,
-        equipment: this.selectedEquipment().join(',') || null,
-        q: this.searchQuery().trim() || null,
-        page: null,
+    void this.router.navigate(
+      ['/what-should-i-train'],
+      {
+        queryParams: {
+          difficulty: this.selectedDifficulty(),
+          target: this.selectedAreas().join(',') || null,
+          equipment: this.selectedEquipment().join(',') || null,
+          q: this.searchQuery().trim() || null,
+        },
+        replaceUrl: true,
       },
-      queryParamsHandling: 'merge',
-      replaceUrl: true,
-    });
+    );
   }
 
   updateSearch(event: Event): void {
@@ -348,16 +354,39 @@ export class WhatShouldITrain implements OnDestroy {
     }
   }
 
+  private updateCanonical(page: number): void {
+    const path =
+      page <= 1
+        ? '/what-should-i-train'
+        : `/what-should-i-train/page/${page}`;
+
+    const href = `https://www.treethenics.com${path}`;
+
+    let canonical = this.document.head.querySelector<HTMLLinkElement>(
+      'link[rel="canonical"]',
+    );
+
+    if (!canonical) {
+      canonical = this.document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      this.document.head.appendChild(canonical);
+    }
+
+    canonical.setAttribute('href', href);
+  }
+
   constructor() {
 
     effect(() => {
-      const page = Number(this.queryParamMap().get('page'));
+      const value = Number(this.routeParamMap().get('page'));
 
-      this.currentPage.set(
-        Number.isFinite(page) && page >= 1
-          ? Math.floor(page)
-          : 1,
-      );
+      const page =
+        Number.isFinite(value) && value >= 1
+          ? Math.floor(value)
+          : 1;
+
+      this.currentPage.set(page);
+      this.updateCanonical(page);
     });
 
     if (isPlatformBrowser(this.platformId)) {
@@ -375,15 +404,19 @@ export class WhatShouldITrain implements OnDestroy {
   previousPage(): void {
     const page = Math.max(1, this.currentPage() - 1);
 
-    this.currentPage.set(page);
-
-    void this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams: {
-        page: page === 1 ? null : page,
+    void this.router.navigate(
+      page === 1
+        ? ['/what-should-i-train']
+        : ['/what-should-i-train/page', page],
+      {
+        queryParams: {
+          difficulty: this.selectedDifficulty(),
+          target: this.selectedAreas().join(',') || null,
+          equipment: this.selectedEquipment().join(',') || null,
+          q: this.searchQuery().trim() || null,
+        },
       },
-      queryParamsHandling: 'merge',
-    });
+    );
   }
 
   nextPage(): void {
@@ -392,14 +425,16 @@ export class WhatShouldITrain implements OnDestroy {
       this.currentPage() + 1,
     );
 
-    this.currentPage.set(page);
-
-    void this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams: {
-        page,
+    void this.router.navigate(
+      ['/what-should-i-train/page', page],
+      {
+        queryParams: {
+          difficulty: this.selectedDifficulty(),
+          target: this.selectedAreas().join(',') || null,
+          equipment: this.selectedEquipment().join(',') || null,
+          q: this.searchQuery().trim() || null,
+        },
       },
-      queryParamsHandling: 'merge',
-    });
+    );
   }
 }
