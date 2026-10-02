@@ -32,7 +32,7 @@ const totalPages = Math.ceil(uniqueIds.length / EXERCISES_PER_PAGE);
 
 const paginationPaths = Array.from(
   { length: Math.max(0, totalPages - 1) },
-  (_, index) => `/what-should-i-train/page/${index + 2}`,
+  (_, index) => `/train/page/${index + 2}`,
 );
 
 // -----------------------------------------------------
@@ -42,7 +42,7 @@ const paginationPaths = Array.from(
 const staticPaths = [
   '/',
   '/search',
-  '/what-should-i-train',
+  '/train',
   '/compare',
   '/about',
   '/pro',

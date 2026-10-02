@@ -198,7 +198,7 @@ export class ExerciseDetail {
               '@type': 'ListItem',
               position: 2,
               name: 'Exercise Library',
-              item: 'https://www.treethenics.com/what-should-i-train',
+              item: 'https://www.treethenics.com/train',
             },
             {
               '@type': 'ListItem',
@@ -347,46 +347,6 @@ export class ExerciseDetail {
 
     script.textContent = JSON.stringify(data);
   }
-
-  readonly origin = this.route.snapshot.queryParamMap.get('from');
-
-  readonly backQueryParams =
-  this.origin === 'search'
-    ? {
-        q: this.route.snapshot.queryParamMap.get('q'),
-        difficulty: this.route.snapshot.queryParamMap.get('difficulty'),
-      }
-    : this.origin === 'what-should-i-train'
-      ? {
-          difficulty: this.route.snapshot.queryParamMap.get('difficulty'),
-          target: this.route.snapshot.queryParamMap.get('target'),
-          equipment: this.route.snapshot.queryParamMap.get('equipment'),
-          q: this.route.snapshot.queryParamMap.get('q'),
-        }
-      : this.origin === 'compare'
-        ? {
-            first: this.route.snapshot.queryParamMap.get('first'),
-            second: this.route.snapshot.queryParamMap.get('second'),
-          }
-        : {};
-
-  readonly backRoute =
-  this.origin === 'tree'
-    ? '/tree'
-    : this.origin === 'what-should-i-train'
-      ? '/what-should-i-train'
-      : this.origin === 'compare'
-        ? '/compare'
-        : '/search';
-
-  readonly backLabel =
-  this.origin === 'tree'
-    ? 'Back to Tree'
-    : this.origin === 'what-should-i-train'
-      ? 'Back to What should I train?'
-      : this.origin === 'compare'
-        ? 'Back to Compare'
-        : 'Back to Exercises';
 
   private readonly paramMap = toSignal(
     this.route.paramMap,

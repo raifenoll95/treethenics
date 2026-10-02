@@ -28,11 +28,11 @@ export const routes: Routes = [
         component: SearchPage,
       },
       {
-        path: 'what-should-i-train',
+        path: 'train',
         component: WhatShouldITrain,
       },
       {
-        path: 'what-should-i-train/page/:page',
+        path: 'train/page/:page',
         component: WhatShouldITrain,
       },
       {

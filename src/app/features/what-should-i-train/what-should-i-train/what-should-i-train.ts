@@ -33,7 +33,7 @@ interface SelectOption<T extends string> {
 }
 
 @Component({
-  selector: 'app-what-should-i-train',
+  selector: 'train',
   imports: [
     RouterLink,
     OptimizedImagePipe,
@@ -259,7 +259,7 @@ export class WhatShouldITrain implements OnDestroy {
 
   private syncUrl(): void {
     void this.router.navigate(
-      ['/what-should-i-train'],
+      ['/train'],
       {
         queryParams: {
           difficulty: this.selectedDifficulty(),
@@ -357,8 +357,8 @@ export class WhatShouldITrain implements OnDestroy {
   private updateCanonical(page: number): void {
     const path =
       page <= 1
-        ? '/what-should-i-train'
-        : `/what-should-i-train/page/${page}`;
+        ? '/train'
+        : `/train/page/${page}`;
 
     const href = `https://www.treethenics.com${path}`;
 
@@ -406,8 +406,8 @@ export class WhatShouldITrain implements OnDestroy {
 
     void this.router.navigate(
       page === 1
-        ? ['/what-should-i-train']
-        : ['/what-should-i-train/page', page],
+        ? ['/train']
+        : ['/train/page', page],
       {
         queryParams: {
           difficulty: this.selectedDifficulty(),
@@ -426,7 +426,7 @@ export class WhatShouldITrain implements OnDestroy {
     );
 
     void this.router.navigate(
-      ['/what-should-i-train/page', page],
+      ['/train/page', page],
       {
         queryParams: {
           difficulty: this.selectedDifficulty(),

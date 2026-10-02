@@ -11,14 +11,6 @@
 
     <!-- BACK -->
 
-    <a
-      [routerLink]="backRoute"
-      [queryParams]="backQueryParams"
-      class="exercise-detail__back"
-    >
-      <span class="exercise-detail__back-icon" aria-hidden="true">←</span>
-      <span class="exercise-detail__back-label">{{ backLabel }}</span>
-    </a>
 
     <nav
       class="exercise-breadcrumb"
@@ -35,7 +27,7 @@
         /
       </span>
 
-      <a routerLink="/what-should-i-train">
+      <a routerLink="/train">
         Exercise Library
       </a>
 
@@ -1174,16 +1166,6 @@
     <h1>
       Exercise not found
     </h1>
-
-    <a
-      routerLink="/search"
-      [queryParams]="{
-        q: route.snapshot.queryParamMap.get('q'),
-        difficulty: route.snapshot.queryParamMap.get('difficulty')
-      }"
-    >
-      ← Back to Exercises
-    </a>
 
   </main>
 

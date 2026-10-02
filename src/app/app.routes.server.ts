@@ -12,7 +12,7 @@ export const serverRoutes: ServerRoute[] = [
     },
   },
   {
-    path: 'what-should-i-train/page/:page',
+    path: 'train/page/:page',
     renderMode: RenderMode.Prerender,
     async getPrerenderParams() {
       const exercisesPerPage = 24;

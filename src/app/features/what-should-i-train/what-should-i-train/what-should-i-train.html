@@ -252,13 +252,6 @@
                 <a
                   class="exercise-card__link"
                   [routerLink]="['/exercises', exercise.id]"
-                  [queryParams]="{
-                    from: 'what-should-i-train',
-                    difficulty: selectedDifficulty(),
-                    target: selectedAreas().join(',') || null,
-                    equipment: selectedEquipment().join(',') || null,
-                    q: searchQuery() || null
-                  }"
                 >
                   View →
                 </a>
@@ -293,8 +286,8 @@
               <a
                 [routerLink]="
                   page === 1
-                    ? ['/what-should-i-train']
-                    : ['/what-should-i-train/page', page]
+                    ? ['/train']
+                    : ['/train/page', page]
                 "
                 [queryParams]="{
                   difficulty: selectedDifficulty(),
