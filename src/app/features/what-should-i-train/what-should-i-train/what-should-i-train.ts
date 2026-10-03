@@ -210,7 +210,9 @@ export class WhatShouldITrain implements OnDestroy {
 
     // Si la ordenación está desactivada, mantenemos el orden original.
     if (!this.sortByLevel()) {
-      return filteredExercises;
+      return [...filteredExercises].sort((a, b) =>
+        a.name.localeCompare(b.name, 'en', { sensitivity: 'base' })
+      );
     }
 
     // Si está activada: Beginner → Intermediate → Advanced → Elite.
