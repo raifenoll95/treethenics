@@ -120,18 +120,18 @@ import { COMANDO_PULL_UP } from './exercises/comando-pull-up.exercise';
 import { TUCK_ADVANCED_FRONT_LEVER } from './exercises/tuck-advanced-front-lever.exercise';
 import { TUCK_ADVANCED_FRONT_LEVER_PULL_UP } from './exercises/tuck-advanced-front-lever-pull-up.exercise';
 import { STRADDLE_FRONT_LEVER } from './exercises/straddle-front-lever-pull-up.exercise';
-import { ARCH_BODY_HOLD } from './exercises/arch-body-hold';
-import { BIRD_DOG } from './exercises/bird-dog';
-import { HOLLOW_BODY_HOLD } from './exercises/hollow-body-hold';
-import { HANGING_KNEE_RAISES } from './exercises/hanging-knee-raises';
-import { JUMPING_JACKS } from './exercises/jumping-jacks';
-import { TRICEPS_DIP } from './exercises/triceps-dip';
-import { WALL_SQUAT } from './exercises/wall-squat';
-import { SIT_UPS } from './exercises/sit-ups';
-import { MOUNTAIN_CLIMBERS } from './exercises/mountain-climbers';
-import { LEG_RAISES } from './exercises/leg-raises';
-import { BURPEES } from './exercises/burpees';
-import { BICYCLE_CRUNCHES } from './exercises/bicycle-crunches';
+import { ARCH_BODY_HOLD } from './exercises/arch-body-hold.exercise';
+import { BIRD_DOG } from './exercises/bird-dog.exercise';
+import { HOLLOW_BODY_HOLD } from './exercises/hollow-body-hold.exercise';
+import { HANGING_KNEE_RAISES } from './exercises/hanging-knee-raises.exercise';
+import { JUMPING_JACKS } from './exercises/jumping-jacks.exercise';
+import { TRICEPS_DIP } from './exercises/triceps-dip.exercise';
+import { WALL_SQUAT } from './exercises/wall-squat.exercise';
+import { SIT_UPS } from './exercises/sit-ups.exercise';
+import { MOUNTAIN_CLIMBERS } from './exercises/mountain-climbers.exercise';
+import { LEG_RAISES } from './exercises/leg-raises.exercise';
+import { BURPEES } from './exercises/burpees.exercise';
+import { BICYCLE_CRUNCHES } from './exercises/bicycle-crunches.exercise';
 
 
 export const EXERCISES: Exercise[] = [
