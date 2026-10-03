@@ -120,6 +120,13 @@ import { COMANDO_PULL_UP } from './exercises/comando-pull-up.exercise';
 import { TUCK_ADVANCED_FRONT_LEVER } from './exercises/tuck-advanced-front-lever.exercise';
 import { TUCK_ADVANCED_FRONT_LEVER_PULL_UP } from './exercises/tuck-advanced-front-lever-pull-up.exercise';
 import { STRADDLE_FRONT_LEVER } from './exercises/straddle-front-lever-pull-up.exercise';
+import { ARCH_BODY_HOLD } from './exercises/arch-body-hold';
+import { BIRD_DOG } from './exercises/bird-dog';
+import { HOLLOW_BODY_HOLD } from './exercises/hollow-body-hold';
+import { HANGING_KNEE_RAISES } from './exercises/hanging-knee-raises';
+import { JUMPING_JACKS } from './exercises/jumping-jacks';
+import { TRICEPS_DIP } from './exercises/triceps-dip';
+import { WALL_SQUAT } from './exercises/wall-squat';
 
 export const EXERCISES: Exercise[] = [
   FRONT_LEVER,
@@ -241,5 +248,12 @@ export const EXERCISES: Exercise[] = [
   COMANDO_PULL_UP,
   TUCK_ADVANCED_FRONT_LEVER,
   TUCK_ADVANCED_FRONT_LEVER_PULL_UP,
-  STRADDLE_FRONT_LEVER
+  STRADDLE_FRONT_LEVER,
+  ARCH_BODY_HOLD,
+  BIRD_DOG,
+  HOLLOW_BODY_HOLD,
+  HANGING_KNEE_RAISES,
+  JUMPING_JACKS,
+  TRICEPS_DIP,
+  WALL_SQUAT
 ];
