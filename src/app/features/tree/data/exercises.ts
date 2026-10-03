@@ -127,6 +127,12 @@ import { HANGING_KNEE_RAISES } from './exercises/hanging-knee-raises';
 import { JUMPING_JACKS } from './exercises/jumping-jacks';
 import { TRICEPS_DIP } from './exercises/triceps-dip';
 import { WALL_SQUAT } from './exercises/wall-squat';
+import { SIT_UPS } from './exercises/sit-ups';
+import { MOUNTAIN_CLIMBERS } from './exercises/mountain-climbers';
+import { LEG_RAISES } from './exercises/leg-raises';
+import { BURPEES } from './exercises/burpees';
+import { BICYCLE_CRUNCHES } from './exercises/bicycle-crunches';
+
 
 export const EXERCISES: Exercise[] = [
   FRONT_LEVER,
@@ -255,5 +261,11 @@ export const EXERCISES: Exercise[] = [
   HANGING_KNEE_RAISES,
   JUMPING_JACKS,
   TRICEPS_DIP,
-  WALL_SQUAT
+  WALL_SQUAT,
+  SIT_UPS,
+  REVERSE_PLANCHE,
+  MOUNTAIN_CLIMBERS,
+  LEG_RAISES,
+  BURPEES,
+  BICYCLE_CRUNCHES
 ];

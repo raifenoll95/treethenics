@@ -346,5 +346,17 @@
   "optimized/detail/exercises/hollow-body-hold.webp": "bdfa97ab95e64ad2d58a587433cde7653b38d456440eb2b4169ad47f62702401",
   "optimized/detail/exercises/jumping-jacks.webp": "f6f0e2a892e78efef92a4804a54e47942366c17e742a34f0b6d0b63cdab9d9f5",
   "optimized/detail/exercises/triceps-dip.webp": "9e374c37fb8bf954eb43e1631a35d48af606d016cc6afe2e598e220bb23e88d0",
-  "optimized/detail/exercises/wall-squat.webp": "1852ae7c889dc272d696a1ce3e0be9286b09282644a96268c0121723e82abe09"
+  "optimized/detail/exercises/wall-squat.webp": "1852ae7c889dc272d696a1ce3e0be9286b09282644a96268c0121723e82abe09",
+  "optimized/card/exercises/bicycle-crunches.webp": "00cc61a63ffe6c2411b5e7ecb662ca73a6e1e42f1ad1f936b23e2c6e371ac981",
+  "optimized/card/exercises/burpees.webp": "b17c5f89ab2e0dc46235ebae63337b6bc8ea79e2681cb389d72392cccf80101c",
+  "optimized/card/exercises/leg-raises.webp": "a8e72815dfd4d35bff160afa7ec9d3de4a7b9420a14a88e42d0d2c556e0447c9",
+  "optimized/card/exercises/mountain-climbers.webp": "284fb81020d3c2a59a88eb8f9d67eecbeb8900e869822773430dc3002cb5e6af",
+  "optimized/card/exercises/reverse-crunches.webp": "7da3334c2378f270c679cd8ba7228607d78e70754eea6595185412e4b3e30ce1",
+  "optimized/card/exercises/sit-ups.webp": "38f75c7f7edb161976e0d01f7da8182c1f4a81df41a01af23bdba91952b3605e",
+  "optimized/detail/exercises/bicycle-crunches.webp": "f68dd2cb79c80cb561682c4f51181389a72aaa46be2bd0fe2333eb4cc2b2bdfe",
+  "optimized/detail/exercises/burpees.webp": "e822c31fb94e6ede8032aeef63aab450865fe4c0f5e2c5853025ed43c21e1a3c",
+  "optimized/detail/exercises/leg-raises.webp": "df65502cd067e392a6725eeace80875c952974e1115c6d7baa71c8497433bf5a",
+  "optimized/detail/exercises/mountain-climbers.webp": "76adcb53f2cf7620a50337fe45b3ef0197b3addc6782a9bff0a11ba1694f3c70",
+  "optimized/detail/exercises/reverse-crunches.webp": "cae3445fe64e9cc9dba77030d5581ea99af2715b15f649e39172c2cd4c907a9b",
+  "optimized/detail/exercises/sit-ups.webp": "7cdf1ab35e40b99937e5216698ad35414d2b1607f70211e6d3fdb2dfb32c96df"
 }
