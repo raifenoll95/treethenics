@@ -1,1 +1,32 @@
+@if (showCookieBanner) {
+  <div class="cookie-banner">
+    <div class="cookie-banner__content">
+      <div class="cookie-banner__text">
+        <strong>We use analytics cookies</strong>
+
+        <p>
+          We use Google Analytics to understand how TreeThenics is used
+          and improve the website.
+        </p>
+      </div>
+
+      <div class="cookie-banner__actions">
+        <button
+          type="button"
+          class="cookie-button cookie-button--reject"
+          (click)="rejectAnalytics()">
+          Reject
+        </button>
+
+        <button
+          type="button"
+          class="cookie-button cookie-button--accept"
+          (click)="acceptAnalytics()">
+          Accept
+        </button>
+      </div>
+    </div>
+  </div>
+}
+
 <router-outlet></router-outlet>
