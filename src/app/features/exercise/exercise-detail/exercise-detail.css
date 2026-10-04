@@ -123,60 +123,116 @@
   transform: translateX(-1px);
 }
 
-
 /* ========================================
    HEADER
 ======================================== */
 
 .exercise-detail__header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-
   margin-bottom: 26px;
 }
+
+.exercise-title-block {
+  width: fit-content;
+}
+
+/* PULL • LEVEL 01 / 07 */
 
 .exercise-detail__eyebrow {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
 
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 
   color: var(--exercise-color);
 
   font-size: 10px;
-  font-weight: 800;
+  font-weight: 900;
 
-  letter-spacing: 0.1em;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
 }
 
 .exercise-detail__separator {
-  color: #56606e;
+  color: var(--exercise-color);
 }
 
-.exercise-detail__header h1 {
+.exercise-detail__level-total {
+  color: #697586;
+}
+
+
+/* PULL UP */
+
+.exercise-detail__title {
   margin: 0;
 
   color: #f8fafc;
 
-  font-size: clamp(34px, 3vw, 48px);
-  font-weight: 850;
+  font-size: clamp(48px, 4.2vw, 72px);
+  font-weight: 900;
 
-  line-height: 1;
-  letter-spacing: -0.04em;
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
-.exercise-detail__header p {
-  max-width: 720px;
+/* Front Lever / Muscle Up / Handstand... */
+.exercise-detail__title--long {
+  font-size: clamp(40px, 3.4vw, 60px);
+}
 
-  margin: 14px 0 0;
+/* One Arm Front Lever to Muscle Up... */
+.exercise-detail__title--very-long {
+  font-size: clamp(30px, 2.6vw, 46px);
+}
 
-  color: #9ba6b5;
 
-  font-size: 14px;
-  line-height: 1.65;
+/* Punto verde */
+
+.exercise-detail__title-dot {
+  color: var(--exercise-color);
+  margin-left: 3px;
+}
+
+
+/* Pequeña línea inferior */
+
+.exercise-detail__title-line {
+  width: 44px;
+  height: 3px;
+
+  margin-top: 15px;
+  margin-bottom: 8px;
+
+  background: var(--exercise-color);
+}
+
+
+/* FOUNDATION MOVEMENT • BEGINNER */
+
+.exercise-detail__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: #8995a5;
+
+  font-size: 9px;
+  font-weight: 850;
+
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.exercise-detail__meta-separator {
+  color: var(--exercise-color);
+}
+
+.exercise-detail__difficulty {
+  color: var(--exercise-color);
 }
 
 
@@ -435,17 +491,6 @@
     grid-template-columns: 1fr;
   }
 }
-
-@media (max-width: 600px) {
-  .exercise-detail {
-    padding: 22px 18px 50px;
-  }
-
-  .exercise-detail__header h1 {
-    font-size: 34px;
-  }
-}
-
 
 
 /* ========================================
@@ -2742,6 +2787,51 @@
   outline: 2px solid var(--exercise-color);
   outline-offset: 6px;
   border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+
+  .exercise-detail {
+    padding: 22px 18px 50px;
+    overflow-x: hidden;
+  }
+
+  .exercise-detail__header,
+  .exercise-title-block {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .exercise-detail__title {
+    font-size: clamp(30px, 10vw, 42px);
+    line-height: 0.95;
+    letter-spacing: -0.055em;
+
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .exercise-detail__title--medium,
+  .exercise-detail__title--long,
+  .exercise-detail__title--very-long {
+    font-size: clamp(30px, 10vw, 42px);
+  }
+
+  .exercise-detail__eyebrow {
+    margin-bottom: 9px;
+    font-size: 9px;
+  }
+
+  .exercise-detail__title-line {
+    margin-top: 11px;
+  }
+
+  .exercise-detail__meta {
+    gap: 7px;
+    font-size: 8px;
+    letter-spacing: 0.16em;
+  }
 }
 
 

@@ -53,7 +53,7 @@
 
     <header class="exercise-detail__header">
 
-      <div>
+      <div class="exercise-title-block">
 
         <div class="exercise-detail__eyebrow">
 
@@ -63,17 +63,35 @@
 
           @if (exercise.graphLevel) {
             <span class="exercise-detail__separator">•</span>
-            <span>Level {{ exercise.graphLevel }}</span>
+
+            <span>
+              Level {{ exercise.graphLevel }}
+              <span class="exercise-detail__level-total">/ 07</span>
+            </span>
           }
 
         </div>
 
-        <h1>{{ exercise.name }}</h1>
+        <h1
+          class="exercise-detail__title"
+          [class.exercise-detail__title--medium]="exercise.name.length > 12"
+          [class.exercise-detail__title--long]="exercise.name.length > 20"
+          [class.exercise-detail__title--very-long]="exercise.name.length > 30"
+        >
+          {{ exercise.name }}<span class="exercise-detail__title-dot">.</span>
+        </h1>
 
-        <p>
-          Learn the {{ exercise.name }} with proper technique,
-          muscles worked, equipment and structured progressions.
-        </p>
+        <div class="exercise-detail__title-line"></div>
+
+        <div class="exercise-detail__meta">
+          <span>Foundation movement</span>
+
+          <span class="exercise-detail__meta-separator">•</span>
+
+          <span class="exercise-detail__difficulty">
+            {{ exercise.difficulty }}
+          </span>
+        </div>
 
       </div>
 
