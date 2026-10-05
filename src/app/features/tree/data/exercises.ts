@@ -132,6 +132,7 @@ import { MOUNTAIN_CLIMBERS } from './exercises/mountain-climbers.exercise';
 import { LEG_RAISES } from './exercises/leg-raises.exercise';
 import { BURPEES } from './exercises/burpees.exercise';
 import { BICYCLE_CRUNCHES } from './exercises/bicycle-crunches.exercise';
+import { ICE_CREAM_MAKERS } from './exercises/ice-cream-makers.exercise';
 
 
 export const EXERCISES: Exercise[] = [
@@ -267,5 +268,6 @@ export const EXERCISES: Exercise[] = [
   MOUNTAIN_CLIMBERS,
   LEG_RAISES,
   BURPEES,
-  BICYCLE_CRUNCHES
+  BICYCLE_CRUNCHES,
+  ICE_CREAM_MAKERS,
 ];

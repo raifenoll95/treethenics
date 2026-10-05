@@ -4,7 +4,7 @@ export const TUCK_ADVANCED_FRONT_LEVER: Exercise = {
   id: 'tuck-advanced-front-lever',
   name: 'Tuck Adv. Front Lever',
   movementType: 'static',
-  difficulty: 'advanced',
+  difficulty: 'intermediate',
   graphLevel: 3,
   showInTree: true,
   category: 'static',

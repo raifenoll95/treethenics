@@ -4,8 +4,8 @@ export const KOREAN_DIP: Exercise = {
   id: 'korean-dip',
   name: 'Korean Dip',
   movementType: 'dynamic',
-  difficulty: 'advanced',
-  graphLevel: 3,
+  difficulty: 'intermediate',
+  graphLevel: 2,
   showInTree: true,
   category: 'push',
 
