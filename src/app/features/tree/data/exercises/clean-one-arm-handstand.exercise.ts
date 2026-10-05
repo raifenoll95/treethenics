@@ -2,7 +2,7 @@ import { Exercise } from '../../../../shared/models/exercise.model';
 
 export const CLEAN_ONE_ARM_HANDSTAND: Exercise = {
   id: 'clean-one-arm-handstand',
-  name: 'Clean One Arm Handstand',
+  name: 'One Arm Handstand',
   movementType: 'static',
   difficulty: 'advanced',
   graphLevel: 5,
