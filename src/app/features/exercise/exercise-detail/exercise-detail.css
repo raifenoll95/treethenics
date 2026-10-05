@@ -2834,4 +2834,45 @@
   }
 }
 
+/* HOW TO — BANDAS DIAGONALES */
+
+.how-to-card {
+  isolation: isolate;
+  background: #0c1218;
+}
+
+/* Mantiene la línea superior */
+.how-to-card::before {
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Fondo de bandas difuminadas */
+.how-to-card::after {
+  content: '';
+  position: absolute;
+  inset: -35px;
+
+  background: linear-gradient(
+    125deg,
+    transparent 30%,
+    rgba(202, 34, 47, 0.23) 41%,
+    transparent 53%,
+    rgba(218, 221, 39, 0.14) 68%,
+    transparent 78%
+  );
+
+  filter: blur(14px);
+  opacity: 1;
+
+  z-index: 0;
+  pointer-events: none;
+}
+
+.how-to-card__number,
+.how-to-card__content {
+  position: relative;
+  z-index: 1;
+}
+
 
