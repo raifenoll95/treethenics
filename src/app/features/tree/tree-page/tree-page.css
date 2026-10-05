@@ -1542,3 +1542,102 @@ app-tree-canvas {
   margin-bottom: 0;
 }
 
+/* HEADER — STATISTICS */
+
+.tree-header__stats {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.tree-header__stat {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  min-width: 72px;
+}
+
+.tree-header__stat strong {
+  color: #f4f7fb;
+
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.tree-header__stat span {
+  color: #8295ab;
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1.4;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.tree-header__divider {
+  width: 1px;
+  height: 38px;
+  flex: 0 0 1px;
+
+  background: #354250;
+}
+
+/* Destaca el total de ejercicios */
+.tree-header__stat:nth-of-type(3) strong {
+  color: #f43f5e;
+}
+
+.tree-header__stat:nth-of-type(3)::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+
+  width: 26px;
+  height: 2px;
+
+  background: #f43f5e;
+}
+
+@media (max-width: 700px) {
+  .tree-header__stats {
+    gap: 12px;
+  }
+
+  .tree-header__stat {
+    min-width: 58px;
+    gap: 5px;
+  }
+
+  .tree-header__stat strong {
+    font-size: 23px;
+  }
+
+  .tree-header__stat span {
+    font-size: 8px;
+  }
+
+  .tree-header__divider {
+    height: 30px;
+  }
+}
+
+@media (max-width: 700px) {
+  .tree-header__stats {
+    display: none;
+  }
+}
+

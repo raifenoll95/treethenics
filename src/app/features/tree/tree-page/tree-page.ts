@@ -37,6 +37,8 @@ export class TreePage {
   readonly treeBackgroundImage =
   `url("https://assets.treethenics.com/optimized/detail/calisthenics-park.webp?v=${IMAGE_VERSION}")`;
 
+  readonly totalExercises = EXERCISES.length;
+
   panelSide = signal<PanelSide>('right');
   readonly selectedExercise = signal<Exercise | undefined>(undefined);
 
