@@ -2,7 +2,7 @@ import { Exercise } from '../../../../shared/models/exercise.model';
 
 export const TUCK_ADVANCED_FRONT_LEVER: Exercise = {
   id: 'tuck-advanced-front-lever',
-  name: 'Tuck Advanced Front Lever',
+  name: 'Tuck Adv. Front Lever',
   movementType: 'static',
   difficulty: 'advanced',
   graphLevel: 3,

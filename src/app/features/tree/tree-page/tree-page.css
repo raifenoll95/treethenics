@@ -1410,3 +1410,135 @@ app-tree-canvas {
   color: #f43f5e;
 }
 
+/* GENERAL PROGRESSION NOTICE */
+
+.tree-notice {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+
+  margin-bottom: 18px;
+  padding: 16px 20px;
+
+  background: linear-gradient(110deg, #1b2026, #151b21);
+
+  border: 1px solid rgba(245, 174, 66, 0.45);
+  border-left: 4px solid #f5ae42;
+  border-radius: 10px;
+}
+
+.tree-notice__icon {
+  display: grid;
+  place-items: center;
+
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  box-sizing: border-box;
+
+  color: #f5ae42;
+
+  border: 1.5px solid #f5ae42;
+  border-radius: 50%;
+
+  font-family: Georgia, serif;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.tree-notice__content {
+  min-width: 0;
+}
+
+.tree-notice__content h2 {
+  margin: 0 0 5px;
+
+  color: #f4f7fb;
+
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.tree-notice__content p {
+  margin: 0;
+
+  color: #a7b4c3;
+
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+@media (max-width: 700px) {
+  .tree-notice {
+    align-items: flex-start;
+    gap: 12px;
+
+    padding: 14px;
+    margin-bottom: 14px;
+  }
+
+  .tree-notice__icon {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+
+    font-size: 18px;
+  }
+
+  .tree-notice__content h2 {
+    font-size: 13px;
+  }
+}
+
+.tree-notice {
+  gap: 12px;
+  padding: 10px 16px;
+  margin-bottom: 12px;
+}
+
+.tree-notice__icon {
+  width: 26px;
+  height: 26px;
+  flex-basis: 26px;
+  font-size: 17px;
+}
+
+.tree-notice__content h2 {
+  margin-bottom: 2px;
+  font-size: 12px;
+}
+
+.tree-notice__content p {
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+  .tree-notice {
+    gap: 10px;
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 700px) {
+  .tree-notice {
+    display: none;
+  }
+}
+
+.tree-header {
+  margin-bottom: 8px;
+}
+
+.tree-page__header {
+  margin-bottom: 0;
+}
+
