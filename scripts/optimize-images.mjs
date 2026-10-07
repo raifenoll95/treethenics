@@ -16,13 +16,13 @@ const SUPPORTED_EXTENSIONS = new Set([
 const VARIANTS = [
   {
     name: 'card',
-    width: 480,
-    maxBytes: 100 * 1024,
+    width: 360,
+    maxBytes: 40 * 1024,
   },
   {
     name: 'detail',
-    width: 1200,
-    maxBytes: 300 * 1024,
+    width: 1000,
+    maxBytes: 120 * 1024,
   },
 ];
 
@@ -49,43 +49,41 @@ async function getImageFiles(directory) {
 async function optimizeImage(sourcePath, outputPath, width, maxBytes) {
   await mkdir(path.dirname(outputPath), { recursive: true });
 
-  const image = sharp(sourcePath, {
-    animated: false,
-  }).rotate();
-
-  const metadata = await image.metadata();
-
-  let targetWidth = Math.min(metadata.width ?? width, width);
+  let targetWidth = width;
   let result;
 
-  for (let quality = 82; quality >= 42; quality -= 5) {
-    result = await sharp(sourcePath)
-      .rotate()
-      .resize({
-        width: targetWidth,
-        withoutEnlargement: true,
-      })
-      .webp({
-        quality,
-        effort: 4,
-      })
-      .toBuffer();
+  while (true) {
+    // Primero reduce calidad; después, si hace falta, resolución.
+    for (let quality = 75; quality >= 30; quality -= 5) {
+      result = await sharp(sourcePath, { animated: false })
+        .rotate()
+        .resize({
+          width: targetWidth,
+          withoutEnlargement: true,
+        })
+        .webp({
+          quality,
+          alphaQuality: 80,
+          effort: 6,
+        })
+        .toBuffer();
 
-    if (result.length <= maxBytes) {
-      break;
+      if (result.length <= maxBytes) {
+        await sharp(result).toFile(outputPath);
+
+        const outputSize = await stat(outputPath);
+        return Math.round(outputSize.size / 1024);
+      }
     }
 
-    if (quality === 42 && result.length > maxBytes) {
-      targetWidth = Math.round(targetWidth * 0.85);
-      quality = 87;
+    if (targetWidth === 1) {
+      throw new Error(
+        `No se puede alcanzar el límite de ${maxBytes} bytes: ${sourcePath}`,
+      );
     }
+
+    targetWidth = Math.max(1, Math.floor(targetWidth * 0.85));
   }
-
-  await sharp(result).toFile(outputPath);
-
-  const outputSize = await stat(outputPath);
-
-  return Math.round(outputSize.size / 1024);
 }
 
 async function main() {
