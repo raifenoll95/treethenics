@@ -14,6 +14,7 @@ import { RouterLink } from '@angular/router';
 
 import { EXERCISES } from '../../tree/data/tree.mock';
 import { Exercise } from '../../../shared/models/exercise.model';
+import { OptimizedImagePipe } from '../../../shared/pipes/optimized-image.pipe';
 
 import {
   EQUIPMENT_LABELS,
@@ -26,7 +27,7 @@ import { IMAGE_VERSION } from '../../../core/config/image-version';
 
 @Component({
   selector: 'app-compare-page',
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink,OptimizedImagePipe],
   templateUrl: './compare-page.html',
   styleUrl: './compare-page.css',
 })

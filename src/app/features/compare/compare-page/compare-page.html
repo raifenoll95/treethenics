@@ -99,12 +99,20 @@
           >
             @if (exercise.imageUrl) {
               <img
-                class="compare-exercise__image"
-                [src]="exercise.imageUrl"
+                class="exercise-card__image"
+                [src]="exercise.imageUrl | optimizedImage:'card'"
                 [alt]="exercise.name"
+                loading="lazy"
+                decoding="async"
+                draggable="false"
+                (contextmenu)="$event.preventDefault()"
+                (dragstart)="$event.preventDefault()"
               />
+            } @else {
+              <div class="exercise-card__placeholder">
+                TREETHENICS
+              </div>
             }
-
             <h2>{{ exercise.name }}</h2>
 
             <span
@@ -207,12 +215,20 @@
             >
             @if (exercise.imageUrl) {
               <img
-                class="compare-exercise__image"
-                [src]="exercise.imageUrl"
+                class="exercise-card__image"
+                [src]="exercise.imageUrl | optimizedImage:'card'"
                 [alt]="exercise.name"
+                loading="lazy"
+                decoding="async"
+                draggable="false"
+                (contextmenu)="$event.preventDefault()"
+                (dragstart)="$event.preventDefault()"
               />
+            } @else {
+              <div class="exercise-card__placeholder">
+                TREETHENICS
+              </div>
             }
-
             <h2>{{ exercise.name }}</h2>
 
             <span
