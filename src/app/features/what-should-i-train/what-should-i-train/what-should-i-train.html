@@ -43,6 +43,22 @@
   </header>
 
   <div class="train-filters">
+
+    <div class="train-filters__toolbar">
+      <span class="train-filters__title">
+        <span aria-hidden="true">☷</span>
+        Filters
+      </span>
+
+      <button
+        type="button"
+        class="train-filters__reset"
+        (click)="resetFilters()"
+      >
+        Reset filters
+      </button>
+    </div>
+
     <!-- 01 / DIFFICULTY -->
     <div class="train-filter">
       <div class="train-filter__heading">
