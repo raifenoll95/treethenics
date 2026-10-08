@@ -102,7 +102,6 @@ import { SINGLE_LEG_GLUTE_BRIDGE } from './exercises/single-leg-glute-bridge.exe
 import { MALTESE_CROSS } from './exercises/maltese-cross.exercise';
 import { TRICEP_EXTENSIONS } from './exercises/tricep-extensions.exercise';
 import { TOES_TO_BAR } from './exercises/toes-to-bar.exercise';
-import { TULLOCH } from './exercises/tulloch.exercise';
 import { INVERTED_ROW } from './exercises/inverted-row.exercise';
 import { ONE_ARM_DRAGON_FLAG } from './exercises/one-arm-dragon-flag.exercise';
 import { ONE_ARM_L_SIT } from './exercises/one-arm-l-sit.exercise';
@@ -238,7 +237,6 @@ export const EXERCISES: Exercise[] = [
   MALTESE_CROSS,
   TRICEP_EXTENSIONS,
   TOES_TO_BAR,
-  TULLOCH,
   INVERTED_ROW,
   ONE_ARM_DRAGON_FLAG,
   ONE_ARM_L_SIT,
