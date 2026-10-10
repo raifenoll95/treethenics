@@ -10,11 +10,11 @@ import { IMAGE_VERSION } from '../../../core/config/image-version';
 })
 export class WelcomePage {
   readonly treeImageUrl =
-    `https://assets.treethenics.com/optimized/detail/treev3.webp?v=${IMAGE_VERSION}`;
+    `https://pub-45dc79586604478fb0dcbe5c2e4a3497.r2.dev/optimized/detail/treev3.webp?v=${IMAGE_VERSION}`;
 
   readonly malteseImageUrl =
-    `https://assets.treethenics.com/optimized/detail/exercises/fmaltesecover.webp?v=${IMAGE_VERSION}`;
+    `https://pub-45dc79586604478fb0dcbe5c2e4a3497.r2.dev/optimized/detail/exercises/fmaltesecover.webp?v=${IMAGE_VERSION}`;
 
   readonly versusImageUrl =
-    `https://assets.treethenics.com/optimized/detail/versus.webp?v=${IMAGE_VERSION}`;
+    `https://pub-45dc79586604478fb0dcbe5c2e4a3497.r2.dev/optimized/detail/versus.webp?v=${IMAGE_VERSION}`;
 }

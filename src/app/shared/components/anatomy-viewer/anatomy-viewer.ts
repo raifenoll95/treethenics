@@ -37,7 +37,7 @@ function loadCachedAnatomyModel(): Promise<THREE.Group> {
 
     anatomyModelPromise = loader
       .loadAsync(
-          'https://assets.treethenics.com/anatomy-treethenics-draco.glb'
+          'https://pub-45dc79586604478fb0dcbe5c2e4a3497.r2.dev/anatomy-treethenics-draco.glb'
         )
       .then((gltf) => gltf.scene);
   }

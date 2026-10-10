@@ -10,5 +10,5 @@ import { IMAGE_VERSION } from '../../../core/config/image-version';
 
 export class AboutPage {
   readonly raiImageUrl =
-    `https://assets.treethenics.com/optimized/detail/about/rai.webp?v=${IMAGE_VERSION}`;
+    `https://pub-45dc79586604478fb0dcbe5c2e4a3497.r2.dev/optimized/detail/about/rai.webp?v=${IMAGE_VERSION}`;
 }

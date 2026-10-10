@@ -18,7 +18,7 @@ import { IMAGE_VERSION } from '../../config/image-version';
 export class Sidebar {
 
   readonly logoUrl =
-  `https://assets.treethenics.com/optimized/detail/logo/treethenics-logo.webp?v=${IMAGE_VERSION}`;
+  `https://pub-45dc79586604478fb0dcbe5c2e4a3497.r2.dev/optimized/detail/logo/treethenics-logo.webp?v=${IMAGE_VERSION}`;
 
   menuOpen = false;
 }

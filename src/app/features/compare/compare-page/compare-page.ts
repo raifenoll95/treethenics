@@ -34,7 +34,7 @@ import { IMAGE_VERSION } from '../../../core/config/image-version';
 export class ComparePage {
 
   readonly vsLogoUrl =
-  `https://assets.treethenics.com/optimized/detail/compare/vs_logo.webp?v=${IMAGE_VERSION}`;
+  `https://pub-45dc79586604478fb0dcbe5c2e4a3497.r2.dev/optimized/detail/compare/vs_logo.webp?v=${IMAGE_VERSION}`;
 
   private readonly elementRef = inject(ElementRef<HTMLElement>);
 

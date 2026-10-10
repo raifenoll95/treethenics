@@ -47,10 +47,10 @@ import { DOCUMENT } from '@angular/common';
 export class ExerciseDetail {
 
   readonly anatomyBackgroundImage =
-  `url("https://assets.treethenics.com/optimized/detail/anatomy/anatomy-background.webp?v=${IMAGE_VERSION}")`;
+  `url("https://pub-45dc79586604478fb0dcbe5c2e4a3497.r2.dev/optimized/detail/anatomy/anatomy-background.webp?v=${IMAGE_VERSION}")`;
 
   readonly equipmentImage = (name: string): string =>
-  `url("https://assets.treethenics.com/optimized/detail/equipment/${name}.webp?v=${IMAGE_VERSION}")`;
+  `url("https://pub-45dc79586604478fb0dcbe5c2e4a3497.r2.dev/optimized/detail/equipment/${name}.webp?v=${IMAGE_VERSION}")`;
 
   constructor() {
 
