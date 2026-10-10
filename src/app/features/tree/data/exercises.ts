@@ -406,7 +406,9 @@ export const EXERCISES: Exercise[] = [
   BICYCLE_CRUNCHES,
   ICE_CREAM_MAKERS,
 
-  // Nuevos ejercicios
+
+
+
   ARCHER_PUSH_UP,
   INCLINE_PUSH_UP,
   WIDE_PUSH_UP,
