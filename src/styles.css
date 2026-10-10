@@ -2,6 +2,7 @@
 :root {
   --color-bg: #1c232b;
   --color-surface: #1c232b;
+  /*--color-surface: #1c232b;*/
   --color-surface-hover: #202126;
 
   --color-text: #f4f4f5;
