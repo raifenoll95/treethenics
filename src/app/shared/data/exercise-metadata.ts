@@ -22,6 +22,7 @@ export const MUSCLE_LABELS: Record<ExerciseMuscle, string> = {
   hamstrings: 'Hamstrings',
   calves: 'Calves',
   'serratus-anterior': 'Serratus Anterior',
+  'rotator-cuff': 'Rotator cuff',
 };
 
 export const EQUIPMENT_LABELS: Record<ExerciseEquipment, string> = {

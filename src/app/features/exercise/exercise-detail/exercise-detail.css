@@ -2875,4 +2875,12 @@
   z-index: 1;
 }
 
+/* Append at the END of exercise-detail.css. */
+.exercise-hero__anatomy { min-height: 490px; }
+.exercise-hero__anatomy-stage { position: relative; inset: auto; display: block; height: 100%; }
+.exercise-hero__anatomy-stage app-anatomy-viewer { display: block; width: 100%; height: 100%; }
+@media (max-width: 950px) { .exercise-hero__anatomy { min-height: 380px; } }
+@media (max-width: 600px) { .exercise-hero__anatomy { min-height: 340px; } }
+
+
 

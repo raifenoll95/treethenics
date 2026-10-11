@@ -1,0 +1,411 @@
+{
+  "meshCount": 129,
+  "unmatchedMuscles": [],
+  "meshNames": [
+    "abdominal_part_of_left_pectoralis_major",
+    "abdominal_part_of_right_pectoralis_major",
+    "acromial_part_of_left_deltoid",
+    "acromial_part_of_right_deltoid",
+    "ascending_part_of_left_trapezius",
+    "ascending_part_of_right_trapezius",
+    "clavicular_part_of_left_deltoid",
+    "clavicular_part_of_left_pectoralis_major",
+    "clavicular_part_of_right_deltoid",
+    "clavicular_part_of_right_pectoralis_major",
+    "descending_part_of_left_trapezius",
+    "descending_part_of_right_trapezius",
+    "humeral_head_of_left_flexor_carpi_ulnaris",
+    "humeral_head_of_left_pronator_teres",
+    "humeral_head_of_right_flexor_carpi_ulnaris",
+    "humeral_head_of_right_pronator_teres",
+    "lateral_head_of_left_gastrocnemius",
+    "lateral_head_of_left_triceps_brachii",
+    "lateral_head_of_right_gastrocnemius",
+    "lateral_head_of_right_triceps_brachii",
+    "left_brachialis",
+    "left_brachioradialis",
+    "left_coracobrachialis",
+    "left_extensor_carpi_radialis_brevis",
+    "left_extensor_carpi_radialis_longus",
+    "left_extensor_carpi_ulnaris",
+    "left_extensor_carpi_ulnaris_(2)",
+    "left_external_oblique",
+    "left_flexor_carpi_radialis",
+    "left_gluteus_maximus",
+    "left_gluteus_medius",
+    "left_gluteus_minimus",
+    "left_iliacus",
+    "left_iliocostalis_cervicis",
+    "left_iliocostalis_lumborum",
+    "left_iliocostalis_thoracis",
+    "left_interspinalis_thoracis",
+    "left_longissimus_capitis",
+    "left_longissimus_cervicis",
+    "left_longissimus_thoracis",
+    "left_pectoralis_minor",
+    "left_psoas_major",
+    "left_rectus_femoris",
+    "left_rhomboid_major",
+    "left_rhomboid_minor",
+    "left_semimembranosus",
+    "left_semispinalis_capitis",
+    "left_semispinalis_cervicis",
+    "left_semispinalis_thoracis",
+    "left_semitendinosus",
+    "left_serratus_anterior",
+    "left_soleus",
+    "left_spinalis_thoracis",
+    "left_teres_major",
+    "left_teres_minor",
+    "left_vastus_intermedius",
+    "left_vastus_lateralis",
+    "left_vastus_medialis",
+    "long_head_of_left_biceps_brachii",
+    "long_head_of_left_biceps_femoris",
+    "long_head_of_left_triceps_brachii",
+    "long_head_of_right_biceps_brachii",
+    "long_head_of_right_biceps_femoris",
+    "long_head_of_right_triceps_brachii",
+    "medial_head_of_left_gastrocnemius",
+    "medial_head_of_left_triceps_brachii",
+    "medial_head_of_right_gastrocnemius",
+    "medial_head_of_right_triceps_brachii",
+    "right_brachialis",
+    "right_brachioradialis",
+    "right_coracobrachialis",
+    "right_extensor_carpi_radialis_brevis",
+    "right_extensor_carpi_radialis_longus",
+    "right_extensor_carpi_ulnaris",
+    "right_extensor_carpi_ulnaris_(2)",
+    "right_external_oblique",
+    "right_flexor_carpi_radialis",
+    "right_gluteus_maximus",
+    "right_gluteus_medius",
+    "right_gluteus_minimus",
+    "right_iliacus",
+    "right_iliocostalis_cervicis",
+    "right_iliocostalis_lumborum",
+    "right_iliocostalis_thoracis",
+    "right_interspinalis_thoracis",
+    "right_longissimus_capitis",
+    "right_longissimus_cervicis",
+    "right_longissimus_thoracis",
+    "right_pectoralis_minor",
+    "right_psoas_major",
+    "right_rectus_femoris",
+    "right_rhomboid_major",
+    "right_rhomboid_minor",
+    "right_semimembranosus",
+    "right_semispinalis_capitis",
+    "right_semispinalis_cervicis",
+    "right_semispinalis_thoracis",
+    "right_semitendinosus",
+    "right_serratus_anterior",
+    "right_soleus",
+    "right_spinalis_thoracis",
+    "right_teres_major",
+    "right_teres_minor",
+    "right_vastus_intermedius",
+    "right_vastus_lateralis",
+    "right_vastus_medialis",
+    "short_head_of_left_biceps_brachii",
+    "short_head_of_left_biceps_femoris",
+    "short_head_of_right_biceps_brachii",
+    "short_head_of_right_biceps_femoris",
+    "spinal_part_of_left_deltoid",
+    "spinal_part_of_right_deltoid",
+    "spinalis",
+    "sternocostal_part_of_left_pectoralis_major",
+    "sternocostal_part_of_right_pectoralis_major",
+    "transverse_part_of_left_trapezius",
+    "transverse_part_of_right_trapezius",
+    "ulnar_head_of_left_flexor_carpi_ulnaris",
+    "ulnar_head_of_left_pronator_teres",
+    "ulnar_head_of_right_flexor_carpi_ulnaris",
+    "ulnar_head_of_right_pronator_teres",
+    "left_latissimus_dorsi",
+    "right_latissimus_dorsi",
+    "left_rectus_abdominis",
+    "right_rectus_abdominis",
+    "left_internal_oblique",
+    "right_internal_oblique",
+    "left_transversus_abdominis",
+    "right_transversus_abdominis"
+  ],
+  "width": 480,
+  "height": 960,
+  "layers": {
+    "front": [
+      {
+        "id": "r00",
+        "muscles": [
+          "chest"
+        ]
+      },
+      {
+        "id": "r01",
+        "muscles": [
+          "side-deltoids"
+        ]
+      },
+      {
+        "id": "r02",
+        "muscles": [
+          "trapezius",
+          "upper-back"
+        ]
+      },
+      {
+        "id": "r03",
+        "muscles": [
+          "front-deltoids"
+        ]
+      },
+      {
+        "id": "r04",
+        "muscles": [
+          "chest",
+          "front-deltoids"
+        ]
+      },
+      {
+        "id": "r05",
+        "muscles": [
+          "forearms"
+        ]
+      },
+      {
+        "id": "r06",
+        "muscles": [
+          "calves"
+        ]
+      },
+      {
+        "id": "r07",
+        "muscles": [
+          "triceps"
+        ]
+      },
+      {
+        "id": "r08",
+        "muscles": [
+          "biceps"
+        ]
+      },
+      {
+        "id": "r09",
+        "muscles": [
+          "obliques"
+        ]
+      },
+      {
+        "id": "r10",
+        "muscles": [
+          "glutes"
+        ]
+      },
+      {
+        "id": "r11",
+        "muscles": [
+          "hip-flexors"
+        ]
+      },
+      {
+        "id": "r12",
+        "muscles": [
+          "lower-back"
+        ]
+      },
+      {
+        "id": "r13",
+        "muscles": [
+          "hip-flexors",
+          "quadriceps"
+        ]
+      },
+      {
+        "id": "r14",
+        "muscles": [
+          "upper-back"
+        ]
+      },
+      {
+        "id": "r15",
+        "muscles": [
+          "hamstrings"
+        ]
+      },
+      {
+        "id": "r16",
+        "muscles": [
+          "serratus-anterior"
+        ]
+      },
+      {
+        "id": "r18",
+        "muscles": [
+          "quadriceps"
+        ]
+      },
+      {
+        "id": "r19",
+        "muscles": [
+          "rear-deltoids"
+        ]
+      },
+      {
+        "id": "r20",
+        "muscles": [
+          "latissimus-dorsi"
+        ]
+      },
+      {
+        "id": "r21",
+        "muscles": [
+          "abdominals"
+        ]
+      }
+    ],
+    "back": [
+      {
+        "id": "r00",
+        "muscles": [
+          "chest"
+        ]
+      },
+      {
+        "id": "r01",
+        "muscles": [
+          "side-deltoids"
+        ]
+      },
+      {
+        "id": "r02",
+        "muscles": [
+          "trapezius",
+          "upper-back"
+        ]
+      },
+      {
+        "id": "r03",
+        "muscles": [
+          "front-deltoids"
+        ]
+      },
+      {
+        "id": "r04",
+        "muscles": [
+          "chest",
+          "front-deltoids"
+        ]
+      },
+      {
+        "id": "r05",
+        "muscles": [
+          "forearms"
+        ]
+      },
+      {
+        "id": "r06",
+        "muscles": [
+          "calves"
+        ]
+      },
+      {
+        "id": "r07",
+        "muscles": [
+          "triceps"
+        ]
+      },
+      {
+        "id": "r08",
+        "muscles": [
+          "biceps"
+        ]
+      },
+      {
+        "id": "r09",
+        "muscles": [
+          "obliques"
+        ]
+      },
+      {
+        "id": "r10",
+        "muscles": [
+          "glutes"
+        ]
+      },
+      {
+        "id": "r11",
+        "muscles": [
+          "hip-flexors"
+        ]
+      },
+      {
+        "id": "r12",
+        "muscles": [
+          "lower-back"
+        ]
+      },
+      {
+        "id": "r13",
+        "muscles": [
+          "hip-flexors",
+          "quadriceps"
+        ]
+      },
+      {
+        "id": "r14",
+        "muscles": [
+          "upper-back"
+        ]
+      },
+      {
+        "id": "r15",
+        "muscles": [
+          "hamstrings"
+        ]
+      },
+      {
+        "id": "r16",
+        "muscles": [
+          "serratus-anterior"
+        ]
+      },
+      {
+        "id": "r17",
+        "muscles": [
+          "rotator-cuff",
+          "upper-back"
+        ]
+      },
+      {
+        "id": "r18",
+        "muscles": [
+          "quadriceps"
+        ]
+      },
+      {
+        "id": "r19",
+        "muscles": [
+          "rear-deltoids"
+        ]
+      },
+      {
+        "id": "r20",
+        "muscles": [
+          "latissimus-dorsi"
+        ]
+      },
+      {
+        "id": "r21",
+        "muscles": [
+          "abdominals"
+        ]
+      }
+    ]
+  },
+  "version": "85e5fff239da",
+  "count": 88,
+  "bytes": 876094
+}

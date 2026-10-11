@@ -1,5 +1,6 @@
 export type ExerciseMuscle =
   | 'latissimus-dorsi'
+  | 'serratus-anterior'
   | 'upper-back'
   | 'lower-back'
   | 'trapezius'
@@ -10,7 +11,6 @@ export type ExerciseMuscle =
   | 'triceps'
   | 'forearms'
   | 'chest'
-  | 'serratus-anterior'
   | 'abdominals'
   | 'obliques'
   | 'hip-flexors'
@@ -18,4 +18,4 @@ export type ExerciseMuscle =
   | 'quadriceps'
   | 'hamstrings'
   | 'calves'
-  'rotator-cuff';
+  | 'rotator-cuff';
