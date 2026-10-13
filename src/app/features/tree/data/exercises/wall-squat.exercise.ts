@@ -22,7 +22,7 @@ export const WALL_SQUAT: Exercise = {
     'abdominals'
   ],
 
-  equipment: ['wall'],
+  equipment: ['wall','added-weight'],
 
   description:
     'The Wall Squat is a beginner isometric leg exercise where you hold a squat position with your back supported against a wall. It primarily develops quadriceps strength and muscular endurance while the glutes and core help maintain a stable lower-body position.',

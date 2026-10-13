@@ -2883,4 +2883,14 @@
 @media (max-width: 600px) { .exercise-hero__anatomy { min-height: 340px; } }
 
 
+.exercise-body {
+  counter-reset: exercise-section;
+}
 
+.exercise-body > .detail-section {
+  counter-increment: exercise-section;
+}
+
+.detail-section__number::before {
+  content: counter(exercise-section, decimal-leading-zero);
+}
