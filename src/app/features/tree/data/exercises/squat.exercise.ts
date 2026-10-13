@@ -22,7 +22,7 @@ export const SQUAT: Exercise = {
     'abdominals'
   ],
 
-  equipment: ['floor'],
+  equipment: ['floor','added-weight'],
 
   description:
     'The Squat is a fundamental lower-body exercise where you bend at the hips and knees to lower your body before returning to standing. It develops basic leg strength, coordination, mobility, and control that transfers directly to many more advanced calisthenics leg exercises.',

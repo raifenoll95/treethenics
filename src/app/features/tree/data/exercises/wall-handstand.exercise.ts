@@ -25,7 +25,7 @@ export const WALL_HANDSTAND: Exercise = {
     'quadriceps'
   ],
 
-  equipment: ['floor'],
+  equipment: ['wall'],
 
   description:
     'The Wall Handstand is a supported handstand performed with your chest facing the wall and your toes providing light balance assistance. It develops straight-arm overhead strength, body alignment, and confidence upside down before progressing to a freestanding Handstand.',

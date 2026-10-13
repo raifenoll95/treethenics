@@ -16,7 +16,7 @@ export const DIPS: Exercise = {
     secondaryMuscles: ['serratus-anterior', 'abdominals', 'forearms'],
 
     equipment: [
-      'parallettes','rings'
+      'parallettes','rings', 'added-weight'
     ],
 
   description:

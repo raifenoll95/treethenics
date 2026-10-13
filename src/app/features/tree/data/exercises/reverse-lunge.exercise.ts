@@ -25,7 +25,7 @@ export const REVERSE_LUNGE: Exercise = {
     'obliques'
   ],
 
-  equipment: ['floor'],
+  equipment: ['floor','added-weight'],
 
   description:
     'The Reverse Lunge is a beginner unilateral bodyweight leg exercise performed by stepping backwards, lowering the body through controlled knee and hip flexion, and returning to the starting position. It strengthens the quadriceps and glutes while developing balance, coordination, and single-leg stability.',

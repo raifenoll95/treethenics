@@ -22,7 +22,7 @@ export const BULGARIAN_SQUAT: Exercise = {
     'abdominals'
   ],
 
-  equipment: ['weight-bench'],
+  equipment: ['weight-bench','added-weight'],
 
   description:
     'The Bulgarian squat, also known as the Bulgarian split squat, is a single-leg exercise performed with your rear foot elevated on a bench or similar surface. Most of the work comes from the front leg while the rear leg helps with balance. It is a great way to build strong quads and glutes while improving unilateral strength, stability, and control.',

@@ -23,7 +23,7 @@ export const SUPINATED_PULL_UP: Exercise = {
     'abdominals'
   ],
 
-  equipment: ['pull-up-bar'],
+  equipment: ['pull-up-bar','added-weight'],
 
   description:
     'The Supinated Pull Up, commonly called a Chin-Up, is a vertical pulling exercise performed with your palms facing towards you. The underhand grip places the biceps in a strong position while the lats and upper back remain major contributors to the movement.',

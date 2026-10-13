@@ -25,7 +25,7 @@ export const STEP_UP: Exercise = {
     'obliques'
   ],
 
-  equipment: ['weight-bench'],
+  equipment: ['weight-bench','added-weight'],
 
   description:
     'The Step Up is a beginner unilateral bodyweight leg exercise performed by stepping onto a stable elevated platform and lifting the body using the working leg. It strengthens the quadriceps and glutes while developing single-leg balance, hip stability, coordination, and lower-body control.',

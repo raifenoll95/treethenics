@@ -22,7 +22,7 @@ export const PISTOL_SQUAT: Exercise = {
     'abdominals'
   ],
 
-  equipment: ['floor'],
+  equipment: ['floor','added-weight'],
 
   description:
     'The Pistol Squat is a deep single-leg squat performed while keeping the non-working leg extended in front of you. It combines unilateral leg strength with balance, ankle mobility, hip control, and the active flexibility needed to keep the free leg off the floor.',

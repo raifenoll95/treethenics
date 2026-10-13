@@ -23,7 +23,7 @@ export const DRAGON_FLAG: Exercise = {
     'forearms'
   ],
 
-  equipment: ['weight-bench'],
+  equipment: ['weight-bench','floor'],
 
   description:
     'The dragon flag is an advanced core exercise where you anchor your upper body, lift your hips, and move your torso and legs together as one rigid lever. Your shoulders and upper back remain supported while your abs resist the powerful tendency for your lower back to arch as your body approaches horizontal.',

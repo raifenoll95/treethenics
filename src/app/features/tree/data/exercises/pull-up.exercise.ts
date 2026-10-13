@@ -16,7 +16,7 @@ export const PULL_UP: Exercise = {
   secondaryMuscles: ['forearms', 'rear-deltoids', 'abdominals'],
 
   equipment: [
-      'pull-up-bar', 'bands'
+      'pull-up-bar', 'bands', 'added-weight'
   ],
 
   description:

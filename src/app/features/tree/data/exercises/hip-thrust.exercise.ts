@@ -21,7 +21,7 @@ export const HIP_THRUST: Exercise = {
     'abdominals'
   ],
 
-  equipment: ['floor'],
+  equipment: ['floor','added-weight'],
 
   description:
     'The Hip Thrust is a hip-extension exercise performed with your upper back supported on a bench while you drive your hips upward. It primarily trains the glutes and can be performed with bodyweight or progressively loaded as your strength improves.',
