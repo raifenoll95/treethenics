@@ -2961,3 +2961,7 @@
   height: auto;
   min-height: 0;
 }
+
+.exercise-hero__media {
+  border: 3px solid var(--exercise-color);
+}
