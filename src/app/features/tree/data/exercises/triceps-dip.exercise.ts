@@ -20,6 +20,8 @@ export const TRICEPS_DIP: Exercise = {
     'chest'
   ],
 
+  equipment: ['weight-bench'],
+
   description:
     'The Triceps Dip is a bodyweight pushing exercise performed with your hands on an elevated surface behind your body and your feet supported on the floor. It primarily trains elbow extension strength through the triceps while the shoulders and chest assist throughout the movement.',
 

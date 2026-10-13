@@ -15,7 +15,7 @@ export const DECLINE_PUSH_UP: Exercise = {
 
   secondaryMuscles: ['serratus-anterior', 'abdominals', 'obliques'],
 
-  equipment: ['floor'],
+  equipment: ['weight-bench'],
 
   description:
     'The decline push up is a harder variation of the regular push up where your feet are placed on an elevated surface. This position shifts more of your bodyweight towards your upper body, making your chest, shoulders, and triceps work harder on every rep. It is a great progression once regular push ups feel comfortable and you want to build more pushing strength without adding external weight.',

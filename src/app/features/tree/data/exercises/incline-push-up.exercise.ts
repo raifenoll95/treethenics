@@ -30,7 +30,7 @@ export const INCLINE_PUSH_UP: Exercise = {
     'forearms'
   ],
 
-  equipment: ['floor'],
+  equipment: ['weight-bench'],
 
   description:
     'The Incline Push Up is a beginner-friendly bodyweight pushing exercise performed with the hands on an elevated surface and the feet on the ground. The elevated position reduces the amount of bodyweight supported by the arms, making it an effective progression towards the standard Push Up.',

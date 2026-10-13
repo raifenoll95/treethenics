@@ -21,7 +21,7 @@ export const NORDIC_CURL: Exercise = {
     'abdominals'
   ],
 
-  equipment: ['floor'],
+  equipment: ['weight-bench'],
 
   description:
     'The Nordic Curl is a bodyweight hamstring exercise performed from a kneeling position with your ankles securely anchored. You resist your body falling forward by controlling knee extension with your hamstrings, then return towards the starting position with assistance or your own strength.',

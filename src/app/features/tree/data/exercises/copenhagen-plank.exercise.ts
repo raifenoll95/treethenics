@@ -27,7 +27,7 @@ export const COPENHAGEN_PLANK: Exercise = {
     'front-deltoids'
   ],
 
-  equipment: ['floor'],
+  equipment: ['weight-bench'],
 
   description:
     'The Copenhagen Plank is an intermediate static bodyweight exercise performed in a side plank position with the upper leg supported on an elevated surface. It strengthens the hip adductors, obliques, and lateral core stabilizers while challenging pelvic control and shoulder endurance.',

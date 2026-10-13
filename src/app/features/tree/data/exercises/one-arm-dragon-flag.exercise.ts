@@ -24,7 +24,7 @@ export const ONE_ARM_DRAGON_FLAG: Exercise = {
     'triceps'
   ],
 
-  equipment: ['floor'],
+  equipment: ['weight-bench'],
 
   description:
     'The One Arm Dragon Flag is an advanced unilateral variation of the Dragon Flag where you lower and raise your rigid body while maintaining the upper-body anchor with only one arm. Removing one hand greatly increases the anti-rotation, stabilization, and pulling demands of the exercise.',

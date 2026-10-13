@@ -5,4 +5,5 @@ export type ExerciseEquipment =
   | 'bands'
   | 'floor'
   | 'vertical-pole'
+  | 'weight-bench'
   | 'added-weight';
