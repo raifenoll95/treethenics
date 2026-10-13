@@ -86,6 +86,11 @@ export const EXERCISE_RELATIONS: ExerciseRelation[] = [
     type: 'progression',
   },
   {
+    from: 'touch-front-lever',
+    to: 'victorian',
+    type: 'progression',
+  },
+  {
     from: 'victorian',
     to: 'caruso',
     type: 'progression',

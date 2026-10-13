@@ -312,7 +312,6 @@ export const EXERCISES: Exercise[] = [
   COPENHAGEN_PLANK,
   REVERSE_LUNGE,
   STEP_UP,
-  CALF_RAISE,
   SHRIMP_SQUAT,
   BEAR_CRAWL,
 ];

@@ -147,6 +147,6 @@ export const TRICEP_EXTENSIONS: Exercise = {
       'Learn how to perform bodyweight Tricep Extensions on a bar, including proper elbow positioning, muscles worked, progressions and common mistakes.',
   },
 
-  imageUrl: '/images/exercises/tricep-extension.png',
+  imageUrl: '/images/exercises/tricep-extensions.png',
 };
 
