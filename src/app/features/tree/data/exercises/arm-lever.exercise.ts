@@ -2,7 +2,7 @@ import { Exercise } from '../../../../shared/models/exercise.model';
 
 export const ARM_LEVER: Exercise = {
     id: 'arm-lever',
-    name: 'Arm Lever HACER',
+    name: 'Arm Lever',
     movementType: 'static',
     difficulty: 'intermediate',
     graphLevel: 3,
