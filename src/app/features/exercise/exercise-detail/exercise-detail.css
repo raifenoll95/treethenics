@@ -2894,3 +2894,70 @@
 .detail-section__number::before {
   content: counter(exercise-section, decimal-leading-zero);
 }
+
+/* Imagen del ejercicio responsive, completa y sin recortes */
+
+.exercise-detail {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.exercise-hero {
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  align-items: start;
+}
+
+.exercise-hero__media {
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  height: auto;
+  aspect-ratio: auto;
+  box-sizing: border-box;
+}
+
+.exercise-hero__media > img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Imagen arriba y anatomía debajo en ventanas pequeñas */
+@media (max-width: 950px) {
+  .exercise-hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Centrar imagen y anatomía y eliminar la altura sobrante */
+.exercise-hero {
+  align-items: center;
+}
+
+.exercise-hero__anatomy {
+  min-height: 0;
+  height: auto;
+  align-self: center;
+}
+
+.exercise-hero__anatomy-stage {
+  position: relative;
+  inset: auto;
+
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.exercise-hero__anatomy-stage app-anatomy-viewer {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+}
