@@ -43,6 +43,8 @@
         <img
           [src]="raiImageUrl"
           alt="Rai, creator of Treethenics"
+          (contextmenu)="$event.preventDefault()"
+          draggable="false"
         />
 
         <div class="about-photo__caption">
