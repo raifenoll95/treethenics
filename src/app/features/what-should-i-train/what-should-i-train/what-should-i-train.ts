@@ -131,6 +131,7 @@ export class WhatShouldITrain implements OnDestroy {
     { value: 'added-weight', label: 'Added weight' },
     { value: 'floor', label: 'Floor' },
     { value: 'weight-bench', label: 'Weight Bench' },
+    { value: 'vertical-pole', label: 'Vertical Pole' },
   ];
 
   readonly difficulties: SelectOption<DifficultyOption>[] = [

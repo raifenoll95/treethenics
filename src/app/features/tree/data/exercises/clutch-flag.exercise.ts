@@ -29,7 +29,7 @@ export const CLUTCH_FLAG: Exercise = {
     'glutes'
   ],
 
-  equipment: ['pull-up-bar'],
+  equipment: ['vertical-pole'],
 
   description:
     'The Clutch Flag is a static calisthenics hold performed against a vertical pole, where the athlete uses a clutch-style arm position to support the body horizontally. Strong lateral core tension and upper-body stability are required to keep the torso and legs extended parallel to the ground.',

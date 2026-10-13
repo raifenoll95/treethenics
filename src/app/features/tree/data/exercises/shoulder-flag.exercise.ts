@@ -30,6 +30,8 @@ export const SHOULDER_FLAG: Exercise = {
     'glutes'
   ],
 
+  equipment: ['vertical-pole'],
+
   description:
     'The Shoulder Flag is an intermediate static calisthenics skill performed on a vertical pole. By securing the pole between both hands and the upper shoulder, the athlete suspends the body horizontally above the ground. It develops lateral core strength, grip endurance, shoulder stability, and full-body control.',
 
