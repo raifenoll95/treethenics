@@ -99,8 +99,8 @@
           >
             @if (exercise.imageUrl) {
               <img
-                class="exercise-card__image"
-                [src]="exercise.imageUrl | optimizedImage:'card'"
+                class="compare-exercise__image"
+                [src]="exercise.imageUrl | optimizedImage:'detail'"
                 [alt]="exercise.name"
                 loading="lazy"
                 decoding="async"
@@ -215,8 +215,8 @@
             >
             @if (exercise.imageUrl) {
               <img
-                class="exercise-card__image"
-                [src]="exercise.imageUrl | optimizedImage:'card'"
+                class="compare-exercise__image"
+                [src]="exercise.imageUrl | optimizedImage:'detail'"
                 [alt]="exercise.name"
                 loading="lazy"
                 decoding="async"
