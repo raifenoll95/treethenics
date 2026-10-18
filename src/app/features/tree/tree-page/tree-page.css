@@ -1641,3 +1641,15 @@ app-tree-canvas {
   }
 }
 
+/* STATIC / DYNAMIC: color según la dificultad */
+.exercise-panel .exercise-panel__movement {
+  color: var(--exercise-color);
+  border-color: var(--exercise-color);
+
+  box-shadow:
+    0 0 10px
+      color-mix(in srgb, var(--exercise-color) 22%, transparent),
+    inset 0 0 8px
+      color-mix(in srgb, var(--exercise-color) 4%, transparent);
+}
+
