@@ -194,7 +194,7 @@ export const EXERCISE_RELATIONS: ExerciseRelation[] = [
     type: 'progression',
   },
   {
-    from: 'full-planche',
+    from: 'mana',
     to: 'reverse-planche',
     type: 'progression',
   },
