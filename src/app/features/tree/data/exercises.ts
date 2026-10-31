@@ -154,6 +154,7 @@ import { RUSSIAN_TWIST } from './exercises/russian_twist.exercise';
 import { SHRIMP_SQUAT } from './exercises/shrimp-squat.exercise';
 import { STEP_UP } from './exercises/step-up.exercise';
 import { WIDE_GRIP_PULL_UP } from './exercises/wide-grip-pull-up.exercise';
+import { LEAN_PLANCHE } from './exercises/lean-planche.exercise';
 
 
 export const EXERCISES: Exercise[] = [
@@ -287,6 +288,7 @@ export const EXERCISES: Exercise[] = [
   BURPEES,
   BICYCLE_CRUNCHES,
   ICE_CREAM_MAKERS,
+  LEAN_PLANCHE,
 
 
 
