@@ -64,7 +64,7 @@
 
 .about-header h1 {
   margin: 0;
-  color: #f5f7fa;
+  color: #000000;
   font-size: 24px;
   font-weight: 800;
   line-height: 1.15;
@@ -589,6 +589,230 @@
 
 @media (max-width: 480px) {
   .about-card {
+    padding: 16px;
+  }
+}
+
+/* ABOUT ME — adaptación a la nueva paleta */
+
+.about-page {
+  font-family: "Manrope", "Segoe UI", Arial, sans-serif;
+}
+
+/* Cabecera sobre fondo claro */
+
+.about-header__icon {
+  background: #2c3b4e;
+  border-color: #405166;
+  color: #fb7185;
+}
+
+.about-header h1 {
+  color: #263547;
+}
+
+.about-header p {
+  color: #586575;
+  font-size: 12px;
+}
+
+.about-header__badge {
+  color: #be2442;
+}
+
+.about-header__line {
+  background: #cbd1d8;
+}
+
+/* Tarjeta principal */
+
+.about-card {
+  max-width: 1320px;
+  padding: clamp(22px, 2.5vw, 38px);
+
+  background: #2c3b4e;
+  border: 1px solid #405166;
+  border-radius: 16px;
+
+  box-shadow: 0 12px 32px rgb(28 40 55 / 8%);
+}
+
+.about-card__main {
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: start;
+  gap: clamp(28px, 3vw, 48px);
+}
+
+/* Fotografía */
+
+.about-photo {
+  height: clamp(460px, 40vw, 620px);
+  background: #223044;
+  border-color: #536175;
+  border-radius: 12px;
+}
+
+.about-photo::after {
+  background: linear-gradient(
+    180deg,
+    transparent 50%,
+    rgb(22 32 46 / 30%) 72%,
+    rgb(22 32 46 / 92%) 100%
+  );
+}
+
+/* Presentación */
+
+.about-content__eyebrow {
+  color: #ff9aaa;
+}
+
+.about-content h2 {
+  color: #ffffff;
+  font-size: clamp(44px, 4vw, 60px);
+  letter-spacing: -0.04em;
+}
+
+.about-content__intro {
+  max-width: 42ch;
+  color: #e0e6ed;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.about-content__accent {
+  margin: 24px 0;
+
+  background: linear-gradient(
+    90deg,
+    #fb7185 0,
+    #fb7185 42px,
+    #536175 42px,
+    #536175 100%
+  );
+}
+
+.about-content__section h3 {
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.about-content__section p {
+  color: #d3dce7;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.about-content__section + .about-content__section {
+  margin-top: 26px;
+}
+
+/* Mensaje final */
+
+.about-content__section:last-child {
+  padding: 18px 20px;
+
+  background: #253346;
+  border: 1px solid #506075;
+  border-left: 3px solid #fb7185;
+  border-radius: 0 10px 10px 0;
+}
+
+.about-content__section:last-child h3 {
+  font-size: 16px;
+}
+
+.about-content__section:last-child p {
+  color: #d3dce7;
+  font-size: 14px;
+}
+
+/* Redes y cita */
+
+.about-card__footer {
+  border-top-color: #536175;
+}
+
+.about-social__heading {
+  color: #c2ccda;
+  font-size: 10px;
+}
+
+.about-social__link {
+  padding: 15px;
+  background: #253346;
+  border-color: #536175;
+  border-radius: 10px;
+}
+
+.about-social__text strong {
+  color: #ffffff;
+  font-size: 13px;
+}
+
+.about-social__text small {
+  color: #c2ccda;
+  font-size: 11px;
+}
+
+.about-social__arrow {
+  color: #c2ccda;
+}
+
+.about-quote {
+  color: #d3dce7;
+  border-left: 2px solid #fb7185;
+  font-size: 14px;
+}
+
+@media (hover: hover) {
+  .about-social__link:hover {
+    background: #34465d;
+    border-color: #fb7185;
+  }
+
+  .about-social__link--youtube:hover {
+    border-color: #f87171;
+  }
+}
+
+/* Móvil */
+
+@media (max-width: 850px) {
+  .about-card {
+    max-width: 640px;
+    padding: 22px;
+  }
+
+  .about-card__main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .about-photo {
+    height: clamp(320px, 65vw, 440px);
+  }
+
+  .about-content__intro {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-card {
+    padding: 16px;
+  }
+
+  .about-photo {
+    height: 340px;
+  }
+
+  .about-content__section p {
+    font-size: 14px;
+  }
+
+  .about-content__section:last-child {
     padding: 16px;
   }
 }

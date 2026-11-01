@@ -7,7 +7,7 @@ export const LEAN_PLANCHE: Exercise = {
   movementType: 'static',
   difficulty: 'intermediate',
   graphLevel: 2,
-  showInTree: true,
+  showInTree: false,
   category: 'push',
 
   targetAreas: [

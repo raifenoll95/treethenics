@@ -1,33 +1,35 @@
 <main class="welcome-page">
 
   <!-- TREE -->
-  <section class="welcome-section welcome-section--tree">
+  <section
+    class="welcome-section welcome-section--tree"
+    aria-labelledby="welcome-tree-title"
+  >
     <div class="welcome-section__content">
-      <!-- TREE -->
-      <span class="welcome-section__eyebrow">01 / PROGRESSION MAP</span>
+      <span class="welcome-section__eyebrow">
+        <span>01</span> / PROGRESSION MAP
+      </span>
 
-      <h1>Tree</h1>
-
-      <h2>See your path. Master every skill.</h2>
+      <h2 id="welcome-tree-title">
+        See your path.<br />
+        Master every skill.
+      </h2>
 
       <p>
-        From your first pull-up to advanced calisthenics skills,
-        explore a visual progression map that shows you where you are
-        and what comes next.
+        Explore a visual progression map, understand how skills connect
+        and discover what comes next.
       </p>
 
-      <a
-        class="welcome-section__button welcome-section__button--tree"
-        routerLink="/tree"
-      >
-        Explore the Tree <span aria-hidden="true">→</span>
+      <a class="welcome-section__button" routerLink="/tree">
+        Explore the Tree
+        <span aria-hidden="true">→</span>
       </a>
     </div>
 
-    <div class="welcome-section__visual welcome-section__visual--tree">
+    <div class="welcome-section__visual">
       <img
         [src]="treeImageUrl"
-        alt="Athlete performing a front lever"
+        alt=""
         fetchpriority="high"
         draggable="false"
         (contextmenu)="$event.preventDefault()"
@@ -35,9 +37,33 @@
     </div>
   </section>
 
-  <!-- TRAIN -->
-  <section class="welcome-section welcome-section--train">
-    <div class="welcome-section__visual welcome-section__visual--train">
+  <!-- LIBRARY -->
+  <section
+    class="welcome-section welcome-section--train"
+    aria-labelledby="welcome-library-title"
+  >
+    <div class="welcome-section__content">
+      <span class="welcome-section__eyebrow">
+        <span>02</span> / EXERCISE LIBRARY
+      </span>
+
+      <h2 id="welcome-library-title">
+        Find the right<br />
+        exercise for you.
+      </h2>
+
+      <p>
+        Browse 150+ exercises by difficulty, muscles and equipment.
+        Find your next challenge and keep moving forward.
+      </p>
+
+      <a class="welcome-section__button" routerLink="/train">
+        Browse the Library
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <div class="welcome-section__visual">
       <img
         [src]="malteseImageUrl"
         alt=""
@@ -46,58 +72,38 @@
         (contextmenu)="$event.preventDefault()"
       />
     </div>
-
-    <div class="welcome-section__content">
-      <!-- TRAIN -->
-      <span class="welcome-section__eyebrow">02 / EXERCISE LIBRARY</span>
-
-      <h2 class="welcome-section__title">Train</h2>
-
-      <h3>Find the right exercise for you.</h3>
-
-      <p>
-        Discover exercises that match your level, target muscles
-        and available equipment. Find your next challenge
-        and keep moving forward.
-      </p>
-
-      <a
-        class="welcome-section__button welcome-section__button--train"
-        routerLink="/train"
-      >
-        Find Your Exercise <span aria-hidden="true">→</span>
-      </a>
-    </div>
   </section>
 
   <!-- COMPARE -->
-  <section class="welcome-section welcome-section--compare">
+  <section
+    class="welcome-section welcome-section--compare"
+    aria-labelledby="welcome-compare-title"
+  >
     <div class="welcome-section__content">
-      <!-- COMPARE -->
-      <span class="welcome-section__eyebrow">03 / EXERCISE COMPARISON</span>
+      <span class="welcome-section__eyebrow">
+        <span>03</span> / EXERCISE COMPARISON
+      </span>
 
-      <h2 class="welcome-section__title">Compare</h2>
-
-      <h3>Two exercises. One clear comparison.</h3>
+      <h2 id="welcome-compare-title">
+        Two exercises.<br />
+        One clear comparison.
+      </h2>
 
       <p>
-        Compare exercises side by side to understand their difficulty,
-        muscles involved and equipment requirements before choosing
-        what to train next.
+        Compare difficulty, muscles and equipment side by side
+        to choose what to train next.
       </p>
 
-      <a
-        class="welcome-section__button welcome-section__button--compare"
-        routerLink="/compare"
-      >
-        Compare Exercises <span aria-hidden="true">→</span>
+      <a class="welcome-section__button" routerLink="/compare">
+        Compare Exercises
+        <span aria-hidden="true">→</span>
       </a>
     </div>
 
-    <div class="welcome-section__visual welcome-section__visual--compare">
+    <div class="welcome-section__visual">
       <img
         [src]="versusImageUrl"
-        alt="Athlete performing a planche"
+        alt=""
         loading="lazy"
         draggable="false"
         (contextmenu)="$event.preventDefault()"

@@ -56,11 +56,31 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
     pan: { x: number; y: number };
   };
 
-  ngAfterViewInit(): void {
+  private destroyed = false;
+
+  async ngAfterViewInit(): Promise<void> {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    try {
+      await Promise.all([
+        document.fonts.load('600 18px "Manrope"'),
+        document.fonts.load('700 18px "Manrope"'),
+      ]);
+    } catch {
+      // Si la fuente no carga, se utiliza sans-serif.
+    }
+
+    if (this.destroyed) {
+      return;
+    }
+
     this.initializeTree();
   }
 
   ngOnDestroy(): void {
+    this.destroyed = true;
     this.cy?.destroy();
   }
 
@@ -103,26 +123,50 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
     );
 
     const edges = EXERCISE_RELATIONS
-      .filter(
-        (relation) =>
-          treeExerciseIds.has(relation.from) &&
-          treeExerciseIds.has(relation.to),
-      )
-      .map((relation, index) => {
-        const targetExercise = treeExercises.find(
-          (exercise) => exercise.id === relation.to,
+    .filter(
+      (relation) =>
+        treeExerciseIds.has(relation.from) &&
+        treeExerciseIds.has(relation.to),
+    )
+    .map((relation, index) => {
+      const sourceExercise = treeExercises.find(
+        (exercise) => exercise.id === relation.from,
+      );
+
+      const targetExercise = treeExercises.find(
+        (exercise) => exercise.id === relation.to,
+      );
+
+      let longConnection = 0;
+
+      if (sourceExercise && targetExercise) {
+        const sourcePosition = this.getNodePosition(
+          sourceExercise.id,
+          sourceExercise.graphLevel,
         );
 
-        return {
-          data: {
-            id: `relation-${index}`,
-            source: relation.from,
-            target: relation.to,
-            type: relation.type,
-            targetDifficulty: targetExercise?.difficulty,
-          },
-        };
-      });
+        const targetPosition = this.getNodePosition(
+          targetExercise.id,
+          targetExercise.graphLevel,
+        );
+
+        longConnection =
+          Math.abs(targetPosition.x - sourcePosition.x) > 500
+            ? 1
+            : 0;
+      }
+
+      return {
+        data: {
+          id: `relation-${index}`,
+          source: relation.from,
+          target: relation.to,
+          type: relation.type,
+          targetDifficulty: targetExercise?.difficulty,
+          longConnection,
+        },
+      };
+  });
 
     this.cy = cytoscape({
       autoungrabify: true,
@@ -139,9 +183,7 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
       },
 
       style: [
-        /*
-         * BASE NODE
-         */
+        /* NODOS */
         {
           selector: 'node',
           style: {
@@ -150,83 +192,113 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
 
             shape: 'round-rectangle',
 
-            'background-color': '#161b22',
+            'background-color': '#2b3b4f',
+            'background-opacity': 1,
 
             'border-width': 2,
+            'border-color': '#000000',
 
             label: 'data(label)',
+            color: '#000000',
 
-            color: '#f8fafc',
-
-            'font-family': 'Inter, system-ui, sans-serif',
-            'font-size': 19,
-            'font-weight': 700,
+            'font-size': 18,
+            'font-weight': 600,
+            'text-max-width': '132px',
 
             'text-valign': 'center',
             'text-halign': 'center',
-
             'text-wrap': 'wrap',
-            'text-max-width': '124px',
+
+            'overlay-opacity': 0,
           },
         },
 
-        /*
-         * BEGINNER
-         */
         {
           selector: 'node[difficulty = "beginner"]',
           style: {
-            'border-color': '#34d399',
-            'background-color': '#14231f',
+            'background-color': '#34d399',
           },
         },
-
-        /*
-         * INTERMEDIATE
-         */
         {
           selector: 'node[difficulty = "intermediate"]',
           style: {
-            'border-color': '#60a5fa',
-            'background-color': '#151f2d',
+            'background-color': '#60a5fa',
           },
         },
-
-        /*
-         * ADVANCED
-         */
         {
           selector: 'node[difficulty = "advanced"]',
           style: {
-            'border-color': '#fb923c',
-            'background-color': '#2a1f16',
+            'background-color': '#fb923c',
           },
         },
-
-        /*
-         * ELITE
-         */
         {
           selector: 'node[difficulty = "elite"]',
           style: {
-            'border-color': '#f43f5e',
-            'background-color': '#2a171c',
+            'background-color': '#f43f5e',
           },
         },
 
-        /*
-         * DIMMED
-         */
+        /* CONEXIONES */
         {
-          selector: '.dimmed',
+          selector: 'edge',
+          style: {
+            width: 2,
+
+            'line-color': '#64748b',
+            'target-arrow-color': '#64748b',
+            'target-arrow-shape': 'triangle',
+            'arrow-scale': 0.9,
+
+            'curve-style': 'straight',
+            opacity: 0.8,
+          },
+        },
+
+        /* TONOS CON CONTRASTE SOBRE BLANCO */
+        {
+          selector: 'edge[targetDifficulty = "beginner"]',
+          style: {
+            'line-color': '#16966d',
+            'target-arrow-color': '#16966d',
+          },
+        },
+        {
+          selector: 'edge[targetDifficulty = "intermediate"]',
+          style: {
+            'line-color': '#4385cd',
+            'target-arrow-color': '#4385cd',
+          },
+        },
+        {
+          selector: 'edge[targetDifficulty = "advanced"]',
+          style: {
+            'line-color': '#d5802f',
+            'target-arrow-color': '#d5802f',
+          },
+        },
+        {
+          selector: 'edge[targetDifficulty = "elite"]',
+          style: {
+            'line-color': '#d83b60',
+            'target-arrow-color': '#d83b60',
+          },
+        },
+
+        /* ELEMENTOS FUERA DE LA RUTA */
+        {
+          selector: 'node.dimmed',
+          style: {
+            opacity: 0.2,
+          },
+        },
+        {
+          selector: 'edge.dimmed',
           style: {
             opacity: 0.12,
           },
         },
 
-        /*
-         * HIGHLIGHTED NODE
-         */
+        /* RUTA RESALTADA */
         {
           selector: 'node.highlighted',
           style: {
@@ -234,10 +306,6 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
             'border-width': 3,
           },
         },
-
-        /*
-         * HIGHLIGHTED EDGE
-         */
         {
           selector: 'edge.highlighted',
           style: {
@@ -247,87 +315,19 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
           },
         },
 
-        /*
-         * ACTIVE
-         */
+        /* INTERACCIÓN */
         {
           selector: 'node:active',
           style: {
             'border-width': 3,
+            'background-color': '#1e2c3e',
           },
         },
-
-        /*
-         * SELECTED
-         */
         {
           selector: 'node:selected',
           style: {
             'border-width': 3.5,
-          },
-        },
-
-        /*
-         * BASE EDGE
-         */
-        {
-          selector: 'edge',
-          style: {
-            width: 2.2,
-
-            'line-color': '#9ca3af',
-
-            'target-arrow-color': '#9ca3af',
-            'target-arrow-shape': 'triangle',
-            'arrow-scale': 0.9,
-
-            'curve-style': 'straight',
-
-            opacity: 0.9,
-          },
-        },
-
-        /*
-         * EDGE → BEGINNER
-         */
-        {
-          selector: 'edge[targetDifficulty = "beginner"]',
-          style: {
-            'line-color': '#34d399',
-            'target-arrow-color': '#34d399',
-          },
-        },
-
-        /*
-         * EDGE → INTERMEDIATE
-         */
-        {
-          selector: 'edge[targetDifficulty = "intermediate"]',
-          style: {
-            'line-color': '#60a5fa',
-            'target-arrow-color': '#60a5fa',
-          },
-        },
-
-        /*
-         * EDGE → ADVANCED
-         */
-        {
-          selector: 'edge[targetDifficulty = "advanced"]',
-          style: {
-            'line-color': '#fb923c',
-            'target-arrow-color': '#fb923c',
-          },
-        },
-
-        /*
-         * EDGE → ELITE
-         */
-        {
-          selector: 'edge[targetDifficulty = "elite"]',
-          style: {
-            'line-color': '#f43f5e',
-            'target-arrow-color': '#f43f5e',
+            'background-color': '#1e2c3e',
           },
         },
       ],
@@ -644,10 +644,8 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
       return;
     }
 
-    this.cy
-      .elements()
-      .removeClass('dimmed')
-      .removeClass('highlighted');
+    this.cy.elements().removeClass('dimmed highlighted');
+    this.cy.elements(':selected').unselect();
   }
 
   private getNodePosition(

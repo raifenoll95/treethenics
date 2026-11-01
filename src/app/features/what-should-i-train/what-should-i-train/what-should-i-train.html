@@ -1,3 +1,5 @@
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+
 <section
   class="train-page"
   [class.train-page--beginner]="selectedDifficulty() === 'beginner'"
@@ -18,14 +20,14 @@
         <div class="train-page__header-content">
 
           <div class="train-page__title-row">
-            <h1>What should I train?</h1>
+            <h1 style="font-family: 'Montserrat';">Explore the calisthenics exercise library</h1>
 
             <span class="train-page__badge">
               Train
             </span>
           </div>
 
-          <p>
+          <p style="color: black;">
             Choose your level, target muscles and  equipment
             to discover exercises.
           </p>
@@ -135,7 +137,7 @@
     [class.train-search--advanced]="selectedDifficulty() === 'advanced'"
     [class.train-search--elite]="selectedDifficulty() === 'elite'"
   >
-    <span class="train-search__icon" aria-hidden="true">⌕</span>
+    <span style="color: black;" class="train-search__icon" aria-hidden="true">⌕</span>
 
     <input
       #searchInput
@@ -154,8 +156,8 @@
   <section class="train-results">
     <div class="train-results__header">
       <div class="train-results__summary">
-        <span class="train-panel__step">YOUR EXERCISES</span>
-        <h2>{{ results().length }} matching exercises</h2>
+        <span style="color: black;" class="train-panel__step">YOUR EXERCISES</span>
+        <h2 style="color: black;">{{ results().length }} matching exercises</h2>
       </div>
 
       <button
@@ -164,6 +166,7 @@
         [class.train-sort-button--active]="sortByLevel()"
         [attr.aria-pressed]="sortByLevel()"
         (click)="toggleSortByLevel()"
+        style="color: black;"
       >
         ↕ Sort by level
       </button>
@@ -258,9 +261,9 @@
                 </span>
               </div>
 
-              <h3>{{ exercise.name }}</h3>
+              <h3 style="color: white;">{{ exercise.name }}</h3>
 
-              <p class="exercise-card__description">
+              <p class="exercise-card__description" style="color: white;">
                 {{ exercise.description }}
               </p>
 

@@ -111,8 +111,7 @@
 
 .tree-header__title-row h1 {
   margin: 0;
-
-  color: #f5f7fa;
+  color: #000000;
 
   font-size: 24px;
   font-weight: 800;
@@ -1651,5 +1650,363 @@ app-tree-canvas {
       color-mix(in srgb, var(--exercise-color) 22%, transparent),
     inset 0 0 8px
       color-mix(in srgb, var(--exercise-color) 4%, transparent);
+}
+
+/* ========================================
+   TREE — FONDO BLANCO
+======================================== */
+
+.tree-canvas {
+  background: #f8f9f4;
+  border-color: #f8f9f4;
+}
+
+/* Elimina la fotografía de fondo */
+.tree-canvas::before {
+  content: none;
+}
+
+/* Sustituye el degradado oscuro por puntos suaves */
+.tree-canvas::after {
+  background-image: radial-gradient(
+    circle,
+    rgba(43, 59, 79, 0.14) 1px,
+    transparent 1px
+  );
+
+  background-size: 24px 24px;
+}
+
+/* Fondo de la columna de niveles */
+.tree-levels {
+  background: linear-gradient(
+    90deg,
+    #f8f9f4 0%,
+    rgba(255, 255, 255, 0.95) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+/* Separadores entre niveles */
+.tree-level::after {
+  border-bottom-color: rgba(43, 59, 79, 0.12);
+}
+
+/* Descripciones de los niveles */
+.tree-level__info span {
+  color: #657181;
+}
+
+/* Colores más legibles sobre blanco */
+.tree-level--beginner {
+  --level-color: #047857;
+  --level-background: #e7f5ee;
+}
+
+.tree-level--intermediate {
+  --level-color: #2563b0;
+  --level-background: #eaf2fc;
+}
+
+.tree-level--advanced {
+  --level-color: #a94d0b;
+  --level-background: #fff1e5;
+}
+
+.tree-level--elite {
+  --level-color: #be2347;
+  --level-background: #fdebf0;
+}
+
+.tree-level .tree-level__number {
+  color: var(--level-color);
+  background: var(--level-background);
+}
+
+.tree-level .tree-level__info strong {
+  color: var(--level-color);
+}
+
+/* Leyenda: escritorio y móvil */
+.tree-legend {
+  background: #f8f9f4;
+  border-color: #f8f9f4;
+  box-shadow: 0 4px 16px rgba(43, 59, 79, 0.06);
+  backdrop-filter: none;
+}
+
+.tree-legend__item {
+  color: #39485a;
+}
+
+.tree-legend__dot {
+  box-shadow: none;
+}
+
+.tree-legend__dot--beginner {
+  background: #047857;
+}
+
+.tree-legend__dot--intermediate {
+  background: #2563b0;
+}
+
+.tree-legend__dot--advanced {
+  background: #a94d0b;
+}
+
+.tree-legend__dot--elite {
+  background: #be2347;
+}
+
+/* Reset */
+.tree-reset-button {
+  background: #ffffff;
+  color: #2b3b4f;
+  border-color: #cbd2da;
+  box-shadow: 0 2px 8px rgba(43, 59, 79, 0.06);
+}
+
+.tree-reset-button:hover {
+  background: #f3f5f7;
+  color: #be2347;
+  border-color: #be2347;
+}
+
+
+/* MAPA BLANCO */
+.tree-canvas {
+  background: #ffffff;
+  border-color: #d5d9de;
+}
+
+.tree-canvas::before {
+  content: none;
+}
+
+/* PUNTOS MUY SUTILES */
+.tree-canvas::after {
+  background-image: radial-gradient(
+    circle,
+    rgba(43, 59, 79, 0.055) 1px,
+    transparent 1px
+  );
+
+  background-size: 24px 24px;
+}
+
+.tree-level::after {
+  border-bottom-color: rgba(43, 59, 79, 0.09);
+}
+
+/* NIVELES: MISMO AZUL PIZARRA QUE LOS NODOS */
+.tree-level .tree-level__number {
+  background: #2b3b4f;
+  border-radius: 7px;
+}
+
+.tree-level--beginner .tree-level__number {
+  color: #34d399;
+}
+
+.tree-level--intermediate .tree-level__number {
+  color: #60a5fa;
+}
+
+.tree-level--advanced .tree-level__number {
+  color: #fb923c;
+}
+
+.tree-level--elite .tree-level__number {
+  color: #ff6483;
+}
+
+/* AVISO COORDINADO CON EL MENÚ */
+.tree-notice {
+  background: #2b3b4f;
+  border: 1px solid #3c4d62;
+  border-left: 3px solid #d4a546;
+  box-shadow: none;
+}
+
+.tree-notice__icon {
+  color: #f5cf79;
+  border-color: #d4a546;
+}
+
+.tree-notice__content h2 {
+  color: #ffffff;
+}
+
+.tree-notice__content p {
+  color: #d5dde7;
+}
+
+/* Blanco arriba → azul pizarra abajo */
+.tree-canvas {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #2b3b4f 100%
+  );
+
+  border-color: #cbd2da;
+}
+
+/* Sin fotografía */
+.tree-canvas::before {
+  content: none;
+}
+
+/* Puntos discretos sobre el degradado */
+.tree-canvas::after {
+  background-image: radial-gradient(
+    circle,
+    rgba(100, 116, 139, 0.16) 1px,
+    transparent 1px
+  );
+
+  background-size: 24px 24px;
+}
+
+/* Elimina la franja blanca de los niveles */
+.tree-levels {
+  background: none;
+}
+
+/* Texto de los niveles sobre la zona oscura */
+.tree-level:nth-child(n + 4) .tree-level__info span {
+  color: #e2e8f0;
+}
+
+.tree-level--advanced .tree-level__info strong {
+  color: #fb923c;
+}
+
+.tree-level--elite .tree-level__info strong {
+  color: #ff7893;
+}
+
+/* Separadores visibles en ambas zonas */
+.tree-level::after {
+  border-bottom-color: rgba(100, 116, 139, 0.22);
+}
+
+
+.tree-canvas {
+  background: #2b3b4f;
+  isolation: isolate;
+}
+
+/* Imagen original */
+.tree-canvas::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: var(--tree-background-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  filter: blur(5px);
+  transform: scale(1.04);
+  opacity: 1;
+
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Degradado translúcido y cuadrícula */
+.tree-canvas::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(100, 116, 139, 0.16) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(149, 159, 173, 0.78) 50%,
+      rgba(43, 59, 79, 0.88) 100%
+    );
+
+  background-size:
+    24px 24px,
+    100% 100%;
+
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Grafo por encima del fondo */
+app-tree-canvas {
+  position: relative;
+  z-index: 2;
+}
+
+/* LEYENDA */
+.tree-legend {
+  background: #2B3B4F;
+  border: 1px solid #2B3B4F;
+  border-radius: 10px;
+
+  padding: 12px 16px;
+  gap: 10px 20px;
+
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.tree-legend__item {
+  color: #cbd5e1;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tree-legend__dot {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 9px;
+  border-radius: 50%;
+}
+
+.tree-legend__dot--beginner {
+  background: #34d399;
+  box-shadow: 0 0 8px rgba(52, 211, 153, 0.45);
+}
+
+.tree-legend__dot--intermediate {
+  background: #60a5fa;
+  box-shadow: 0 0 8px rgba(96, 165, 250, 0.45);
+}
+
+.tree-legend__dot--advanced {
+  background: #fb923c;
+  box-shadow: 0 0 8px rgba(251, 146, 60, 0.45);
+}
+
+.tree-legend__dot--elite {
+  background: #f43f5e;
+  box-shadow: 0 0 8px rgba(244, 63, 94, 0.45);
+}
+
+/* Mantener el tamaño compacto en móvil */
+@media (max-width: 768px) {
+  .tree-legend {
+    padding: 9px 10px;
+    gap: 7px 10px;
+  }
+
+  .tree-legend--mobile .tree-legend__dot {
+    width: 7px;
+    height: 7px;
+    flex-basis: 7px;
+  }
 }
 
