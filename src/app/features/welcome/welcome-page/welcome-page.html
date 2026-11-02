@@ -63,6 +63,7 @@
       </a>
     </div>
 
+    <!--
     <div class="welcome-section__visual">
       <img
         [src]="malteseImageUrl"
@@ -71,6 +72,19 @@
         draggable="false"
         (contextmenu)="$event.preventDefault()"
       />
+    </div>
+    -->
+    <div class="welcome-section__visual">
+      <video
+        [src]="HomeVideoUrl"
+        autoplay
+        muted
+        loop
+        playsinline
+        disablePictureInPicture
+        draggable="false"
+        (contextmenu)="$event.preventDefault()"
+      ></video>
     </div>
   </section>
 
