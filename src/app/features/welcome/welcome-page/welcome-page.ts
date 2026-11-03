@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { IMAGE_VERSION } from '../../../core/config/image-version';
 
@@ -8,7 +9,11 @@ import { IMAGE_VERSION } from '../../../core/config/image-version';
   templateUrl: './welcome-page.html',
   styleUrl: './welcome-page.css',
 })
-export class WelcomePage {
+export class WelcomePage implements AfterViewInit {
+  @ViewChild('homeVideo') homeVideoRef!: ElementRef<HTMLVideoElement>;
+
+  private platformId = inject(PLATFORM_ID);
+
   readonly treeImageUrl =
     `https://pub-45dc79586604478fb0dcbe5c2e4a3497.r2.dev/optimized/detail/treev3.webp?v=${IMAGE_VERSION}`;
 
@@ -17,4 +22,23 @@ export class WelcomePage {
 
   readonly versusImageUrl =
     `https://pub-45dc79586604478fb0dcbe5c2e4a3497.r2.dev/optimized/detail/versus.webp?v=${IMAGE_VERSION}`;
+
+  ngAfterViewInit() {
+    // Solo ejecutamos esto si estamos en el navegador (cliente)
+    if (isPlatformBrowser(this.platformId)) {
+      this.playVideo();
+    }
+  }
+
+  playVideo() {
+    if (this.homeVideoRef?.nativeElement) {
+      const video = this.homeVideoRef.nativeElement;
+      if (typeof video.load === 'function') {
+        video.load();
+        video.play().catch((error) => {
+          console.log('Autoplay prevenido por el navegador:', error);
+        });
+      }
+    }
+  }
 }

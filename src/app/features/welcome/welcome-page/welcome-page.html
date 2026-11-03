@@ -63,24 +63,15 @@
       </a>
     </div>
 
-    <!--
-    <div class="welcome-section__visual">
-      <img
-        [src]="malteseImageUrl"
-        alt=""
-        loading="lazy"
-        draggable="false"
-        (contextmenu)="$event.preventDefault()"
-      />
-    </div>
-    -->
     <div class="welcome-section__visual">
       <video
+        #homeVideo
         [src]="HomeVideoUrl"
         autoplay
         muted
         loop
         playsinline
+        preload="auto"
         disablePictureInPicture
         draggable="false"
         (contextmenu)="$event.preventDefault()"
