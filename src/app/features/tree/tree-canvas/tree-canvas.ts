@@ -188,22 +188,26 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
           selector: 'node',
           style: {
             width: 150,
-            height: 52,
+            height: 72,
 
             shape: 'round-rectangle',
 
             'background-color': '#2b3b4f',
             'background-opacity': 1,
 
-            'border-width': 2,
-            'border-color': '#000000',
+            'border-width': 5,
+            'border-color': '#f0e8e8',
 
             label: 'data(label)',
-            color: '#000000',
+            color: '#ecf0f5',
+            'font-family': '"Montserrat", monospace',
 
-            'font-size': 18,
+            'font-size': 22,
             'font-weight': 600,
             'text-max-width': '132px',
+
+            // Agregamos esta línea para forzar mayúsculas:
+            'text-transform': 'uppercase',
 
             'text-valign': 'center',
             'text-halign': 'center',
@@ -216,25 +220,33 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
         {
           selector: 'node[difficulty = "beginner"]',
           style: {
-            'background-color': '#34d399',
+            'background-color': '#2B3B4F',
+            'border-color': '#1ece8d',
+            color: '#1ece8d',
           },
         },
         {
           selector: 'node[difficulty = "intermediate"]',
           style: {
-            'background-color': '#60a5fa',
+            'background-color': '#2B3B4F',
+            'border-color': '#60a5fa',
+            color: '#60a5fa',
           },
         },
         {
           selector: 'node[difficulty = "advanced"]',
           style: {
-            'background-color': '#fb923c',
+            'background-color': '#2B3B4F',
+            'border-color': '#eb8028',
+            color: '#eb8028',
           },
         },
         {
           selector: 'node[difficulty = "elite"]',
           style: {
-            'background-color': '#f43f5e',
+            'background-color': '#2B3B4F',
+            'border-color': '#d83b60',
+            color: '#d83b60',
           },
         },
 
@@ -242,7 +254,7 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
         {
           selector: 'edge',
           style: {
-            width: 2,
+            width: 5,
 
             'line-color': '#64748b',
             'target-arrow-color': '#64748b',
