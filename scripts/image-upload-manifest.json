@@ -1,7 +1,7 @@
 {
   "optimized/card/about/rai.webp": "eb315e054a94e4e8fca0ce08290ef31698939db49a805dad0b839e0546f6de51",
   "optimized/card/anatomy/anatomy-background.webp": "dbf8b72b40f46d07eecb20a3842542d4d417cfb9983dc35c0cc60f192403553c",
-  "optimized/card/calisthenics-park.webp": "4d443bdcb5a6c9568f5a267fd1e9660c3b44e61396316ca71e825b2a8c2668d9",
+  "optimized/card/calisthenics-park.webp": "2b97a189b656c5733311aab71933977330ea5e1ca75a8f6949c59a708ba9d415",
   "optimized/card/compare/vs_logo.webp": "03c2dca927de217507eb411f0cefa0e457c22a7fcd544f22e5da7ece305a58d5",
   "optimized/card/equipment/added-weight.webp": "8935dd062c185c15ca743aa86dd538b17bfd958fa82e799dd6fe942089239f95",
   "optimized/card/equipment/bands.webp": "de5496208eac4e13bea228ef9c7e14272decb6373e45116191bb54496ca674bc",
@@ -164,7 +164,7 @@
   "optimized/card/versus.webp": "a5761ecafc29c1b0531dbc5140acf2dcd6c18ea5ed74891fdad6199d42fafd64",
   "optimized/detail/about/rai.webp": "c7163de4491b93530052fc3b995f049add94966de022e67825c85d427f82aaf1",
   "optimized/detail/anatomy/anatomy-background.webp": "ad501944b3ca715f111aac4a8b94618bdf17d2dc1e647b1e8d40330584b62d77",
-  "optimized/detail/calisthenics-park.webp": "1ea8ab2f0149f19fe039470cc5f360caf37087abb6f32038ec8edc35c420fcf1",
+  "optimized/detail/calisthenics-park.webp": "82ccac64e995ca46f756d31496de31c411c2eda07b10f0705764548a7ee714f6",
   "optimized/detail/compare/vs_logo.webp": "c9d65dd4195426a5638a5b1b84264ddb080e0e053e278349fdfea7432932d154",
   "optimized/detail/equipment/added-weight.webp": "c1fd3f7250a97796fdecc10d6576e70dcdc5db5c1a1841cf64279860a9db74f7",
   "optimized/detail/equipment/bands.webp": "8fe6847fb72efb5a1662c888ccbcdf42955e48701506ad432d272759acbb156c",
@@ -414,5 +414,7 @@
   "optimized/card/exercises/lean-planche.webp": "68a4711435065c2f6dc64bdd2349ff4bf136221bfa810e3f073f5867d4d59a19",
   "optimized/detail/exercises/lean-planche.webp": "203a51305b78eae5c810a5852b5769f23cceebb48dea046f00d16a15657ee01d",
   "optimized/card/exercises/diamond-push.up.webp": "fabee3443b4b01e081f5e2df6307e63492fbfe065724ebdf5ce9fa422091e31a",
-  "optimized/detail/exercises/diamond-push.up.webp": "deccd8d1afe6580fced6320bcc87f192153cf2beef145a30ed761d2dd35dec98"
+  "optimized/detail/exercises/diamond-push.up.webp": "deccd8d1afe6580fced6320bcc87f192153cf2beef145a30ed761d2dd35dec98",
+  "optimized/card/exercises/calisthenics-park.webp": "4d443bdcb5a6c9568f5a267fd1e9660c3b44e61396316ca71e825b2a8c2668d9",
+  "optimized/detail/exercises/calisthenics-park.webp": "1ea8ab2f0149f19fe039470cc5f360caf37087abb6f32038ec8edc35c420fcf1"
 }
