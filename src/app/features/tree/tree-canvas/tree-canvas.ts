@@ -203,7 +203,7 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
             'font-family': '"Montserrat", monospace',
 
             'font-size': 22,
-            'font-weight': 600,
+            'font-weight': 'bold',
             'text-max-width': '132px',
 
             // Agregamos esta línea para forzar mayúsculas:
