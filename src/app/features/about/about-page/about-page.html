@@ -1,167 +1,120 @@
-<section class="about-page">
-  <header class="about-header">
-
-    <div class="about-header__main">
-
+<section class="about-page" aria-labelledby="about-title">
+  <div class="about-shell">
+    <header class="about-header">
       <div class="about-header__identity">
-
-        <div class="about-header__icon" aria-hidden="true">
-          ♙
-        </div>
-
-        <div class="about-header__copy">
-
-          <div class="about-header__title-row">
-            <h1>About Me</h1>
-
-            <span class="about-header__badge">
-              About
-            </span>
-          </div>
-
-          <p>
-            The person behind Treethenics.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="about-header__line">
-      <span></span>
-    </div>
-
-  </header>
-
-  <article class="about-card">
-    <div class="about-card__main">
-
-      <!-- FOTO -->
-      <div class="about-photo">
-        <img
-          [src]="raiImageUrl"
-          alt="Rai, creator of Treethenics"
-          (contextmenu)="$event.preventDefault()"
-          draggable="false"
-        />
-
-        <div class="about-photo__caption">
-          <span>BETTER MOVEMENT</span>
-          <span>A BRIGHTER YOU</span>
-        </div>
-      </div>
-
-      <!-- PRESENTACIÓN -->
-      <div class="about-content">
-        <span class="about-content__eyebrow">
-          BEHIND TREETHENICS
+        <span class="about-header__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <circle cx="12" cy="12" r="9" />
+            <circle cx="12" cy="9" r="3" />
+            <path d="M5.5 18c1-3 3.3-4.5 6.5-4.5s5.5 1.5 6.5 4.5" />
+          </svg>
         </span>
-
-        <h2>Rai</h2>
-
-        <p class="about-content__intro">
-          Calisthenics enthusiast and creator of Treethenics.
-        </p>
-
-        <div class="about-content__accent"></div>
-
-        <div class="about-content__section">
-          <h3>Hi! I'm Rai.</h3>
-
-          <p>
-            I'm 31 years old, and I discovered calisthenics five
-            years ago. Since then, I've always wanted to keep
-            learning, improving and challenging myself.
-          </p>
-        </div>
-
-        <div class="about-content__section">
-          <h3>Why Treethenics?</h3>
-
-          <p>
-            Ever since I started practicing calisthenics, I've
-            been interested in categorizing exercises. Having a
-            clear understanding of which movements match my
-            current level has helped me make progress and know
-            what to work on next.
-          </p>
-
-          <p>
-            That's why I created Treethenics: to organize
-            calisthenics exercises by difficulty and progression,
-            and to make it easier for others to explore the
-            movements that suit their level.
-          </p>
-        </div>
-
-        <div class="about-content__section">
-          <h3>Let's keep moving forward.</h3>
-
-          <p>
-            I hope Treethenics helps you discover new exercises,
-            understand your progress and find your next challenge.
-          </p>
+        <div>
+          <div class="about-header__title-row">
+            <h1 id="about-title">About Me</h1>
+            <span class="about-header__badge">ABOUT</span>
+          </div>
+          <p>The person and the purpose behind Treethenics.</p>
         </div>
       </div>
-    </div>
+      <div class="about-header__line" aria-hidden="true"></div>
+    </header>
 
-    <!-- PIE DE LA TARJETA -->
-    <footer class="about-card__footer">
-      <div class="about-social">
-        <span class="about-social__heading">CONNECT WITH ME</span>
+    <article class="about-story" aria-labelledby="about-story-title">
+      <figure class="about-photo">
+        <img [src]="raiImageUrl" alt="Rai, creator of Treethenics"
+          (contextmenu)="$event.preventDefault()" draggable="false" />
+        <figcaption>
+          <span class="about-photo__label">THE PERSON BEHIND THE PROJECT</span>
+          <strong>Rai</strong>
+          <span>Calisthenics enthusiast &amp; creator</span>
+        </figcaption>
+      </figure>
 
-        <div class="about-social__links">
+      <div class="about-story__content">
+        <span class="about-eyebrow">01 / MY STORY</span>
+        <h2 id="about-story-title">Hi, I'm Rai.<br /><span>The person behind Treethenics.</span></h2>
+        <p class="about-lead">Calisthenics gave me a reason to keep learning,
+          improving and challenging myself.</p>
+        <p>As I explored new movements, I became interested in how they fit
+          together: which exercises matched my level, what came before a
+          harder skill, and what I could work towards next.</p>
+        <p>Organizing those exercises helped me make sense of my own training.
+          Treethenics grew from that idea — a place to explore movements and
+          see the connections between them.</p>
+        <nav class="about-social" aria-label="Treethenics social media">
           <a
-            class="about-social__link"
             href="https://www.instagram.com/treethenics"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Visit Treethenics on Instagram"
+            aria-label="Treethenics on Instagram (opens in a new tab)"
           >
-            <span class="about-social__icon" aria-hidden="true">◎</span>
+            <svg
+              class="about-social__icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            </svg>
 
-            <span class="about-social__text">
-              <strong>Instagram</strong>
-              <small>Follow Treethenics</small>
-            </span>
+            Instagram
 
             <span class="about-social__arrow" aria-hidden="true">↗</span>
           </a>
 
           <a
-            class="about-social__link about-social__link--youtube"
             href="https://www.youtube.com/@treethenics"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Visit the Treethenics YouTube channel"
+            aria-label="Treethenics on YouTube (opens in a new tab)"
           >
-            <span
-              class="about-social__icon about-social__icon--youtube"
+            <svg
+              class="about-social__icon"
+              viewBox="0 0 24 24"
+              fill="currentColor"
               aria-hidden="true"
+              focusable="false"
             >
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M21.58 7.19a2.76 2.76 0 0 0-1.94-1.95C17.92 4.78 12 4.78 12 4.78s-5.92 0-7.64.46a2.76 2.76 0 0 0-1.94 1.95A28.8 28.8 0 0 0 2 12a28.8 28.8 0 0 0 .42 4.81 2.76 2.76 0 0 0 1.94 1.95c1.72.46 7.64.46 7.64.46s5.92 0 7.64-.46a2.76 2.76 0 0 0 1.94-1.95A28.8 28.8 0 0 0 22 12a28.8 28.8 0 0 0-.42-4.81ZM10 15.12V8.88L15.4 12 10 15.12Z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M21.58 7.19a2.76 2.76 0 0 0-1.94-1.95C17.92 4.78 12 4.78 12 4.78s-5.92 0-7.64.46a2.76 2.76 0 0 0-1.94 1.95A28.8 28.8 0 0 0 2 12a28.8 28.8 0 0 0 .42 4.81 2.76 2.76 0 0 0 1.94 1.95c1.72.46 7.64.46 7.64.46s5.92 0 7.64-.46a2.76 2.76 0 0 0 1.94-1.95A28.8 28.8 0 0 0 22 12a28.8 28.8 0 0 0-.42-4.81ZM10 15.12V8.88L15.4 12 10 15.12Z"
+              />
+            </svg>
 
-            <span class="about-social__text">
-              <strong>YouTube</strong>
-              <small>Watch Treethenics</small>
-            </span>
+            YouTube
 
             <span class="about-social__arrow" aria-hidden="true">↗</span>
           </a>
+        </nav>
+      </div>
+    </article>
+
+    <section class="about-mission" aria-labelledby="about-mission-title">
+      <div class="about-mission__heading">
+        <span class="about-eyebrow">THE PURPOSE</span>
+        <h2 id="about-mission-title">Make progress<br />easier to understand.</h2>
+      </div>
+      <div class="about-mission__content">
+        <p>Treethenics brings exercises and progressions together to help you
+          find movements that suit your level and see what you could work on next.</p>
+        <p>Use the library to explore exercises by difficulty, muscles and equipment,
+          or follow the tree to understand how movements connect.</p>
+        <div class="about-actions">
+          <a class="about-button" routerLink="/tree">
+            Explore the Tree
+            <span aria-hidden="true">→</span>
+          </a>
+          <a class="about-button" routerLink="/train">
+            Browse exercises
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
-
-      <blockquote class="about-quote">
-        “Progress starts with knowing where you are
-        and discovering what comes next.”
-      </blockquote>
-    </footer>
-  </article>
+    </section>
+  </div>
 </section>

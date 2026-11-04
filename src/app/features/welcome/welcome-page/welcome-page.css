@@ -407,3 +407,43 @@
     );
   }
 }
+
+/* ABOUT ME */
+
+.welcome-section--about {
+  grid-template-areas: "visual content";
+}
+
+.welcome-section--about .welcome-section__visual > img {
+  object-position: center 35%;
+}
+
+/* Escritorio: fundido hacia el texto de la derecha */
+.welcome-section--about .welcome-section__visual::after {
+  background: linear-gradient(
+    to right,
+    transparent 45%,
+    rgba(12, 24, 39, 0.35) 70%,
+    rgba(12, 24, 39, 0.85) 90%,
+    var(--welcome-surface) 100%
+  );
+}
+
+/* Móvil: fotografía arriba y texto debajo */
+@media (max-width: 900px) {
+  .welcome-section--about {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "visual"
+      "content";
+  }
+
+  .welcome-section--about .welcome-section__visual::after {
+    background: linear-gradient(
+      to bottom,
+      transparent 45%,
+      rgba(12, 24, 39, 0.35) 70%,
+      var(--welcome-surface) 100%
+    );
+  }
+}

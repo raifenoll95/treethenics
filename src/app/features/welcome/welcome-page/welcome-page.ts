@@ -23,6 +23,9 @@ export class WelcomePage implements AfterViewInit {
   readonly versusImageUrl =
     `https://pub-45dc79586604478fb0dcbe5c2e4a3497.r2.dev/optimized/detail/versus.webp?v=${IMAGE_VERSION}`;
 
+  readonly raiImageUrl =
+    `https://pub-45dc79586604478fb0dcbe5c2e4a3497.r2.dev/welcome/welcome_me.jpg?v=${IMAGE_VERSION}`;
+
   ngAfterViewInit() {
     // Solo ejecutamos esto si estamos en el navegador (cliente)
     if (isPlatformBrowser(this.platformId)) {

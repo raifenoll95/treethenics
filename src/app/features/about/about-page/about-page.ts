@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IMAGE_VERSION } from '../../../core/config/image-version';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-about-page',
   styleUrl: './about-page.css',
   templateUrl: './about-page.html',

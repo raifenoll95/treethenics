@@ -116,4 +116,43 @@
     </div>
   </section>
 
+
+  <!-- ABOUT ME -->
+  <section
+    class="welcome-section welcome-section--about"
+    aria-labelledby="welcome-about-title"
+  >
+    <div class="welcome-section__content">
+      <span class="welcome-section__eyebrow">
+        <span>04</span> / BEHIND TREETHENICS
+      </span>
+
+      <h2 id="welcome-about-title">
+        A passion for calisthenics.<br />
+        A project with a purpose.
+      </h2>
+
+      <p>
+        I'm Rai, the creator of Treethenics. Discover the story behind
+        the project and why I built a clearer way to explore
+        calisthenics progressions.
+      </p>
+
+      <a class="welcome-section__button" routerLink="/about">
+        Meet the Creator
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <div class="welcome-section__visual">
+      <img
+        [src]="raiImageUrl"
+        alt="Rai, creator of Treethenics, training calisthenics"
+        loading="lazy"
+        draggable="false"
+        (contextmenu)="$event.preventDefault()"
+      />
+    </div>
+  </section>
+
 </main>
