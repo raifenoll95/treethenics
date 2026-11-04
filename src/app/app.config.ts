@@ -6,7 +6,10 @@ import { provideRouter, withInMemoryScrolling } from '@angular/router';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideRouter(routes),
+    provideRouter(routes,withInMemoryScrolling({
+    scrollPositionRestoration: 'top',
+    anchorScrolling: 'enabled',
+  }),),
     provideClientHydration(),
   ],
 };
