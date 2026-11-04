@@ -6,6 +6,8 @@ import {
   PLATFORM_ID,
   OnDestroy,
   effect,
+  ElementRef,
+HostListener,
 } from '@angular/core';
 
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
@@ -42,6 +44,38 @@ interface SelectOption<T extends string> {
   styleUrl: './what-should-i-train.css',
 })
 export class WhatShouldITrain implements OnDestroy {
+
+  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
+
+  private readonly closeDropdownsOnOutsideClick = (event: Event): void => {
+    const path = event.composedPath();
+
+    this.host.nativeElement
+      .querySelectorAll<HTMLDetailsElement>('details.filter-dropdown[open]')
+      .forEach(dropdown => {
+        if (!path.includes(dropdown)) {
+          dropdown.open = false;
+        }
+      });
+  };
+
+  ngAfterViewInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.document.addEventListener(
+        'pointerdown',
+        this.closeDropdownsOnOutsideClick,
+        true,
+      );
+    }
+  }
+
+  onFilterFocusOut(event: FocusEvent, dropdown: HTMLDetailsElement): void {
+    const nextTarget = event.relatedTarget;
+
+    if (!(nextTarget instanceof Node) || !dropdown.contains(nextTarget)) {
+      dropdown.open = false;
+    }
+  }
 
   // Número de ejercicios por página.
   readonly exercisesPerPageDesktop = 24;
@@ -403,6 +437,12 @@ export class WhatShouldITrain implements OnDestroy {
   ngOnDestroy(): void {
     if (isPlatformBrowser(this.platformId)) {
       window.removeEventListener('resize', this.updateScreenSize);
+
+      this.document.removeEventListener(
+        'pointerdown',
+        this.closeDropdownsOnOutsideClick,
+        true,
+      );
     }
   }
 

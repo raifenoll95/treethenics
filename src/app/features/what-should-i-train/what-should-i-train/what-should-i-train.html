@@ -44,90 +44,85 @@
 
   </header>
 
-  <div class="train-filters">
-
-    <div class="train-filters__toolbar">
-      <span class="train-filters__title">
-        <span aria-hidden="true">☷</span>
-        Filters
-      </span>
-
-      <button
-        type="button"
-        class="train-filters__reset"
-        (click)="resetFilters()"
-      >
-        Reset filters
-      </button>
+  <div class="filter-dropdowns">
+    <div class="filter-dropdowns__toolbar">
+      <span>☷ Filters</span>
+      <button type="button" (click)="resetFilters()">Reset filters</button>
     </div>
-
-    <!-- 01 / DIFFICULTY -->
-    <div class="train-filter">
-      <div class="train-filter__heading">
-        <span class="train-panel__step">01 / DIFFICULTY.</span>
-      </div>
-
-      <div class="option-grid">
+    <details #dropdownDifficulty class="filter-dropdown" name="train-filter-dropdown"
+      (keydown.escape)="dropdownDifficulty.removeAttribute('open'); summaryDifficulty.focus()">
+      <summary #summaryDifficulty>
+        <span class="filter-dropdown__text">
+          <span class="filter-dropdown__label">01 / DIFFICULTY</span>
+          <span class="filter-dropdown__value">
+            @if (!selectedDifficulty()) { All levels }
+            @for (difficulty of difficulties; track difficulty.value) {
+              @if (selectedDifficulty() === difficulty.value) { {{ difficulty.label }} }
+            }
+          </span>
+        </span>
+        <span class="filter-dropdown__arrow" aria-hidden="true">⌄</span>
+      </summary>
+      <div class="filter-dropdown__menu">
+        <button type="button" class="filter-dropdown__option"
+          (click)="selectedDifficulty() && selectDifficulty(selectedDifficulty()!); dropdownDifficulty.removeAttribute('open'); summaryDifficulty.focus()"
+          [attr.aria-pressed]="!selectedDifficulty()">All levels</button>
         @for (difficulty of difficulties; track difficulty.value) {
-          <button
-            type="button"
-            class="option-button difficulty-button"
-            [class.option-button--selected]="selectedDifficulty() === difficulty.value"
-            [class.difficulty-button--beginner]="difficulty.value === 'beginner'"
-            [class.difficulty-button--intermediate]="difficulty.value === 'intermediate'"
-            [class.difficulty-button--advanced]="difficulty.value === 'advanced'"
-            [class.difficulty-button--elite]="difficulty.value === 'elite'"
+          <button type="button" class="filter-dropdown__option"
+            [attr.data-level]="difficulty.value"
+            [class.is-selected]="selectedDifficulty() === difficulty.value"
             [attr.aria-pressed]="selectedDifficulty() === difficulty.value"
-            (click)="selectDifficulty(difficulty.value)"
-          >
+            (click)="!(selectedDifficulty() === difficulty.value) && selectDifficulty(difficulty.value); dropdownDifficulty.removeAttribute('open'); summaryDifficulty.focus()">
+            <span class="filter-dropdown__dot" aria-hidden="true"></span>
             {{ difficulty.label }}
           </button>
         }
       </div>
-    </div>
-
-    <!-- 02 / TARGET -->
-    <div class="train-filter">
-      <div class="train-filter__heading">
-        <span class="train-panel__step">02 / TARGET</span>
-      </div>
-
-      <div class="option-grid">
+    </details>
+    <details #dropdownTarget class="filter-dropdown" name="train-filter-dropdown"
+      (keydown.escape)="dropdownTarget.removeAttribute('open'); summaryTarget.focus()">
+      <summary #summaryTarget>
+        <span class="filter-dropdown__text">
+          <span class="filter-dropdown__label">02 / TARGET</span>
+          <span class="filter-dropdown__value">
+            {{ selectedAreas().length ? selectedAreas().length + ' selected' : 'All muscles' }}
+          </span>
+        </span>
+        <span class="filter-dropdown__arrow" aria-hidden="true">⌄</span>
+      </summary>
+      <div class="filter-dropdown__menu">
         @for (area of targetAreas; track area.value) {
-          <button
-            type="button"
-            class="option-button option-button--chip"
-            [class.option-button--selected]="hasArea(area.value)"
-            [attr.aria-pressed]="hasArea(area.value)"
-            (click)="toggleArea(area.value)"
-          >
-            {{ area.label }}
-          </button>
+          <label class="filter-dropdown__option">
+            <input
+              type="checkbox"
+              [checked]="hasArea(area.value)"
+              (change)="toggleArea(area.value)"
+            />
+            <span>{{ area.label }}</span>
+          </label>
         }
       </div>
-    </div>
-
-    <!-- 03 / EQUIPMENT -->
-    <div class="train-filter">
-      <div class="train-filter__heading">
-        <span class="train-panel__step">03 / EQUIPMENT</span>
-      </div>
-
-      <div class="option-grid">
-
+    </details>
+    <details #dropdownEquipment class="filter-dropdown" name="train-filter-dropdown"
+      (keydown.escape)="dropdownEquipment.removeAttribute('open'); summaryEquipment.focus()">
+      <summary #summaryEquipment>
+        <span class="filter-dropdown__text">
+          <span class="filter-dropdown__label">03 / EQUIPMENT</span>
+          <span class="filter-dropdown__value">
+            {{ selectedEquipment().length ? selectedEquipment().length + ' selected' : 'All equipment' }}
+          </span>
+        </span>
+        <span class="filter-dropdown__arrow" aria-hidden="true">⌄</span>
+      </summary>
+      <div class="filter-dropdown__menu">
         @for (item of equipmentOptions; track item.value) {
-          <button
-            type="button"
-            class="option-button option-button--chip"
-            [class.option-button--selected]="hasEquipment(item.value)"
-            [attr.aria-pressed]="hasEquipment(item.value)"
-            (click)="toggleEquipment(item.value)"
-          >
-            {{ item.label }}
-          </button>
+          <label class="filter-dropdown__option">
+            <input type="checkbox" [checked]="hasEquipment(item.value)" (change)="toggleEquipment(item.value)" />
+            <span>{{ item.label }}</span>
+          </label>
         }
       </div>
-    </div>
+    </details>
   </div>
 
   <div
