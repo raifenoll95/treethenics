@@ -555,3 +555,19 @@
     padding: 0;
   }
 }
+
+.sidebar .sidebar__item {
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.sidebar .sidebar__item--active {
+  font-weight: 800;
+}
+
+.sidebar .sidebar__item--pro {
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
