@@ -362,3 +362,48 @@
   -webkit-user-select: none;
   user-select: none;
 }
+
+
+.welcome-section--train .welcome-section__visual::after {
+  display: none;
+}
+
+.welcome-section__visual > video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Escritorio: fundido hacia el texto de la derecha */
+.welcome-section--train .welcome-section__visual::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to right,
+    transparent 45%,
+    rgba(12, 24, 39, 0.35) 70%,
+    rgba(12, 24, 39, 0.85) 90%,
+    #0c1827 100%
+  );
+}
+
+/* Móvil: fundido hacia el texto de abajo */
+@media (max-width: 900px) {
+  .welcome-section--train .welcome-section__visual::after {
+    background: linear-gradient(
+      to bottom,
+      transparent 45%,
+      rgba(12, 24, 39, 0.35) 70%,
+      #0c1827 100%
+    );
+  }
+}
