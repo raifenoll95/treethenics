@@ -1,3 +1,11 @@
+@if (mobileMenuOpen()) {
+  <div
+    class="sidebar-backdrop"
+    aria-hidden="true"
+    (click)="closeMobileMenu()"
+  ></div>
+}
+
 <aside
   class="sidebar"
   [class.sidebar--menu-open]="mobileMenuOpen()"
