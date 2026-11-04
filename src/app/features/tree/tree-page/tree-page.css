@@ -2010,3 +2010,86 @@ app-tree-canvas {
   }
 }
 
+
+@media (max-width: 768px) {
+  /* Permite que el panel se superponga a la cabecera y la leyenda */
+  .tree-canvas {
+    isolation: auto;
+  }
+
+  .exercise-panel,
+  .exercise-panel--left,
+  .exercise-panel--right {
+    position: fixed;
+
+    top: max(12px, env(safe-area-inset-top));
+    bottom: auto;
+    left: 12px;
+    right: 12px;
+
+    transform: none;
+    margin: 0;
+
+    width: auto;
+    min-width: 0;
+    height: auto;
+    min-height: 0;
+
+    max-height: calc(
+      100dvh - 24px
+      - env(safe-area-inset-top)
+      - env(safe-area-inset-bottom)
+    );
+
+    box-sizing: border-box;
+    padding: 12px 16px 16px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    z-index: 10000;
+  }
+
+  /* Evita que el contenido se comprima en lugar de hacer scroll */
+  .exercise-panel > * {
+    flex-shrink: 0;
+  }
+
+  /* La X permanece visible al desplazar el contenido */
+  .exercise-panel__close {
+    position: sticky;
+    top: 0;
+    right: auto;
+
+    align-self: flex-end;
+    margin: 0 0 8px;
+
+    width: 44px;
+    height: 44px;
+
+    background: #171c24;
+    color: #fff;
+    border: 1px solid #465163;
+
+    z-index: 10;
+  }
+
+  .exercise-panel__image img {
+    width: 100%;
+    height: auto;
+    max-height: 26dvh;
+    object-fit: contain;
+  }
+
+  .exercise-panel h2 {
+    font-size: 24px;
+    overflow-wrap: anywhere;
+  }
+
+  .exercise-panel__actions {
+    margin-top: 18px;
+    padding-top: 0;
+  }
+}
+
