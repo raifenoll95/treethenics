@@ -1,17 +1,47 @@
-<aside class="sidebar">
-  <a
-    class="sidebar__brand"
-    routerLink="/"
-    aria-label="Go to Treethenics home"
-  >
-    <img
-      class="sidebar__brand-logo"
-      [src]="logoUrl"
-      alt="Treethenics"
-    />
-  </a>
+<aside
+  class="sidebar"
+  [class.sidebar--menu-open]="mobileMenuOpen()"
+  (keydown.escape)="closeMobileMenu(); menuToggle.focus()"
+>
+  <div class="sidebar__topbar">
+    <!-- BOTÓN DEL MENÚ MÓVIL -->
+    <button
+      #menuToggle
+      class="sidebar__menu-toggle"
+      type="button"
+      aria-controls="treethenics-navigation"
+      [attr.aria-expanded]="mobileMenuOpen()"
+      [attr.aria-label]="mobileMenuOpen() ? 'Close menu' : 'Open menu'"
+      (click)="toggleMobileMenu()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-  <nav class="sidebar__nav" aria-label="Main navigation">
+    <!-- LOGO: EN MÓVIL SOLO SE MUESTRA EN HOME -->
+    <a
+      class="sidebar__brand"
+      routerLink="/"
+      routerLinkActive="sidebar__brand--home"
+      [routerLinkActiveOptions]="{ exact: true }"
+      aria-label="Go to Treethenics home"
+      (click)="closeMobileMenu()"
+    >
+      <img
+        class="sidebar__brand-logo"
+        [src]="logoUrl"
+        alt="Treethenics"
+      />
+    </a>
+  </div>
+
+  <nav
+    id="treethenics-navigation"
+    class="sidebar__nav"
+    aria-label="Main navigation"
+    (click)="closeMobileMenu()"
+  >
     <!-- HOME -->
     <a
       class="sidebar__item"
@@ -55,7 +85,7 @@
       <span>Tree</span>
     </a>
 
-    <!-- TRAIN -->
+    <!-- LIBRARY -->
     <a
       class="sidebar__item"
       routerLink="/train"
@@ -128,7 +158,9 @@
         viewBox="0 0 24 24"
         aria-hidden="true"
       >
-        <path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z" />
+        <path
+          d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"
+        />
         <path d="M20 2v4m-2-2h4" />
       </svg>
 
