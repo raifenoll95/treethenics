@@ -291,46 +291,217 @@
             </thead>
 
             <tbody>
-              <tr [class.compare-table__row--different]="first.difficulty !== second.difficulty">
-                <th>Difficulty</th>
-                <td>{{ first.difficulty }}</td>
-                <td>{{ second.difficulty }}</td>
-              </tr>
-
-              <tr [class.compare-table__row--different]="first.graphLevel !== second.graphLevel">
-                <th>Progression level</th>
-                <td>{{ first.graphLevel }} / 7</td>
-                <td>{{ second.graphLevel }} / 7</td>
-              </tr>
-
+              <!-- DIFFICULTY -->
               <tr
-                [class.compare-table__row--different]="!samePrimaryMuscles(first, second)"
+                [class.compare-table__row--different]="
+                  first.difficulty !== second.difficulty
+                "
               >
-                <th>Primary muscles</th>
-                <td>{{ getMuscles(first, 'primary') }}</td>
-                <td>{{ getMuscles(second, 'primary') }}</td>
+                <th scope="row">Difficulty</th>
+
+                @for (exercise of [first, second]; track $index) {
+                  <td>
+                    <span
+                      class="comparison-badge"
+                      [attr.data-level]="exercise.difficulty"
+                    >
+                      <span class="comparison-badge__dot" aria-hidden="true"></span>
+                      {{ exercise.difficulty }}
+                    </span>
+                  </td>
+                }
               </tr>
 
+              <!-- PROGRESSION LEVEL -->
               <tr
-                [class.compare-table__row--different]="!sameSecondaryMuscles(first, second)"
+                [class.compare-table__row--different]="
+                  first.graphLevel !== second.graphLevel
+                "
               >
-                <th>Secondary muscles</th>
-                <td>{{ getMuscles(first, 'secondary') }}</td>
-                <td>{{ getMuscles(second, 'secondary') }}</td>
+                <th scope="row">Progression level</th>
+
+                @for (exercise of [first, second]; track $index) {
+                  <td>
+                    <div
+                      class="comparison-level"
+                      [attr.data-level]="exercise.difficulty"
+                    >
+                      <span class="comparison-level__value">
+                        Level <strong>{{ exercise.graphLevel }}</strong>
+                        <span>/ 7</span>
+                      </span>
+
+                      <div
+                        class="comparison-level__segments"
+                        role="meter"
+                        aria-label="Progression level"
+                        aria-valuemin="1"
+                        aria-valuemax="7"
+                        [attr.aria-valuenow]="exercise.graphLevel"
+                        [attr.aria-valuetext]="'Level ' + exercise.graphLevel + ' of 7'"
+                      >
+                        @for (step of [1, 2, 3, 4, 5, 6, 7]; track step) {
+                          <span
+                            class="comparison-level__segment"
+                            [class.comparison-level__segment--filled]="
+                              step <= exercise.graphLevel
+                            "
+                            aria-hidden="true"
+                          ></span>
+                        }
+                      </div>
+                    </div>
+                  </td>
+                }
               </tr>
 
+              <!-- PRIMARY MUSCLES -->
               <tr
-                [class.compare-table__row--different]="!sameEquipment(first, second)"
+                [class.compare-table__row--different]="
+                  !samePrimaryMuscles(first, second)
+                "
               >
-                <th>Equipment</th>
-                <td>{{ getEquipment(first) }}</td>
-                <td>{{ getEquipment(second) }}</td>
+                <th scope="row">Primary muscles</th>
+
+                @for (exercise of [first, second]; track $index) {
+                  <td>
+                    <div class="comparison-tags">
+                      @for (
+                        muscle of getMuscles(exercise, 'primary').split(',');
+                        track $index
+                      ) {
+                        @if (muscle.trim() && muscle.trim() !== '—') {
+                          <span class="comparison-tag comparison-tag--primary">
+                            {{ muscle.trim() }}
+                          </span>
+                        } @else {
+                          <span class="comparison-empty">—</span>
+                        }
+                      }
+                    </div>
+                  </td>
+                }
               </tr>
 
-              <tr [class.compare-table__row--different]="first.movementType !== second.movementType">
-                <th>Movement type</th>
-                <td>{{ first.movementType ?? '—' }}</td>
-                <td>{{ second.movementType ?? '—' }}</td>
+              <!-- SECONDARY MUSCLES -->
+              <tr
+                [class.compare-table__row--different]="
+                  !sameSecondaryMuscles(first, second)
+                "
+              >
+                <th scope="row">Secondary muscles</th>
+
+                @for (exercise of [first, second]; track $index) {
+                  <td>
+                    <div class="comparison-tags">
+                      @for (
+                        muscle of getMuscles(exercise, 'secondary').split(',');
+                        track $index
+                      ) {
+                        @if (muscle.trim() && muscle.trim() !== '—') {
+                          <span class="comparison-tag comparison-tag--secondary">
+                            {{ muscle.trim() }}
+                          </span>
+                        } @else {
+                          <span class="comparison-empty">—</span>
+                        }
+                      }
+                    </div>
+                  </td>
+                }
+              </tr>
+
+              <!-- EQUIPMENT -->
+              <tr
+                [class.compare-table__row--different]="
+                  !sameEquipment(first, second)
+                "
+              >
+                <th scope="row">Equipment</th>
+
+                @for (exercise of [first, second]; track $index) {
+                  <td>
+                    <div class="comparison-tags">
+                      @for (
+                        equipment of getEquipment(exercise).split(',');
+                        track $index
+                      ) {
+                        @if (equipment.trim() && equipment.trim() !== '—') {
+                          <span class="comparison-tag comparison-tag--equipment">
+                            <svg
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.7"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              aria-hidden="true"
+                              focusable="false"
+                            >
+                              <path d="M8 12h8M6 7v10M3 9v6M18 7v10M21 9v6" />
+                            </svg>
+
+                            {{ equipment.trim() }}
+                          </span>
+                        } @else {
+                          <span class="comparison-empty">—</span>
+                        }
+                      }
+                    </div>
+                  </td>
+                }
+              </tr>
+
+              <!-- MOVEMENT TYPE -->
+              <tr
+                [class.compare-table__row--different]="
+                  first.movementType !== second.movementType
+                "
+              >
+                <th scope="row">Movement type</th>
+
+                @for (exercise of [first, second]; track $index) {
+                  <td>
+                    @if (exercise.movementType; as movement) {
+                      <span
+                        class="comparison-movement"
+                        [attr.data-movement]="movement"
+                      >
+                        @if (movement === 'dynamic') {
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                            focusable="false"
+                          >
+                            <path d="M4 7h16m-4-4 4 4-4 4" />
+                            <path d="M20 17H4m4-4-4 4 4 4" />
+                          </svg>
+                        } @else if (movement === 'static') {
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                            aria-hidden="true"
+                            focusable="false"
+                          >
+                            <path d="M8 5v14M16 5v14" />
+                          </svg>
+                        }
+
+                        {{ movement }}
+                      </span>
+                    } @else {
+                      <span class="comparison-empty">—</span>
+                    }
+                  </td>
+                }
               </tr>
             </tbody>
           </table>

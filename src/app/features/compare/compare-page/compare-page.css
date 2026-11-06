@@ -1103,3 +1103,250 @@
   background: #d8d5ce;
   border-color: #a6afb9;
 }
+
+/* TABLA — CONTENIDO VISUAL */
+
+.compare-table td,
+.compare-table tbody th {
+  vertical-align: middle;
+}
+
+/* Colores de dificultad sobre fondo oscuro */
+.compare-table [data-level="beginner"] {
+  --level-color: #34d399;
+  --level-background: rgb(52 211 153 / 12%);
+  --level-border: rgb(52 211 153 / 40%);
+}
+
+.compare-table [data-level="intermediate"] {
+  --level-color: #60a5fa;
+  --level-background: rgb(96 165 250 / 12%);
+  --level-border: rgb(96 165 250 / 40%);
+}
+
+.compare-table [data-level="advanced"] {
+  --level-color: #fb923c;
+  --level-background: rgb(251 146 60 / 12%);
+  --level-border: rgb(251 146 60 / 40%);
+}
+
+.compare-table [data-level="elite"] {
+  --level-color: #fb7185;
+  --level-background: rgb(251 113 133 / 12%);
+  --level-border: rgb(251 113 133 / 40%);
+}
+
+/* Dificultad */
+
+.comparison-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  max-width: 100%;
+  padding: 6px 10px;
+
+  color: var(--level-color, #e0e6ed);
+  background: var(--level-background, #233145);
+  border: 1px solid var(--level-border, #63748a);
+  border-radius: 5px;
+
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.4;
+  text-transform: capitalize;
+}
+
+.comparison-badge__dot {
+  flex: 0 0 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* Nivel: siete cajas */
+
+.comparison-level {
+  width: 100%;
+  max-width: 250px;
+}
+
+.comparison-level__value {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  margin-bottom: 9px;
+
+  color: #d3dce7;
+  font-size: 12px;
+}
+
+.comparison-level__value strong {
+  color: var(--level-color, #e0e6ed);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.comparison-level__value > span {
+  color: #b8c5d6;
+}
+
+.comparison-level__segments {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 5px;
+}
+
+.comparison-level__segment {
+  height: 12px;
+  background: #233145;
+  border: 1px solid #65758a;
+  border-radius: 2px;
+}
+
+.comparison-level__segment--filled {
+  background: var(--level-color, #e0e6ed);
+  border-color: var(--level-color, #e0e6ed);
+}
+
+/* Músculos y equipamiento */
+
+.comparison-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+}
+
+.comparison-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  max-width: 100%;
+  padding: 5px 9px;
+
+  border: 1px solid #63748a;
+  border-radius: 5px;
+
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.comparison-tag--primary {
+  color: #ffffff;
+  background: #40546d;
+  border-color: #71849c;
+}
+
+.comparison-tag--secondary {
+  color: #d5deea;
+  background: #28384b;
+  border-color: #596c83;
+}
+
+.comparison-tag--equipment {
+  color: #e5edf7;
+  background: #233145;
+  border-color: #63748a;
+}
+
+.comparison-tag svg,
+.comparison-movement svg {
+  display: block;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+}
+
+/* Tipo de movimiento */
+
+.comparison-movement {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  max-width: 100%;
+  padding: 6px 10px;
+
+  color: #e0e6ed;
+  background: #233145;
+  border: 1px solid #63748a;
+  border-radius: 5px;
+
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-transform: capitalize;
+}
+
+.comparison-movement[data-movement="dynamic"] {
+  color: #a6ceff;
+  background: #253c56;
+  border-color: #597da6;
+}
+
+.comparison-movement[data-movement="static"] {
+  color: #dfc7ff;
+  background: #3a3451;
+  border-color: #86749e;
+}
+
+.comparison-empty {
+  color: #b8c5d6;
+}
+
+/* Adaptación a las tres columnas del móvil */
+
+@media (max-width: 768px) {
+  .comparison-badge {
+    gap: 5px;
+    padding: 5px 6px;
+    font-size: 10px;
+    overflow-wrap: anywhere;
+  }
+
+  .comparison-badge__dot {
+    flex-basis: 4px;
+    width: 4px;
+    height: 4px;
+  }
+
+  .comparison-level__segments {
+    gap: 3px;
+  }
+
+  .comparison-level__segment {
+    height: 10px;
+  }
+
+  .comparison-level__value {
+    font-size: 10px;
+  }
+
+  .comparison-level__value strong {
+    font-size: 14px;
+  }
+
+  .comparison-tags {
+    gap: 5px;
+  }
+
+  .comparison-tag,
+  .comparison-movement {
+    gap: 5px;
+    padding: 4px 6px;
+    font-size: 10px;
+  }
+
+  .comparison-tag svg,
+  .comparison-movement svg {
+    flex-basis: 13px;
+    width: 13px;
+    height: 13px;
+  }
+}
