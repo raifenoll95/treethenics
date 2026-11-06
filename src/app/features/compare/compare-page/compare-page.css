@@ -61,7 +61,7 @@
 
 .compare-panel {
   padding: 24px;
-  background: #12171f;
+  background: #e3e0d9;
   border: 1px solid #465163;
   border-radius: 16px;
 }
@@ -679,7 +679,7 @@
 .compare-panel {
   padding: clamp(18px, 2vw, 30px);
   color: #ffffff;
-  background: #2c3b4e;
+  background: #e3e0d9;
   border-color: #405166;
   border-radius: 16px;
 }
@@ -952,4 +952,154 @@
   aspect-ratio: 1672 / 941;
   object-fit: cover;
   object-position: center;
+}
+
+/* COMPARE — contraste sobre fondo claro */
+
+.compare-panel {
+  color: #263547;
+  background: #e3e0d9;
+  border-color: #b6bdc6;
+}
+
+/* Nombres y ejercicio seleccionado */
+
+.compare-exercise h2 {
+  color: #263547;
+}
+
+.compare-picker__selected {
+  color: #526071;
+}
+
+.compare-picker__selected strong {
+  color: #263547;
+}
+
+/* Buscadores */
+
+.compare-select {
+  color: #263547;
+  background: #f8f9f5;
+  border-color: #8793a2;
+  caret-color: #be2442;
+}
+
+.compare-select::placeholder {
+  color: #596678;
+  opacity: 1;
+}
+
+.compare-select:focus {
+  background: #ffffff;
+  border-color: #be2442;
+  outline: 2px solid #be2442;
+  outline-offset: 3px;
+}
+
+/* Lista de resultados */
+
+.compare-picker__options {
+  background: #f8f9f5;
+  border-color: #8793a2;
+  box-shadow: 0 12px 28px rgb(38 53 71 / 16%);
+}
+
+.compare-picker__option {
+  color: #263547;
+}
+
+.compare-picker__option:hover,
+.compare-picker__option:focus-visible {
+  color: #ffffff;
+  background: #2c3b4e;
+}
+
+.compare-picker__option:focus-visible {
+  outline: 2px solid #ff9aaa;
+  outline-offset: -3px;
+}
+
+.compare-picker__empty {
+  color: #526071;
+}
+
+/* Dificultades: versiones oscuras para el panel claro */
+
+.compare-column__label--beginner,
+.compare-difficulty--beginner {
+  color: #087348;
+}
+
+.compare-column__label--intermediate,
+.compare-difficulty--intermediate {
+  color: #245cb0;
+}
+
+.compare-column__label--advanced,
+.compare-difficulty--advanced {
+  color: #9a460b;
+}
+
+.compare-column__label--elite,
+.compare-difficulty--elite {
+  color: #b32243;
+}
+
+/* Botones: fondo azul y colores luminosos por dificultad */
+
+.compare-exercise a {
+  background: #233145;
+}
+
+.compare-exercise--beginner a {
+  color: #4ade80;
+}
+
+.compare-exercise--intermediate a {
+  color: #60a5fa;
+}
+
+.compare-exercise--advanced a {
+  color: #fb923c;
+}
+
+.compare-exercise--elite a {
+  color: #fb7185;
+}
+
+.compare-exercise a:hover {
+  background: #304157;
+}
+
+.compare-exercise a:focus-visible {
+  outline: 2px solid #263547;
+  outline-offset: 3px;
+}
+
+/* Estados sin selección o sin fotografía */
+
+.compare-placeholder,
+.compare-exercise .exercise-card__placeholder {
+  color: #526071;
+  background: #eeede8;
+  border-color: #8793a2;
+}
+
+.compare-placeholder:hover,
+.compare-placeholder:focus-visible {
+  color: #263547;
+  background: #f8f9f5;
+  border-color: #be2442;
+}
+
+.compare-placeholder:focus-visible {
+  outline-color: #be2442;
+}
+
+/* Marco de las fotografías */
+
+.compare-exercise__image {
+  background: #d8d5ce;
+  border-color: #a6afb9;
 }
