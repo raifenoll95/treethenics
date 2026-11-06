@@ -228,9 +228,9 @@
   background: linear-gradient(
     to right,
     #0c1827 0%,
-    rgba(3, 6, 10, 0.85) 8%,
-    rgba(3, 6, 10, 0.35) 25%,
-    transparent 52%
+    rgba(12, 24, 39, 0.85) 8%,
+    rgba(12, 24, 39, 0.35) 25%,
+    rgba(12, 24, 39, 0) 52%
   );
 }
 
