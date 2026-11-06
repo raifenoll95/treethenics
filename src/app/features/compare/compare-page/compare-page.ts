@@ -192,6 +192,48 @@ export class ComparePage {
     this.syncUrl();
   }
 
+  readonly suggestedComparisons = [
+    {
+      title: 'Explore pulling variations',
+      firstName: 'Pull Up',
+      secondName: 'Archer Pull Up',
+    },
+    {
+      title: 'Compare pushing exercises',
+      firstName: 'Push Up',
+      secondName: 'Archer Push Up',
+    },
+    {
+      title: 'Discover static skills',
+      firstName: 'Front Lever',
+      secondName: 'Back Lever',
+    },
+  ].flatMap((suggestion) => {
+    const findExercise = (name: string) =>
+      this.exercises.find(
+        (exercise) =>
+          exercise.name.trim().toLowerCase() === name.toLowerCase(),
+      );
+
+    const first = findExercise(suggestion.firstName);
+    const second = findExercise(suggestion.secondName);
+
+    return first && second
+      ? [{ title: suggestion.title, first, second }]
+      : [];
+  });
+
+  selectSuggestedComparison(firstId: string, secondId: string): void {
+    this.firstExerciseId.set(firstId);
+    this.secondExerciseId.set(secondId);
+
+    this.firstSearch.set('');
+    this.secondSearch.set('');
+
+    this.closeSelectors();
+    this.syncUrl();
+  }
+
   getMuscles(exercise: Exercise, type: 'primary' | 'secondary'): string {
     const muscles =
       type === 'primary'

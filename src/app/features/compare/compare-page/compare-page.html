@@ -62,6 +62,7 @@
             (focus)="openFirstSelector()"
             (keydown.escape)="closeSelectors()"
             [attr.aria-label]="'Search first exercise'"
+            #firstInput
           />
 
           @if (firstExercise(); as exercise) {
@@ -97,22 +98,38 @@
             [class.compare-exercise--advanced]="exercise.difficulty === 'advanced'"
             [class.compare-exercise--elite]="exercise.difficulty === 'elite'"
           >
-            @if (exercise.imageUrl) {
-              <img
-                class="compare-exercise__image"
-                [src]="exercise.imageUrl | optimizedImage:'detail'"
-                [alt]="exercise.name"
-                loading="lazy"
-                decoding="async"
-                draggable="false"
-                (contextmenu)="$event.preventDefault()"
-                (dragstart)="$event.preventDefault()"
-              />
-            } @else {
-              <div class="exercise-card__placeholder">
-                TREETHENICS
-              </div>
-            }
+            <div class="compare-exercise__media">
+              @if (exercise.imageUrl) {
+                <img
+                  class="compare-exercise__image"
+                  [src]="exercise.imageUrl | optimizedImage:'detail'"
+                  [alt]="exercise.name"
+                  loading="lazy"
+                  decoding="async"
+                  draggable="false"
+                  (contextmenu)="$event.preventDefault()"
+                  (dragstart)="$event.preventDefault()"
+                />
+              } @else {
+                <div class="exercise-card__placeholder">
+                  TREETHENICS
+                </div>
+              }
+
+              <a
+                class="compare-exercise__image-link"
+                [routerLink]="['/exercises', exercise.id]"
+                [queryParams]="{
+                  from: 'compare',
+                  first: firstExerciseId(),
+                  second: secondExerciseId()
+                }"
+                [attr.aria-label]="'View ' + exercise.name"
+              >
+                View exercise
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
             <h2>{{ exercise.name }}</h2>
 
             <span
@@ -124,33 +141,29 @@
             >
               {{ exercise.difficulty }}
             </span>
-
-            <a [routerLink]="['/exercises', exercise.id]"
-                [queryParams]="{
-                from: 'compare',
-                first: firstExerciseId(),
-                second: secondExerciseId()
-              }"
-            >
-              View exercise →
-            </a>
           </div>
         } @else {
-          <div
-            class="compare-placeholder"
-            role="button"
-            tabindex="0"
-            (click)="$event.stopPropagation(); openFirstSelector()"
-            (keydown.enter)="openFirstSelector()"
-            (keydown.space)="$event.preventDefault(); openFirstSelector()"
+          <button
+            class="compare-placeholder compare-empty-choice"
+            type="button"
+            (click)="$event.stopPropagation(); openFirstSelector(); firstInput.focus()"
           >
-            Select your first exercise
-          </div>
+            <span class="compare-empty-choice__plus" aria-hidden="true">+</span>
+
+            <strong>Choose your first exercise</strong>
+
+            <span class="compare-empty-choice__description">
+              Search by name to get started.
+            </span>
+
+            <span class="compare-empty-choice__action" aria-hidden="true">
+              Explore exercises →
+            </span>
+          </button>
         }
       </article>
 
       <div class="compare-vs" aria-hidden="true">
-        <img [src]="vsLogoUrl" alt="" />
       </div>
 
       <!-- EJERCICIO 2 -->
@@ -178,6 +191,7 @@
           (focus)="openSecondSelector()"
           (keydown.escape)="closeSelectors()"
           [attr.aria-label]="'Search second exercise'"
+          #secondInput
         />
 
         @if (secondExercise(); as exercise) {
@@ -213,22 +227,38 @@
               [class.compare-exercise--advanced]="exercise.difficulty === 'advanced'"
               [class.compare-exercise--elite]="exercise.difficulty === 'elite'"
             >
-            @if (exercise.imageUrl) {
-              <img
-                class="compare-exercise__image"
-                [src]="exercise.imageUrl | optimizedImage:'detail'"
-                [alt]="exercise.name"
-                loading="lazy"
-                decoding="async"
-                draggable="false"
-                (contextmenu)="$event.preventDefault()"
-                (dragstart)="$event.preventDefault()"
-              />
-            } @else {
-              <div class="exercise-card__placeholder">
-                TREETHENICS
-              </div>
-            }
+            <div class="compare-exercise__media">
+              @if (exercise.imageUrl) {
+                <img
+                  class="compare-exercise__image"
+                  [src]="exercise.imageUrl | optimizedImage:'detail'"
+                  [alt]="exercise.name"
+                  loading="lazy"
+                  decoding="async"
+                  draggable="false"
+                  (contextmenu)="$event.preventDefault()"
+                  (dragstart)="$event.preventDefault()"
+                />
+              } @else {
+                <div class="exercise-card__placeholder">
+                  TREETHENICS
+                </div>
+              }
+
+              <a
+                class="compare-exercise__image-link"
+                [routerLink]="['/exercises', exercise.id]"
+                [queryParams]="{
+                  from: 'compare',
+                  first: firstExerciseId(),
+                  second: secondExerciseId()
+                }"
+                [attr.aria-label]="'View ' + exercise.name"
+              >
+                View exercise
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
             <h2>{{ exercise.name }}</h2>
 
             <span
@@ -240,32 +270,122 @@
             >
               {{ exercise.difficulty }}
             </span>
-
-            <a [routerLink]="['/exercises', exercise.id]"
-                [queryParams]="{
-                from: 'compare',
-                first: firstExerciseId(),
-                second: secondExerciseId()
-              }"
-            >
-              View exercise →
-            </a>
           </div>
         } @else {
-          <div
-            class="compare-placeholder"
-            role="button"
-            tabindex="0"
-            (click)="$event.stopPropagation(); openSecondSelector()"
-            (keydown.enter)="openSecondSelector()"
-            (keydown.space)="$event.preventDefault(); openSecondSelector()"
+          <button
+            class="compare-placeholder compare-empty-choice"
+            type="button"
+            (click)="$event.stopPropagation(); openSecondSelector(); secondInput.focus()"
           >
-            Select your second exercise
-          </div>
+            <span class="compare-empty-choice__plus" aria-hidden="true">+</span>
+
+            <strong>Choose your second exercise</strong>
+
+            <span class="compare-empty-choice__description">
+              Pick another movement to compare.
+            </span>
+
+            <span class="compare-empty-choice__action" aria-hidden="true">
+              Explore exercises →
+            </span>
+          </button>
         }
       </article>
     </div>
   </section>
+
+  @if (
+    !firstExercise() &&
+    !secondExercise() &&
+    suggestedComparisons.length
+  ) {
+    <section
+      class="compare-suggestions"
+      aria-labelledby="compare-suggestions-title"
+    >
+      <header class="compare-suggestions__header">
+        <span>START EXPLORING</span>
+
+        <h2 id="compare-suggestions-title">
+          Not sure where to start?
+        </h2>
+
+        <p>
+          Try a comparison to explore difficulty, progression,
+          muscles and equipment.
+        </p>
+      </header>
+
+      <div class="compare-suggestions__grid">
+        @for (
+          suggestion of suggestedComparisons;
+          track suggestion.first.id + ':' + suggestion.second.id
+        ) {
+          <button
+            class="compare-suggestion"
+            type="button"
+            [attr.aria-label]="
+              'Compare ' + suggestion.first.name +
+              ' and ' + suggestion.second.name
+            "
+            (click)="
+              selectSuggestedComparison(
+                suggestion.first.id,
+                suggestion.second.id
+              )
+            "
+          >
+            <span class="compare-suggestion__photos">
+              <span class="compare-suggestion__photo">
+                @if (suggestion.first.imageUrl) {
+                  <img
+                    [src]="suggestion.first.imageUrl | optimizedImage:'card'"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    draggable="false"
+                  />
+                }
+              </span>
+
+              <span class="compare-suggestion__photo">
+                @if (suggestion.second.imageUrl) {
+                  <img
+                    [src]="suggestion.second.imageUrl | optimizedImage:'card'"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    draggable="false"
+                  />
+                }
+              </span>
+
+              <span class="compare-suggestion__vs" aria-hidden="true">
+                VS
+              </span>
+            </span>
+
+            <span class="compare-suggestion__body">
+              <span class="compare-suggestion__category">
+                {{ suggestion.title }}
+              </span>
+
+              <span class="compare-suggestion__names">
+                <strong>{{ suggestion.first.name }}</strong>
+                <span class="compare-suggestion__separator">vs</span>
+                <strong>{{ suggestion.second.name }}</strong>
+              </span>
+
+              <span class="compare-suggestion__action" aria-hidden="true">
+                Compare exercises
+                <span>↗</span>
+              </span>
+            </span>
+          </button>
+        }
+      </div>
+    </section>
+  }
 
   @if (firstExercise(); as first) {
     @if (secondExercise(); as second) {
@@ -279,7 +399,7 @@
           <table class="compare-table">
             <thead>
               <tr>
-                <th>FEATURE</th>
+                <th>EXERCISE</th>
                 <th [class]="'compare-table__exercise--' + first.difficulty">
                   {{ first.name }}
                 </th>
@@ -301,13 +421,26 @@
 
                 @for (exercise of [first, second]; track $index) {
                   <td>
-                    <span
-                      class="comparison-badge"
+                    <a
+                      class="comparison-badge comparison-filter-link"
                       [attr.data-level]="exercise.difficulty"
+                      routerLink="/train"
+                      [queryParams]="{ difficulty: exercise.difficulty }"
+                      [attr.aria-label]="
+                        'Browse ' + exercise.difficulty + ' exercises'
+                      "
                     >
-                      <span class="comparison-badge__dot" aria-hidden="true"></span>
+                      <span
+                        class="comparison-badge__dot"
+                        aria-hidden="true"
+                      ></span>
+
                       {{ exercise.difficulty }}
-                    </span>
+
+                      <span class="comparison-filter-link__arrow" aria-hidden="true">
+                        ↗
+                      </span>
+                    </a>
                   </td>
                 }
               </tr>
@@ -422,30 +555,41 @@
                 @for (exercise of [first, second]; track $index) {
                   <td>
                     <div class="comparison-tags">
-                      @for (
-                        equipment of getEquipment(exercise).split(',');
-                        track $index
-                      ) {
-                        @if (equipment.trim() && equipment.trim() !== '—') {
-                          <span class="comparison-tag comparison-tag--equipment">
-                            <svg
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="1.7"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              aria-hidden="true"
-                              focusable="false"
-                            >
-                              <path d="M8 12h8M6 7v10M3 9v6M18 7v10M21 9v6" />
-                            </svg>
+                      @for (equipment of exercise.equipment ?? []; track equipment) {
+                        <a
+                          class="comparison-tag comparison-tag--equipment comparison-filter-link"
+                          routerLink="/train"
+                          [queryParams]="{ equipment: equipment }"
+                          [attr.aria-label]="
+                            'Browse exercises using ' + getEquipmentLabel(equipment)
+                          "
+                        >
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                            focusable="false"
+                          >
+                            <path d="M8 12h8M6 7v10M3 9v6M18 7v10M21 9v6" />
+                          </svg>
 
-                            {{ equipment.trim() }}
+                          {{ getEquipmentLabel(equipment) }}
+
+                          <span
+                            class="comparison-filter-link__arrow"
+                            aria-hidden="true"
+                          >
+                            ↗
                           </span>
-                        } @else {
-                          <span class="comparison-empty">—</span>
-                        }
+                        </a>
+                      } @empty {
+                        <span class="comparison-tag comparison-tag--secondary">
+                          No equipment required
+                        </span>
                       }
                     </div>
                   </td>

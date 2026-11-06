@@ -1350,3 +1350,531 @@
     height: 13px;
   }
 }
+
+.compare-table a.comparison-filter-link,
+.compare-table a.comparison-filter-link:hover,
+.compare-table a.comparison-filter-link:focus,
+.compare-table a.comparison-filter-link:visited,
+.compare-table a.comparison-filter-link span {
+  text-decoration: none !important;
+}
+
+/* ESTADO VACÍO */
+
+.compare-placeholder.compare-empty-choice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  width: 100%;
+  min-height: 240px;
+  padding: 28px 20px;
+
+  font: inherit;
+  text-align: center;
+  color: #263547;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgb(44 59 78 / 6%),
+      transparent 75%
+    ),
+    #eeede8;
+
+  border: 1px dashed #8c98a6;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.compare-empty-choice__plus {
+  display: grid;
+  place-items: center;
+
+  width: 52px;
+  height: 52px;
+  margin-bottom: 4px;
+
+  color: #ff9aaa;
+  background: #2c3b4e;
+  border: 1px solid #405166;
+  border-radius: 12px;
+
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.compare-empty-choice > strong {
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+}
+
+.compare-empty-choice__description {
+  color: #586575;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.compare-empty-choice__action {
+  margin-top: 6px;
+  color: #aa2943;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.compare-placeholder.compare-empty-choice:focus-visible {
+  outline: 2px solid #be2442;
+  outline-offset: 4px;
+}
+
+/* COMPARACIONES SUGERIDAS */
+
+.compare-suggestions {
+  margin-top: 32px;
+}
+
+.compare-suggestions__header > span {
+  color: #be2442;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.compare-suggestions__header h2 {
+  margin: 8px 0 0;
+  color: #263547;
+  font-size: clamp(21px, 2vw, 27px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+.compare-suggestions__header p {
+  margin: 10px 0 0;
+  color: #586575;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.compare-suggestions__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.compare-suggestion {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+
+  color: #ffffff;
+  background: #2c3b4e;
+  border: 1px solid #405166;
+  border-radius: 12px;
+
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.compare-suggestion__photos {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px;
+  width: 100%;
+  background: #405166;
+}
+
+.compare-suggestion__photo {
+  display: block;
+  min-width: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #233145;
+}
+
+.compare-suggestion__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.compare-suggestion__vs {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+
+  color: #ff9aaa;
+  background: #233145;
+  border: 1px solid #718096;
+  border-radius: 50%;
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.compare-suggestion__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+}
+
+.compare-suggestion__category {
+  color: #c2ccda;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.compare-suggestion__names {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 5px 7px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.compare-suggestion__names strong {
+  font-weight: 700;
+}
+
+.compare-suggestion__separator {
+  color: #ff9aaa;
+  font-size: 11px;
+}
+
+.compare-suggestion__action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid #536175;
+
+  color: #ff9aaa;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.compare-suggestion__action > span {
+  font-size: 18px;
+}
+
+.compare-suggestion:focus-visible {
+  outline: 3px solid #be2442;
+  outline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .compare-placeholder.compare-empty-choice:hover {
+    background: #f8f9f5;
+    border-color: #be2442;
+  }
+
+  .compare-suggestion:hover {
+    border-color: #fb7185;
+    box-shadow: 0 6px 18px rgb(38 53 71 / 14%);
+  }
+}
+
+@media (max-width: 1000px) {
+  .compare-suggestions__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .compare-suggestions__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .compare-placeholder.compare-empty-choice {
+    min-height: 190px;
+    padding: 22px 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .compare-suggestion {
+    transition: none;
+  }
+}
+
+/* Imagen con enlace superpuesto */
+
+.compare-exercise__media {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+
+  border: 1px solid #a6afb9;
+  border-radius: 12px;
+  background: #233145;
+}
+
+/* Degradado suave para integrar el botón */
+.compare-exercise__media::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0 0;
+  z-index: 1;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(12 24 39 / 45%)
+  );
+}
+
+.compare-exercise__media .compare-exercise__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1672 / 941;
+  object-fit: cover;
+
+  border: 0;
+  border-radius: 0;
+}
+
+.compare-exercise__media .exercise-card__placeholder {
+  height: auto;
+  aspect-ratio: 1672 / 941;
+  border: 0;
+  border-radius: 0;
+}
+
+/* Cristal oscuro: conserva el color de dificultad del enlace */
+.compare-exercise a.compare-exercise__image-link {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 2;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  min-height: 44px;
+  padding: 10px 16px;
+
+  background: rgb(15 25 39 / 82%);
+  border: 1px solid currentColor;
+  border-radius: 8px;
+
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+
+  box-shadow: 0 4px 16px rgb(0 0 0 / 18%);
+
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+
+.compare-exercise__image-link > span {
+  font-size: 18px;
+  line-height: 1;
+}
+
+@media (hover: hover) {
+  .compare-exercise a.compare-exercise__image-link:hover {
+    background: rgb(15 25 39 / 95%);
+    transform: none;
+    text-decoration: none;
+  }
+}
+
+.compare-exercise a.compare-exercise__image-link:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+  .compare-exercise a.compare-exercise__image-link {
+    right: 10px;
+    bottom: 10px;
+    padding: 9px 12px;
+    gap: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .compare-exercise a.compare-exercise__image-link {
+    transition: none;
+  }
+}
+
+/* Botón centrado sobre la fotografía */
+.compare-exercise a.compare-exercise__image-link {
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+
+  width: max-content;
+  max-width: calc(100% - 32px);
+  min-height: 48px;
+  padding: 12px 22px;
+
+  background: rgb(15 25 39 / 60%);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+
+  border: 1px solid currentColor;
+  border-radius: 10px;
+
+  box-shadow:
+    0 8px 24px rgb(0 0 0 / 22%),
+    inset 0 1px 0 rgb(255 255 255 / 10%);
+}
+
+/* Evita que el hover desplace el botón */
+.compare-exercise a.compare-exercise__image-link:hover {
+  transform: translate(-50%, -50%);
+  background: rgb(15 25 39 / 75%);
+}
+
+/* Quita el degradado inferior que pusimos antes */
+.compare-exercise__media::after {
+  display: none;
+}
+
+/* Color de acento según dificultad */
+.compare-exercise--beginner {
+  --image-link-accent: #34d399;
+}
+
+.compare-exercise--intermediate {
+  --image-link-accent: #60a5fa;
+}
+
+.compare-exercise--advanced {
+  --image-link-accent: #fb923c;
+}
+
+.compare-exercise--elite {
+  --image-link-accent: #fb7185;
+}
+
+/* Botón de cristal centrado */
+.compare-exercise a.compare-exercise__image-link {
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+
+  width: max-content;
+  max-width: calc(100% - 32px);
+  min-height: 52px;
+  padding: 8px 9px 8px 20px;
+
+  color: #ffffff;
+  background: linear-gradient(
+    135deg,
+    rgb(35 49 69 / 82%),
+    rgb(15 25 39 / 72%)
+  );
+
+  border: 1px solid rgb(255 255 255 / 28%);
+  border-radius: 6px;
+
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+
+  box-shadow:
+    0 8px 24px rgb(0 0 0 / 20%),
+    inset 0 1px 0 rgb(255 255 255 / 12%);
+
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.015em;
+  text-decoration: none;
+
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+/* Flecha con acento de dificultad */
+.compare-exercise a.compare-exercise__image-link > span {
+  display: grid;
+  place-items: center;
+  flex: 0 0 34px;
+
+  width: 34px;
+  height: 34px;
+
+  color: var(--image-link-accent, #ffffff);
+  background: rgb(255 255 255 / 8%);
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-radius: 4px;
+
+  font-size: 20px;
+  line-height: 1;
+}
+
+@media (hover: hover) {
+  .compare-exercise a.compare-exercise__image-link:hover {
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    background: rgb(23 35 51 / 90%);
+    border-color: var(--image-link-accent, #ffffff);
+
+    box-shadow:
+      0 10px 28px rgb(0 0 0 / 26%),
+      inset 0 1px 0 rgb(255 255 255 / 12%);
+  }
+}
+
+.compare-exercise a.compare-exercise__image-link:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .compare-exercise a.compare-exercise__image-link {
+    transition: none;
+  }
+}
