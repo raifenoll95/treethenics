@@ -943,3 +943,13 @@
     transform: none;
   }
 }
+
+.compare-exercise__image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1672 / 941;
+  object-fit: cover;
+  object-position: center;
+}
