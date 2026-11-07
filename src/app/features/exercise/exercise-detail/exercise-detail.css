@@ -2966,3 +2966,29 @@
 .exercise-hero__media {
   border: 3px solid var(--exercise-color);
 }
+
+.progression-card__media,
+.related-exercise-card__media {
+  position: relative;
+  border-bottom: 0;
+}
+
+.progression-card__media::after,
+.related-exercise-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+    transparent 45%,
+    var(--tt-surface) 100%
+  );
+}
+
+/* STATIC / DYNAMIC por encima del fundido */
+.related-exercise-card__movement {
+  z-index: 2;
+}
