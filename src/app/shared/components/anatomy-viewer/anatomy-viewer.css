@@ -7,13 +7,13 @@ figure { margin: 0; min-width: 0; }
 .anatomy-viewer__body { position: relative; width: 100%; max-height: 420px; margin: 0 auto; }
 .anatomy-viewer__body img { position: absolute; inset: 0; display: block; width: 100%; height: 100%;
   object-fit: contain; pointer-events: none; user-select: none; }
-figcaption { margin-top: 8px; text-align: center; color: #94a3b8;
+figcaption { margin-top: 8px; text-align: center; color: var(--tt-tone-94a3b8);
   font: 700 9px/1.3 'Inter',sans-serif; letter-spacing: .13em; text-transform: uppercase; }
 .anatomy-viewer__legend { display: flex; justify-content: center; flex-wrap: wrap; gap: 18px;
-  color: #a7b6c6; font: 600 10px/1.4 'Inter',sans-serif; }
+  color: var(--tt-tone-a7b6c6); font: 600 10px/1.4 'Inter',sans-serif; }
 .anatomy-viewer__legend span { display: inline-flex; align-items: center; gap: 6px; }
 i { width: 7px; height: 7px; border-radius: 50%; }
-.primary { background: #e63e52; } .secondary { background: #b85b65; }
+.primary { background: var(--tt-tone-e63e52); } .secondary { background: var(--tt-tone-b85b65); }
 @media (max-width:600px) {
  .anatomy-viewer { padding: 12px 8px; gap: 10px; }
  .anatomy-viewer__views { max-width: 340px; gap: 10px; }

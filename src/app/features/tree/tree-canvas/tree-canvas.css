@@ -17,8 +17,8 @@
 
 /* Fondo y borde del mapa */
 .tree-canvas {
-  background: #ffffff;
-  border-color: #dce1e6;
+  background: var(--tt-white);
+  border-color: var(--tt-page);
 }
 
 /* Sin fotografía */
@@ -30,7 +30,7 @@
 .tree-canvas::after {
   background-image: radial-gradient(
     circle,
-    rgba(43, 59, 79, 0.075) 1px,
+    rgba(var(--tt-surface-rgb), 0.075) 1px,
     transparent 1px
   );
 
@@ -39,42 +39,42 @@
 
 /* Separadores entre niveles */
 .tree-level::after {
-  border-bottom-color: rgba(43, 59, 79, 0.08);
+  border-bottom-color: rgba(var(--tt-surface-rgb), 0.08);
 }
 
 /* Columna de niveles */
 .tree-levels {
   background: linear-gradient(
     90deg,
-    #ffffff 0%,
-    rgba(255, 255, 255, 0.96) 65%,
-    rgba(255, 255, 255, 0) 100%
+    var(--tt-white) 0%,
+    rgba(var(--tt-white-rgb), 0.96) 65%,
+    rgba(var(--tt-white-rgb), 0) 100%
   );
 }
 
 .tree-level__info span {
-  color: #657181;
+  color: var(--tt-text-muted);
 }
 
 /* Colores coordinados con los nodos */
 .tree-level--beginner {
-  --level-color: #14583e;
-  --level-background: #d9f1e6;
+  --level-color: var(--tt-text-muted);
+  --level-background: var(--tt-difficulty-soft);
 }
 
 .tree-level--intermediate {
-  --level-color: #234f83;
-  --level-background: #dfebfa;
+  --level-color: var(--tt-intermediate);
+  --level-background: var(--tt-difficulty-soft);
 }
 
 .tree-level--advanced {
-  --level-color: #854713;
-  --level-background: #fce8d5;
+  --level-color: var(--tt-advanced);
+  --level-background: var(--tt-difficulty-soft);
 }
 
 .tree-level--elite {
-  --level-color: #932b49;
-  --level-background: #f8dfe6;
+  --level-color: var(--tt-elite);
+  --level-background: var(--tt-difficulty-soft);
 }
 
 .tree-level .tree-level__number {
@@ -88,14 +88,14 @@
 
 /* Leyenda */
 .tree-legend {
-  background: #ffffff;
-  border-color: #e2e6ea;
+  background: var(--tt-white);
+  border-color: var(- --tt-text-inverse-muted);
   box-shadow: none;
   backdrop-filter: none;
 }
 
 .tree-legend__item {
-  color: #465365;
+  color: var(--tt-text-muted);
 }
 
 .tree-legend__dot {
@@ -103,48 +103,48 @@
 }
 
 .tree-legend__dot--beginner {
-  background: #14583e;
+  background: var(--tt-text-muted);
 }
 
 .tree-legend__dot--intermediate {
-  background: #234f83;
+  background: var(--tt-intermediate);
 }
 
 .tree-legend__dot--advanced {
-  background: #854713;
+  background: var(--tt-advanced);
 }
 
 .tree-legend__dot--elite {
-  background: #932b49;
+  background: var(--tt-elite);
 }
 
 /* Aviso superior */
 .tree-notice {
-  background: #faf6ed;
-  border: 1px solid #e8ddc8;
-  border-left: 3px solid #b88a3b;
+  background: var(--tt-page);
+  border: 1px solid var(--tt-page);
+  border-left: 3px solid var(--tt-pro-border);
   border-radius: 8px;
   box-shadow: none;
 }
 
 .tree-notice__icon {
-  color: #946b25;
-  border-color: #b88a3b;
+  color: var(--tt-pro-ink);
+  border-color: var(--tt-pro-border);
 }
 
 .tree-notice__content h2 {
-  color: #344255;
+  color: var(--tt-surface);
 }
 
 .tree-notice__content p {
-  color: #596575;
+  color: var(--tt-text-muted);
 }
 
 /* Botón de reinicio */
 .tree-reset-button {
-  background: #ffffff;
-  color: #344255;
-  border-color: #d5dce3;
+  background: var(--tt-white);
+  color: var(--tt-surface);
+  border-color: var(--tt-text-inverse-muted);
   box-shadow: none;
 
   transition:
@@ -153,12 +153,12 @@
 }
 
 .tree-reset-button:hover {
-  background: #f1f4f7;
-  color: #243449;
-  border-color: #91a0b1;
+  background: var(--tt-page);
+  color: var(--tt-surface);
+  border-color: var(--tt-text-muted);
 }
 
 .tree-reset-button:focus-visible {
-  outline: 2px solid #2b3b4f;
+  outline: 2px solid var(--tt-surface);
   outline-offset: 3px;
 }

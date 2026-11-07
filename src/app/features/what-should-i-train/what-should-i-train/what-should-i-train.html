@@ -27,7 +27,7 @@
             </span>
           </div>
 
-          <p style="color: black;">
+          <p style="color: var(--tt-black);">
             Choose your level, target muscles and  equipment
             to discover exercises.
           </p>
@@ -132,7 +132,7 @@
     [class.train-search--advanced]="selectedDifficulty() === 'advanced'"
     [class.train-search--elite]="selectedDifficulty() === 'elite'"
   >
-    <span style="color: black;" class="train-search__icon" aria-hidden="true">⌕</span>
+    <span style="color: var(--tt-black);" class="train-search__icon" aria-hidden="true">⌕</span>
 
     <input
       #searchInput
@@ -151,8 +151,8 @@
   <section class="train-results">
     <div class="train-results__header">
       <div class="train-results__summary">
-        <span style="color: black;" class="train-panel__step">YOUR EXERCISES</span>
-        <h2 style="color: black;">{{ results().length }} matching exercises</h2>
+        <span style="color: var(--tt-black);" class="train-panel__step">YOUR EXERCISES</span>
+        <h2 style="color: var(--tt-black);">{{ results().length }} matching exercises</h2>
       </div>
 
       <button
@@ -161,7 +161,7 @@
         [class.train-sort-button--active]="sortByLevel()"
         [attr.aria-pressed]="sortByLevel()"
         (click)="toggleSortByLevel()"
-        style="color: black;"
+        style="color: var(--tt-black);"
       >
         ↕ Sort by level
       </button>
@@ -256,9 +256,9 @@
                 </span>
               </div>
 
-              <h3 style="color: white;">{{ exercise.name }}</h3>
+              <h3 style="color: var(--tt-white);">{{ exercise.name }}</h3>
 
-              <p class="exercise-card__description" style="color: white;">
+              <p class="exercise-card__description" style="color: var(--tt-white);">
                 {{ exercise.description }}
               </p>
 

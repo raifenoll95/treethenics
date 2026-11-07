@@ -1,21 +1,23 @@
+@import "./theme-colors.css";
+
 /* You can add global styles to this file, and also import other style files */
 :root {
-  --color-bg: #f8f9f4;
-  --color-surface: #f8f9f4;
+  --color-bg: var(--tt-page);
+  --color-surface: var(--tt-page);
   /*--color-surface: #1c232b;*/
-  --color-surface-hover: #202126;
+  --color-surface-hover: var(--tt-surface);
 
-  --color-text: #f4f4f5;
-  --color-text-secondary: #a1a1aa;
-  --color-text-muted: #71717a;
+  --color-text: var(--tt-page);
+  --color-text-secondary: var(--tt-text-muted);
+  --color-text-muted: var(--tt-text-muted);
 
-  --color-primary: #ef233c;
-  --color-primary-hover: #ff304a;
-  --color-primary-soft: rgba(239, 35, 60, 0.12);
+  --color-primary: var(--tt-accent-ink);
+  --color-primary-hover: var(--tt-accent-ink);
+  --color-primary-soft: rgba(var(--tt-accent-ink-rgb), 0.12);
 
-  --color-gold: #d6a84b;
+  --color-gold: var(--tt-pro-border);
 
-  --color-border: #292a30;
+  --color-border: var(--tt-surface);
 
   --sidebar-width: 260px;
 
@@ -36,7 +38,7 @@ body {
 
 body {
   min-height: 100vh;
-  background-color: #f8f9f4;
+  background-color: var(--tt-page);
   /*background-color: #1c232b;*/
 
   color: var(--color-text);

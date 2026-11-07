@@ -4,7 +4,7 @@
 }
 
 .exercise-card {
-  --exercise-color: #60a5fa;
+  --exercise-color: var(--tt-intermediate);
 
   position: relative;
 
@@ -21,15 +21,15 @@
   background:
     linear-gradient(
       145deg,
-      rgba(24, 30, 39, 0.98),
-      rgba(15, 20, 27, 0.98)
+      rgba(var(--tt-surface-rgb), 0.98),
+      rgba(var(--tt-surface-rgb), 0.98)
     );
 
-  border: 1px solid #2b3440;
+  border: 1px solid var(--tt-surface);
   border-radius: 13px;
 
   box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.18);
+    0 10px 30px rgba(var(--tt-black-rgb), 0.18);
 
   transition:
     transform 160ms ease,
@@ -44,30 +44,30 @@
     color-mix(
       in srgb,
       var(--exercise-color) 45%,
-      #2b3440
+      var(--tt-surface)
     );
 
   box-shadow:
-    0 14px 34px rgba(0, 0, 0, 0.26);
+    0 14px 34px rgba(var(--tt-black-rgb), 0.26);
 }
 
 
 /* DIFFICULTY */
 
 .exercise-card--beginner {
-  --exercise-color: #34d399;
+  --exercise-color: var(--tt-beginner);
 }
 
 .exercise-card--intermediate {
-  --exercise-color: #60a5fa;
+  --exercise-color: var(--tt-intermediate);
 }
 
 .exercise-card--advanced {
-  --exercise-color: #fb923c;
+  --exercise-color: var(--tt-advanced);
 }
 
 .exercise-card--elite {
-  --exercise-color: #f43f5e;
+  --exercise-color: var(--tt-elite);
 }
 
 
@@ -91,9 +91,9 @@
   object-fit: cover;
   object-position: top center;
 
-  background: #0c1117;
+  background: var(--tt-surface);
 
-  border: 1px solid #303946;
+  border: 1px solid var(--tt-surface);
   border-radius: 9px;
 }
 
@@ -113,7 +113,7 @@
   height: 25px;
   padding: 0 11px;
 
-  background: #10151c;
+  background: var(--tt-surface);
 
   border: 1px solid;
   border-radius: 999px;
@@ -125,19 +125,19 @@
 }
 
 .exercise-card__movement--static {
-  color: #60a5fa;
-  border-color: #3b82f6;
+  color: var(--tt-intermediate);
+  border-color: var(--tt-intermediate);
 
   box-shadow:
-    0 0 10px rgba(59, 130, 246, 0.18);
+    0 0 10px rgba(var(--tt-intermediate-rgb), 0.18);
 }
 
 .exercise-card__movement--dynamic {
-  color: #34d399;
-  border-color: #10b981;
+  color: var(--tt-beginner);
+  border-color: var(--tt-beginner);
 
   box-shadow:
-    0 0 10px rgba(16, 185, 129, 0.18);
+    0 0 10px rgba(var(--tt-beginner-rgb), 0.18);
 }
 
 
@@ -165,7 +165,7 @@
 .exercise-card h3 {
   margin: 0 0 8px;
 
-  color: #f8fafc;
+  color: var(--tt-page);
 
   font-size: 17px;
   font-weight: 800;
@@ -180,7 +180,7 @@
 
   overflow: hidden;
 
-  color: #9ca6b5;
+  color: var(--tt-text-muted);
 
   font-size: 11px;
   line-height: 1.55;
@@ -198,10 +198,10 @@
 .exercise-card__tags span {
   padding: 5px 8px;
 
-  background: #222933;
-  color: #c5ccd6;
+  background: var(--tt-surface);
+  color: var(--tt-text-inverse-muted);
 
-  border: 1px solid #343e4b;
+  border: 1px solid var(--tt-surface);
   border-radius: 5px;
 
   font-size: 9px;
@@ -228,7 +228,7 @@
   border-radius: 8px;
 
   background: var(--exercise-color);
-  color: #ffffff;
+  color: var(--tt-white);
 
   font-size: 11px;
   font-weight: 750;

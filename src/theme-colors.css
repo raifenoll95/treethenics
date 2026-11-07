@@ -1,0 +1,66 @@
+/* TREETHENICS · PALETA SIMPLIFICADA
+ * Hexadecimal: permite visualizar y elegir el color en el editor.
+ * -rgb: canales utilizados por las transparencias.
+ * Mantén ambos valores sincronizados al cambiar un color.
+ * Elite utiliza accent; el texto blanco utiliza white.
+ */
+
+:root {
+  /* FONDOS Y TEXTO */
+
+  --tt-page: #f8f9f5;
+  --tt-page-rgb: 248, 249, 245;
+
+  --tt-surface: #2c3b4e;
+  --tt-surface-rgb: 44, 59, 78;
+
+  --tt-text-muted: #586575;
+  --tt-text-muted-rgb: 88, 101, 117;
+
+  --tt-text-inverse-muted: #d3dce7;
+  --tt-text-inverse-muted-rgb: 211, 220, 231;
+
+  --tt-white: #ffffff;
+  --tt-white-rgb: 255, 255, 255;
+
+  --tt-black: #000000;
+  --tt-black-rgb: 0, 0, 0;
+
+  --tt-border: #b8c0ca;
+
+  /* MARCA Y ACCIONES */
+
+  --tt-accent-ink: #be2442;
+  --tt-accent-ink-rgb: 190, 36, 66;
+
+  /* DIFICULTADES */
+
+  --tt-beginner: #34d399;
+  --tt-beginner-rgb: 52, 211, 153;
+
+  --tt-intermediate: #60a5fa;
+  --tt-intermediate-rgb: 96, 165, 250;
+
+  --tt-advanced: #fb923c;
+  --tt-advanced-rgb: 251, 146, 60;
+
+  --tt-elite: #be2442;
+  --tt-elite-rgb: 190, 36, 66;
+
+  --tt-difficulty-soft: #d9f1e6;
+  --tt-difficulty-soft-rgb: 217, 241, 230;
+
+  /* PRO Y AVISOS */
+
+  --tt-pro: #f5cf79;
+  --tt-pro-rgb: 245, 207, 121;
+
+  --tt-pro-ink: #795a1c;
+  --tt-pro-ink-rgb: 121, 90, 28;
+
+  --tt-pro-surface: #eee5cf;
+  --tt-pro-surface-rgb: 238, 229, 207;
+
+  --tt-pro-border: hsl(41, 44%, 61%);
+  --tt-pro-border-rgb: 200, 172, 112;
+}

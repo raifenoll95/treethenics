@@ -16,24 +16,24 @@
       class="exercise-breadcrumb"
       aria-label="Breadcrumb"
     >
-      <a routerLink="/" style="color: black; font-size: 16px;">
+      <a routerLink="/" style="color: var(--tt-black); font-size: 16px;">
         Treethenics
       </a>
 
       <span
-        style="color: black;, font-size: 16px;"
+        style="color: var(--tt-black); font-size: 16px;"
         class="exercise-breadcrumb__separator"
         aria-hidden="true"
       >
         /
       </span>
 
-      <a routerLink="/train" style="color: black; font-size: 16px;">
+      <a routerLink="/train" style="color: var(--tt-black); font-size: 16px;">
         Exercise Library
       </a>
 
       <span
-        style="color: black; font-size: 16px;"
+        style="color: var(--tt-black); font-size: 16px;"
         class="exercise-breadcrumb__separator"
         aria-hidden="true"
       >
@@ -41,7 +41,7 @@
       </span>
 
       <span
-        style="color: black; font-size: 16px;"
+        style="color: var(--tt-black); font-size: 16px;"
         class="exercise-breadcrumb__current"
         aria-current="page"
       >
@@ -76,7 +76,7 @@
         </div>
 
         <h1
-          style="color: black;"
+          style="color: var(--tt-black);"
           class="exercise-detail__title"
           [class.exercise-detail__title--medium]="exercise.name.length > 12"
           [class.exercise-detail__title--long]="exercise.name.length > 20"
@@ -88,7 +88,7 @@
         <div class="exercise-detail__title-line"></div>
 
         <div class="exercise-detail__meta">
-          <span style="color: black;">Foundation movement</span>
+          <span style="color: var(--tt-black);">Foundation movement</span>
 
           <span class="exercise-detail__meta-separator">•</span>
 
@@ -186,7 +186,7 @@
               Overview
             </span>
 
-            <h2 style="color: black;">
+            <h2 style="color: var(--tt-black);">
               What Is the {{ exercise.name }}?
             </h2>
 
@@ -214,7 +214,7 @@
 
             <div class="overview-description">
 
-              <p style="color: black;">
+              <p style="color: var(--tt-black);">
                 {{ exercise.overview ?? exercise.description }}
               </p>
 
@@ -306,11 +306,11 @@
               Anatomy & Setup
             </span>
 
-            <h2 style="color: black;">
+            <h2 style="color: var(--tt-black);">
               {{ exercise.name }} Muscles & Equipment
             </h2>
 
-            <p style="color: black;">
+            <p style="color: var(--tt-black);">
               Muscles involved and equipment used to perform and train
               the {{ exercise.name }}.
             </p>
@@ -508,11 +508,11 @@
                 How To
               </span>
 
-              <h2 style="color: black;">
+              <h2 style="color: var(--tt-black);">
                 How to Do the {{ exercise.name }}
               </h2>
 
-              <p style="color: black;">
+              <p style="color: var(--tt-black);">
                 Follow these steps to perform the
                 {{ exercise.name }} with proper technique
                 and body control.
@@ -598,11 +598,11 @@
                 Technique
               </span>
 
-              <h2 style="color: black;">
+              <h2 style="color: var(--tt-black);">
                 Common {{ exercise.name }} Mistakes
               </h2>
 
-              <p style="color: black;">
+              <p style="color: var(--tt-black);">
                 Avoid these common errors to improve your
                 technique and train the {{ exercise.name }}
                 more effectively.
@@ -693,11 +693,11 @@
                 Progression
               </span>
 
-              <h2 style="color: black;">
+              <h2 style="color: var(--tt-black);">
                 {{ exercise.name }} Progression
               </h2>
 
-              <p style="color: black;">
+              <p style="color: var(--tt-black);">
                 Build the strength and control required for
                 the {{ exercise.name }}, then explore more
                 advanced variations and movements.
@@ -954,11 +954,11 @@
                 Related
               </span>
 
-              <h2 style="color: black;">
+              <h2 style="color: var(--tt-black);">
                 Exercises Related to the {{ exercise.name }}
               </h2>
 
-              <p style="color: black;">
+              <p style="color: var(--tt-black);">
                 Explore other calisthenics exercises with related
                 movement patterns, strength demands or muscle involvement.
               </p>
@@ -1082,11 +1082,11 @@
                 FAQ
               </span>
 
-              <h2 style="color: black;">
+              <h2 style="color: var(--tt-black);">
                 {{ exercise.name }} Frequently Asked Questions
               </h2>
 
-              <p style="color: black;">
+              <p style="color: var(--tt-black);">
                 Common questions about learning, training and progressing
                 toward the {{ exercise.name }}.
               </p>
@@ -1128,7 +1128,7 @@
                       {{ (index + 1).toString().padStart(2, '0') }}
                     </span>
 
-                    <h3 style="color: black;">
+                    <h3 style="color: var(--tt-black);">
                       {{ item.question }}
                     </h3>
 
@@ -1144,7 +1144,7 @@
 
                   <div class="faq-item__answer">
 
-                    <p style="color: black;">
+                    <p style="color: var(--tt-black);">
                       {{ item.answer }}
                     </p>
 

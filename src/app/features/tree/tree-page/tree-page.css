@@ -42,18 +42,18 @@
 
   flex-shrink: 0;
 
-  border: 1px solid #303844;
+  border: 1px solid var(--tt-surface);
   border-radius: 9px;
 
   background:
     linear-gradient(
       145deg,
-      #181e26,
-      #10151b
+      var(--tt-surface),
+      var(--tt-surface)
     );
 
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    inset 0 1px 0 rgba(var(--tt-white-rgb), 0.035);
 }
 
 .tree-header__mark::before {
@@ -64,10 +64,10 @@
 
   border-radius: 50%;
 
-  background: #f43f5e;
+  background: var(--tt-accent-ink);
 
   box-shadow:
-    0 0 12px rgba(244, 63, 94, 0.45);
+    0 0 12px rgba(var(--tt-accent-ink-rgb), 0.45);
 }
 
 .tree-header__mark::after {
@@ -78,7 +78,7 @@
   width: 17px;
   height: 1px;
 
-  background: #596371;
+  background: var(--tt-text-muted);
 }
 
 .tree-header__mark span {
@@ -91,7 +91,7 @@
 
   border-radius: 50%;
 
-  background: #8993a1;
+  background: var(-tt-text-muted);
 }
 
 
@@ -111,7 +111,7 @@
 
 .tree-header__title-row h1 {
   margin: 0;
-  color: #000000;
+  color: var(--tt-black);
 
   font-size: 24px;
   font-weight: 800;
@@ -123,12 +123,12 @@
 .tree-header__badge {
   padding: 4px 7px;
 
-  border: 1px solid rgba(244, 63, 94, 0.28);
+  border: 1px solid rgba(var(--tt-accent-ink-rgb), 0.28);
   border-radius: 5px;
 
-  background: rgba(244, 63, 94, 0.07);
+  background: rgba(var(--tt-accent-ink-rgb), 0.07);
 
-  color: #fb4b67;
+  color: var(--tt-accent-ink);
 
   font-size: 8px;
   font-weight: 850;
@@ -140,7 +140,7 @@
 .tree-header__copy p {
   margin: 0;
 
-  color: #7f8a99;
+  color: var(-tt-text-muted);
 
   font-size: 11px;
   font-weight: 500;
@@ -156,10 +156,10 @@
 
   padding: 8px 13px;
 
-  border: 1px solid #262e38;
+  border: 1px solid var(--tt-surface);
   border-radius: 9px;
 
-  background: rgba(17, 22, 29, 0.65);
+  background: rgba(var(--tt-surface-rgb), 0.65);
 }
 
 .tree-header__stat {
@@ -169,14 +169,14 @@
 }
 
 .tree-header__stat strong {
-  color: #e8edf3;
+  color: var(- --tt-text-inverse-muted);
 
   font-size: 14px;
   font-weight: 800;
 }
 
 .tree-header__stat span {
-  color: #687382;
+  color: var(--tt-text-muted);
 
   font-size: 8px;
   font-weight: 750;
@@ -189,7 +189,7 @@
   width: 1px;
   height: 18px;
 
-  background: #303844;
+  background: var(--tt-surface);
 }
 
 
@@ -204,7 +204,7 @@
 
   overflow: hidden;
 
-  background: #222a33;
+  background: var(--tt-surface);
 }
 
 .tree-header__line span {
@@ -219,8 +219,8 @@
   background:
     linear-gradient(
       90deg,
-      #f43f5e,
-      rgba(244, 63, 94, 0)
+      var(--tt-accent-ink),
+      rgba(var(--tt-accent-ink-rgb), 0)
     );
 }
 
@@ -330,7 +330,7 @@
 
   overflow: hidden;
 
-  background: #0f1318;
+  background: var(--tt-surface);
 
   border: 1px solid var(--color-border);
   border-radius: 14px;
@@ -383,12 +383,12 @@
   background-image:
     radial-gradient(
       circle,
-      rgba(255, 255, 255, 0.08) 1px,
+      rgba(var(--tt-white-rgb), 0.08) 1px,
       transparent 1px
     ),
     linear-gradient(
-      rgba(10, 14, 18, 0.55),
-      rgba(10, 14, 18, 0.72)
+      rgba(var(--tt-surface-rgb), 0.55),
+      rgba(var(--tt-surface-rgb), 0.72)
     );
 
   background-size:
@@ -449,9 +449,9 @@ app-tree-canvas {
   background:
     linear-gradient(
       90deg,
-      rgba(15, 19, 24, 0.98) 0%,
-      rgba(15, 19, 24, 0.75) 60%,
-      rgba(15, 19, 24, 0) 100%
+      rgba(var(--tt-surface-rgb), 0.98) 0%,
+      rgba(var(--tt-surface-rgb), 0.75) 60%,
+      rgba(var(--tt-surface-rgb), 0) 100%
     );
 }
 
@@ -480,7 +480,7 @@ app-tree-canvas {
   width: 100vw;
 
   border-bottom:
-    1px dashed rgba(148, 163, 184, 0.1);
+    1px dashed rgba(var(--tt-text-muted-rgb), 0.1);
 
   pointer-events: none;
 }
@@ -528,7 +528,7 @@ app-tree-canvas {
 }
 
 .tree-level__info span {
-  color: #7f8a9a;
+  color: var(-tt-text-muted);
 
   font-size: 9px;
   font-weight: 500;
@@ -541,13 +541,13 @@ app-tree-canvas {
    ========================================================= */
 
 .tree-level--beginner .tree-level__number {
-  color: #34d399;
+  color: var(--tt-beginner);
 
-  background: rgba(52, 211, 153, 0.12);
+  background: rgba(var(--tt-beginner-rgb), 0.12);
 }
 
 .tree-level--beginner .tree-level__info strong {
-  color: #34d399;
+  color: var(--tt-beginner);
 }
 
 /* =========================================================
@@ -555,13 +555,13 @@ app-tree-canvas {
    ========================================================= */
 
 .tree-level--intermediate .tree-level__number {
-  color: #60a5fa;
+  color: var(--tt-intermediate);
 
-  background: rgba(96, 165, 250, 0.12);
+  background: rgba(var(--tt-intermediate-rgb), 0.12);
 }
 
 .tree-level--intermediate .tree-level__info strong {
-  color: #60a5fa;
+  color: var(--tt-intermediate);
 }
 
 /* =========================================================
@@ -569,13 +569,13 @@ app-tree-canvas {
    ========================================================= */
 
 .tree-level--advanced .tree-level__number {
-  color: #fb923c;
+  color: var(--tt-advanced);
 
-  background: rgba(251, 146, 60, 0.12);
+  background: rgba(var(--tt-advanced-rgb), 0.12);
 }
 
 .tree-level--advanced .tree-level__info strong {
-  color: #fb923c;
+  color: var(--tt-advanced);
 }
 
 /* =========================================================
@@ -583,13 +583,13 @@ app-tree-canvas {
    ========================================================= */
 
 .tree-level--elite .tree-level__number {
-  color: #f43f5e;
+  color: var(--tt-elite);
 
-  background: rgba(244, 63, 94, 0.12);
+  background: rgba(var(--tt-elite-rgb), 0.12);
 }
 
 .tree-level--elite .tree-level__info strong {
-  color: #f43f5e;
+  color: var(--tt-elite);
 }
 
 /* =========================================================
@@ -611,9 +611,9 @@ app-tree-canvas {
 
   padding: 12px 16px;
 
-  background: rgba(15, 19, 24, 0.92);
+  background: rgba(var(--tt-surface-rgb), 0.92);
 
-  border: 1px solid #2d333d;
+  border: 1px solid var(--tt-surface);
   border-radius: 10px;
 
   backdrop-filter: blur(8px);
@@ -625,7 +625,7 @@ app-tree-canvas {
 
   gap: 8px;
 
-  color: #cbd5e1;
+  color: var(--tt-text-inverse-muted);
 
   font-size: 12px;
   font-weight: 600;
@@ -641,31 +641,31 @@ app-tree-canvas {
 }
 
 .tree-legend__dot--beginner {
-  background: #34d399;
+  background: var(--tt-beginner);
 
   box-shadow:
-    0 0 8px rgba(52, 211, 153, 0.45);
+    0 0 8px rgba(var(--tt-beginner-rgb), 0.45);
 }
 
 .tree-legend__dot--intermediate {
-  background: #60a5fa;
+  background: var(--tt-intermediate);
 
   box-shadow:
-    0 0 8px rgba(96, 165, 250, 0.45);
+    0 0 8px rgba(var(--tt-intermediate-rgb), 0.45);
 }
 
 .tree-legend__dot--advanced {
-  background: #fb923c;
+  background: var(--tt-advanced);
 
   box-shadow:
-    0 0 8px rgba(251, 146, 60, 0.45);
+    0 0 8px rgba(var(--tt-advanced-rgb), 0.45);
 }
 
 .tree-legend__dot--elite {
-  background: #f43f5e;
+  background: var(--tt-elite);
 
   box-shadow:
-    0 0 8px rgba(244, 63, 94, 0.45);
+    0 0 8px rgba(var(--tt-elite-rgb), 0.45);
 }
 
 /* =========================================================
@@ -673,7 +673,7 @@ app-tree-canvas {
    ========================================================= */
 
 .exercise-panel {
-  --exercise-color: #f43f5e;
+  --exercise-color: var(--tt-accent-ink);
   position: absolute;
 
   top: 18px;
@@ -689,21 +689,21 @@ app-tree-canvas {
     color-mix(
       in srgb,
       var(--exercise-color) 28%,
-      #343b46
+      var(--tt-surface)
     );
 
   background:
     linear-gradient(
       180deg,
-      rgba(28, 32, 39, 0.98) 0%,
-      rgba(23, 26, 32, 0.98) 100%
+      rgba(var(--tt-surface-rgb), 0.98) 0%,
+      rgba(var(--tt-surface-rgb), 0.98) 100%
     );
 
-  border: 1px solid #343b46;
+  border: 1px solid var(--tt-surface);
   border-radius: 18px;
 
   box-shadow:
-    0 24px 70px rgba(0, 0, 0, 0.55);
+    0 24px 70px rgba(var(--tt-black-rgb), 0.55);
 
   overflow-y: auto;
 
@@ -723,22 +723,22 @@ app-tree-canvas {
 
 /* BEGINNER */
 .exercise-panel--beginner {
-  --exercise-color: #34d399;
+  --exercise-color: var(--tt-beginner);
 }
 
 /* INTERMEDIATE */
 .exercise-panel--intermediate {
-  --exercise-color: #60a5fa;
+  --exercise-color: var(--tt-intermediate);
 }
 
 /* ADVANCED */
 .exercise-panel--advanced {
-  --exercise-color: #fb923c;
+  --exercise-color: var(--tt-advanced);
 }
 
 /* ELITE */
 .exercise-panel--elite {
-  --exercise-color: #f43f5e;
+  --exercise-color: var(--tt-elite);
 }
 
 /* PANEL A LA DERECHA */
@@ -775,10 +775,10 @@ app-tree-canvas {
 
   padding: 0;
 
-  background: rgba(15, 18, 23, 0.72);
-  color: #aeb6c2;
+  background: rgba(var(--tt-surface-rgb), 0.72);
+  color: var(--tt-text-inverse-muted);
 
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(var(--tt-white-rgb), 0.06);
   border-radius: 9px;
 
   font-size: 21px;
@@ -795,8 +795,8 @@ app-tree-canvas {
 }
 
 .exercise-panel__close:hover {
-  background: #292e37;
-  color: #ffffff;
+  background: var(--tt-surface);
+  color: var(--tt-white);
 
   transform: scale(1.04);
 }
@@ -827,7 +827,7 @@ app-tree-canvas {
       border: 1px solid;
       border-radius: 999px;
 
-      background: #10151c;
+      background: var(--tt-surface);
 
       font-family: 'Inter', system-ui, sans-serif;
       font-size: 0.7rem;
@@ -840,21 +840,21 @@ app-tree-canvas {
 
 
 .exercise-panel__movement--static {
-  color: #60a5fa;
-  border-color: #3b82f6;
+  color: var(--tt-intermediate);
+  border-color: var(--tt-intermediate);
 
   box-shadow:
-    0 0 10px rgba(59, 130, 246, 0.22),
-    inset 0 0 8px rgba(59, 130, 246, 0.04);
+    0 0 10px rgba(var(--tt-intermediate-rgb), 0.22),
+    inset 0 0 8px rgba(var(--tt-intermediate-rgb), 0.04);
 }
 
 .exercise-panel__movement--dynamic {
-  color: #34d399;
-  border-color: #10b981;
+  color: var(--tt-beginner);
+  border-color: var(--tt-beginner);
 
   box-shadow:
-    0 0 10px rgba(16, 185, 129, 0.22),
-    inset 0 0 8px rgba(16, 185, 129, 0.04);
+    0 0 10px rgba(var(--tt-beginner-rgb), 0.22),
+    inset 0 0 8px rgba(var(--tt-beginner-rgb), 0.04);
 }
 
 .exercise-panel__image {
@@ -864,9 +864,9 @@ app-tree-canvas {
 
   margin-bottom: 24px;
 
-  background: #101318;
+  background: var(--tt-surface);
 
-  border: 1px solid #343b46;
+  border: 1px solid var(--tt-surface);
   border-radius: 14px;
 
   overflow: hidden;
@@ -907,7 +907,7 @@ app-tree-canvas {
     linear-gradient(
       180deg,
       transparent 65%,
-      rgba(15, 18, 23, 0.22) 100%
+      rgba(var(--tt-surface-rgb), 0.22) 100%
     );
 
   pointer-events: none;
@@ -939,7 +939,7 @@ app-tree-canvas {
 .exercise-panel h2 {
   margin: 0 0 14px;
 
-  color: #f8fafc;
+  color: var(--tt-page);
 
   font-size: 30px;
   font-weight: 750;
@@ -958,7 +958,7 @@ app-tree-canvas {
 
   margin: 0 0 8px;
 
-  color: #9ca6b4;
+  color: var(--tt-text-muted);
 
   font-size: 12px;
 
@@ -983,7 +983,7 @@ app-tree-canvas {
 
   margin-bottom: 10px;
 
-  color: #707986;
+  color: var(--tt-accent-ink);
 
   font-size: 10px;
   font-weight: 800;
@@ -1007,10 +1007,10 @@ app-tree-canvas {
 .exercise-panel__tags span {
   padding: 7px 11px;
 
-  background: #292e37;
-  color: #d7dce5;
+  background: var(--tt-surface);
+  color: var(--tt-text-inverse-muted);
 
-  border: 1px solid #3a414d;
+  border: 1px solid var(--tt-surface);
   border-radius: 6px;
 
   font-size: 12px;
@@ -1020,11 +1020,11 @@ app-tree-canvas {
 .exercise-panel__tags span {
   padding: 6px 10px;
 
-  background: #292d35;
+  background: var(--tt-surface);
 
-  color: #d7dae0;
+  color: var(--tt-text-inverse-muted);
 
-  border: 1px solid #393e48;
+  border: 1px solid var(--tt-surface);
   border-radius: 6px;
 
   font-size: 12px;
@@ -1046,7 +1046,7 @@ app-tree-canvas {
   padding: 10px 14px;
 
   background: var(--exercise-color);
-  color: #ffffff;
+  color: var(--tt-white);
 
   border: 0;
   border-radius: 9px;
@@ -1067,11 +1067,11 @@ app-tree-canvas {
 }
 
 .exercise-panel__details:visited {
-  color: #ffffff;
+  color: var(--tt-white);
 }
 
 .exercise-panel__details:visited {
-  color: #ffffff;
+  color: var(--tt-white);
 }
 
 .exercise-panel__details span {
@@ -1085,7 +1085,7 @@ app-tree-canvas {
   filter: brightness(1.07);
 
   box-shadow:
-    0 10px 30px rgba(239, 35, 60, 0.28);
+    0 10px 30px rgba(var(--tt-accent-ink-rgb), 0.28);
 }
 
 .exercise-panel__details:hover span {
@@ -1130,7 +1130,7 @@ app-tree-canvas {
 
   margin-bottom: 7px;
 
-  color: #8b95a5;
+  color: var(-tt-text-muted);
 
   font-size: 9px;
   font-weight: 700;
@@ -1140,10 +1140,10 @@ app-tree-canvas {
 }
 
 .exercise-panel__tags--secondary span {
-  background: rgba(35, 40, 49, 0.55);
-  color: #aeb7c4;
+  background: rgba(var(--tt-surface-rgb), 0.55);
+  color: var(--tt-text-inverse-muted);
 
-  border-color: #303743;
+  border-color: var(--tt-surface);
 }
 
 /* =========================================================
@@ -1286,18 +1286,18 @@ app-tree-canvas {
 .exercise-panel__details {
   background: var(--exercise-color);
   border: 1px solid var(--exercise-color);
-  color: #fff;
+  color: var(--tt-white);
 }
 
 .exercise-panel__details:visited,
 .exercise-panel__details:hover {
-  color: #fff;
+  color: var(--tt-white);
 }
 
 /* Compare: fondo oscuro y contorno de la dificultad */
 
 .exercise-panel__compare {
-  background: #252e3b;
+  background: var(--tt-surface);
   border: 1px solid var(--exercise-color);
   color: var(--exercise-color);
 }
@@ -1393,10 +1393,10 @@ app-tree-canvas {
   z-index: 5;
 
   padding: 9px 12px;
-  border: 1px solid #475569;
+  border: 1px solid var(--tt-text-muted);
   border-radius: 8px;
-  background: #161b22;
-  color: #f8fafc;
+  background: var(--tt-surface);
+  color: var(--tt-page);
 
   font: inherit;
   font-size: 11px;
@@ -1405,8 +1405,8 @@ app-tree-canvas {
 }
 
 .tree-reset-button:hover {
-  border-color: #f43f5e;
-  color: #f43f5e;
+  border-color: var(--tt-accent-ink);
+  color: var(--tt-accent-ink);
 }
 
 /* GENERAL PROGRESSION NOTICE */
@@ -1423,10 +1423,10 @@ app-tree-canvas {
   margin-bottom: 18px;
   padding: 16px 20px;
 
-  background: linear-gradient(110deg, #1b2026, #151b21);
+  background: linear-gradient(110deg, var(--tt-surface), var(--tt-surface));
 
-  border: 1px solid rgba(245, 174, 66, 0.45);
-  border-left: 4px solid #f5ae42;
+  border: 1px solid rgba(var(--tt-advanced-rgb), 0.45);
+  border-left: 4px solid var(--tt-advanced);
   border-radius: 10px;
 }
 
@@ -1439,9 +1439,9 @@ app-tree-canvas {
   flex: 0 0 32px;
   box-sizing: border-box;
 
-  color: #f5ae42;
+  color: var(--tt-advanced);
 
-  border: 1.5px solid #f5ae42;
+  border: 1.5px solid var(--tt-advanced);
   border-radius: 50%;
 
   font-family: Georgia, serif;
@@ -1457,7 +1457,7 @@ app-tree-canvas {
 .tree-notice__content h2 {
   margin: 0 0 5px;
 
-  color: #f4f7fb;
+  color: var(--tt-page);
 
   font-family: "Space Grotesk", sans-serif;
   font-size: 14px;
@@ -1468,7 +1468,7 @@ app-tree-canvas {
 .tree-notice__content p {
   margin: 0;
 
-  color: #a7b4c3;
+  color: var(--tt-text-inverse-muted);
 
   font-family: "Inter", sans-serif;
   font-size: 12px;
@@ -1567,7 +1567,7 @@ app-tree-canvas {
 }
 
 .tree-header__stat strong {
-  color: #f4f7fb;
+  color: var(--tt-page);
 
   font-family: "Space Grotesk", sans-serif;
   font-size: 15px;
@@ -1576,7 +1576,7 @@ app-tree-canvas {
 }
 
 .tree-header__stat span {
-  color: #8295ab;
+  color: var(-tt-text-muted);
 
   font-family: "JetBrains Mono", monospace;
   font-size: 9px;
@@ -1592,12 +1592,12 @@ app-tree-canvas {
   height: 38px;
   flex: 0 0 1px;
 
-  background: #354250;
+  background: var(--tt-surface);
 }
 
 /* Destaca el total de ejercicios */
 .tree-header__stat:nth-of-type(3) strong {
-  color: #f43f5e;
+  color: var(--tt-accent-ink);
 }
 
 .tree-header__stat:nth-of-type(3)::before {
@@ -1608,7 +1608,7 @@ app-tree-canvas {
   width: 26px;
   height: 2px;
 
-  background: #f43f5e;
+  background: var(--tt-accent-ink);
 }
 
 @media (max-width: 700px) {
@@ -1657,8 +1657,8 @@ app-tree-canvas {
 ======================================== */
 
 .tree-canvas {
-  background: #f8f9f4;
-  border-color: #f8f9f4;
+  background: var(--tt-page);
+  border-color: var(--tt-page);
 }
 
 /* Elimina la fotografía de fondo */
@@ -1670,7 +1670,7 @@ app-tree-canvas {
 .tree-canvas::after {
   background-image: radial-gradient(
     circle,
-    rgba(43, 59, 79, 0.14) 1px,
+    rgba(var(--tt-surface-rgb), 0.14) 1px,
     transparent 1px
   );
 
@@ -1681,41 +1681,41 @@ app-tree-canvas {
 .tree-levels {
   background: linear-gradient(
     90deg,
-    #f8f9f4 0%,
-    rgba(255, 255, 255, 0.95) 60%,
-    rgba(255, 255, 255, 0) 100%
+    var(--tt-page) 0%,
+    rgba(var(--tt-white-rgb), 0.95) 60%,
+    rgba(var(--tt-white-rgb), 0) 100%
   );
 }
 
 /* Separadores entre niveles */
 .tree-level::after {
-  border-bottom-color: rgba(43, 59, 79, 0.12);
+  border-bottom-color: rgba(var(--tt-surface-rgb), 0.12);
 }
 
 /* Descripciones de los niveles */
 .tree-level__info span {
-  color: #657181;
+  color: var(--tt-text-muted);
 }
 
 /* Colores más legibles sobre blanco */
 .tree-level--beginner {
-  --level-color: #047857;
-  --level-background: #e7f5ee;
+  --level-color: var(--tt-beginner);
+  --level-background: var(--tt-difficulty-soft);
 }
 
 .tree-level--intermediate {
-  --level-color: #2563b0;
-  --level-background: #eaf2fc;
+  --level-color: var(--tt-intermediate);
+  --level-background: var(--tt-difficulty-soft);
 }
 
 .tree-level--advanced {
-  --level-color: #a94d0b;
-  --level-background: #fff1e5;
+  --level-color: var(--tt-advanced);
+  --level-background: var(--tt-difficulty-soft);
 }
 
 .tree-level--elite {
-  --level-color: #be2347;
-  --level-background: #fdebf0;
+  --level-color: var(--tt-elite);
+  --level-background: var(--tt-difficulty-soft);
 }
 
 .tree-level .tree-level__number {
@@ -1729,14 +1729,14 @@ app-tree-canvas {
 
 /* Leyenda: escritorio y móvil */
 .tree-legend {
-  background: #f8f9f4;
-  border-color: #f8f9f4;
-  box-shadow: 0 4px 16px rgba(43, 59, 79, 0.06);
+  background: var(--tt-page);
+  border-color: var(--tt-page);
+  box-shadow: 0 4px 16px rgba(var(--tt-surface-rgb), 0.06);
   backdrop-filter: none;
 }
 
 .tree-legend__item {
-  color: #39485a;
+  color: var(--tt-surface);
 }
 
 .tree-legend__dot {
@@ -1744,40 +1744,40 @@ app-tree-canvas {
 }
 
 .tree-legend__dot--beginner {
-  background: #047857;
+  background: var(--tt-beginner);
 }
 
 .tree-legend__dot--intermediate {
-  background: #2563b0;
+  background: var(--tt-intermediate);
 }
 
 .tree-legend__dot--advanced {
-  background: #a94d0b;
+  background: var(--tt-advanced);
 }
 
 .tree-legend__dot--elite {
-  background: #be2347;
+  background: var(--tt-elite);
 }
 
 /* Reset */
 .tree-reset-button {
-  background: #ffffff;
-  color: #2b3b4f;
-  border-color: #cbd2da;
-  box-shadow: 0 2px 8px rgba(43, 59, 79, 0.06);
+  background: var(--tt-white);
+  color: var(--tt-surface);
+  border-color: var(--tt-text-inverse-muted);
+  box-shadow: 0 2px 8px rgba(var(--tt-surface-rgb), 0.06);
 }
 
 .tree-reset-button:hover {
-  background: #f3f5f7;
-  color: #be2347;
-  border-color: #be2347;
+  background: var(--tt-page);
+  color: var(--tt-accent-ink);
+  border-color: var(--tt-accent-ink);
 }
 
 
 /* MAPA BLANCO */
 .tree-canvas {
-  background: #ffffff;
-  border-color: #d5d9de;
+  background: var(--tt-white);
+  border-color: var(--tt-text-inverse-muted);
 }
 
 .tree-canvas::before {
@@ -1788,7 +1788,7 @@ app-tree-canvas {
 .tree-canvas::after {
   background-image: radial-gradient(
     circle,
-    rgba(43, 59, 79, 0.055) 1px,
+    rgba(var(--tt-surface-rgb), 0.055) 1px,
     transparent 1px
   );
 
@@ -1796,61 +1796,61 @@ app-tree-canvas {
 }
 
 .tree-level::after {
-  border-bottom-color: rgba(43, 59, 79, 0.09);
+  border-bottom-color: rgba(var(--tt-surface-rgb), 0.09);
 }
 
 /* NIVELES: MISMO AZUL PIZARRA QUE LOS NODOS */
 .tree-level .tree-level__number {
-  background: #2b3b4f;
+  background: var(--tt-surface);
   border-radius: 7px;
 }
 
 .tree-level--beginner .tree-level__number {
-  color: #34d399;
+  color: var(--tt-beginner);
 }
 
 .tree-level--intermediate .tree-level__number {
-  color: #60a5fa;
+  color: var(--tt-intermediate);
 }
 
 .tree-level--advanced .tree-level__number {
-  color: #fb923c;
+  color: var(--tt-advanced);
 }
 
 .tree-level--elite .tree-level__number {
-  color: #ff6483;
+  color: var(--tt-elite);
 }
 
 /* AVISO COORDINADO CON EL MENÚ */
 .tree-notice {
-  background: #2b3b4f;
-  border: 1px solid #3c4d62;
-  border-left: 3px solid #d4a546;
+  background: var(--tt-surface);
+  border: 1px solid var(--tt-text-muted);
+  border-left: 3px solid var(--tt-pro-border);
   box-shadow: none;
 }
 
 .tree-notice__icon {
-  color: #f5cf79;
-  border-color: #d4a546;
+  color: var(--tt-pro);
+  border-color: var(--tt-pro-border);
 }
 
 .tree-notice__content h2 {
-  color: #ffffff;
+  color: var(--tt-white);
 }
 
 .tree-notice__content p {
-  color: #d5dde7;
+  color: var(--tt-text-inverse-muted);
 }
 
 /* Blanco arriba → azul pizarra abajo */
 .tree-canvas {
   background: linear-gradient(
     180deg,
-    #ffffff 0%,
-    #2b3b4f 100%
+    var(--tt-white) 0%,
+    var(--tt-surface) 100%
   );
 
-  border-color: #cbd2da;
+  border-color: var(--tt-text-inverse-muted);
 }
 
 /* Sin fotografía */
@@ -1862,7 +1862,7 @@ app-tree-canvas {
 .tree-canvas::after {
   background-image: radial-gradient(
     circle,
-    rgba(100, 116, 139, 0.16) 1px,
+    rgba(var(--tt-text-muted-rgb), 0.16) 1px,
     transparent 1px
   );
 
@@ -1876,25 +1876,25 @@ app-tree-canvas {
 
 /* Texto de los niveles sobre la zona oscura */
 .tree-level:nth-child(n + 4) .tree-level__info span {
-  color: #e2e8f0;
+  color: var(- --tt-text-inverse-muted);
 }
 
 .tree-level--advanced .tree-level__info strong {
-  color: #fb923c;
+  color: var(--tt-advanced);
 }
 
 .tree-level--elite .tree-level__info strong {
-  color: #ff7893;
+  color: var(--tt-elite);
 }
 
 /* Separadores visibles en ambas zonas */
 .tree-level::after {
-  border-bottom-color: rgba(100, 116, 139, 0.22);
+  border-bottom-color: rgba(var(--tt-text-muted-rgb), 0.22);
 }
 
 
 .tree-canvas {
-  background: #2b3b4f;
+  background: var(--tt-surface);
   isolation: isolate;
 }
 
@@ -1926,14 +1926,14 @@ app-tree-canvas {
   background-image:
     radial-gradient(
       circle,
-      rgba(100, 116, 139, 0.16) 1px,
+      rgba(var(--tt-text-muted-rgb), 0.16) 1px,
       transparent 1px
     ),
     linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.92) 0%,
-      rgba(149, 159, 173, 0.78) 50%,
-      rgba(43, 59, 79, 0.88) 100%
+      rgba(var(--tt-white-rgb), 0.92) 0%,
+      rgba(var(--tt-text-muted-rgb), 0.78) 50%,
+      rgba(var(--tt-surface-rgb), 0.88) 100%
     );
 
   background-size:
@@ -1952,8 +1952,8 @@ app-tree-canvas {
 
 /* LEYENDA */
 .tree-legend {
-  background: #2B3B4F;
-  border: 1px solid #2B3B4F;
+  background: var(--tt-surface);
+  border: 1px solid var(--tt-surface);
   border-radius: 10px;
 
   padding: 12px 16px;
@@ -1964,7 +1964,7 @@ app-tree-canvas {
 }
 
 .tree-legend__item {
-  color: #cbd5e1;
+  color: var(--tt-text-inverse-muted);
   font-size: 12px;
   font-weight: 600;
 }
@@ -1977,23 +1977,23 @@ app-tree-canvas {
 }
 
 .tree-legend__dot--beginner {
-  background: #34d399;
-  box-shadow: 0 0 8px rgba(52, 211, 153, 0.45);
+  background: var(--tt-beginner);
+  box-shadow: 0 0 8px rgba(var(--tt-beginner-rgb), 0.45);
 }
 
 .tree-legend__dot--intermediate {
-  background: #60a5fa;
-  box-shadow: 0 0 8px rgba(96, 165, 250, 0.45);
+  background: var(--tt-intermediate);
+  box-shadow: 0 0 8px rgba(var(--tt-intermediate-rgb), 0.45);
 }
 
 .tree-legend__dot--advanced {
-  background: #fb923c;
-  box-shadow: 0 0 8px rgba(251, 146, 60, 0.45);
+  background: var(--tt-advanced);
+  box-shadow: 0 0 8px rgba(var(--tt-advanced-rgb), 0.45);
 }
 
 .tree-legend__dot--elite {
-  background: #f43f5e;
-  box-shadow: 0 0 8px rgba(244, 63, 94, 0.45);
+  background: var(--tt-elite);
+  box-shadow: 0 0 8px rgba(var(--tt-elite-rgb), 0.45);
 }
 
 /* Mantener el tamaño compacto en móvil */
@@ -2068,9 +2068,9 @@ app-tree-canvas {
     width: 44px;
     height: 44px;
 
-    background: #171c24;
-    color: #fff;
-    border: 1px solid #465163;
+    background: var(--tt-surface);
+    color: var(--tt-white);
+    border: 1px solid var(--tt-text-muted);
 
     z-index: 10;
   }
@@ -2100,19 +2100,19 @@ app-tree-canvas {
 }
 
 .tree-header__stat--link:hover {
-  background: rgba(244, 63, 94, 0.06);
+  background: rgba(var(--tt-accent-ink-rgb), 0.06);
 }
 
 .tree-header__stat--link:focus-visible {
-  outline: 2px solid #f43f5e;
+  outline: 2px solid var(--tt-accent-ink);
   outline-offset: 5px;
 }
 
 .tree-header__stat.tree-header__stat--link strong {
-  color: #f43f5e;
+  color: var(--tt-accent-ink);
 }
 
 .tree-header__stat.tree-header__stat--link:hover strong {
-  color: #be2442;
+  color: var(--tt-accent-ink);
 }
 
