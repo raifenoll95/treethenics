@@ -1931,7 +1931,7 @@
 }
 
 .compare-table [data-difficulty="elite"] {
-  --comparison-color: var(--tt-accent);
+  --comparison-color: var(--tt-elite);
 }
 
 /* Texto y líneas de cada columna */
