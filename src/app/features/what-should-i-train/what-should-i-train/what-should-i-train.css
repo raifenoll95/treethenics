@@ -2341,5 +2341,9 @@
   }
 }
 
+.exercise-card h3 {
+  text-transform: uppercase;
+}
+
 
 
