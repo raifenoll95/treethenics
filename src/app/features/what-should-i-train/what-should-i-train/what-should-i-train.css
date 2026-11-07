@@ -2345,5 +2345,39 @@
   text-transform: uppercase;
 }
 
+.train-page__header-main,
+.train-page__header-identity {
+  width: 100%;
+}
 
+.train-page__header-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.train-page__title-row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.train-page__header .train-page__title-row h1 {
+  flex: 1;
+  min-width: 0;
+  container-type: inline-size;
+  font-family: "Montserrat", sans-serif;
+}
+
+.train-page__title-row h1 > span {
+  display: block;
+  white-space: nowrap;
+  font-size: min(24px, 4.5cqi);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+
+.train-page__badge {
+  flex-shrink: 0;
+}
 
