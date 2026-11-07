@@ -146,7 +146,7 @@
 .train-panel {
   margin-bottom: 18px;
   padding: 26px;
-  background: var(--tt-page);
+  background: var(--tt-panel);
   /*background: #1f2937;*/
   border: 1px solid var(--tt-text-muted);
   border-radius: 16px;
@@ -240,7 +240,7 @@
   padding: 48px 24px;
   color: var(--tt-text-inverse-muted);
   text-align: center;
-  background: var(--tt-page);
+  background: var(--tt-panel);
   /*background: #1f2937;*/
   border: 1px dashed var(--tt-text-muted);
   border-radius: 14px;
@@ -1356,7 +1356,7 @@
 
   padding: 0 16px;
 
-  background: var(--tt-page);
+  background: var(--tt-panel);
   /*background: #191e26;*/
   border: 1px solid var(--tt-text-muted);
   border-radius: 10px;
@@ -1618,7 +1618,7 @@
 
     padding: 0 0 12px;
 
-    background: var(--tt-page);
+    background: var(--tt-panel);
     /*background: #19222d;*/
     border: 1px solid var(--tt-text-muted);
     border-radius: 10px;
@@ -1836,7 +1836,7 @@
 
 .train-pagination__info a:hover {
   color: var(--tt-surface);
-  background: var(--tt-page);
+  background: var(--tt-panel);
   border-color: var(--tt-surface);
 }
 
@@ -1881,7 +1881,7 @@
   padding: 16px;
   border: 1px solid var(--tt-text-muted);
   border-radius: 12px;
-  background: var(--tt-page);
+  background: var(--tt-panel);
 }
 .filter-dropdowns, .filter-dropdowns * { box-sizing: border-box; }
 .filter-dropdowns__toolbar {
@@ -1975,7 +1975,7 @@
 .filter-dropdowns {
   gap: 14px;
   padding: 18px;
-  background: var(--tt-page);
+  background: var(--tt-panel);
   border: 1px solid var(--tt-text-inverse-muted);
   border-radius: 14px;
 }

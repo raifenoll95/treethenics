@@ -1,7 +1,7 @@
 :host {
   --menu-width: var(--sidebar-width, 245px);
 
-  --menu-bg: var(--tt-page);
+  --menu-bg: var(--tt-panel);
   --menu-border: var(--tt-text-inverse-muted);
 
   --menu-text: var(--tt-text-muted);
@@ -16,7 +16,7 @@
   --menu-pro-bg: var(--tt-pro-surface);
   --menu-pro-border: var(--tt-pro-border);
   --menu-pro-text: var(--tt-pro-ink);
-  --menu-pro-hover: var(--tt-page);
+  --menu-pro-hover: var(--tt-panel);
   --menu-pro-active-text: var(--tt-advanced);
 
   display: block;

@@ -12,8 +12,11 @@
   --tt-page: #f8f9f5;
   --tt-page-rgb: 248, 249, 245;
 
-  --tt-surface: #131111;
+  --tt-surface: #0c0b0b;
   --tt-surface-rgb: 0, 0, 0;
+
+  --tt-panel-rgb: 227, 224, 217;
+  --tt-panel: rgb(var(--tt-panel-rgb));
 
   /* COLOR ORIGINAL DE TREETHENICS
   --tt-surface: #2c3b4e;

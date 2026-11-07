@@ -84,7 +84,7 @@
   display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
   gap: clamp(28px, 3.5vw, 56px);
   margin-top: 24px; padding: clamp(24px, 2.5vw, 36px);
-  border: 1px solid var(--tt-text-inverse-muted); border-radius: 14px; background: var(--tt-page);
+  border: 1px solid var(--tt-text-inverse-muted); border-radius: 14px; background: var(--tt-panel);
 }
 .about-mission .about-eyebrow { color: var(--tt-accent-ink); }
 .about-mission h2 { margin-top: 12px; color: var(--about-ink); font-size: clamp(25px, 2.2vw, 32px); line-height: 1.22; font-weight: 800; letter-spacing: -.035em; }
@@ -218,7 +218,7 @@
   aspect-ratio: 4 / 3;
   overflow: hidden;
 
-  background: var(--tt-page);
+  background: var(--tt-panel);
   border: 1px solid var(--tt-text-inverse-muted);
   border-radius: 12px;
 }

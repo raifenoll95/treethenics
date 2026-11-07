@@ -61,7 +61,7 @@
 
 .compare-panel {
   padding: 24px;
-  background: var(--tt-page);
+  background: var(--tt-panel);
   border: 1px solid var(--tt-text-muted);
   border-radius: 16px;
 }
@@ -679,7 +679,7 @@
 .compare-panel {
   padding: clamp(18px, 2vw, 30px);
   color: var(--tt-white);
-  background: var(--tt-page);
+  background: var(--tt-panel);
   border-color: var(--tt-text-muted);
   border-radius: 16px;
 }
@@ -958,7 +958,7 @@
 
 .compare-panel {
   color: var(--tt-surface);
-  background: var(--tt-page);
+  background: var(--tt-panel);
   border-color: var(--tt-text-inverse-muted);
 }
 
@@ -1876,5 +1876,24 @@
 @media (prefers-reduced-motion: reduce) {
   .compare-exercise a.compare-exercise__image-link {
     transition: none;
+  }
+}
+
+/* Títulos de los dos cuadros iniciales */
+.compare-placeholder.compare-empty-choice > strong {
+  color: var(--tt-white);
+}
+
+/* Descripción legible sobre el fondo oscuro */
+.compare-placeholder.compare-empty-choice
+  .compare-empty-choice__description {
+  color: var(--tt-text-inverse-muted);
+}
+
+@media (hover: hover) {
+  .compare-placeholder.compare-empty-choice:hover > strong,
+  .compare-placeholder.compare-empty-choice:hover
+    .compare-empty-choice__description {
+    color: var(--tt-muted);
   }
 }
