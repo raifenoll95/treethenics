@@ -248,3 +248,10 @@
     padding-top: 24px;
   }
 }
+
+.about-gallery__photo img {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+}
