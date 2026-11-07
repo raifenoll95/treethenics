@@ -1916,3 +1916,81 @@
 .compare-suggestion__vs {
   z-index: 2;
 }
+
+/* Color independiente para cada ejercicio */
+.compare-table [data-difficulty="beginner"] {
+  --comparison-color: var(--tt-beginner);
+}
+
+.compare-table [data-difficulty="intermediate"] {
+  --comparison-color: var(--tt-intermediate);
+}
+
+.compare-table [data-difficulty="advanced"] {
+  --comparison-color: var(--tt-advanced);
+}
+
+.compare-table [data-difficulty="elite"] {
+  --comparison-color: var(--tt-accent);
+}
+
+/* Texto y líneas de cada columna */
+.compare-table [data-difficulty] {
+  color: var(--comparison-color);
+  border-color: color-mix(
+    in srgb,
+    var(--comparison-color) 40%,
+    transparent
+  );
+}
+
+/* Dificultad, músculos, equipamiento y movimiento */
+.compare-table [data-difficulty] .comparison-badge,
+.compare-table [data-difficulty] .comparison-tag,
+.compare-table [data-difficulty] .comparison-movement {
+  color: var(--comparison-color);
+  border: 1px solid var(--comparison-color);
+  background: color-mix(
+    in srgb,
+    var(--comparison-color) 10%,
+    var(--tt-surface)
+  );
+}
+
+/* Iconos y flechas */
+.compare-table [data-difficulty] .comparison-tag svg,
+.compare-table [data-difficulty] .comparison-movement svg,
+.compare-table [data-difficulty] .comparison-filter-link__arrow {
+  color: var(--comparison-color);
+}
+
+/* Texto del nivel */
+.compare-table [data-difficulty] .comparison-level__value,
+.compare-table [data-difficulty] .comparison-level__value strong,
+.compare-table [data-difficulty] .comparison-level__value > span,
+.compare-table [data-difficulty] .comparison-empty {
+  color: var(--comparison-color);
+}
+
+/* Las siete cajas */
+.compare-table [data-difficulty] .comparison-level__segment {
+  background: transparent;
+  border-color: var(--comparison-color);
+}
+
+.compare-table [data-difficulty] .comparison-level__segment--filled {
+  background: var(--comparison-color);
+  border-color: var(--comparison-color);
+}
+
+/* Enlaces al pasar el cursor */
+@media (hover: hover) {
+  .compare-table [data-difficulty] .comparison-filter-link:hover {
+    color: var(--comparison-color);
+    background: color-mix(
+      in srgb,
+      var(--comparison-color) 22%,
+      var(--tt-surface)
+    );
+  }
+}

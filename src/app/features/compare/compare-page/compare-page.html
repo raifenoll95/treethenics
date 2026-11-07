@@ -400,11 +400,17 @@
             <thead>
               <tr>
                 <th>EXERCISE</th>
-                <th [class]="'compare-table__exercise--' + first.difficulty">
+                <th
+                  [class]="'compare-table__exercise--' + first.difficulty"
+                  [attr.data-difficulty]="first.difficulty"
+                >
                   {{ first.name }}
                 </th>
 
-                <th [class]="'compare-table__exercise--' + second.difficulty">
+                <th
+                  [class]="'compare-table__exercise--' + second.difficulty"
+                  [attr.data-difficulty]="second.difficulty"
+                >
                   {{ second.name }}
                 </th>
               </tr>
@@ -420,10 +426,10 @@
                 <th scope="row">Difficulty</th>
 
                 @for (exercise of [first, second]; track $index) {
-                  <td>
+                  <td [attr.data-difficulty]="exercise.difficulty">
                     <a
                       class="comparison-badge comparison-filter-link"
-                      [attr.data-level]="exercise.difficulty"
+                      [attr.data-difficulty]="exercise.difficulty"
                       routerLink="/train"
                       [queryParams]="{ difficulty: exercise.difficulty }"
                       [attr.aria-label]="
@@ -454,10 +460,10 @@
                 <th scope="row">Progression level</th>
 
                 @for (exercise of [first, second]; track $index) {
-                  <td>
+                  <td [attr.data-difficulty]="exercise.difficulty">
                     <div
                       class="comparison-level"
-                      [attr.data-level]="exercise.difficulty"
+                      [attr.data-difficulty]="exercise.difficulty"
                     >
                       <span class="comparison-level__value">
                         Level <strong>{{ exercise.graphLevel }}</strong>
@@ -497,7 +503,7 @@
                 <th scope="row">Primary muscles</th>
 
                 @for (exercise of [first, second]; track $index) {
-                  <td>
+                  <td [attr.data-difficulty]="exercise.difficulty">
                     <div class="comparison-tags">
                       @for (
                         muscle of getMuscles(exercise, 'primary').split(',');
@@ -525,7 +531,7 @@
                 <th scope="row">Secondary muscles</th>
 
                 @for (exercise of [first, second]; track $index) {
-                  <td>
+                  <td [attr.data-difficulty]="exercise.difficulty">
                     <div class="comparison-tags">
                       @for (
                         muscle of getMuscles(exercise, 'secondary').split(',');
@@ -553,7 +559,7 @@
                 <th scope="row">Equipment</th>
 
                 @for (exercise of [first, second]; track $index) {
-                  <td>
+                  <td [attr.data-difficulty]="exercise.difficulty">
                     <div class="comparison-tags">
                       @for (equipment of exercise.equipment ?? []; track equipment) {
                         <a
@@ -605,7 +611,7 @@
                 <th scope="row">Movement type</th>
 
                 @for (exercise of [first, second]; track $index) {
-                  <td>
+                  <td [attr.data-difficulty]="exercise.difficulty">
                     @if (exercise.movementType; as movement) {
                       <span
                         class="comparison-movement"
