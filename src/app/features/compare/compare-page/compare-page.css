@@ -796,7 +796,7 @@
 .compare-placeholder {
   color: var(--tt-text-inverse-muted);
   background: var(--tt-surface);
-  border-color: var(-tt-text-muted);
+  border-color: var(--tt-text-muted);
 }
 
 .compare-placeholder:hover,

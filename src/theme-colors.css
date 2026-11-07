@@ -6,13 +6,19 @@
  */
 
 :root {
+
   /* FONDOS Y TEXTO */
 
   --tt-page: #f8f9f5;
   --tt-page-rgb: 248, 249, 245;
 
+  --tt-surface: #131111;
+  --tt-surface-rgb: 0, 0, 0;
+
+  /* COLOR ORIGINAL DE TREETHENICS
   --tt-surface: #2c3b4e;
   --tt-surface-rgb: 44, 59, 78;
+  */
 
   --tt-text-muted: #586575;
   --tt-text-muted-rgb: 88, 101, 117;
@@ -25,8 +31,6 @@
 
   --tt-black: #000000;
   --tt-black-rgb: 0, 0, 0;
-
-  --tt-border: #b8c0ca;
 
   /* MARCA Y ACCIONES */
 
