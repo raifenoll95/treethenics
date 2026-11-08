@@ -12,41 +12,12 @@
     <!-- BACK -->
 
 
-    <nav
-      class="exercise-breadcrumb"
-      aria-label="Breadcrumb"
-    >
-      <a routerLink="/" style="color: var(--tt-black); font-size: 16px;">
-        Treethenics
-      </a>
-
-      <span
-        style="color: var(--tt-black); font-size: 16px;"
-        class="exercise-breadcrumb__separator"
-        aria-hidden="true"
-      >
-        /
-      </span>
-
-      <a routerLink="/train" style="color: var(--tt-black); font-size: 16px;">
-        Exercise Library
-      </a>
-
-      <span
-        style="color: var(--tt-black); font-size: 16px;"
-        class="exercise-breadcrumb__separator"
-        aria-hidden="true"
-      >
-        /
-      </span>
-
-      <span
-        style="color: var(--tt-black); font-size: 16px;"
-        class="exercise-breadcrumb__current"
-        aria-current="page"
-      >
-        {{ exercise.name }}
-      </span>
+    <nav class="detail-breadcrumb" aria-label="Breadcrumb">
+      <a routerLink="/">Treethenics</a>
+      <span aria-hidden="true">/</span>
+      <a routerLink="/train">Exercise Library</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{{ exercise.name }}</span>
     </nav>
 
 
@@ -54,51 +25,55 @@
          HEADER
     ========================================= -->
 
-    <header class="exercise-detail__header">
-
-      <div class="exercise-title-block">
-
-        <div class="exercise-detail__eyebrow">
-
-          @if (exercise.category) {
-            <span>{{ exercise.category }}</span>
-          }
-
-          @if (exercise.graphLevel) {
-            <span class="exercise-detail__separator">•</span>
-
-            <span>
-              Level {{ exercise.graphLevel }}
-              <span class="exercise-detail__level-total">/ 07</span>
-            </span>
-          }
-
-        </div>
-
-        <h1
-          style="color: var(--tt-black);"
-          class="exercise-detail__title"
-          [class.exercise-detail__title--medium]="exercise.name.length > 12"
-          [class.exercise-detail__title--long]="exercise.name.length > 20"
-          [class.exercise-detail__title--very-long]="exercise.name.length > 30"
-        >
-          {{ exercise.name }}<span class="exercise-detail__title-dot">.</span>
+    <header class="detail-heading">
+      <div class="detail-heading__identity">
+        <h1>
+          {{ exercise.name }}<span class="detail-heading__dot" aria-hidden="true">.</span>
         </h1>
 
-        <div class="exercise-detail__title-line"></div>
+        <div class="detail-heading__meta">
+          <span>Foundation movement</span>
 
-        <div class="exercise-detail__meta">
-          <span style="color: var(--tt-black);">Foundation movement</span>
-
-          <span class="exercise-detail__meta-separator">•</span>
-
-          <span class="exercise-detail__difficulty">
-            {{ exercise.difficulty }}
-          </span>
+          @if (exercise.category) {
+            <span class="detail-heading__category">
+              {{ exercise.category }}
+            </span>
+          }
         </div>
-
       </div>
 
+      <div class="detail-level">
+        <div class="detail-level__header">
+          <span class="detail-level__difficulty">
+            <i aria-hidden="true"></i>
+            {{ exercise.difficulty }}
+          </span>
+
+          @if (exercise.graphLevel; as level) {
+            <span class="detail-level__value">
+              Level {{ level }} / 7
+            </span>
+          }
+        </div>
+
+        @if (exercise.graphLevel; as level) {
+          <div
+            class="detail-level__segments"
+            role="meter"
+            aria-label="Progression level"
+            aria-valuemin="1"
+            aria-valuemax="7"
+            [attr.aria-valuenow]="level"
+          >
+            @for (segment of [1, 2, 3, 4, 5, 6, 7]; track segment) {
+              <span
+                aria-hidden="true"
+                [class.is-filled]="segment <= level"
+              ></span>
+            }
+          </div>
+        }
+      </div>
     </header>
 
 
