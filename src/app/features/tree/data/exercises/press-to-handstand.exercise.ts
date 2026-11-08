@@ -28,7 +28,7 @@ export const PRESS_TO_HANDSTAND: Exercise = {
     'quadriceps'
   ],
 
-  equipment: ['floor'],
+  equipment: ['floor','parallettes'],
 
   description:
     'The Press To Handstand is an advanced calisthenics movement where the athlete lifts the body from the floor into a vertical Handstand using straight-arm shoulder strength, core compression, and balance. Unlike a kick-up, the entire transition is performed slowly and without momentum.',

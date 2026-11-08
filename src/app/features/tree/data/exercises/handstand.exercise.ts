@@ -24,7 +24,7 @@ export const HANDSTAND: Exercise = {
     'glutes'
   ],
 
-  equipment: ['floor'],
+  equipment: ['floor','parallettes'],
 
   description:
     'The Handstand is a fundamental hand-balancing skill where you support your entire body upside down with straight arms. It combines shoulder strength, wrist control, body awareness, and balance. A strong handstand also provides the foundation for advanced skills such as Handstand Push Ups, Press to Handstand, and One Arm Handstands.',
