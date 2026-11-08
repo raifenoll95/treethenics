@@ -2373,10 +2373,10 @@
 .muscle-table__muscles > span {
   padding: 6px 9px;
 
-  color: var(- --tt-text-inverse-muted);
+  color: var(--exercise-color);
   background: var(--tt-surface);
 
-  border: 1px solid var(--tt-surface);
+  border: 1px solid var(--exercise-color);
   border-radius: 6px;
 
   font-size: 9px;
@@ -2414,24 +2414,31 @@
 }
 
 .compact-equipment::before {
-  content: '';
-
+  content: "";
   position: absolute;
   inset: 0;
 
-  opacity: 0.13;
-  background-image: var(--equipment-image, none);
+  opacity: 1;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.75) 0%,
+      rgba(0, 0, 0, 0.35) 45%,
+      transparent 100%
+    ),
+    var(--equipment-image, none);
 
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
 
   pointer-events: none;
 }
 
 .compact-equipment > span,
 .compact-equipment > strong {
-  position: relative;
-  z-index: 1;
+  color: var(--tt-white);
 }
 
 .compact-equipment > span {
