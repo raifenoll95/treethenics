@@ -19,3 +19,107 @@ i { width: 7px; height: 7px; border-radius: 50%; }
  .anatomy-viewer__views { max-width: 340px; gap: 10px; }
  .anatomy-viewer__body { max-height: 290px; }
 }
+
+
+/* Marco discreto */
+.anatomy-viewer {
+  padding: 20px 16px;
+  gap: 18px;
+
+  background: var(--tt-panel);
+
+  border: 1px solid var(--tt-panel);
+  border-radius: 14px;
+}
+
+/* Etiquetas FRONT / BACK */
+.anatomy-viewer figcaption {
+  margin-top: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+}
+
+/* Leyenda */
+.anatomy-viewer__legend {
+  gap: 24px;
+  padding-top: 4px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.anatomy-viewer__legend span {
+  gap: 8px;
+}
+
+.anatomy-viewer__legend i {
+  display: inline-block;
+  flex: 0 0 11px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+/* Colores de referencia para los músculos */
+.anatomy-viewer__legend .primary {
+  background: var(--tt-accent, #f43f5e);
+}
+
+.anatomy-viewer__legend .secondary {
+  background: var(--tt-accent-soft, #ff8397);
+}
+
+/* Móvil */
+@media (max-width: 600px) {
+  .anatomy-viewer {
+    padding: 16px 10px;
+    gap: 14px;
+  }
+
+  .anatomy-viewer figcaption {
+    font-size: 10px;
+  }
+
+  .anatomy-viewer__legend {
+    gap: 20px;
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 951px) {
+  :host {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .anatomy-viewer {
+    height: 100%;
+    min-height: 0;
+    box-sizing: border-box;
+  }
+
+  .anatomy-viewer__views {
+    flex: 1;
+    min-height: 0;
+    align-items: stretch;
+  }
+
+  .anatomy-viewer__views > figure {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .anatomy-viewer__body {
+    flex: 1;
+    min-height: 0;
+    max-height: none;
+    aspect-ratio: auto !important;
+  }
+
+  .anatomy-viewer figcaption,
+  .anatomy-viewer__legend {
+    flex-shrink: 0;
+  }
+}
