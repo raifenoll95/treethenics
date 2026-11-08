@@ -497,17 +497,17 @@
 
 .difficulty-button--intermediate {
   color: var(--tt-intermediate);
-  border-color: var(--tt-accent-ink);
+  border-color: var(--tt-intermediate);
 }
 
 .difficulty-button--advanced {
   color: var(--tt-advanced);
-  border-color: var(--tt-pro-ink);
+  border-color: var(--tt-advanced);
 }
 
 .difficulty-button--elite {
   color: var(--tt-elite);
-  border-color: var(--tt-accent-ink);
+  border-color: var(--tt-elite);
 }
 
 /* Estado seleccionado: prevalece sobre el rojo genérico */
@@ -651,15 +651,15 @@
 }
 
 .exercise-card--intermediate {
-  border-color: var(--tt-accent-ink);
+  border-color: var(--tt-intermediate);
 }
 
 .exercise-card--advanced {
-  border-color: var(--tt-pro-ink);
+  border-color: var(--tt-advanced);
 }
 
 .exercise-card--elite {
-  border-color: var(--tt-accent-ink);
+  border-color: var(--tt-elite);
 }
 
 /* Al pasar el cursor, intensificar el color del borde */
