@@ -2116,3 +2116,158 @@ app-tree-canvas {
   color: var(--tt-accent-ink);
 }
 
+
+/* Borde exterior según la dificultad */
+.exercise-panel {
+  border: 1px solid var(--exercise-color);
+}
+
+/* Título, descripción y etiquetas */
+.exercise-panel .exercise-panel__difficulty,
+.exercise-panel .exercise-panel__sublabel,
+.exercise-panel .exercise-panel__label {
+  color: var(--exercise-color);
+}
+
+/* Textos blancos */
+.exercise-panel .exercise-panel__description,
+.exercise-panel h2
+{
+  color: var(--tt-text-inverse-muted);
+}
+
+/* Músculos y equipamiento: texto blanco y borde de dificultad */
+.exercise-panel .exercise-panel__tags > span {
+  color: var(--tt-white);
+  border: 1px solid var(--exercise-color);
+  background: transparent;
+}
+
+/* Botones: texto y borde del color de dificultad */
+.exercise-panel .exercise-panel__actions > a {
+  color: var(--exercise-color);
+  border: 1px solid var(--exercise-color);
+  background: transparent;
+}
+
+.exercise-panel .exercise-panel__actions > a > span {
+  color: inherit;
+}
+
+@media (hover: hover) {
+  .exercise-panel .exercise-panel__actions > a:hover {
+    color: var(--exercise-color);
+    background: color-mix(
+      in srgb,
+      var(--exercise-color) 18%,
+      var(--tt-surface)
+    );
+  }
+}
+
+.exercise-panel__image-wrapper {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.exercise-panel .exercise-panel__image {
+  margin-bottom: 0;
+}
+
+.exercise-panel .exercise-panel__movement {
+  position: absolute;
+  top: auto;
+  right: 12px;
+  bottom: 12px;
+  z-index: 2;
+
+  background: var(--tt-surface);
+  color: var(--exercise-color);
+  border-color: var(--exercise-color);
+}
+
+/* El contenido conserva su altura y la tarjeta permite scroll */
+.exercise-panel > * {
+  flex-shrink: 0;
+}
+
+.exercise-panel {
+  overflow-y: auto;
+}
+
+.exercise-panel .exercise-panel__description {
+  color: var(--tt-white);
+}
+
+/* Descripción: máximo dos líneas */
+.exercise-panel .exercise-panel__description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+
+  flex-shrink: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  max-height: 3em;
+  margin: 0 0 10px;
+}
+
+/* Imagen más compacta según la altura de pantalla */
+.exercise-panel .exercise-panel__image img {
+  width: 100%;
+  height: auto;
+  max-height: 24dvh;
+  object-fit: cover;
+}
+
+/* Menos separación entre secciones */
+.exercise-panel .exercise-panel__section {
+  margin-top: 12px;
+}
+
+.exercise-panel .exercise-panel__muscle-group {
+  margin-top: 8px;
+}
+
+/* En pantallas bajas, una sola línea de descripción */
+@media (max-height: 750px) {
+  .exercise-panel .exercise-panel__description {
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    max-height: 1.5em;
+  }
+
+  .exercise-panel .exercise-panel__image img {
+    max-height: 20dvh;
+  }
+}
+
+.exercise-panel .exercise-panel__image-wrapper {
+  margin-bottom: 10px;
+}
+
+.exercise-panel h2 {
+  margin-top: 4px;
+  margin-bottom: 10px;
+}
+
+.exercise-panel .exercise-panel__description {
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  max-height: 1.5em;
+  margin-bottom: 6px;
+}
+
+.exercise-panel .exercise-panel__section {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.exercise-panel .exercise-panel__actions {
+  margin-top: 12px;
+  padding-top: 0;
+  flex-shrink: 0;
+}
+
