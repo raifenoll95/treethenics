@@ -2999,3 +2999,9 @@
 .related-exercise-card__movement {
   z-index: 2;
 }
+
+/* Descripciones de los pasos y errores comunes */
+.how-to-card__content p,
+.mistake-card__content p {
+  color: var(--tt-inverse-muted);
+}
