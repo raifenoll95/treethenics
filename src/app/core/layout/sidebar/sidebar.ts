@@ -4,7 +4,7 @@ import {
   RouterLinkActive,
 } from '@angular/router';
 
-import { IMAGE_VERSION } from '../../config/image-version';
+import { mediaUrl } from '../../../core/config/media-url';
 import { signal } from '@angular/core';
 import { ElementRef, HostListener, inject } from '@angular/core';
 
@@ -37,8 +37,7 @@ export class Sidebar {
     }
   }
 
-  readonly logoUrl =
-  `https://pub-45dc79586604478fb0dcbe5c2e4a3497.r2.dev/optimized/detail/logo/treethenics-logo.webp?v=${IMAGE_VERSION}`;
+  readonly logoUrl = mediaUrl('/optimized/detail/logo/treethenics-logo.webp');
 
   menuOpen = false;
 

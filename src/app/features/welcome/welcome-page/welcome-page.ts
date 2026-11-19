@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { IMAGE_VERSION } from '../../../core/config/image-version';
+import { mediaUrl } from '../../../core/config/media-url';
 
 @Component({
   selector: 'app-welcome-page',
@@ -14,17 +14,13 @@ export class WelcomePage implements AfterViewInit {
 
   private platformId = inject(PLATFORM_ID);
 
-  readonly treeImageUrl =
-    `https://pub-45dc79586604478fb0dcbe5c2e4a3497.r2.dev/optimized/detail/treev3.webp?v=${IMAGE_VERSION}`;
+  readonly treeImageUrl = mediaUrl('/optimized/detail/treev3.webp');
 
-  readonly HomeVideoUrl =
-    `https://pub-45dc79586604478fb0dcbe5c2e4a3497.r2.dev/home-video/home-video9.mp4`;
+  readonly HomeVideoUrl = mediaUrl('/home-video/home-video9.mp4');
 
-  readonly versusImageUrl =
-    `https://pub-45dc79586604478fb0dcbe5c2e4a3497.r2.dev/optimized/detail/versus.webp?v=${IMAGE_VERSION}`;
+  readonly versusImageUrl = mediaUrl('/optimized/detail/versus.webp');
 
-  readonly raiImageUrl =
-    `https://pub-45dc79586604478fb0dcbe5c2e4a3497.r2.dev/welcome/welcome_me.jpg?v=${IMAGE_VERSION}`;
+  readonly raiImageUrl = mediaUrl('/welcome/welcome_me.jpg');
 
   ngAfterViewInit() {
     // Solo ejecutamos esto si estamos en el navegador (cliente)

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { mediaUrl } from '../../../core/config/media-url';
 
 @Component({
   selector: 'app-pro-page',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './pro-page.html',
   styleUrl: './pro-page.css',
 })
-export class ProPage {}
+export class ProPage {
+  readonly assetUrl = mediaUrl;
+}

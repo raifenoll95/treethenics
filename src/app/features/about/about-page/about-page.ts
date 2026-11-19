@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IMAGE_VERSION } from '../../../core/config/image-version';
+import { mediaUrl } from '../../../core/config/media-url';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -10,6 +10,6 @@ import { RouterLink } from '@angular/router';
 })
 
 export class AboutPage {
-  readonly raiImageUrl =
-    `https://pub-45dc79586604478fb0dcbe5c2e4a3497.r2.dev/optimized/detail/about/rai.webp?v=${IMAGE_VERSION}`;
+  readonly raiImageUrl = mediaUrl('/optimized/detail/about/rai.webp');
+  readonly assetUrl = mediaUrl;
 }

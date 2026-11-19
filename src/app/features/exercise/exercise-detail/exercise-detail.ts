@@ -25,7 +25,7 @@ import {
 import { signal } from '@angular/core';
 
 import { OptimizedImagePipe } from '../../../shared/pipes/optimized-image.pipe';
-import { IMAGE_VERSION } from '../../../core/config/image-version';
+import { mediaUrl } from '../../../core/config/media-url';
 
 import {
   Meta,
@@ -47,10 +47,10 @@ import { DOCUMENT } from '@angular/common';
 export class ExerciseDetail {
 
   readonly anatomyBackgroundImage =
-  `url("https://pub-45dc79586604478fb0dcbe5c2e4a3497.r2.dev/optimized/detail/anatomy/anatomy-background.webp?v=${IMAGE_VERSION}")`;
+  `url("${mediaUrl('/optimized/detail/anatomy/anatomy-background.webp')}")`;
 
   readonly equipmentImage = (name: string): string =>
-  `url("https://pub-45dc79586604478fb0dcbe5c2e4a3497.r2.dev/optimized/detail/equipment/${name}.webp?v=${IMAGE_VERSION}")`;
+  `url("${mediaUrl(`/optimized/detail/equipment/${name}.webp`)}")`;
 
   constructor() {
 

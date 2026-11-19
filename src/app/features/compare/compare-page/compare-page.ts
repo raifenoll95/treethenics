@@ -23,7 +23,7 @@ import {
 
 import { ExerciseEquipment } from '../../../shared/models/exercise-equipment.model';
 import { ExerciseMuscle } from '../../../shared/models/exercise-muscle.model';
-import { IMAGE_VERSION } from '../../../core/config/image-version';
+import { mediaUrl } from '../../../core/config/media-url';
 
 @Component({
   selector: 'app-compare-page',
@@ -33,8 +33,7 @@ import { IMAGE_VERSION } from '../../../core/config/image-version';
 })
 export class ComparePage {
 
-  readonly vsLogoUrl =
-  `https://pub-45dc79586604478fb0dcbe5c2e4a3497.r2.dev/optimized/detail/compare/vs_logo.webp?v=${IMAGE_VERSION}`;
+  readonly vsLogoUrl = mediaUrl('/optimized/detail/compare/vs_logo.webp');
 
   private readonly elementRef = inject(ElementRef<HTMLElement>);
 

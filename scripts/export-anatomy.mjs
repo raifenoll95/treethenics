@@ -14,7 +14,7 @@ const require = createRequire(import.meta.url);
 const component = path.resolve(root, process.env.ANATOMY_COMPONENT_DIR || 'src/app/shared/components/anatomy-viewer');
 const output = path.resolve(root, 'public/anatomy-static');
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
-const modelSource = process.env.ANATOMY_MODEL || 'https://pub-45dc79586604478fb0dcbe5c2e4a3497.r2.dev/anatomy-treethenics-draco.glb';
+const modelSource = process.env.ANATOMY_MODEL || 'https://treethenics-media.b-cdn.net/anatomy-treethenics-draco.glb';
 const temporary = await mkdtemp(path.join(os.tmpdir(),'treethenics-anatomy-'));
 let server, browser;
 try {
