@@ -1,40 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.treethenics.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/tree</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/tree" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/tree/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/search</loc>
   </url>
   <url>
     <loc>https://www.treethenics.com/train</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/train" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/train/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/compare</loc>
   </url>
   <url>
     <loc>https://www.treethenics.com/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/about/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/pro</loc>
   </url>
   <url>
     <loc>https://www.treethenics.com/train/page/2</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/train/page/2" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/train/page/2/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/train/page/3</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/train/page/3" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/train/page/3/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/train/page/4</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/train/page/4" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/train/page/4/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/train/page/5</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/train/page/5" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/train/page/5/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/train/page/6</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/train/page/6" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/train/page/6/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/train/page/7</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/train/page/7" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/train/page/7/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/90-degree-push-up</loc>
@@ -53,6 +77,8 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/australian-pull-up</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/australian-pull-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/australian-pull-up/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/back-lever</loc>
@@ -356,6 +382,8 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/pull-up</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/pull-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/pull-up/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/push-up</loc>
@@ -515,5 +543,65 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/zanetti</loc>
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/australian-pull-up/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/australian-pull-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/australian-pull-up/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/pull-up/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/pull-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/pull-up/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/about/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/about/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/tree/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/tree" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/tree/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/train/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/train" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/train/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/train/page/2/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/train/page/2" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/train/page/2/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/train/page/3/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/train/page/3" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/train/page/3/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/train/page/4/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/train/page/4" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/train/page/4/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/train/page/5/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/train/page/5" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/train/page/5/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/train/page/6/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/train/page/6" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/train/page/6/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/train/page/7/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/train/page/7" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/train/page/7/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/es" />
   </url>
 </urlset>

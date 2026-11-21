@@ -7,21 +7,22 @@
   >
     <div class="welcome-section__content">
       <span class="welcome-section__eyebrow">
-        <span>01</span> / PROGRESSION MAP
+        <span>01</span> / {{ isSpanish ? 'MAPA DE PROGRESIONES' : 'PROGRESSION MAP' }}
       </span>
 
       <h2 id="welcome-tree-title">
-        See your path.<br />
-        Master every skill.
+        {{ isSpanish ? 'Descubre tu camino.' : 'See your path.' }}<br />
+        {{ isSpanish ? 'Domina cada movimiento.' : 'Master every skill.' }}
       </h2>
 
       <p>
-        Explore a visual progression map, understand how skills connect
-        and discover what comes next.
+        {{ isSpanish
+          ? 'Explora el mapa de progresiones para ver cómo se conectan los ejercicios y descubrir cuál puede ser tu siguiente paso.'
+          : 'Explore a visual progression map, understand how skills connect and discover what comes next.' }}
       </p>
 
-      <a class="welcome-section__button" routerLink="/tree">
-        Explore the Tree
+      <a class="welcome-section__button" [routerLink]="isSpanish ? '/tree/es' : '/tree'">
+        {{ isSpanish ? 'Explorar el árbol' : 'Explore the Tree' }}
         <span aria-hidden="true">→</span>
       </a>
     </div>
@@ -44,21 +45,22 @@
   >
     <div class="welcome-section__content">
       <span class="welcome-section__eyebrow">
-        <span>02</span> / EXERCISE LIBRARY
+        <span>02</span> / {{ isSpanish ? 'BIBLIOTECA DE EJERCICIOS' : 'EXERCISE LIBRARY' }}
       </span>
 
       <h2 id="welcome-library-title">
-        Find the right<br />
-        exercise for you.
+        {{ isSpanish ? 'Encuentra el ejercicio' : 'Find the right' }}<br />
+        {{ isSpanish ? 'adecuado para ti.' : 'exercise for you.' }}
       </h2>
 
       <p>
-        Browse 150+ exercises by difficulty, muscles and equipment.
-        Find your next challenge and keep moving forward.
+        {{ isSpanish
+          ? 'Explora más de 150 ejercicios por dificultad, grupo muscular y material. Encuentra tu próximo reto.'
+          : 'Browse 150+ exercises by difficulty, muscles and equipment. Find your next challenge and keep moving forward.' }}
       </p>
 
-      <a class="welcome-section__button" routerLink="/train">
-        Browse the Library
+      <a class="welcome-section__button" [routerLink]="isSpanish ? '/train/es' : '/train'">
+        {{ isSpanish ? 'Explorar la biblioteca' : 'Browse the Library' }}
         <span aria-hidden="true">→</span>
       </a>
     </div>
@@ -86,21 +88,22 @@
   >
     <div class="welcome-section__content">
       <span class="welcome-section__eyebrow">
-        <span>03</span> / EXERCISE COMPARISON
+        <span>03</span> / {{ isSpanish ? 'COMPARACIÓN DE EJERCICIOS' : 'EXERCISE COMPARISON' }}
       </span>
 
       <h2 id="welcome-compare-title">
-        Two exercises.<br />
-        One clear comparison.
+        {{ isSpanish ? 'Dos ejercicios.' : 'Two exercises.' }}<br />
+        {{ isSpanish ? 'Una comparación clara.' : 'One clear comparison.' }}
       </h2>
 
       <p>
-        Compare difficulty, muscles and equipment side by side
-        to choose what to train next.
+        {{ isSpanish
+          ? 'Compara dos ejercicios y elige cuál entrenar según su dificultad, los músculos que trabajan y el material que necesitas.'
+          : 'Compare difficulty, muscles and equipment side by side to choose what to train next.' }}
       </p>
 
       <a class="welcome-section__button" routerLink="/compare">
-        Compare Exercises
+        {{ isSpanish ? 'Comparar ejercicios' : 'Compare Exercises' }}
         <span aria-hidden="true">→</span>
       </a>
     </div>
@@ -124,22 +127,22 @@
   >
     <div class="welcome-section__content">
       <span class="welcome-section__eyebrow">
-        <span>04</span> / BEHIND TREETHENICS
+        <span>04</span> / {{ isSpanish ? 'DETRÁS DE TREETHENICS' : 'BEHIND TREETHENICS' }}
       </span>
 
       <h2 id="welcome-about-title">
-        A passion for calisthenics.<br />
-        A project with a purpose.
+        {{ isSpanish ? 'Pasión por la calistenia.' : 'A passion for calisthenics.' }}<br />
+        {{ isSpanish ? 'Un proyecto con propósito.' : 'A project with a purpose.' }}
       </h2>
 
       <p>
-        I'm Rai, the creator of Treethenics. Discover the story behind
-        the project and why I built a clearer way to explore
-        calisthenics progressions.
+        {{ isSpanish
+          ? 'Soy Rai, el creador de Treethenics. Te cuento cómo nació el proyecto y por qué quise mostrar, ejercicio a ejercicio, cómo se conectan las progresiones de calistenia.'
+          : "I'm Rai, the creator of Treethenics. Discover the story behind the project and why I built a clearer way to explore calisthenics progressions." }}
       </p>
 
-      <a class="welcome-section__button" routerLink="/about">
-        Meet the Creator
+      <a class="welcome-section__button" [routerLink]="isSpanish ? '/about/es' : '/about'">
+        {{ isSpanish ? 'Conoce mi historia' : 'Meet the Creator' }}
         <span aria-hidden="true">→</span>
       </a>
     </div>
@@ -147,7 +150,9 @@
     <div class="welcome-section__visual">
       <img
         [src]="raiImageUrl"
-        alt="Rai, creator of Treethenics, training calisthenics"
+        [alt]="isSpanish
+          ? 'Rai, creador de Treethenics, entrenando calistenia'
+          : 'Rai, creator of Treethenics, training calisthenics'"
         loading="lazy"
         draggable="false"
         (contextmenu)="$event.preventDefault()"

@@ -22,7 +22,7 @@
     <!-- LOGO: EN MÓVIL SOLO SE MUESTRA EN HOME -->
     <a
       class="sidebar__brand"
-      routerLink="/"
+      [routerLink]="isSpanish ? '/es' : '/'"
       routerLinkActive="sidebar__brand--home"
       [routerLinkActiveOptions]="{ exact: true }"
       aria-label="Go to Treethenics home"
@@ -45,7 +45,7 @@
     <!-- HOME -->
     <a
       class="sidebar__item"
-      routerLink="/"
+      [routerLink]="isSpanish ? '/es' : '/'"
       routerLinkActive="sidebar__item--active"
       [routerLinkActiveOptions]="{ exact: true }"
       ariaCurrentWhenActive="page"
@@ -60,13 +60,13 @@
         <path d="M9 21v-8h6v8" />
       </svg>
 
-      <span>Home</span>
+      	<span>{{ isSpanish ? 'Inicio' : 'Home' }}</span>
     </a>
 
     <!-- TREE -->
     <a
       class="sidebar__item"
-      routerLink="/tree"
+      [routerLink]="isSpanish ? '/tree/es' : '/tree'"
       routerLinkActive="sidebar__item--active"
       [routerLinkActiveOptions]="{ exact: true }"
       ariaCurrentWhenActive="page"
@@ -82,15 +82,15 @@
         <path d="M6 8v8M18 9a9 9 0 0 1-9 9" />
       </svg>
 
-      <span>Tree</span>
+      <span>{{ isSpanish ? 'Árbol' : 'Tree' }}</span>
     </a>
 
     <!-- LIBRARY -->
     <a
       class="sidebar__item"
-      routerLink="/train"
-      routerLinkActive="sidebar__item--active"
-      ariaCurrentWhenActive="page"
+      [routerLink]="isSpanish ? '/train/es' : '/train'"
+      [class.sidebar__item--active]="isLibraryActive"
+      [attr.aria-current]="isLibraryActive ? 'page' : null"
     >
       <svg
         class="sidebar__icon"
@@ -101,7 +101,7 @@
         <path d="m2 7 5-5M17 22l5-5M3 3l2 2M19 19l2 2" />
       </svg>
 
-      <span>Library</span>
+      <span>{{ isSpanish ? 'Biblioteca' : 'Library' }}</span>
     </a>
 
     <!-- COMPARE -->
@@ -121,13 +121,13 @@
         <path d="M21 17H3m4-4-4 4 4 4" />
       </svg>
 
-      <span>Compare</span>
+      	<span>{{ isSpanish ? 'Comparar' : 'Compare' }}</span>
     </a>
 
     <!-- ABOUT -->
     <a
       class="sidebar__item"
-      routerLink="/about"
+      [routerLink]="isSpanish ? '/about/es' : '/about'"
       routerLinkActive="sidebar__item--active"
       [routerLinkActiveOptions]="{ exact: true }"
       ariaCurrentWhenActive="page"
@@ -142,7 +142,7 @@
         <path d="M5.5 19a7 7 0 0 1 13 0" />
       </svg>
 
-      <span>About Me</span>
+      <span>{{ isSpanish ? 'Sobre mí' : 'About Me' }}</span>
     </a>
 
     <!-- PRO -->
@@ -166,9 +166,60 @@
 
       <span>PRO</span>
     </a>
+
+    <div
+      class="sidebar__languages"
+      role="group"
+      [attr.aria-label]="isSpanish ? 'Idioma' : 'Language'"
+    >
+      <a
+        class="sidebar__language"
+        [class.sidebar__language--active]="!isSpanish"
+        [routerLink]="englishPath"
+        queryParamsHandling="preserve"
+        [preserveFragment]="true"
+        [attr.aria-current]="!isSpanish ? 'page' : null"
+        aria-label="English"
+        title="English"
+        lang="en"
+        hreflang="en"
+      >
+        <svg viewBox="0 0 60 36" aria-hidden="true" focusable="false">
+          <rect width="60" height="36" fill="#012169" />
+          <path d="M0 0 60 36M60 0 0 36" stroke="#fff" stroke-width="7" />
+          <path
+            d="m0 0 30 18h-5L0 3z M60 0 30 18v-3L55 0z
+              M60 36 30 18h5l25 15z M0 36l30-18v3L5 36z"
+            fill="#c8102e"
+          />
+          <path d="M30 0v36M0 18h60" stroke="#fff" stroke-width="12" />
+          <path d="M30 0v36M0 18h60" stroke="#c8102e" stroke-width="7" />
+        </svg>
+      </a>
+
+      <a
+        class="sidebar__language"
+        [class.sidebar__language--active]="isSpanish"
+        [class.sidebar__language--disabled]="!hasSpanishVersion"
+        [routerLink]="spanishPath"
+        queryParamsHandling="preserve"
+        [preserveFragment]="true"
+        [attr.aria-current]="isSpanish ? 'page' : null"
+        [attr.aria-disabled]="hasSpanishVersion ? null : 'true'"
+        [attr.title]="hasSpanishVersion ? 'Español' : 'Traducción pendiente'"
+        aria-label="Español"
+        lang="es"
+        hreflang="es"
+      >
+        <svg viewBox="0 0 60 36" aria-hidden="true" focusable="false">
+          <rect width="60" height="36" fill="#aa151b" />
+          <rect y="9" width="60" height="18" fill="#f1bf00" />
+        </svg>
+      </a>
+    </div>
   </nav>
 
   <div class="sidebar__footer">
-    <span>Explore your limits.</span>
+    <span>{{ isSpanish ? 'Explora tus límites.' : 'Explore your limits.' }}</span>
   </div>
 </aside>

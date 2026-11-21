@@ -9,13 +9,10 @@
     [class.exercise-detail--elite]="exercise.difficulty === 'elite'"
   >
 
-    <!-- BACK -->
-
-
-    <nav class="detail-breadcrumb" aria-label="Breadcrumb">
+    <nav class="detail-breadcrumb" [attr.aria-label]="isSpanish ? 'Ruta de navegación' : 'Breadcrumb'">
       <a routerLink="/">Treethenics</a>
       <span aria-hidden="true">/</span>
-      <a routerLink="/train">Exercise Library</a>
+      <a [routerLink]="isSpanish ? '/train/es' : '/train'">@if (isSpanish) { Biblioteca de ejercicios } @else { Exercise Library }</a>
       <span aria-hidden="true">/</span>
       <span aria-current="page">{{ exercise.name }}</span>
     </nav>
@@ -32,11 +29,11 @@
         </h1>
 
         <div class="detail-heading__meta">
-          <span>Foundation movement</span>
+          <span>@if (isSpanish) { Movimiento básico } @else { Foundation movement }</span>
 
           @if (exercise.category) {
             <span class="detail-heading__category">
-              {{ exercise.category }}
+              {{ label(exercise.category) }}
             </span>
           }
         </div>
@@ -46,12 +43,12 @@
         <div class="detail-level__header">
           <span class="detail-level__difficulty">
             <i aria-hidden="true"></i>
-            {{ exercise.difficulty }}
+            {{ label(exercise.difficulty) }}
           </span>
 
           @if (exercise.graphLevel; as level) {
             <span class="detail-level__value">
-              Level {{ level }} / 7
+              {{ isSpanish ? 'Nivel' : 'Level' }} {{ level }} / 7
             </span>
           }
         </div>
@@ -60,7 +57,7 @@
           <div
             class="detail-level__segments"
             role="meter"
-            aria-label="Progression level"
+            [attr.aria-label]="isSpanish ? 'Nivel de progresión' : 'Progression level'"
             aria-valuemin="1"
             aria-valuemax="7"
             [attr.aria-valuenow]="level"
@@ -90,7 +87,7 @@
         @if (exercise.imageUrl) {
           <img
             [src]="exercise.imageUrl | optimizedImage:'detail'"
-            [alt]="'Athlete performing the ' + exercise.name + ' calisthenics exercise'"
+            [alt]="isSpanish ? 'Atleta realizando el ejercicio: ' + exercise.name : 'Athlete performing the ' + exercise.name + ' calisthenics exercise'"
             fetchpriority="high"
             decoding="async"
             draggable="false"
@@ -105,7 +102,7 @@
             [class.exercise-hero__movement--static]="exercise.movementType === 'static'"
             [class.exercise-hero__movement--dynamic]="exercise.movementType === 'dynamic'"
           >
-            {{ exercise.movementType }}
+            {{ label(exercise.movementType) }}
           </span>
         }
 
@@ -116,18 +113,19 @@
 
       <aside
         class="exercise-hero__anatomy"
-        [attr.aria-label]="exercise.name + ' muscles anatomical model'"
+        [attr.aria-label]="isSpanish ? 'Modelo muscular: ' + exercise.name : exercise.name + ' muscles anatomical model'"
       >
 
         <div class="exercise-hero__anatomy-stage">
 
 
           <app-anatomy-viewer
+            [isSpanish]="isSpanish"
+            [description]="anatomyDescription()"
             [primaryMuscles]="exercise.primaryMuscles ?? []"
             [secondaryMuscles]="exercise.secondaryMuscles ?? []"
             assetBase="https://treethenics-media.b-cdn.net/anatomy-static"
           />
-
         </div>
 
       </aside>
@@ -158,11 +156,11 @@
           <div>
 
             <span class="detail-section__eyebrow">
-              Overview
+              @if (isSpanish) { Descripción } @else { Overview }
             </span>
 
             <h2 style="color: var(--tt-black);">
-              What Is the {{ exercise.name }}?
+              @if (isSpanish) { ¿En qué consiste este ejercicio? } @else { What Is the {{ exercise.name }}? }
             </h2>
 
           </div>
@@ -200,10 +198,10 @@
 
               <div class="overview-stat">
 
-                <span>Difficulty</span>
+                <span>@if (isSpanish) { Dificultad } @else { Difficulty }</span>
 
                 <strong class="accent-text">
-                  {{ exercise.difficulty }}
+                  {{ label(exercise.difficulty) }}
                 </strong>
 
               </div>
@@ -213,7 +211,7 @@
 
                 <div class="overview-stat">
 
-                  <span>Progression level</span>
+                  <span>@if (isSpanish) { Nivel de progresión } @else { Progression level }</span>
 
                   <strong>
                     {{ exercise.graphLevel }} / 7
@@ -228,10 +226,10 @@
 
                 <div class="overview-stat">
 
-                  <span>Movement</span>
+                  <span>@if (isSpanish) { Movimiento } @else { Movement }</span>
 
                   <strong>
-                    {{ exercise.movementType }}
+                    {{ label(exercise.movementType) }}
                   </strong>
 
                 </div>
@@ -243,10 +241,10 @@
 
                 <div class="overview-stat">
 
-                  <span>Category</span>
+                  <span>@if (isSpanish) { Categoría } @else { Category }</span>
 
                   <strong>
-                    {{ exercise.category }}
+                    {{ label(exercise.category) }}
                   </strong>
 
                 </div>
@@ -278,16 +276,15 @@
           <div>
 
             <span class="detail-section__eyebrow">
-              Anatomy & Setup
+              @if (isSpanish) { Anatomía y material } @else { Anatomy & Setup }
             </span>
 
             <h2 style="color: var(--tt-black);">
-              {{ exercise.name }} Muscles & Equipment
+              @if (isSpanish) { Músculos y material } @else { {{ exercise.name }} Muscles & Equipment }
             </h2>
 
             <p style="color: var(--tt-black);">
-              Muscles involved and equipment used to perform and train
-              the {{ exercise.name }}.
+              @if (isSpanish) { Consulta los músculos implicados y el material que puedes usar para entrenar. } @else { Muscles involved and equipment used to perform and train the {{ exercise.name }}. }
             </p>
 
           </div>
@@ -318,7 +315,7 @@
             <div class="exercise-info-panel">
 
               <span class="exercise-info-panel__label">
-                Muscles worked
+                @if (isSpanish) { Músculos trabajados } @else { Muscles worked }
               </span>
 
 
@@ -336,8 +333,8 @@
                     </span>
 
                     <div>
-                      <span>Primary</span>
-                      <strong>Main muscles</strong>
+                      <span>@if (isSpanish) { Principales } @else { Primary }</span>
+                      <strong>@if (isSpanish) { Músculos principales } @else { Main muscles }</strong>
                     </div>
 
                   </div>
@@ -372,8 +369,8 @@
                     </span>
 
                     <div>
-                      <span>Secondary</span>
-                      <strong>Supporting muscles</strong>
+                      <span>@if (isSpanish) { Secundarios } @else { Secondary }</span>
+                      <strong>@if (isSpanish) { Músculos auxiliares } @else { Supporting muscles }</strong>
                     </div>
 
                   </div>
@@ -406,7 +403,7 @@
             <div class="exercise-info-panel">
 
               <span class="exercise-info-panel__label">
-                Equipment
+                @if (isSpanish) { Material } @else { Equipment }
               </span>
 
 
@@ -429,7 +426,7 @@
                     [class.compact-equipment--weight]="equipment === 'added-weight'"
                   >
 
-                    <span>Equipment</span>
+                    <span>@if (isSpanish) { Material } @else { Equipment }</span>
 
                     <strong>
                       {{ getEquipmentLabel(equipment) }}
@@ -441,10 +438,10 @@
 
                   <div class="compact-equipment">
 
-                    <span>Equipment</span>
+                    <span>@if (isSpanish) { Material } @else { Equipment }</span>
 
                     <strong>
-                      No equipment required
+                      @if (isSpanish) { Sin material } @else { No equipment required }
                     </strong>
 
                   </div>
@@ -480,17 +477,15 @@
             <div>
 
               <span class="detail-section__eyebrow">
-                How To
+                @if (isSpanish) { Técnica paso a paso } @else { How To }
               </span>
 
               <h2 style="color: var(--tt-black);">
-                How to Do the {{ exercise.name }}
+                @if (isSpanish) { Cómo hacer el ejercicio } @else { How to Do the {{ exercise.name }} }
               </h2>
 
               <p style="color: var(--tt-black);">
-                Follow these steps to perform the
-                {{ exercise.name }} with proper technique
-                and body control.
+                @if (isSpanish) { Sigue estos pasos para realizar el movimiento con control. } @else { Follow these steps to perform the {{ exercise.name }} with proper technique and body control. }
               </p>
 
             </div>
@@ -570,17 +565,15 @@
             <div>
 
               <span class="detail-section__eyebrow">
-                Technique
+                @if (isSpanish) { Técnica } @else { Technique }
               </span>
 
               <h2 style="color: var(--tt-black);">
-                Common {{ exercise.name }} Mistakes
+                @if (isSpanish) { Errores frecuentes } @else { Common {{ exercise.name }} Mistakes }
               </h2>
 
               <p style="color: var(--tt-black);">
-                Avoid these common errors to improve your
-                technique and train the {{ exercise.name }}
-                more effectively.
+                @if (isSpanish) { Revisa estos errores para mejorar tu técnica. } @else { Avoid these common errors to improve your technique and train the {{ exercise.name }} more effectively. }
               </p>
 
             </div>
@@ -665,17 +658,15 @@
             <div>
 
               <span class="detail-section__eyebrow">
-                Progression
+                @if (isSpanish) { Progresión } @else { Progression }
               </span>
 
               <h2 style="color: var(--tt-black);">
-                {{ exercise.name }} Progression
+                @if (isSpanish) { Progresiones del ejercicio } @else { {{ exercise.name }} Progression }
               </h2>
 
               <p style="color: var(--tt-black);">
-                Build the strength and control required for
-                the {{ exercise.name }}, then explore more
-                advanced variations and movements.
+                @if (isSpanish) { Desarrolla la fuerza y el control necesarios antes de pasar a variantes más avanzadas. } @else { Build the strength and control required for the {{ exercise.name }}, then explore more advanced variations and movements. }
               </p>
 
             </div>
@@ -711,11 +702,11 @@
                   <div class="progression-group__heading">
 
                     <span class="progression-group__direction">
-                      Easier
+                      @if (isSpanish) { Más fácil } @else { Easier }
                     </span>
 
                     <h3>
-                      Previous progressions
+                      @if (isSpanish) { Progresiones previas } @else { Previous progressions }
                     </h3>
 
                   </div>
@@ -730,7 +721,7 @@
 
                       <a
                         class="progression-card"
-                        [routerLink]="['/exercises', item.id]"
+                        [routerLink]="exerciseLink(item.id)"
                       >
 
                         <div class="progression-card__media">
@@ -739,7 +730,7 @@
 
                             <img
                               [src]="item.imageUrl | optimizedImage:'card'"
-                              [alt]="item.name + ' calisthenics progression'"
+                              [alt]="isSpanish ? item.name : item.name + ' calisthenics progression'"
                               loading="lazy"
                               decoding="async"
                             />
@@ -753,11 +744,11 @@
 
                           <span class="progression-card__meta">
 
-                            {{ item.difficulty }}
+                            {{ label(item.difficulty) }}
 
                             @if (item.graphLevel) {
                               <span aria-hidden="true"> • </span>
-                              Level {{ item.graphLevel }}
+                              {{ isSpanish ? 'Nivel' : 'Level' }} {{ item.graphLevel }}
                             }
 
                           </span>
@@ -767,7 +758,7 @@
                           </h4>
 
                           <span class="progression-card__action">
-                            View exercise
+                            @if (isSpanish) { Ver ejercicio } @else { View exercise }
                             <span aria-hidden="true">→</span>
                           </span>
 
@@ -789,13 +780,13 @@
               <div class="progression-current">
 
                 <div class="progression-current__marker">
-                  You are here
+                  @if (isSpanish) { Estás aquí } @else { You are here }
                 </div>
 
                 <div class="progression-current__content">
 
                   <span>
-                    Current exercise
+                    @if (isSpanish) { Ejercicio actual } @else { Current exercise }
                   </span>
 
                   <strong>
@@ -805,8 +796,8 @@
                   @if (exercise.graphLevel) {
 
                     <small>
-                      {{ exercise.difficulty }}
-                      · Level {{ exercise.graphLevel }}
+                      {{ label(exercise.difficulty) }}
+                      · {{ isSpanish ? 'Nivel' : 'Level' }} {{ exercise.graphLevel }}
                     </small>
 
                   }
@@ -825,11 +816,11 @@
                   <div class="progression-group__heading">
 
                     <span class="progression-group__direction">
-                      Harder
+                      @if (isSpanish) { Más difícil } @else { Harder }
                     </span>
 
                     <h3>
-                      Advanced progressions
+                      @if (isSpanish) { Progresiones avanzadas } @else { Advanced progressions }
                     </h3>
 
                   </div>
@@ -844,7 +835,7 @@
 
                       <a
                         class="related-exercise-card"
-                        [routerLink]="['/exercises', item.id]"
+                        [routerLink]="exerciseLink(item.id)"
                       >
 
                         <div class="related-exercise-card__media">
@@ -853,7 +844,7 @@
 
                             <img
                               [src]="item.imageUrl | optimizedImage:'card'"
-                              [alt]="item.name + ' advanced calisthenics exercise'"
+                              [alt]="isSpanish ? item.name : item.name + ' advanced calisthenics exercise'"
                               loading="lazy"
                               decoding="async"
                             />
@@ -868,12 +859,12 @@
                           <div class="related-exercise-card__meta">
 
                             <span>
-                              {{ item.difficulty }}
+                              {{ label(item.difficulty) }}
                             </span>
 
                             @if (item.graphLevel) {
                               <span>
-                                Level {{ item.graphLevel }}
+                                {{ isSpanish ? 'Nivel' : 'Level' }} {{ item.graphLevel }}
                               </span>
                             }
 
@@ -884,7 +875,7 @@
                           </h4>
 
                           <span class="related-exercise-card__action">
-                            View exercise
+                            @if (isSpanish) { Ver ejercicio } @else { View exercise }
                             <span aria-hidden="true">→</span>
                           </span>
 
@@ -926,16 +917,15 @@
             <div>
 
               <span class="detail-section__eyebrow">
-                Related
+                @if (isSpanish) { Ejercicios relacionados } @else { Related }
               </span>
 
               <h2 style="color: var(--tt-black);">
-                Exercises Related to the {{ exercise.name }}
+                @if (isSpanish) { Otros ejercicios relacionados } @else { Exercises Related to the {{ exercise.name }} }
               </h2>
 
               <p style="color: var(--tt-black);">
-                Explore other calisthenics exercises with related
-                movement patterns, strength demands or muscle involvement.
+                @if (isSpanish) { Explora ejercicios con patrones de movimiento, exigencias de fuerza o grupos musculares similares. } @else { Explore other calisthenics exercises with related movement patterns, strength demands or muscle involvement. }
               </p>
 
             </div>
@@ -967,7 +957,7 @@
 
                 <a
                   class="related-exercise-card"
-                  [routerLink]="['/exercises', item.id]"
+                  [routerLink]="exerciseLink(item.id)"
                 >
 
                   <div class="related-exercise-card__media">
@@ -976,7 +966,7 @@
 
                       <img
                         [src]="item.imageUrl | optimizedImage:'card'"
-                        [alt]="item.name + ' calisthenics exercise'"
+                        [alt]="isSpanish ? item.name : item.name + ' calisthenics exercise'"
                         loading="lazy"
                         decoding="async"
                       />
@@ -986,7 +976,7 @@
                     @if (item.movementType) {
 
                       <span class="related-exercise-card__movement">
-                        {{ item.movementType }}
+                        {{ label(item.movementType) }}
                       </span>
 
                     }
@@ -999,12 +989,12 @@
                     <div class="related-exercise-card__meta">
 
                       <span>
-                        {{ item.difficulty }}
+                        {{ label(item.difficulty) }}
                       </span>
 
                       @if (item.graphLevel) {
                         <span>
-                          Level {{ item.graphLevel }}
+                          {{ isSpanish ? 'Nivel' : 'Level' }} {{ item.graphLevel }}
                         </span>
                       }
 
@@ -1017,7 +1007,7 @@
 
 
                     <span class="related-exercise-card__action">
-                      View exercise
+                      @if (isSpanish) { Ver ejercicio } @else { View exercise }
                       <span aria-hidden="true">→</span>
                     </span>
 
@@ -1054,16 +1044,15 @@
             <div>
 
               <span class="detail-section__eyebrow">
-                FAQ
+                @if (isSpanish) { Preguntas } @else { FAQ }
               </span>
 
               <h2 style="color: var(--tt-black);">
-                {{ exercise.name }} Frequently Asked Questions
+                @if (isSpanish) { Preguntas frecuentes } @else { {{ exercise.name }} Frequently Asked Questions }
               </h2>
 
               <p style="color: var(--tt-black);">
-                Common questions about learning, training and progressing
-                toward the {{ exercise.name }}.
+                @if (isSpanish) { Respuestas a las dudas más habituales sobre este ejercicio. } @else { Common questions about learning, training and progressing toward the {{ exercise.name }}. }
               </p>
 
             </div>
@@ -1149,7 +1138,7 @@
     <span>404</span>
 
     <h1>
-      Exercise not found
+      @if (isSpanish) { Ejercicio no encontrado } @else { Exercise not found }
     </h1>
 
   </main>

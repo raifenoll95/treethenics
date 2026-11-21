@@ -10,6 +10,10 @@ import { ANATOMY_ASSETS } from './anatomy-assets.generated';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AnatomyViewer {
+
+  readonly isSpanish = input(false);
+  readonly description = input<string>();
+
   readonly primaryMuscles = input<ExerciseMuscle[]>([]);
   readonly secondaryMuscles = input<ExerciseMuscle[]>([]);
   // Local by default. Optional: https://your-domain/anatomy-static
@@ -34,7 +38,11 @@ export class AnatomyViewer {
           : region.muscles.some(m => secondary.has(m)) ? 'secondary' : null;
         if (role) images.push({ key: region.id, src: `${base}/${view}-${region.id}-${role}.webp` });
       }
-      return { view, label: view === 'front' ? 'Front' : 'Back', images };
+      const labels = this.isSpanish()
+        ? { front: 'Vista frontal', back: 'Vista posterior' }
+        : { front: 'Front', back: 'Back' };
+
+      return { view, label: labels[view], images };
     });
   });
 }

@@ -8,6 +8,7 @@ import { ComparePage } from './features/compare/compare-page/compare-page';
 import { AboutPage } from './features/about/about-page/about-page';
 import { ProPage } from './features/pro/pro-page/pro-page';
 import { WelcomePage } from './features/welcome/welcome-page/welcome-page';
+import { SPANISH_EXERCISES } from './features/tree/data/spanish-exercises.generated';
 
 export const routes: Routes = [
   {
@@ -20,12 +21,26 @@ export const routes: Routes = [
         component: WelcomePage,
       },
       {
-        path: 'tree',
-        component: TreePage,
+        path: 'es',
+        pathMatch: 'full',
+        component: WelcomePage,
+        data: { language: 'es' },
       },
+      { path: 'tree', component: TreePage, data: { language: 'en' } },
+      { path: 'tree/es', component: TreePage, data: { language: 'es' } },
       {
         path: 'search',
         component: SearchPage,
+      },
+      {
+        path: 'train/es',
+        component: WhatShouldITrain,
+        data: { language: 'es' },
+      },
+      {
+        path: 'train/page/:page/es',
+        component: WhatShouldITrain,
+        data: { language: 'es' },
       },
       {
         path: 'train',
@@ -36,6 +51,14 @@ export const routes: Routes = [
         component: WhatShouldITrain,
       },
       {
+        path: 'exercises/:id/es',
+        component: ExerciseDetail,
+        data: { language: 'es' },
+        canMatch: [(_route, segments) =>
+          SPANISH_EXERCISES.has(segments[1]?.path ?? '')
+        ],
+      },
+      {
         path: 'exercises/:id',
         component: ExerciseDetail,
       },
@@ -43,6 +66,7 @@ export const routes: Routes = [
         path: 'compare',
         component: ComparePage,
       },
+      { path: 'about/es', component: AboutPage, data: { language: 'es' } },
       {
         path: 'about',
         component: AboutPage,

@@ -8,6 +8,8 @@ import {
   ViewChild,
 } from '@angular/core';
 
+import { ActivatedRoute } from '@angular/router';
+import { SPANISH_EXERCISES } from '../data/spanish-exercises.generated';
 import { isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID,inject } from '@angular/core';
 
@@ -38,6 +40,7 @@ export interface ExerciseSelection {
 })
 export class TreeCanvas implements AfterViewInit, OnDestroy {
 
+  private readonly isSpanish = inject(ActivatedRoute).snapshot.data['language'] === 'es';
   private readonly platformId = inject(PLATFORM_ID);
 
   @ViewChild('cyContainer', { static: true })
@@ -108,7 +111,9 @@ export class TreeCanvas implements AfterViewInit, OnDestroy {
     const nodes = treeExercises.map((exercise) => ({
       data: {
         id: exercise.id,
-        label: exercise.name,
+        label: this.isSpanish
+          ? (SPANISH_EXERCISES.get(exercise.id)?.name ?? exercise.name)
+          : exercise.name,
         difficulty: exercise.difficulty,
         graphLevel: exercise.graphLevel,
       },

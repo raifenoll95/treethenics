@@ -14,6 +14,8 @@ import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
 import { RouterLink, ActivatedRoute, Router } from '@angular/router';
 
+import { Meta, Title } from '@angular/platform-browser';
+import { SPANISH_EXERCISES } from '../../tree/data/spanish-exercises.generated';
 import { EXERCISES } from '../../tree/data/tree.mock';
 
 import {
@@ -87,6 +89,19 @@ export class WhatShouldITrain implements OnDestroy {
   private readonly router = inject(Router);
   private readonly document = inject(DOCUMENT);
 
+  readonly isSpanish = this.route.snapshot.data['language'] === 'es';
+  private readonly title = inject(Title);
+  private readonly meta = inject(Meta);
+
+  pagePath(page: number): string {
+    const base = page === 1 ? '/train' : `/train/page/${page}`;
+    return this.isSpanish ? base + '/es' : base;
+  }
+
+  exercisePath(id: string): string {
+    return '/exercises/' + id + (this.isSpanish && SPANISH_EXERCISES.has(id) ? '/es' : '');
+  }
+
   private readonly params = this.route.snapshot.queryParamMap;
 
   private readonly queryParamMap = toSignal(
@@ -149,31 +164,31 @@ export class WhatShouldITrain implements OnDestroy {
   });
 
   readonly targetAreas: SelectOption<ExerciseTargetArea | 'arms'>[] = [
-    { value: 'chest', label: 'Chest' },
-    { value: 'back', label: 'Back' },
-    { value: 'shoulders', label: 'Shoulders' },
-    { value: 'arms', label: 'Arms' },
-    { value: 'legs', label: 'Legs' },
-    { value: 'core', label: 'Core' },
+    { value: 'chest', label: this.isSpanish ? 'Pecho' : 'Chest' },
+    { value: 'back', label: this.isSpanish ? 'Espalda' : 'Back' },
+    { value: 'shoulders', label: this.isSpanish ? 'Hombros' : 'Shoulders' },
+    { value: 'arms', label: this.isSpanish ? 'Brazos' : 'Arms' },
+    { value: 'legs', label: this.isSpanish ? 'Piernas' : 'Legs' },
+    { value: 'core', label: this.isSpanish ? 'Zona media' : 'Core' },
   ];
 
   readonly equipmentOptions: SelectOption<ExerciseEquipment>[] = [
-    { value: 'pull-up-bar', label: 'Bar' },
-    { value: 'rings', label: 'Rings' },
-    { value: 'parallettes', label: 'Parallettes' },
-    { value: 'bands', label: 'Bands' },
-    { value: 'added-weight', label: 'Added weight' },
-    { value: 'floor', label: 'Floor' },
-    { value: 'weight-bench', label: 'Weight Bench' },
-    { value: 'vertical-pole', label: 'Vertical Pole' },
-    { value: 'wall', label: 'Wall' },
+    { value: 'pull-up-bar', label: this.isSpanish ? 'Barra' : 'Bar' },
+    { value: 'rings', label: this.isSpanish ? 'Anillas' : 'Rings' },
+    { value: 'parallettes', label: this.isSpanish ? 'Paralelas' : 'Parallettes' },
+    { value: 'bands', label: this.isSpanish ? 'Bandas elásticas' : 'Bands' },
+    { value: 'added-weight', label: this.isSpanish ? 'Lastre' : 'Added weight' },
+    { value: 'floor', label: this.isSpanish ? 'Suelo' : 'Floor' },
+    { value: 'weight-bench', label: this.isSpanish ? 'Banco' : 'Weight Bench' },
+    { value: 'vertical-pole', label: this.isSpanish ? 'Barra vertical' : 'Vertical Pole' },
+    { value: 'wall', label: this.isSpanish ? 'Pared' : 'Wall' },
   ];
 
   readonly difficulties: SelectOption<DifficultyOption>[] = [
-    { value: 'beginner', label: 'Beginner' },
-    { value: 'intermediate', label: 'Intermediate' },
-    { value: 'advanced', label: 'Advanced' },
-    { value: 'elite', label: 'Elite' },
+    { value: 'beginner', label: this.isSpanish ? 'Principiante' : 'Beginner' },
+    { value: 'intermediate', label: this.isSpanish ? 'Intermedio' : 'Intermediate' },
+    { value: 'advanced', label: this.isSpanish ? 'Avanzado' : 'Advanced' },
+    { value: 'elite', label: this.isSpanish ? 'Élite' : 'Elite' },
   ];
 
   readonly searchQuery = signal(
@@ -202,7 +217,13 @@ export class WhatShouldITrain implements OnDestroy {
     () => this.selectedEquipment().length === 0,
   );
 
-  private readonly shuffledExercises = [...EXERCISES];
+  private readonly shuffledExercises = EXERCISES.map(exercise =>
+    this.isSpanish ? SPANISH_EXERCISES.get(exercise.id) ?? exercise : exercise
+  );
+
+  difficultyLabel(value: ExerciseDifficulty): string {
+    return this.isSpanish ? this.difficulties.find(option => option.value === value)?.label ?? value : value;
+  }
 
   readonly results = computed<Exercise[]>(() => {
     const areas = this.selectedAreas();
@@ -248,7 +269,7 @@ export class WhatShouldITrain implements OnDestroy {
     // Si la ordenación está desactivada, mantenemos el orden original.
     if (!this.sortByLevel()) {
       return [...filteredExercises].sort((a, b) =>
-        a.name.localeCompare(b.name, 'en', { sensitivity: 'base' })
+        a.name.localeCompare(b.name, this.isSpanish ? 'es' : 'en', { sensitivity: 'base' })
       );
     }
 
@@ -298,7 +319,7 @@ export class WhatShouldITrain implements OnDestroy {
 
   private syncUrl(): void {
     void this.router.navigate(
-      ['/train'],
+      [this.pagePath(1)],
       {
         queryParams: {
           difficulty: this.selectedDifficulty(),
@@ -394,10 +415,13 @@ export class WhatShouldITrain implements OnDestroy {
   }
 
   private updateCanonical(page: number): void {
-    const path =
-      page <= 1
-        ? '/train'
-        : `/train/page/${page}`;
+    const path = this.pagePath(page);
+    const suffix = page > 1 ? (this.isSpanish ? ' · Página ' : ' · Page ') + page : '';
+    this.document.documentElement.lang = this.isSpanish ? 'es' : 'en';
+    this.title.setTitle((this.isSpanish ? 'Biblioteca de ejercicios de calistenia' : 'Calisthenics Exercise Library') + suffix + ' | Treethenics');
+    this.meta.updateTag({ name: 'description', content: this.isSpanish
+      ? 'Explora ejercicios de calistenia por nivel, grupo muscular y material.'
+      : 'Explore calisthenics exercises by difficulty, target muscles and equipment.' });
 
     const href = `https://www.treethenics.com${path}`;
 
@@ -435,6 +459,7 @@ export class WhatShouldITrain implements OnDestroy {
   }
 
   ngOnDestroy(): void {
+    if (this.isSpanish) this.document.documentElement.lang = 'en';
     if (isPlatformBrowser(this.platformId)) {
       window.removeEventListener('resize', this.updateScreenSize);
 
@@ -450,9 +475,7 @@ export class WhatShouldITrain implements OnDestroy {
     const page = Math.max(1, this.currentPage() - 1);
 
     void this.router.navigate(
-      page === 1
-        ? ['/train']
-        : ['/train/page', page],
+      [this.pagePath(page)],
       {
         queryParams: {
           difficulty: this.selectedDifficulty(),
@@ -471,7 +494,7 @@ export class WhatShouldITrain implements OnDestroy {
     );
 
     void this.router.navigate(
-      ['/train/page', page],
+      [this.pagePath(page)],
       {
         queryParams: {
           difficulty: this.selectedDifficulty(),

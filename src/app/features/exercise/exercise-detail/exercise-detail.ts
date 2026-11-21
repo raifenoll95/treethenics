@@ -8,6 +8,7 @@ import {
 import { toSignal } from '@angular/core/rxjs-interop';
 
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { SPANISH_EXERCISES } from '../../tree/data/spanish-exercises.generated';
 
 import {
   EXERCISES,
@@ -70,8 +71,12 @@ export class ExerciseDetail {
         exercise.seo?.description ??
         `Learn the ${exercise.name} with proper technique, muscles worked, equipment, common mistakes and structured calisthenics progressions.`;
 
+      const language = this.isSpanish ? 'es' : 'en';
       const canonical =
-        `https://www.treethenics.com/exercises/${exercise.id}`;
+        `https://www.treethenics.com/exercises/${exercise.id}` +
+        (this.isSpanish ? '/es' : '');
+
+      this.document.documentElement.lang = language;
 
 
       /* TITLE */
@@ -153,7 +158,9 @@ export class ExerciseDetail {
 
       this.meta.updateTag({
         property: 'og:image:alt',
-        content: `${exercise.name} calisthenics exercise`,
+        content: this.isSpanish
+          ? `Ejercicio de calistenia: ${exercise.name}`
+          : `${exercise.name} calisthenics exercise`,
       });
 
 
@@ -197,7 +204,7 @@ export class ExerciseDetail {
             {
               '@type': 'ListItem',
               position: 2,
-              name: 'Exercise Library',
+              name: this.isSpanish ? 'Biblioteca de ejercicios' : 'Exercise Library',
               item: 'https://www.treethenics.com/train',
             },
             {
@@ -224,7 +231,7 @@ export class ExerciseDetail {
 
           description: seoDescription,
 
-          inLanguage: 'en',
+          inLanguage: language,
 
           isPartOf: {
             '@type': 'WebSite',
@@ -278,6 +285,7 @@ export class ExerciseDetail {
   private readonly document = inject(DOCUMENT);
 
   readonly route = inject(ActivatedRoute);
+  readonly isSpanish = this.route.snapshot.data['language'] === 'es';
 
   readonly overviewCollapsed = signal(false);
   readonly anatomySetupCollapsed = signal(false);
@@ -355,16 +363,37 @@ export class ExerciseDetail {
     },
   );
 
-  readonly exerciseId = computed(
-    () => this.paramMap().get('id'),
-  );
+  readonly exerciseId = computed(() => this.paramMap().get('id'));
 
   readonly exercise = computed(() => {
     const id = this.exerciseId();
+    if (!id) return undefined;
 
-    return EXERCISES.find(
-      (exercise) => exercise.id === id,
-    );
+    return this.isSpanish
+      ? SPANISH_EXERCISES.get(id)
+      : EXERCISES.find(item => item.id === id);
+  });
+
+  private findLinkedExercise(id: string) {
+    const translated = this.isSpanish ? SPANISH_EXERCISES.get(id) : undefined;
+    return translated ?? EXERCISES.find(item => item.id === id);
+  }
+
+  exerciseLink(id: string): string[] {
+    return this.isSpanish && SPANISH_EXERCISES.has(id)
+      ? ['/exercises', id, 'es']
+      : ['/exercises', id];
+  }
+
+  readonly anatomyDescription = computed(() => {
+    const exercise = this.exercise();
+    if (!exercise || !this.isSpanish) return undefined;
+
+    const names = (muscles: readonly ExerciseMuscle[] = []) =>
+      muscles.map(muscle => this.getMuscleLabel(muscle)).join(', ') || 'ninguno';
+
+    return `Músculos principales: ${names(exercise.primaryMuscles)}. ` +
+      `Músculos secundarios: ${names(exercise.secondaryMuscles)}.`;
   });
 
   readonly previousProgressions = computed(() => {
@@ -383,9 +412,7 @@ export class ExerciseDetail {
       .map((relation) => relation.from);
 
     return previousIds
-      .map((id) =>
-        EXERCISES.find((item) => item.id === id),
-      )
+      .map(id => this.findLinkedExercise(id))
       .filter((item) => item !== undefined);
   });
 
@@ -405,9 +432,7 @@ export class ExerciseDetail {
       .map((relation) => relation.to);
 
     return nextIds
-      .map((id) =>
-        EXERCISES.find((item) => item.id === id),
-      )
+      .map(id => this.findLinkedExercise(id))
       .filter((item) => item !== undefined);
   });
 
@@ -419,15 +444,50 @@ export class ExerciseDetail {
     }
 
     return exercise.relatedExercises
-      .map((id) => EXERCISES.find((item) => item.id === id))
+      .map((id) => this.findLinkedExercise(id))
       .filter((item) => item !== undefined);
   });
 
+  private readonly labelsEs: Readonly<Record<string, string>> = {
+    beginner: 'Principiante',
+    intermediate: 'Intermedio',
+    advanced: 'Avanzado',
+    elite: 'Élite',
+    dynamic: 'Dinámico',
+    static: 'Estático',
+    pull: 'Tirón',
+    'latissimus-dorsi': 'Dorsal ancho',
+    'upper-back': 'Espalda superior',
+    biceps: 'Bíceps',
+    forearms: 'Antebrazos',
+    'rear-deltoids': 'Deltoides posteriores',
+    abdominals: 'Abdominales',
+    'pull-up-bar': 'Barra de dominadas',
+    bands: 'Bandas elásticas',
+    'added-weight': 'Lastre',
+    rings: 'Anillas',
+  };
+
+  label(value: string | null | undefined): string {
+    if (!value) return '';
+    return this.isSpanish ? (this.labelsEs[value] ?? value) : value;
+  }
+
   getMuscleLabel(muscle: ExerciseMuscle): string {
-    return MUSCLE_LABELS[muscle];
+    return this.isSpanish
+      ? (this.labelsEs[muscle] ?? MUSCLE_LABELS[muscle])
+      : MUSCLE_LABELS[muscle];
   }
 
   getEquipmentLabel(equipment: ExerciseEquipment): string {
-    return EQUIPMENT_LABELS[equipment];
+    return this.isSpanish
+      ? (this.labelsEs[equipment] ?? EQUIPMENT_LABELS[equipment])
+      : EQUIPMENT_LABELS[equipment];
+  }
+
+  ngOnDestroy(): void {
+    if (this.isSpanish) {
+      this.document.documentElement.lang = 'en';
+    }
   }
 }

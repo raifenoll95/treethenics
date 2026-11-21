@@ -21,17 +21,16 @@
 
           <div class="train-page__title-row">
             <h1>
-              <span>Explore the calisthenics exercise library</span>
+              <span>{{ isSpanish ? 'Explora la biblioteca de ejercicios de calistenia' : 'Explore the calisthenics exercise library' }}</span>
             </h1>
 
             <span class="train-page__badge">
-              Train
+              {{ isSpanish ? 'Entrenar' : 'Train' }}
             </span>
           </div>
 
           <p style="color: var(--tt-black);">
-            Choose your level, target muscles and  equipment
-            to discover exercises.
+            {{ isSpanish ? 'Elige tu nivel, los músculos que quieres trabajar y el material disponible.' : 'Choose your level, target muscles and equipment to discover exercises.' }}
           </p>
 
         </div>
@@ -48,16 +47,16 @@
 
   <div class="filter-dropdowns">
     <div class="filter-dropdowns__toolbar">
-      <span>☷ Filters</span>
-      <button type="button" (click)="resetFilters()">Reset filters</button>
+      <span>{{ isSpanish ? '☷ Filtros' : '☷ Filters' }}</span>
+      <button type="button" (click)="resetFilters()">{{ isSpanish ? 'Restablecer filtros' : 'Reset filters' }}</button>
     </div>
     <details #dropdownDifficulty class="filter-dropdown" name="train-filter-dropdown"
       (keydown.escape)="dropdownDifficulty.removeAttribute('open'); summaryDifficulty.focus()">
       <summary #summaryDifficulty>
         <span class="filter-dropdown__text">
-          <span class="filter-dropdown__label">01 / DIFFICULTY</span>
+          <span class="filter-dropdown__label">{{ isSpanish ? '01 / DIFICULTAD' : '01 / DIFFICULTY' }}</span>
           <span class="filter-dropdown__value">
-            @if (!selectedDifficulty()) { All levels }
+            @if (!selectedDifficulty()) { {{ isSpanish ? 'Todos los niveles' : 'All levels' }} }
             @for (difficulty of difficulties; track difficulty.value) {
               @if (selectedDifficulty() === difficulty.value) { {{ difficulty.label }} }
             }
@@ -68,7 +67,7 @@
       <div class="filter-dropdown__menu">
         <button type="button" class="filter-dropdown__option"
           (click)="selectedDifficulty() && selectDifficulty(selectedDifficulty()!); dropdownDifficulty.removeAttribute('open'); summaryDifficulty.focus()"
-          [attr.aria-pressed]="!selectedDifficulty()">All levels</button>
+          [attr.aria-pressed]="!selectedDifficulty()">{{ isSpanish ? 'Todos los niveles' : 'All levels' }}</button>
         @for (difficulty of difficulties; track difficulty.value) {
           <button type="button" class="filter-dropdown__option"
             [attr.data-level]="difficulty.value"
@@ -85,9 +84,9 @@
       (keydown.escape)="dropdownTarget.removeAttribute('open'); summaryTarget.focus()">
       <summary #summaryTarget>
         <span class="filter-dropdown__text">
-          <span class="filter-dropdown__label">02 / TARGET</span>
+          <span class="filter-dropdown__label">{{ isSpanish ? '02 / GRUPO MUSCULAR' : '02 / TARGET' }}</span>
           <span class="filter-dropdown__value">
-            {{ selectedAreas().length ? selectedAreas().length + ' selected' : 'All muscles' }}
+            {{ selectedAreas().length ? (isSpanish ? 'Selección: ' + selectedAreas().length : selectedAreas().length + ' selected') : (isSpanish ? 'Todos los músculos' : 'All muscles') }}
           </span>
         </span>
         <span class="filter-dropdown__arrow" aria-hidden="true">⌄</span>
@@ -109,9 +108,9 @@
       (keydown.escape)="dropdownEquipment.removeAttribute('open'); summaryEquipment.focus()">
       <summary #summaryEquipment>
         <span class="filter-dropdown__text">
-          <span class="filter-dropdown__label">03 / EQUIPMENT</span>
+          <span class="filter-dropdown__label">{{ isSpanish ? '03 / MATERIAL' : '03 / EQUIPMENT' }}</span>
           <span class="filter-dropdown__value">
-            {{ selectedEquipment().length ? selectedEquipment().length + ' selected' : 'All equipment' }}
+            {{ selectedEquipment().length ? (isSpanish ? 'Selección: ' + selectedEquipment().length : selectedEquipment().length + ' selected') : (isSpanish ? 'Todo el material' : 'All equipment') }}
           </span>
         </span>
         <span class="filter-dropdown__arrow" aria-hidden="true">⌄</span>
@@ -140,8 +139,8 @@
       #searchInput
       type="search"
       class="train-search__input"
-      placeholder="Search exercises by name..."
-      aria-label="Search exercises by name"
+      [attr.placeholder]="isSpanish ? 'Buscar ejercicios por nombre…' : 'Search exercises by name...'"
+      [attr.aria-label]="isSpanish ? 'Buscar ejercicios por nombre' : 'Search exercises by name'"
       enterkeyhint="search"
       [value]="searchQuery()"
       (input)="updateSearch($event)"
@@ -153,8 +152,8 @@
   <section class="train-results">
     <div class="train-results__header">
       <div class="train-results__summary">
-        <span style="color: var(--tt-black);" class="train-panel__step">YOUR EXERCISES</span>
-        <h2 style="color: var(--tt-black);">{{ results().length }} matching exercises</h2>
+        <span style="color: var(--tt-black);" class="train-panel__step">{{ isSpanish ? 'TUS EJERCICIOS' : 'YOUR EXERCISES' }}</span>
+        <h2 style="color: var(--tt-black);">{{ results().length }} {{ isSpanish ? (results().length === 1 ? 'ejercicio encontrado' : 'ejercicios encontrados') : 'matching exercises' }}</h2>
       </div>
 
       <button
@@ -165,18 +164,18 @@
         (click)="toggleSortByLevel()"
         style="color: var(--tt-black);"
       >
-        ↕ Sort by level
+        {{ isSpanish ? '↕ Ordenar por nivel' : '↕ Sort by level' }}
       </button>
 
       <div class="train-results__actions">
-      <div class="train-view-toggle" aria-label="Results view">
+      <div class="train-view-toggle" [attr.aria-label]="isSpanish ? 'Vista de resultados' : 'Results view'">
     <button
       type="button"
       [class.train-view-toggle__button--active]="viewMode() === 'grid'"
       [attr.aria-pressed]="viewMode() === 'grid'"
       (click)="setViewMode('grid')"
     >
-      ▦ Grid
+      {{ isSpanish ? '▦ Cuadrícula' : '▦ Grid' }}
     </button>
 
     <button
@@ -185,7 +184,7 @@
           [attr.aria-pressed]="viewMode() === 'list'"
           (click)="setViewMode('list')"
         >
-          ☰ List
+          {{ isSpanish ? '☰ Lista' : '☰ List' }}
         </button>
       </div>
 
@@ -194,15 +193,14 @@
         class="reset-button"
         (click)="resetFilters()"
       >
-        Reset filters
+        {{ isSpanish ? 'Restablecer filtros' : 'Reset filters' }}
       </button>
     </div>
     </div>
 
     @if (results().length === 0) {
       <div class="empty-state">
-        No exercises match your selection. Try another difficulty,
-        target or equipment combination.
+        {{ isSpanish ? 'Ningún ejercicio coincide con tu selección. Prueba otra combinación de filtros.' : 'No exercises match your selection. Try another difficulty, target or equipment combination.' }}
       </div>
     }
      @else {
@@ -246,7 +244,7 @@
                   [class.exercise-card__difficulty--advanced]="exercise.difficulty === 'advanced'"
                   [class.exercise-card__difficulty--elite]="exercise.difficulty === 'elite'"
                 >
-                  {{ exercise.difficulty }}
+                  {{ difficultyLabel(exercise.difficulty) }}
                 </span>
 
                 <span
@@ -254,7 +252,7 @@
                   [class.exercise-card__movement--static]="exercise.movementType === 'static'"
                   [class.exercise-card__movement--dynamic]="exercise.movementType === 'dynamic'"
                 >
-                  {{ exercise.movementType }}
+                  {{ isSpanish && exercise.movementType ? (exercise.movementType === 'static' ? 'Estático' : 'Dinámico') : exercise.movementType }}
                 </span>
               </div>
 
@@ -267,9 +265,9 @@
               <div class="exercise-card__actions">
                 <a
                   class="exercise-card__link"
-                  [routerLink]="['/exercises', exercise.id]"
+                  [routerLink]="exercisePath(exercise.id)"
                 >
-                  View →
+                  {{ isSpanish ? 'Ver ficha →' : 'View →' }}
                 </a>
 
                 <a
@@ -277,7 +275,7 @@
                   routerLink="/compare"
                   [queryParams]="{ first: exercise.id }"
                 >
-                  Compare ⇄
+                  {{ isSpanish ? 'Comparar ⇄' : 'Compare ⇄' }}
                 </a>
               </div>
             </div>
@@ -286,13 +284,13 @@
       </div>
 
       @if (totalPages() > 1) {
-        <nav class="train-pagination" aria-label="Exercise pages">
+        <nav class="train-pagination" [attr.aria-label]="isSpanish ? 'Páginas de ejercicios' : 'Exercise pages'">
           <button
             type="button"
             class="train-pagination__button"
             [disabled]="currentPage() === 1"
             (click)="previousPage()"
-            aria-label="Previous page"
+            [attr.aria-label]="isSpanish ? 'Página anterior' : 'Previous page'"
           >
             ←
           </button>
@@ -300,11 +298,7 @@
           <div class="train-pagination__info">
             @for (page of paginationPages(); track page) {
               <a
-                [routerLink]="
-                  page === 1
-                    ? ['/train']
-                    : ['/train/page', page]
-                "
+                [routerLink]="pagePath(page)"
                 [queryParams]="{
                   difficulty: selectedDifficulty(),
                   target: selectedAreas().join(',') || null,
@@ -323,7 +317,7 @@
             class="train-pagination__button"
             [disabled]="currentPage() === totalPages()"
             (click)="nextPage()"
-            aria-label="Next page"
+            [attr.aria-label]="isSpanish ? 'Página siguiente' : 'Next page'"
           >
             →
           </button>

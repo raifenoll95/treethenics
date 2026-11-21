@@ -11,10 +11,10 @@
         </span>
         <div>
           <div class="about-header__title-row">
-            <h1 id="about-title">About Me</h1>
-            <span class="about-header__badge">ABOUT</span>
+            <h1 id="about-title">{{ es ? "Sobre mí" : "About Me" }}</h1>
+            <span class="about-header__badge">{{ es ? "SOBRE MÍ" : "ABOUT" }}</span>
           </div>
-          <p>The person and the purpose behind Treethenics.</p>
+          <p>{{ es ? "Quién soy y por qué creé Treethenics." : "The person and the purpose behind Treethenics." }}</p>
         </div>
       </div>
       <div class="about-header__line" aria-hidden="true"></div>
@@ -22,32 +22,27 @@
 
     <article class="about-story" aria-labelledby="about-story-title">
       <figure class="about-photo">
-        <img [src]="raiImageUrl" alt="Rai, creator of Treethenics"
+        <img [src]="raiImageUrl" [attr.alt]="es ? 'Rai, creador de Treethenics' : 'Rai, creator of Treethenics'"
           (contextmenu)="$event.preventDefault()" draggable="false" />
         <figcaption>
-          <span class="about-photo__label">THE PERSON BEHIND THE PROJECT</span>
+          <span class="about-photo__label">{{ es ? "DETRÁS DEL PROYECTO" : "THE PERSON BEHIND THE PROJECT" }}</span>
           <strong>Rai</strong>
-          <span>Calisthenics enthusiast &amp; creator</span>
+          <span>{{ es ? "Aficionado a la calistenia y creador de Treethenics" : "Calisthenics enthusiast & creator" }}</span>
         </figcaption>
       </figure>
 
       <div class="about-story__content">
-        <span class="about-eyebrow">01 / MY STORY</span>
-        <h2 id="about-story-title">Hi, I'm Rai.<br /><span>The person behind Treethenics.</span></h2>
-        <p class="about-lead">Calisthenics gave me a reason to keep learning,
-          improving and challenging myself.</p>
-        <p>As I explored new movements, I became interested in how they fit
-          together: which exercises matched my level, what came before a
-          harder skill, and what I could work towards next.</p>
-        <p>Organizing those exercises helped me make sense of my own training.
-          Treethenics grew from that idea — a place to explore movements and
-          see the connections between them.</p>
-        <nav class="about-social" aria-label="Treethenics social media">
+        <span class="about-eyebrow">{{ es ? "01 / MI HISTORIA" : "01 / MY STORY" }}</span>
+        <h2 id="about-story-title">{{ es ? "Hola, soy Rai." : "Hi, I'm Rai." }}<br /><span>{{ es ? "Yo creé Treethenics." : "The person behind Treethenics." }}</span></h2>
+        <p class="about-lead">{{ es ? "La calistenia me dio un motivo para seguir aprendiendo, mejorar y ponerme a prueba." : "Calisthenics gave me a reason to keep learning, improving and challenging myself." }}</p>
+        <p>{{ es ? "Al probar movimientos nuevos, empecé a preguntarme cómo se relacionaban. Quería saber qué ejercicios encajaban con mi nivel, qué tenía que dominar antes de intentar uno más difícil y cuál podía ser mi siguiente reto." : "As I explored new movements, I became interested in how they fit together: which exercises matched my level, what came before a harder skill, and what I could work towards next." }}</p>
+        <p>{{ es ? "Ordenar esos ejercicios me ayudó a entender mejor mi propio entrenamiento. De ahí nació Treethenics, un lugar donde explorar los movimientos y ver cómo se conectan." : "Organizing those exercises helped me make sense of my own training. Treethenics grew from that idea — a place to explore movements and see the connections between them." }}</p>
+        <nav class="about-social" [attr.aria-label]="es ? 'Redes sociales de Treethenics' : 'Treethenics social media'" >
           <a
             href="https://www.instagram.com/treethenics"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Treethenics on Instagram (opens in a new tab)"
+            [attr.aria-label]="es ? 'Treethenics en Instagram (se abre en una pestaña nueva)' : 'Treethenics on Instagram (opens in a new tab)'"
           >
             <svg
               class="about-social__icon"
@@ -72,7 +67,7 @@
             href="https://www.tiktok.com/@treethenics"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Treethenics on TikTok (opens in a new tab)"
+            [attr.aria-label]="es ? 'Treethenics en TikTok (se abre en una pestaña nueva)' : 'Treethenics on TikTok (opens in a new tab)'"
           >
             <svg
               class="about-social__icon"
@@ -95,7 +90,7 @@
             href="https://www.youtube.com/@treethenics"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Treethenics on YouTube (opens in a new tab)"
+            [attr.aria-label]="es ? 'Treethenics en YouTube (se abre en una pestaña nueva)' : 'Treethenics on YouTube (opens in a new tab)'"
           >
             <svg
               class="about-social__icon"
@@ -119,21 +114,19 @@
 
     <section class="about-mission" aria-labelledby="about-mission-title">
       <div class="about-mission__heading">
-        <span class="about-eyebrow">THE PURPOSE</span>
-        <h2 id="about-mission-title">Make progress<br />easier to understand.</h2>
+        <span class="about-eyebrow">{{ es ? "EL PROPÓSITO" : "THE PURPOSE" }}</span>
+        <h2 id="about-mission-title">{{ es ? "Entender cómo progresar" : "Make progress" }}<br />{{ es ? "paso a paso." : "easier to understand." }}</h2>
       </div>
       <div class="about-mission__content">
-        <p>Treethenics brings exercises and progressions together to help you
-          find movements that suit your level and see what you could work on next.</p>
-        <p>Use the library to explore exercises by difficulty, muscles and equipment,
-          or follow the tree to understand how movements connect.</p>
+        <p>{{ es ? "En Treethenics reúno ejercicios y progresiones para ayudarte a encontrar movimientos de tu nivel y a elegir qué entrenar después." : "Treethenics brings exercises and progressions together to help you find movements that suit your level and see what you could work on next." }}</p>
+        <p>{{ es ? "En la biblioteca puedes buscar ejercicios por dificultad, músculos y material. En el árbol puedes ver cómo un movimiento te prepara para el siguiente." : "Use the library to explore exercises by difficulty, muscles and equipment, or follow the tree to understand how movements connect." }}</p>
         <div class="about-actions">
-          <a class="about-button" routerLink="/tree">
-            Explore the Tree
+          <a class="about-button" [routerLink]="es ? '/tree/es' : '/tree'">
+            {{ es ? "Explorar el árbol" : "Explore the Tree" }}
             <span aria-hidden="true">→</span>
           </a>
-          <a class="about-button" routerLink="/train">
-            Browse exercises
+          <a class="about-button" [routerLink]="es ? '/train/es' : '/train'">
+            {{ es ? "Ver ejercicios" : "Browse exercises" }}
             <span aria-hidden="true">→</span>
           </a>
         </div>
@@ -143,18 +136,18 @@
     <!-- EVENT GALLERY -->
     <section class="about-gallery" aria-labelledby="about-gallery-title">
       <header class="about-gallery__header">
-        <span class="about-eyebrow">BEYOND THE TRAINING</span>
+        <span class="about-eyebrow">{{ es ? "MÁS ALLÁ DEL ENTRENAMIENTO" : "BEYOND THE TRAINING" }}</span>
 
-        <h2 id="about-gallery-title">Part of the community.</h2>
+        <h2 id="about-gallery-title">{{ es ? "Parte de la comunidad." : "Part of the community." }}</h2>
 
         <p>
-          Moments from calisthenics events I've attended.
+          {{ es ? "Algunos recuerdos de los encuentros de calistenia a los que he asistido." : "Moments from calisthenics events I've attended." }}
         </p>
       </header>
 
       <div class="about-gallery__event">
         <h3>SWUB VI</h3>
-        <span>EVENT GALLERY</span>
+        <span>{{ es ? "GALERÍA DEL EVENTO" : "EVENT GALLERY" }}</span>
       </div>
 
       <div class="about-gallery__grid">
@@ -162,7 +155,7 @@
         <figure class="about-gallery__photo">
           <img
             [src]="assetUrl('/about/1.jpg')"
-            alt="SWUB VI — event photo 1"
+            [attr.alt]="es ? 'SWUB VI — foto del evento 1' : 'SWUB VI — event photo 1'"
             loading="lazy"
             decoding="async"
             (contextmenu)="$event.preventDefault()"
@@ -172,7 +165,7 @@
         <figure class="about-gallery__photo">
           <img
             [src]="assetUrl('/about/2.jpg')"
-            alt="SWUB VI — event photo 2"
+            [attr.alt]="es ? 'SWUB VI — foto del evento 2' : 'SWUB VI — event photo 2'"
             loading="lazy"
             decoding="async"
             (contextmenu)="$event.preventDefault()"
@@ -182,7 +175,7 @@
         <figure class="about-gallery__photo">
           <img
             [src]="assetUrl('/about/3.jpg')"
-            alt="SWUB VI — event photo 3"
+            [attr.alt]="es ? 'SWUB VI — foto del evento 3' : 'SWUB VI — event photo 3'"
             loading="lazy"
             decoding="async"
             (contextmenu)="$event.preventDefault()"
@@ -192,7 +185,7 @@
 
       <div class="about-gallery__event">
         <h3>GUARDAMAR 2025</h3>
-        <span>EVENT GALLERY</span>
+        <span>{{ es ? "GALERÍA DEL EVENTO" : "EVENT GALLERY" }}</span>
       </div>
 
       <div class="about-gallery__grid">
@@ -200,7 +193,7 @@
         <figure class="about-gallery__photo">
           <img
             [src]="assetUrl('/about/4.jpeg')"
-            alt="GUARDAMAR 2025 — event photo 1"
+            [attr.alt]="es ? 'GUARDAMAR 2025 — foto del evento 1' : 'GUARDAMAR 2025 — event photo 1'"
             loading="lazy"
             decoding="async"
             (contextmenu)="$event.preventDefault()"
@@ -210,7 +203,7 @@
         <figure class="about-gallery__photo">
           <img
             [src]="assetUrl('/about/5.jpeg')"
-            alt="GUARDAMAR 2025 — event photo 2"
+            [attr.alt]="es ? 'GUARDAMAR 2025 — foto del evento 2' : 'GUARDAMAR 2025 — event photo 2'"
             loading="lazy"
             decoding="async"
             (contextmenu)="$event.preventDefault()"
@@ -220,7 +213,7 @@
         <figure class="about-gallery__photo">
           <img
             [src]="assetUrl('/about/5.jpeg')"
-            alt="GUARDAMAR 2025 — event photo 3"
+            [attr.alt]="es ? 'GUARDAMAR 2025 — foto del evento 3' : 'GUARDAMAR 2025 — event photo 3'"
             loading="lazy"
             decoding="async"
             (contextmenu)="$event.preventDefault()"

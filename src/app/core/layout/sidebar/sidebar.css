@@ -745,3 +745,59 @@
 .sidebar .sidebar__item--active > span {
   letter-spacing: 0.015em;
 }
+
+.sidebar .sidebar__nav {
+  flex: 1 0 auto;
+}
+
+.sidebar__languages {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.sidebar__language {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.sidebar__language svg {
+  display: block;
+  width: 25px;
+  height: 15px;
+  border-radius: 1px;
+}
+
+.sidebar__language--active {
+  border-color: currentColor;
+  color: var(--menu-active-text, #26352e);
+  background: rgb(255 255 255 / 35%);
+}
+
+.sidebar__language:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.sidebar__language--disabled {
+  opacity: 0.35;
+  cursor: default;
+  pointer-events: none;
+}
+
+@media (min-width: 769px) {
+  .sidebar__footer {
+    margin-top: 0;
+  }
+}

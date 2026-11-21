@@ -16,15 +16,15 @@
 
             <div class="tree-header__copy">
               <div class="tree-header__title-row">
-                <h1 style="color: black;">Tree</h1>
+                <h1 style="color: black;">{{ es ? 'Árbol' : 'Tree' }}</h1>
 
                 <span class="tree-header__badge">
-                  Progression map
+                  {{ es ? 'Mapa de progresiones' : 'Progression map' }}
                 </span>
               </div>
 
               <p style="color: black;">
-                Explore the complete calisthenics progression system.
+                {{ es ? 'Explora las progresiones de calistenia y descubre cómo se conecta cada ejercicio.' : 'Explore the complete calisthenics progression system.' }}
               </p>
             </div>
 
@@ -34,22 +34,22 @@
           <div class="tree-legend tree-legend--mobile">
             <div class="tree-legend__item">
               <span class="tree-legend__dot tree-legend__dot--beginner"></span>
-              <span>Beginner</span>
+              <span>{{ es ? 'Principiante' : 'Beginner' }}</span>
             </div>
 
             <div class="tree-legend__item">
               <span class="tree-legend__dot tree-legend__dot--intermediate"></span>
-              <span>Intermediate</span>
+              <span>{{ es ? 'Intermedio' : 'Intermediate' }}</span>
             </div>
 
             <div class="tree-legend__item">
               <span class="tree-legend__dot tree-legend__dot--advanced"></span>
-              <span>Advanced</span>
+              <span>{{ es ? 'Avanzado' : 'Advanced' }}</span>
             </div>
 
             <div class="tree-legend__item">
               <span class="tree-legend__dot tree-legend__dot--elite"></span>
-              <span>Elite</span>
+              <span>{{ es ? 'Élite' : 'Elite' }}</span>
             </div>
           </div>
 
@@ -58,25 +58,25 @@
 
             <div class="tree-header__stat">
               <strong style="color: black;">51</strong>
-              <span style="color: black;">Basic Skills</span>
+              <span style="color: black;">{{ es ? 'Habilidades básicas' : 'Basic Skills' }}</span>
             </div>
 
             <div class="tree-header__divider"></div>
 
             <a
               class="tree-header__stat tree-header__stat--link"
-              routerLink="/train"
-              aria-label="Browse all exercises in the library"
+              [routerLink]="es ? '/train/es' : '/train'"
+              aria-label="{{ es ? 'Ver todos los ejercicios de la biblioteca' : 'Browse all exercises in the library' }}"
             >
               <strong>{{ totalExercises }}</strong>
-              <span style="color: black;">Exercises</span>
+              <span style="color: black;">{{ es ? 'Ejercicios' : 'Exercises' }}</span>
             </a>
 
             <div class="tree-header__divider"></div>
 
             <div class="tree-header__stat">
               <strong style="color: black;">7</strong>
-              <span style="color: black;">Levels</span>
+              <span style="color: black;">{{ es ? 'Niveles' : 'Levels' }}</span>
             </div>
 
           </div>
@@ -91,16 +91,14 @@
     </div>
   </header>
 
-  <aside class="tree-notice" aria-label="General progression guide">
+  <aside class="tree-notice" aria-label="{{ es ? 'Guía de progresiones' : 'General progression guide' }}">
     <span class="tree-notice__icon" aria-hidden="true">i</span>
 
     <div class="tree-notice__content">
-      <h2>General progression guide</h2>
+      <h2>{{ es ? 'Guía de progresiones' : 'General progression guide' }}</h2>
 
       <p>
-        This tree provides a general guide to exercise difficulty and
-        progression. Individual difficulty may vary depending on your
-        strength, body proportions, mobility, and training experience.
+        {{ es ? 'El árbol orienta sobre la dificultad de los ejercicios y el orden en que puedes aprenderlos. La dificultad de cada movimiento depende de tu fuerza, tus proporciones corporales, tu movilidad y tu experiencia.' : 'This tree provides a general guide to exercise difficulty and progression. Individual difficulty may vary depending on your strength, body proportions, mobility, and training experience.' }}
       </p>
     </div>
   </aside>
@@ -112,8 +110,8 @@
         <span class="tree-level__number">1</span>
 
         <div class="tree-level__info">
-          <strong>BEGINNER</strong>
-          <span>Fundamentals</span>
+          <strong>{{ es ? 'PRINCIPIANTE' : 'BEGINNER' }}</strong>
+          <span>{{ es ? 'Fundamentos' : 'Fundamentals' }}</span>
         </div>
       </div>
 
@@ -121,8 +119,8 @@
         <span class="tree-level__number">2</span>
 
         <div class="tree-level__info">
-          <strong>INTERMEDIATE</strong>
-          <span>Build Strength</span>
+          <strong>{{ es ? 'INTERMEDIO' : 'INTERMEDIATE' }}</strong>
+          <span>{{ es ? 'Desarrollo de fuerza' : 'Build Strength' }}</span>
         </div>
       </div>
 
@@ -130,8 +128,8 @@
         <span class="tree-level__number">3</span>
 
         <div class="tree-level__info">
-          <strong>INTERMEDIATE</strong>
-          <span>Develop Control</span>
+          <strong>{{ es ? 'INTERMEDIO' : 'INTERMEDIATE' }}</strong>
+          <span>{{ es ? 'Control del movimiento' : 'Develop Control' }}</span>
         </div>
       </div>
 
@@ -139,8 +137,8 @@
         <span class="tree-level__number">4</span>
 
         <div class="tree-level__info">
-          <strong>ADVANCED</strong>
-          <span>Advanced Strength</span>
+          <strong>{{ es ? 'AVANZADO' : 'ADVANCED' }}</strong>
+          <span>{{ es ? 'Fuerza avanzada' : 'Advanced Strength' }}</span>
         </div>
       </div>
 
@@ -148,8 +146,8 @@
         <span class="tree-level__number">5</span>
 
         <div class="tree-level__info">
-          <strong>ADVANCED</strong>
-          <span>Higher Skill</span>
+          <strong>{{ es ? 'AVANZADO' : 'ADVANCED' }}</strong>
+          <span>{{ es ? 'Dominio técnico' : 'Higher Skill' }}</span>
         </div>
       </div>
 
@@ -157,8 +155,8 @@
         <span class="tree-level__number">6</span>
 
         <div class="tree-level__info">
-          <strong>ELITE</strong>
-          <span>Extreme Control</span>
+          <strong>{{ es ? 'ÉLITE' : 'ELITE' }}</strong>
+          <span>{{ es ? 'Control avanzado' : 'Extreme Control' }}</span>
         </div>
       </div>
 
@@ -166,8 +164,8 @@
         <span class="tree-level__number">7</span>
 
         <div class="tree-level__info">
-          <strong>ELITE</strong>
-          <span>Peak Performance</span>
+          <strong>{{ es ? 'ÉLITE' : 'ELITE' }}</strong>
+          <span>{{ es ? 'Máximo rendimiento' : 'Peak Performance' }}</span>
         </div>
       </div>
     </div>
@@ -179,28 +177,28 @@
         <span
           class="tree-legend__dot tree-legend__dot--beginner"
         ></span>
-        <span>Beginner</span>
+        <span>{{ es ? 'Principiante' : 'Beginner' }}</span>
       </div>
 
       <div class="tree-legend__item">
         <span
           class="tree-legend__dot tree-legend__dot--intermediate"
         ></span>
-        <span>Intermediate</span>
+        <span>{{ es ? 'Intermedio' : 'Intermediate' }}</span>
       </div>
 
       <div class="tree-legend__item">
         <span
           class="tree-legend__dot tree-legend__dot--advanced"
         ></span>
-        <span>Advanced</span>
+        <span>{{ es ? 'Avanzado' : 'Advanced' }}</span>
       </div>
 
       <div class="tree-legend__item">
         <span
           class="tree-legend__dot tree-legend__dot--elite"
         ></span>
-        <span>Elite</span>
+        <span>{{ es ? 'Élite' : 'Elite' }}</span>
       </div>
     </div>
 
@@ -214,10 +212,10 @@
       type="button"
       class="tree-reset-button"
       (click)="treeCanvas.resetTree()"
-      aria-label="Reset tree position and zoom"
-      title="Reset tree position and zoom"
+      aria-label="{{ es ? 'Restablecer la posición y el zoom del árbol' : 'Reset tree position and zoom' }}"
+      title="{{ es ? 'Restablecer la posición y el zoom del árbol' : 'Reset tree position and zoom' }}"
     >
-      ↺ Reset tree
+      {{ es ? '↺ Restablecer árbol' : '↺ Reset tree' }}
     </button>
 
     @if (selectedExercise(); as exercise) {
@@ -234,7 +232,7 @@
           class="exercise-panel__close"
           type="button"
           (click)="closeExercise(); treeCanvas.clearHighlight()"
-          aria-label="Close exercise details"
+          aria-label="{{ es ? 'Cerrar el panel del ejercicio' : 'Close exercise details' }}"
         >
           ×
         </button>
@@ -258,7 +256,7 @@
               [class.exercise-panel__movement--static]="exercise.movementType === 'static'"
               [class.exercise-panel__movement--dynamic]="exercise.movementType === 'dynamic'"
             >
-              {{ exercise.movementType }}
+              {{ label(exercise.movementType) }}
             </span>
           }
 
@@ -266,7 +264,7 @@
         }
 
         <span class="exercise-panel__difficulty">
-          {{ exercise.difficulty }}
+          {{ label(exercise.difficulty) }}
         </span>
 
         <h2>
@@ -285,7 +283,7 @@
           @if ((exercise.primaryMuscles?.length ?? 0) > 0) {
             <div class="exercise-panel__muscle-group">
               <span class="exercise-panel__sublabel">
-                Primary
+                {{ es ? 'Principales' : 'Primary' }}
               </span>
 
               <div class="exercise-panel__tags">
@@ -304,7 +302,7 @@
           @if ((exercise.secondaryMuscles?.length ?? 0) > 0) {
             <div class="exercise-panel__muscle-group">
               <span class="exercise-panel__sublabel">
-                Secondary
+                {{ es ? 'Secundarios' : 'Secondary' }}
               </span>
 
               <div class="exercise-panel__tags exercise-panel__tags--secondary">
@@ -324,7 +322,7 @@
         <!-- EQUIPMENT -->
         <div class="exercise-panel__section">
           <span class="exercise-panel__label">
-            Equipment
+            {{ es ? 'Material' : 'Equipment' }}
           </span>
 
           <div class="exercise-panel__tags">
@@ -342,10 +340,10 @@
         <div class="exercise-panel__actions">
           <a
             class="exercise-panel__details"
-            [routerLink]="['/exercises', exercise.id]"
+            [routerLink]="exerciseLink(exercise.id)"
             [queryParams]="{ from: 'tree' }"
           >
-            <span>View exercise</span>
+            <span>{{ es ? 'Ver ficha' : 'View exercise' }}</span>
             <span>→</span>
           </a>
 
@@ -354,7 +352,7 @@
             routerLink="/compare"
             [queryParams]="{ first: exercise.id }"
           >
-            <span>Compare</span>
+            <span>{{ es ? 'Comparar' : 'Compare' }}</span>
             <span>⇄</span>
           </a>
         </div>
