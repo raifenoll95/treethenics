@@ -107,9 +107,9 @@
     <!-- COMPARE -->
     <a
       class="sidebar__item"
-      routerLink="/compare"
+      [routerLink]="isSpanish ? '/compare/es' : '/compare'"
       routerLinkActive="sidebar__item--active"
-      [routerLinkActiveOptions]="{ exact: true }"
+      [routerLinkActiveOptions]="{ paths: 'exact', queryParams: 'ignored', fragment: 'ignored', matrixParams: 'ignored' }"
       ariaCurrentWhenActive="page"
     >
       <svg
@@ -148,7 +148,7 @@
     <!-- PRO -->
     <a
       class="sidebar__item sidebar__item--pro"
-      routerLink="/pro"
+      [routerLink]="isSpanish ? '/pro/es' : '/pro'"
       routerLinkActive="sidebar__item--pro-active"
       [routerLinkActiveOptions]="{ exact: true }"
       ariaCurrentWhenActive="page"

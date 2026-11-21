@@ -111,7 +111,7 @@ for (const id of uniqueIds) {
   }
 }
 
-for (const englishPath of ['/about', '/tree', '/train', ...paginationPaths]) {
+for (const englishPath of ['/compare', '/pro', '/about', '/tree', '/train', ...paginationPaths]) {
   spanishPaths.set(englishPath, `${englishPath}/es`);
 }
 

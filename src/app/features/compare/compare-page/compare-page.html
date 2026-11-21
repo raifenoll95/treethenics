@@ -12,15 +12,15 @@
         <div class="compare-header__copy">
 
           <div class="compare-header__title">
-            <h1>Compare exercises</h1>
+            <h1>{{ es ? 'Comparar ejercicios' : 'Compare exercises' }}</h1>
 
             <span class="compare-header__badge">
-              Compare
+              {{ es ? 'Comparar' : 'Compare' }}
             </span>
           </div>
 
           <p>
-            Choose two exercises to explore their differences side by side.
+            {{ es ? 'Elige dos ejercicios para ver en qué se diferencian.' : 'Choose two exercises to explore their differences side by side.' }}
           </p>
 
         </div>
@@ -47,7 +47,7 @@
           [class.compare-column__label--advanced]="firstExercise()?.difficulty === 'advanced'"
           [class.compare-column__label--elite]="firstExercise()?.difficulty === 'elite'"
         >
-          EXERCISE 01
+          {{ es ? 'EJERCICIO 01' : 'EXERCISE 01' }}
         </label>
 
         <div class="compare-picker">
@@ -56,18 +56,18 @@
             type="text"
             class="compare-select"
             autocomplete="off"
-            placeholder="Search an exercise..."
+            [placeholder]="es ? 'Buscar ejercicio…' : 'Search an exercise...'"
             [ngModel]="firstSearch()"
             (ngModelChange)="firstSearch.set($event); openFirstSelector()"
             (focus)="openFirstSelector()"
             (keydown.escape)="closeSelectors()"
-            [attr.aria-label]="'Search first exercise'"
+            [attr.aria-label]="es ? 'Buscar el primer ejercicio' : 'Search first exercise'"
             #firstInput
           />
 
           @if (firstExercise(); as exercise) {
             <div class="compare-picker__selected">
-              Selected: <strong>{{ exercise.name }}</strong>
+              {{ es ? 'Selección:' : 'Selected:' }} <strong>{{ exercise.name }}</strong>
             </div>
           }
 
@@ -83,7 +83,7 @@
                 </button>
               } @empty {
                 <div class="compare-picker__empty">
-                  No exercises found
+                  {{ es ? 'No se han encontrado ejercicios' : 'No exercises found' }}
                 </div>
               }
             </div>
@@ -118,15 +118,15 @@
 
               <a
                 class="compare-exercise__image-link"
-                [routerLink]="['/exercises', exercise.id]"
+                [routerLink]="exerciseLink(exercise.id)"
                 [queryParams]="{
                   from: 'compare',
                   first: firstExerciseId(),
                   second: secondExerciseId()
                 }"
-                [attr.aria-label]="'View ' + exercise.name"
+                [attr.aria-label]="(es ? 'Ver ' : 'View ') + exercise.name"
               >
-                View exercise
+                {{ es ? 'Ver ficha' : 'View exercise' }}
                 <span aria-hidden="true">↗</span>
               </a>
             </div>
@@ -139,7 +139,7 @@
               [class.compare-difficulty--advanced]="exercise.difficulty === 'advanced'"
               [class.compare-difficulty--elite]="exercise.difficulty === 'elite'"
             >
-              {{ exercise.difficulty }}
+              {{ label(exercise.difficulty) }}
             </span>
           </div>
         } @else {
@@ -150,14 +150,14 @@
           >
             <span class="compare-empty-choice__plus" aria-hidden="true">+</span>
 
-            <strong>Choose your first exercise</strong>
+            <strong>{{ es ? 'Elige el primer ejercicio' : 'Choose your first exercise' }}</strong>
 
             <span class="compare-empty-choice__description">
-              Search by name to get started.
+              {{ es ? 'Busca un ejercicio por su nombre.' : 'Search by name to get started.' }}
             </span>
 
             <span class="compare-empty-choice__action" aria-hidden="true">
-              Explore exercises →
+              {{ es ? 'Ver ejercicios →' : 'Explore exercises →' }}
             </span>
           </button>
         }
@@ -176,7 +176,7 @@
           [class.compare-column__label--advanced]="secondExercise()?.difficulty === 'advanced'"
           [class.compare-column__label--elite]="secondExercise()?.difficulty === 'elite'"
         >
-          EXERCISE 02
+          {{ es ? 'EJERCICIO 02' : 'EXERCISE 02' }}
         </label>
 
         <div class="compare-picker">
@@ -185,18 +185,18 @@
           type="text"
           class="compare-select"
           autocomplete="off"
-          placeholder="Search an exercise..."
+          [placeholder]="es ? 'Buscar ejercicio…' : 'Search an exercise...'"
           [ngModel]="secondSearch()"
           (ngModelChange)="secondSearch.set($event); openSecondSelector()"
           (focus)="openSecondSelector()"
           (keydown.escape)="closeSelectors()"
-          [attr.aria-label]="'Search second exercise'"
+          [attr.aria-label]="es ? 'Buscar el segundo ejercicio' : 'Search second exercise'"
           #secondInput
         />
 
         @if (secondExercise(); as exercise) {
           <div class="compare-picker__selected">
-            Selected: <strong>{{ exercise.name }}</strong>
+            {{ es ? 'Selección:' : 'Selected:' }} <strong>{{ exercise.name }}</strong>
           </div>
         }
 
@@ -212,7 +212,7 @@
               </button>
             } @empty {
               <div class="compare-picker__empty">
-                No exercises found
+                {{ es ? 'No se han encontrado ejercicios' : 'No exercises found' }}
               </div>
             }
           </div>
@@ -247,15 +247,15 @@
 
               <a
                 class="compare-exercise__image-link"
-                [routerLink]="['/exercises', exercise.id]"
+                [routerLink]="exerciseLink(exercise.id)"
                 [queryParams]="{
                   from: 'compare',
                   first: firstExerciseId(),
                   second: secondExerciseId()
                 }"
-                [attr.aria-label]="'View ' + exercise.name"
+                [attr.aria-label]="(es ? 'Ver ' : 'View ') + exercise.name"
               >
-                View exercise
+                {{ es ? 'Ver ficha' : 'View exercise' }}
                 <span aria-hidden="true">↗</span>
               </a>
             </div>
@@ -268,7 +268,7 @@
               [class.compare-difficulty--advanced]="exercise.difficulty === 'advanced'"
               [class.compare-difficulty--elite]="exercise.difficulty === 'elite'"
             >
-              {{ exercise.difficulty }}
+              {{ label(exercise.difficulty) }}
             </span>
           </div>
         } @else {
@@ -279,14 +279,14 @@
           >
             <span class="compare-empty-choice__plus" aria-hidden="true">+</span>
 
-            <strong>Choose your second exercise</strong>
+            <strong>{{ es ? 'Elige el segundo ejercicio' : 'Choose your second exercise' }}</strong>
 
             <span class="compare-empty-choice__description">
-              Pick another movement to compare.
+              {{ es ? 'Elige otro movimiento para compararlos.' : 'Pick another movement to compare.' }}
             </span>
 
             <span class="compare-empty-choice__action" aria-hidden="true">
-              Explore exercises →
+              {{ es ? 'Ver ejercicios →' : 'Explore exercises →' }}
             </span>
           </button>
         }
@@ -304,15 +304,14 @@
       aria-labelledby="compare-suggestions-title"
     >
       <header class="compare-suggestions__header">
-        <span>START EXPLORING</span>
+        <span>{{ es ? 'COMPARACIONES SUGERIDAS' : 'START EXPLORING' }}</span>
 
         <h2 id="compare-suggestions-title">
-          Not sure where to start?
+          {{ es ? '¿Por dónde empezar?' : 'Not sure where to start?' }}
         </h2>
 
         <p>
-          Try a comparison to explore difficulty, progression,
-          muscles and equipment.
+          {{ es ? 'Prueba una de estas parejas para comparar su dificultad, progresión, músculos y material.' : 'Try a comparison to explore difficulty, progression, muscles and equipment.' }}
         </p>
       </header>
 
@@ -325,8 +324,8 @@
             class="compare-suggestion"
             type="button"
             [attr.aria-label]="
-              'Compare ' + suggestion.first.name +
-              ' and ' + suggestion.second.name
+              (es ? 'Comparar ' : 'Compare ') + suggestion.first.name +
+              (es ? ' y ' : ' and ') + suggestion.second.name
             "
             (click)="
               selectSuggestedComparison(
@@ -377,7 +376,7 @@
               </span>
 
               <span class="compare-suggestion__action" aria-hidden="true">
-                Compare exercises
+                {{ es ? 'Comparar ejercicios' : 'Compare exercises' }}
                 <span>↗</span>
               </span>
             </span>
@@ -391,15 +390,15 @@
     @if (secondExercise(); as second) {
       <section class="compare-details">
         <div class="compare-details__heading">
-          <span>THE DIFFERENCES</span>
-          <h2>Exercise comparison</h2>
+          <span>{{ es ? 'LAS DIFERENCIAS' : 'THE DIFFERENCES' }}</span>
+          <h2>{{ es ? 'Comparación de ejercicios' : 'Exercise comparison' }}</h2>
         </div>
 
         <div class="compare-table-wrapper">
           <table class="compare-table">
             <thead>
               <tr>
-                <th>EXERCISE</th>
+                <th>{{ es ? 'EJERCICIO' : 'EXERCISE' }}</th>
                 <th
                   [class]="'compare-table__exercise--' + first.difficulty"
                   [attr.data-difficulty]="first.difficulty"
@@ -423,17 +422,17 @@
                   first.difficulty !== second.difficulty
                 "
               >
-                <th scope="row">Difficulty</th>
+                <th scope="row">{{ es ? 'Dificultad' : 'Difficulty' }}</th>
 
                 @for (exercise of [first, second]; track $index) {
                   <td [attr.data-difficulty]="exercise.difficulty">
                     <a
                       class="comparison-badge comparison-filter-link"
                       [attr.data-difficulty]="exercise.difficulty"
-                      routerLink="/train"
+                      [routerLink]="es ? '/train/es' : '/train'"
                       [queryParams]="{ difficulty: exercise.difficulty }"
                       [attr.aria-label]="
-                        'Browse ' + exercise.difficulty + ' exercises'
+                        es ? 'Ver ejercicios de nivel ' + label(exercise.difficulty) : 'Browse ' + exercise.difficulty + ' exercises'
                       "
                     >
                       <span
@@ -441,7 +440,7 @@
                         aria-hidden="true"
                       ></span>
 
-                      {{ exercise.difficulty }}
+                      {{ label(exercise.difficulty) }}
 
                       <span class="comparison-filter-link__arrow" aria-hidden="true">
                         ↗
@@ -457,7 +456,7 @@
                   first.graphLevel !== second.graphLevel
                 "
               >
-                <th scope="row">Progression level</th>
+                <th scope="row">{{ es ? 'Nivel de progresión' : 'Progression level' }}</th>
 
                 @for (exercise of [first, second]; track $index) {
                   <td [attr.data-difficulty]="exercise.difficulty">
@@ -466,18 +465,18 @@
                       [attr.data-difficulty]="exercise.difficulty"
                     >
                       <span class="comparison-level__value">
-                        Level <strong>{{ exercise.graphLevel }}</strong>
+                        {{ es ? 'Nivel' : 'Level' }} <strong>{{ exercise.graphLevel }}</strong>
                         <span>/ 7</span>
                       </span>
 
                       <div
                         class="comparison-level__segments"
                         role="meter"
-                        aria-label="Progression level"
+                        [attr.aria-label]="es ? 'Nivel de progresión' : 'Progression level'"
                         aria-valuemin="1"
                         aria-valuemax="7"
                         [attr.aria-valuenow]="exercise.graphLevel"
-                        [attr.aria-valuetext]="'Level ' + exercise.graphLevel + ' of 7'"
+                        [attr.aria-valuetext]="(es ? 'Nivel ' : 'Level ') + exercise.graphLevel + (es ? ' de 7' : ' of 7')"
                       >
                         @for (step of [1, 2, 3, 4, 5, 6, 7]; track step) {
                           <span
@@ -500,7 +499,7 @@
                   !samePrimaryMuscles(first, second)
                 "
               >
-                <th scope="row">Primary muscles</th>
+                <th scope="row">{{ es ? 'Músculos principales' : 'Primary muscles' }}</th>
 
                 @for (exercise of [first, second]; track $index) {
                   <td [attr.data-difficulty]="exercise.difficulty">
@@ -528,7 +527,7 @@
                   !sameSecondaryMuscles(first, second)
                 "
               >
-                <th scope="row">Secondary muscles</th>
+                <th scope="row">{{ es ? 'Músculos secundarios' : 'Secondary muscles' }}</th>
 
                 @for (exercise of [first, second]; track $index) {
                   <td [attr.data-difficulty]="exercise.difficulty">
@@ -556,7 +555,7 @@
                   !sameEquipment(first, second)
                 "
               >
-                <th scope="row">Equipment</th>
+                <th scope="row">{{ es ? 'Material' : 'Equipment' }}</th>
 
                 @for (exercise of [first, second]; track $index) {
                   <td [attr.data-difficulty]="exercise.difficulty">
@@ -564,10 +563,10 @@
                       @for (equipment of exercise.equipment ?? []; track equipment) {
                         <a
                           class="comparison-tag comparison-tag--equipment comparison-filter-link"
-                          routerLink="/train"
+                          [routerLink]="es ? '/train/es' : '/train'"
                           [queryParams]="{ equipment: equipment }"
                           [attr.aria-label]="
-                            'Browse exercises using ' + getEquipmentLabel(equipment)
+                            (es ? 'Ver ejercicios con ' : 'Browse exercises using ') + getEquipmentLabel(equipment)
                           "
                         >
                           <svg
@@ -594,7 +593,7 @@
                         </a>
                       } @empty {
                         <span class="comparison-tag comparison-tag--secondary">
-                          No equipment required
+                          {{ es ? 'Sin material' : 'No equipment required' }}
                         </span>
                       }
                     </div>
@@ -608,7 +607,7 @@
                   first.movementType !== second.movementType
                 "
               >
-                <th scope="row">Movement type</th>
+                <th scope="row">{{ es ? 'Tipo de movimiento' : 'Movement type' }}</th>
 
                 @for (exercise of [first, second]; track $index) {
                   <td [attr.data-difficulty]="exercise.difficulty">
@@ -645,7 +644,7 @@
                           </svg>
                         }
 
-                        {{ movement }}
+                        {{ label(movement) }}
                       </span>
                     } @else {
                       <span class="comparison-empty">—</span>

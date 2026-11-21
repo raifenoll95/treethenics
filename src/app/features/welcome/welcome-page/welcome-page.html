@@ -102,7 +102,7 @@
           : 'Compare difficulty, muscles and equipment side by side to choose what to train next.' }}
       </p>
 
-      <a class="welcome-section__button" routerLink="/compare">
+      <a class="welcome-section__button" [routerLink]="isSpanish ? '/compare/es' : '/compare'">
         {{ isSpanish ? 'Comparar ejercicios' : 'Compare Exercises' }}
         <span aria-hidden="true">→</span>
       </a>

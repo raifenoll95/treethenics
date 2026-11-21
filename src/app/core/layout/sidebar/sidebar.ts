@@ -40,7 +40,7 @@ export class Sidebar {
   get hasSpanishVersion(): boolean {
     const path = this.englishPath;
 
-    if (path === '/' || path === '/tree' || path === '/about') return true;
+    if (['/', '/tree', '/about', '/pro', '/compare'].includes(path)) return true;
 
     if (path === '/train' || /^\/train\/page\/[1-9]\d*$/.test(path)) {
       return true;

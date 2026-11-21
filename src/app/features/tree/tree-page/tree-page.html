@@ -349,7 +349,7 @@
 
           <a
             class="exercise-panel__compare"
-            routerLink="/compare"
+            [routerLink]="es ? '/compare/es' : '/compare'"
             [queryParams]="{ first: exercise.id }"
           >
             <span>{{ es ? 'Comparar' : 'Compare' }}</span>

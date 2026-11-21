@@ -21,6 +21,8 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/compare</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/compare" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/compare/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/about</loc>
@@ -29,6 +31,8 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/pro</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/pro" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/pro/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/train/page/2</loc>
@@ -553,6 +557,16 @@
     <loc>https://www.treethenics.com/exercises/pull-up/es</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/pull-up" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/pull-up/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/compare/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/compare" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/compare/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/pro/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/pro" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/pro/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/about/es</loc>

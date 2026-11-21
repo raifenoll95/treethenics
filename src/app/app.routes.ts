@@ -62,6 +62,7 @@ export const routes: Routes = [
         path: 'exercises/:id',
         component: ExerciseDetail,
       },
+      { path: 'compare/es', component: ComparePage, data: { language: 'es' } },
       {
         path: 'compare',
         component: ComparePage,
@@ -71,6 +72,7 @@ export const routes: Routes = [
         path: 'about',
         component: AboutPage,
       },
+      { path: 'pro/es', component: ProPage, data: { language: 'es' } },
       {
         path: 'pro',
         component: ProPage,

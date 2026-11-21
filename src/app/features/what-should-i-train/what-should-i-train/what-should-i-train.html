@@ -272,7 +272,7 @@
 
                 <a
                   class="exercise-card__compare"
-                  routerLink="/compare"
+                  [routerLink]="isSpanish ? '/compare/es' : '/compare'"
                   [queryParams]="{ first: exercise.id }"
                 >
                   {{ isSpanish ? 'Comparar ⇄' : 'Compare ⇄' }}

@@ -1,3 +1,6 @@
+import { DOCUMENT } from '@angular/common';
+import { Meta, Title } from '@angular/platform-browser';
+import { SPANISH_EXERCISES } from '../../tree/data/spanish-exercises.generated';
 import {
   Component,
   computed,
@@ -25,6 +28,54 @@ import { ExerciseEquipment } from '../../../shared/models/exercise-equipment.mod
 import { ExerciseMuscle } from '../../../shared/models/exercise-muscle.model';
 import { mediaUrl } from '../../../core/config/media-url';
 
+const SPANISH_LABELS: Readonly<Record<string, string>> = {
+  'beginner': 'Principiante',
+  'intermediate': 'Intermedio',
+  'advanced': 'Avanzado',
+  'elite': 'Élite',
+  'dynamic': 'Dinámico',
+  'static': 'Estático',
+  'chest': 'Pecho',
+  'pectorals': 'Pectorales',
+  'upper-back': 'Espalda alta',
+  'lower-back': 'Zona lumbar',
+  'latissimus-dorsi': 'Dorsales',
+  'lats': 'Dorsales',
+  'biceps': 'Bíceps',
+  'triceps': 'Tríceps',
+  'forearms': 'Antebrazos',
+  'rear-deltoids': 'Deltoides posteriores',
+  'front-deltoids': 'Deltoides anteriores',
+  'lateral-deltoids': 'Deltoides laterales',
+  'side-deltoids': 'Deltoides laterales',
+  'shoulders': 'Hombros',
+  'deltoids': 'Deltoides',
+  'abdominals': 'Abdominales',
+  'obliques': 'Oblicuos',
+  'core': 'Zona media',
+  'trapezius': 'Trapecios',
+  'traps': 'Trapecios',
+  'quadriceps': 'Cuádriceps',
+  'hamstrings': 'Isquiotibiales',
+  'glutes': 'Glúteos',
+  'calves': 'Gemelos',
+  'hip-flexors': 'Flexores de cadera',
+  'serratus-anterior': 'Serrato anterior',
+  'spinal-erectors': 'Erectores espinales',
+  'adductors': 'Aductores',
+  'abductors': 'Abductores',
+  'pull-up-bar': 'Barra de dominadas',
+  'rings': 'Anillas',
+  'parallettes': 'Paralelas',
+  'parallel-bars': 'Barras paralelas',
+  'bands': 'Bandas elásticas',
+  'added-weight': 'Lastre',
+  'floor': 'Suelo',
+  'weight-bench': 'Banco',
+  'vertical-pole': 'Barra vertical',
+  'wall': 'Pared',
+};
+
 @Component({
   selector: 'app-compare-page',
   imports: [FormsModule, RouterLink,OptimizedImagePipe],
@@ -39,6 +90,25 @@ export class ComparePage {
 
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
+
+  readonly es = this.route.snapshot.data['language'] === 'es';
+
+  exerciseLink(id: string): string[] {
+    return this.es && SPANISH_EXERCISES.has(id) ? ['/exercises', id, 'es'] : ['/exercises', id];
+  }
+
+  constructor() {
+    const doc = inject(DOCUMENT);
+    doc.documentElement.lang = this.es ? 'es' : 'en';
+    inject(Title).setTitle(this.es ? 'Comparar ejercicios de calistenia | Treethenics' : 'Compare calisthenics exercises | Treethenics');
+    inject(Meta).updateTag({ name: 'description', content: this.es
+      ? 'Compara dos ejercicios de calistenia por dificultad, nivel de progresión, músculos y material.'
+      : 'Compare two calisthenics exercises by difficulty, progression level, muscles and equipment.' });
+    const canonical = doc.head.querySelector<HTMLLinkElement>('link[rel="canonical"]') ?? doc.createElement('link');
+    canonical.rel = 'canonical';
+    canonical.href = 'https://www.treethenics.com/compare' + (this.es ? '/es' : '');
+    if (!canonical.parentNode) doc.head.appendChild(canonical);
+  }
 
   private readonly params = this.route.snapshot.queryParamMap;
 
@@ -139,9 +209,9 @@ export class ComparePage {
     this.secondSelectorOpen.set(false);
   }
 
-  readonly exercises = [...EXERCISES].sort((a, b) =>
-    a.name.localeCompare(b.name),
-  );
+  readonly exercises = EXERCISES
+    .map(exercise => this.es ? SPANISH_EXERCISES.get(exercise.id) ?? exercise : exercise)
+    .sort((a, b) => a.name.localeCompare(b.name, this.es ? 'es' : 'en'));
 
   readonly firstExerciseId = signal<string>(
     this.getValidExerciseId(this.params.get('first')),
@@ -193,29 +263,23 @@ export class ComparePage {
 
   readonly suggestedComparisons = [
     {
-      title: 'Explore pulling variations',
-      firstName: 'Pull Up',
-      secondName: 'Archer Pull Up',
+      title: this.es ? 'Variantes de tirón' : 'Explore pulling variations',
+      firstId: 'pull-up',
+      secondId: 'archer-pull-up',
     },
     {
-      title: 'Compare pushing exercises',
-      firstName: 'Push Up',
-      secondName: 'Archer Push Up',
+      title: this.es ? 'Ejercicios de empuje' : 'Compare pushing exercises',
+      firstId: 'push-up',
+      secondId: 'archer-push-up',
     },
     {
-      title: 'Discover static skills',
-      firstName: 'Front Lever',
-      secondName: 'Back Lever',
+      title: this.es ? 'Posiciones estáticas' : 'Discover static skills',
+      firstId: 'front-lever',
+      secondId: 'back-lever',
     },
   ].flatMap((suggestion) => {
-    const findExercise = (name: string) =>
-      this.exercises.find(
-        (exercise) =>
-          exercise.name.trim().toLowerCase() === name.toLowerCase(),
-      );
-
-    const first = findExercise(suggestion.firstName);
-    const second = findExercise(suggestion.secondName);
+    const first = this.exercises.find(item => item.id === suggestion.firstId);
+    const second = this.exercises.find(item => item.id === suggestion.secondId);
 
     return first && second
       ? [{ title: suggestion.title, first, second }]
@@ -249,14 +313,18 @@ export class ComparePage {
       ? exercise.equipment
           .map((equipment) => this.getEquipmentLabel(equipment))
           .join(', ')
-      : 'No equipment required';
+      : (this.es ? 'Sin material' : 'No equipment required');
+  }
+
+  label(key: string, original = key): string {
+    return this.es ? SPANISH_LABELS[key] ?? original : original;
   }
 
   getMuscleLabel(muscle: ExerciseMuscle): string {
-    return MUSCLE_LABELS[muscle];
+    return this.label(muscle, MUSCLE_LABELS[muscle]);
   }
 
   getEquipmentLabel(equipment: ExerciseEquipment): string {
-    return EQUIPMENT_LABELS[equipment];
+    return this.label(equipment, EQUIPMENT_LABELS[equipment]);
   }
 }
