@@ -15,6 +15,7 @@ import { BROAD_JUMPS_ES } from './exercises/broad-jumps.es';
 import { BULGARIAN_SQUAT_ES } from './exercises/bulgarian-squat.es';
 import { BURPEES_ES } from './exercises/burpees.es';
 import { BUTTERFLY_ES } from './exercises/butterfly.es';
+import { CALF_RAISE_ES } from './exercises/calf-raise.es';
 import { CARUSO_ES } from './exercises/caruso.es';
 import { CHEST_TO_BAR_ES } from './exercises/chest-to-bar.es';
 import { CLAPPING_PUSH_UP_ES } from './exercises/clapping-push-up.es';
@@ -71,8 +72,10 @@ import { L_SIT_ES } from './exercises/l-sit.es';
 import { L_SIT_MUSCLE_UP_ES } from './exercises/l-sit-muscle-up.es';
 import { L_SIT_PULL_UP_ES } from './exercises/l-sit-pull-up.es';
 import { L_SIT_TO_HANDSTAND_ES } from './exercises/l-sit-to-handstand.es';
+import { LEAN_PLANCHE_ES } from './exercises/lean-planche.es';
 import { LEAN_PLANCHE_PUSH_UP_ES } from './exercises/lean-planche-push-up.es';
 import { LEG_RAISES_ES } from './exercises/leg-raises.es';
+import { MALTESE_ES } from './exercises/maltese.es';
 import { MALTESE_CROSS_ES } from './exercises/maltese-cross.es';
 import { MALTESE_RINGS_ES } from './exercises/maltese-rings.es';
 import { MANA_ES } from './exercises/mana.es';
@@ -81,15 +84,20 @@ import { MUSCLE_UP_ES } from './exercises/muscle-up.es';
 import { NEUTRAL_GRIP_PULL_UP_ES } from './exercises/neutral-grip-pull-up.es';
 import { NORDIC_CURL_ES } from './exercises/nordic-curl.es';
 import { ONE_ARM_BACK_LEVER_ES } from './exercises/one-arm-back-lever.es';
+import { ONE_ARM_BENT_PLANCHE_ES } from './exercises/one-arm-bent-planche.es';
 import { ONE_ARM_DRAGON_FLAG_ES } from './exercises/one-arm-dragon-flag.es';
 import { ONE_ARM_FRONT_LEVER_ES } from './exercises/one-arm-front-lever.es';
 import { ONE_ARM_FRONT_LEVER_MUSCLE_UP_ES } from './exercises/one-arm-front-lever-muscle-up.es';
+import { ONE_ARM_L_SIT_ES } from './exercises/one-arm-l-sit.es';
+import { ONE_ARM_MUSCLE_UP_ES } from './exercises/one-arm-muscle-up.es';
+import { ONE_ARM_PLANCHE_ES } from './exercises/one-arm-planche.es';
 import { ONE_ARM_PULL_UP_ES } from './exercises/one-arm-pull-up.es';
 import { ONE_ARM_PUSH_UP_CLEAN_FORM_ES } from './exercises/one-arm-push-up-clean-form.es';
 import { PELICAN_ES } from './exercises/pelican.es';
 import { PIKE_PUSH_UP_ES } from './exercises/pike-push-up.es';
 import { PISTOL_SQUAT_ES } from './exercises/pistol-squat.es';
 import { PLANK_ES } from './exercises/plank.es';
+import { PRESS_TO_HANDSTAND_ES } from './exercises/press-to-handstand.es';
 import { PULL_UP_ES } from './exercises/pull-up.es';
 import { PUSH_UP_ES } from './exercises/push-up.es';
 import { REVERSE_LUNGE_ES } from './exercises/reverse-lunge.es';
@@ -98,19 +106,43 @@ import { REVERSE_PLANK_ES } from './exercises/reverse-plank.es';
 import { RING_DIP_ES } from './exercises/ring-dip.es';
 import { RING_PUSH_UP_ES } from './exercises/ring-push-up.es';
 import { RINGS_MUSCLE_UP_ES } from './exercises/rings-muscle-up.es';
+import { SCAPULAR_PULL_UP_ES } from './exercises/scapular-pull-up.es';
+import { SHOULDER_FLAG_ES } from './exercises/shoulder-flag.es';
+import { SHRIMP_SQUAT_ES } from './exercises/shrimp-squat.es';
 import { SIDE_PLANK_ES } from './exercises/side-plank.es';
+import { SINGLE_LEG_GLUTE_BRIDGE_ES } from './exercises/single-leg-glute-bridge.es';
+import { SISSY_SQUAT_ES } from './exercises/sissy-squat.es';
 import { SIT_UPS_ES } from './exercises/sit-ups.es';
 import { SKIN_THE_CAT_ES } from './exercises/skin-the-cat.es';
+import { SLOW_MUSCLE_UP_ES } from './exercises/slow-muscle-up.es';
+import { SPHINX_PUSH_UP_ES } from './exercises/sphinx-push-up.es';
 import { SQUAT_ES } from './exercises/squat.es';
+import { STEP_UP_ES } from './exercises/step-up.es';
+import { STRADDLE_PLANCHE_ES } from './exercises/straddle-planche.es';
+import { STRADDLE_PLANCHE_PRESS_TO_HANDSTAND_ES } from './exercises/straddle-planche-press-to-handstand.es';
+import { STRADDLE_PLANCHE_PUSH_UP_ES } from './exercises/straddle-planche-push-up.es';
+import { STRADDLE_PRESS_TO_HANDSTAND_ES } from './exercises/straddle-press-to-handstand.es';
+import { STRAIGHT_BAR_DIP_ES } from './exercises/straight-bar-dip.es';
 import { SUPINATED_PULL_UP_ES } from './exercises/supinated-pull-up.es';
+import { TOES_TO_BAR_ES } from './exercises/toes-to-bar.es';
+import { TOUCH_FRONT_LEVER_ES } from './exercises/touch-front-lever.es';
 import { TRICEPS_DIP_ES } from './exercises/triceps-dip.es';
+import { TUCK_ADVANCED_FRONT_LEVER_ES } from './exercises/tuck-advanced-front-lever.es';
+import { TUCK_ADVANCED_PLANCHE_ES } from './exercises/tuck-advanced-planche.es';
+import { TUCK_ADVANCED_PLANCHE_PUSH_UP_ES } from './exercises/tuck-advanced-planche-push-up.es';
+import { TUCK_PLANCHE_PRESS_TO_HANDSTAND_ES } from './exercises/tuck-planche-press-to-handstand.es';
 import { TUCKED_PLANCHE_PUSH_UP_ES } from './exercises/tucked-planche-push-up.es';
 import { V_SIT_ES } from './exercises/v-sit.es';
+import { VICTORIAN_ES } from './exercises/victorian.es';
+import { VICTORIAN_FLOOR_ES } from './exercises/victorian-floor.es';
 import { VICTORIAN_PRESS_ES } from './exercises/victorian-press.es';
+import { WAIST_PULL_UP_ES } from './exercises/waist-pull-up.es';
 import { WALL_HANDSTAND_ES } from './exercises/wall-handstand.es';
 import { WALL_SQUAT_ES } from './exercises/wall-squat.es';
 import { WIDE_GRIP_PULL_UP_ES } from './exercises/wide-grip-pull-up.es';
 import { X_GRIP_FLAG_ES } from './exercises/x-grip-flag.es';
+import { X_GRIP_FRONT_LEVER_ES } from './exercises/x-grip-front-lever.es';
+import { X_GRIP_MUSCLE_UP_ES } from './exercises/x-grip-muscle-up.es';
 import { ZANETTI_ES } from './exercises/zanetti.es';
 
 export const SPANISH_EXERCISES: ReadonlyMap<string, Exercise> = new Map<string, Exercise>([
@@ -129,6 +161,7 @@ export const SPANISH_EXERCISES: ReadonlyMap<string, Exercise> = new Map<string, 
   [BULGARIAN_SQUAT_ES.id, BULGARIAN_SQUAT_ES],
   [BURPEES_ES.id, BURPEES_ES],
   [BUTTERFLY_ES.id, BUTTERFLY_ES],
+  [CALF_RAISE_ES.id, CALF_RAISE_ES],
   [CARUSO_ES.id, CARUSO_ES],
   [CHEST_TO_BAR_ES.id, CHEST_TO_BAR_ES],
   [CLAPPING_PUSH_UP_ES.id, CLAPPING_PUSH_UP_ES],
@@ -185,8 +218,10 @@ export const SPANISH_EXERCISES: ReadonlyMap<string, Exercise> = new Map<string, 
   [L_SIT_MUSCLE_UP_ES.id, L_SIT_MUSCLE_UP_ES],
   [L_SIT_PULL_UP_ES.id, L_SIT_PULL_UP_ES],
   [L_SIT_TO_HANDSTAND_ES.id, L_SIT_TO_HANDSTAND_ES],
+  [LEAN_PLANCHE_ES.id, LEAN_PLANCHE_ES],
   [LEAN_PLANCHE_PUSH_UP_ES.id, LEAN_PLANCHE_PUSH_UP_ES],
   [LEG_RAISES_ES.id, LEG_RAISES_ES],
+  [MALTESE_ES.id, MALTESE_ES],
   [MALTESE_CROSS_ES.id, MALTESE_CROSS_ES],
   [MALTESE_RINGS_ES.id, MALTESE_RINGS_ES],
   [MANA_ES.id, MANA_ES],
@@ -195,15 +230,20 @@ export const SPANISH_EXERCISES: ReadonlyMap<string, Exercise> = new Map<string, 
   [NEUTRAL_GRIP_PULL_UP_ES.id, NEUTRAL_GRIP_PULL_UP_ES],
   [NORDIC_CURL_ES.id, NORDIC_CURL_ES],
   [ONE_ARM_BACK_LEVER_ES.id, ONE_ARM_BACK_LEVER_ES],
+  [ONE_ARM_BENT_PLANCHE_ES.id, ONE_ARM_BENT_PLANCHE_ES],
   [ONE_ARM_DRAGON_FLAG_ES.id, ONE_ARM_DRAGON_FLAG_ES],
   [ONE_ARM_FRONT_LEVER_ES.id, ONE_ARM_FRONT_LEVER_ES],
   [ONE_ARM_FRONT_LEVER_MUSCLE_UP_ES.id, ONE_ARM_FRONT_LEVER_MUSCLE_UP_ES],
+  [ONE_ARM_L_SIT_ES.id, ONE_ARM_L_SIT_ES],
+  [ONE_ARM_MUSCLE_UP_ES.id, ONE_ARM_MUSCLE_UP_ES],
+  [ONE_ARM_PLANCHE_ES.id, ONE_ARM_PLANCHE_ES],
   [ONE_ARM_PULL_UP_ES.id, ONE_ARM_PULL_UP_ES],
   [ONE_ARM_PUSH_UP_CLEAN_FORM_ES.id, ONE_ARM_PUSH_UP_CLEAN_FORM_ES],
   [PELICAN_ES.id, PELICAN_ES],
   [PIKE_PUSH_UP_ES.id, PIKE_PUSH_UP_ES],
   [PISTOL_SQUAT_ES.id, PISTOL_SQUAT_ES],
   [PLANK_ES.id, PLANK_ES],
+  [PRESS_TO_HANDSTAND_ES.id, PRESS_TO_HANDSTAND_ES],
   [PULL_UP_ES.id, PULL_UP_ES],
   [PUSH_UP_ES.id, PUSH_UP_ES],
   [REVERSE_LUNGE_ES.id, REVERSE_LUNGE_ES],
@@ -212,18 +252,42 @@ export const SPANISH_EXERCISES: ReadonlyMap<string, Exercise> = new Map<string, 
   [RING_DIP_ES.id, RING_DIP_ES],
   [RING_PUSH_UP_ES.id, RING_PUSH_UP_ES],
   [RINGS_MUSCLE_UP_ES.id, RINGS_MUSCLE_UP_ES],
+  [SCAPULAR_PULL_UP_ES.id, SCAPULAR_PULL_UP_ES],
+  [SHOULDER_FLAG_ES.id, SHOULDER_FLAG_ES],
+  [SHRIMP_SQUAT_ES.id, SHRIMP_SQUAT_ES],
   [SIDE_PLANK_ES.id, SIDE_PLANK_ES],
+  [SINGLE_LEG_GLUTE_BRIDGE_ES.id, SINGLE_LEG_GLUTE_BRIDGE_ES],
+  [SISSY_SQUAT_ES.id, SISSY_SQUAT_ES],
   [SIT_UPS_ES.id, SIT_UPS_ES],
   [SKIN_THE_CAT_ES.id, SKIN_THE_CAT_ES],
+  [SLOW_MUSCLE_UP_ES.id, SLOW_MUSCLE_UP_ES],
+  [SPHINX_PUSH_UP_ES.id, SPHINX_PUSH_UP_ES],
   [SQUAT_ES.id, SQUAT_ES],
+  [STEP_UP_ES.id, STEP_UP_ES],
+  [STRADDLE_PLANCHE_ES.id, STRADDLE_PLANCHE_ES],
+  [STRADDLE_PLANCHE_PRESS_TO_HANDSTAND_ES.id, STRADDLE_PLANCHE_PRESS_TO_HANDSTAND_ES],
+  [STRADDLE_PLANCHE_PUSH_UP_ES.id, STRADDLE_PLANCHE_PUSH_UP_ES],
+  [STRADDLE_PRESS_TO_HANDSTAND_ES.id, STRADDLE_PRESS_TO_HANDSTAND_ES],
+  [STRAIGHT_BAR_DIP_ES.id, STRAIGHT_BAR_DIP_ES],
   [SUPINATED_PULL_UP_ES.id, SUPINATED_PULL_UP_ES],
+  [TOES_TO_BAR_ES.id, TOES_TO_BAR_ES],
+  [TOUCH_FRONT_LEVER_ES.id, TOUCH_FRONT_LEVER_ES],
   [TRICEPS_DIP_ES.id, TRICEPS_DIP_ES],
+  [TUCK_ADVANCED_FRONT_LEVER_ES.id, TUCK_ADVANCED_FRONT_LEVER_ES],
+  [TUCK_ADVANCED_PLANCHE_ES.id, TUCK_ADVANCED_PLANCHE_ES],
+  [TUCK_ADVANCED_PLANCHE_PUSH_UP_ES.id, TUCK_ADVANCED_PLANCHE_PUSH_UP_ES],
+  [TUCK_PLANCHE_PRESS_TO_HANDSTAND_ES.id, TUCK_PLANCHE_PRESS_TO_HANDSTAND_ES],
   [TUCKED_PLANCHE_PUSH_UP_ES.id, TUCKED_PLANCHE_PUSH_UP_ES],
   [V_SIT_ES.id, V_SIT_ES],
+  [VICTORIAN_ES.id, VICTORIAN_ES],
+  [VICTORIAN_FLOOR_ES.id, VICTORIAN_FLOOR_ES],
   [VICTORIAN_PRESS_ES.id, VICTORIAN_PRESS_ES],
+  [WAIST_PULL_UP_ES.id, WAIST_PULL_UP_ES],
   [WALL_HANDSTAND_ES.id, WALL_HANDSTAND_ES],
   [WALL_SQUAT_ES.id, WALL_SQUAT_ES],
   [WIDE_GRIP_PULL_UP_ES.id, WIDE_GRIP_PULL_UP_ES],
   [X_GRIP_FLAG_ES.id, X_GRIP_FLAG_ES],
+  [X_GRIP_FRONT_LEVER_ES.id, X_GRIP_FRONT_LEVER_ES],
+  [X_GRIP_MUSCLE_UP_ES.id, X_GRIP_MUSCLE_UP_ES],
   [ZANETTI_ES.id, ZANETTI_ES],
 ]);

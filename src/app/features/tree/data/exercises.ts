@@ -27,7 +27,6 @@ import { HUMAN_FLAG } from './exercises/human-flag.exercise';
 import { HEFESTO } from './exercises/hefesto.exercise';
 import { V_SIT } from './exercises/v-sit.exercise';
 import { STRADDLE_PLANCHE } from './exercises/straddle-planche.exercise';
-import { EXERCISE_90_DEGREE_PUSH_UP } from './exercises/90-degree-push-up.exercise';
 import { ONE_ARM_PUSH_UP_CLEAN_FORM } from './exercises/one-arm-push-up-clean-form.exercise';
 import { ONE_ARM_BACK_LEVER } from './exercises/one-arm-back-lever.exercise';
 import { BACK_LEVER_PULL_UP } from './exercises/back-lever-pull-up.exercise';
@@ -185,7 +184,6 @@ export const EXERCISES: Exercise[] = [
   HEFESTO,
   V_SIT,
   STRADDLE_PLANCHE,
-  EXERCISE_90_DEGREE_PUSH_UP,
   ONE_ARM_PUSH_UP_CLEAN_FORM,
   ONE_ARM_BACK_LEVER,
   BACK_LEVER_PULL_UP,

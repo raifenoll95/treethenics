@@ -65,9 +65,6 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/train/page/7/es" />
   </url>
   <url>
-    <loc>https://www.treethenics.com/exercises/90-degree-push-up</loc>
-  </url>
-  <url>
     <loc>https://www.treethenics.com/exercises/arch-body-hold</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/arch-body-hold" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/arch-body-hold/es" />
@@ -147,6 +144,8 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/calf-raise</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/calf-raise" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/calf-raise/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/caruso</loc>
@@ -445,6 +444,8 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/lean-planche</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/lean-planche" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/lean-planche/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/lean-planche-push-up</loc>
@@ -458,6 +459,8 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/maltese</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/maltese" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/maltese/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/maltese-cross</loc>
@@ -501,6 +504,8 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/one-arm-bent-planche</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/one-arm-bent-planche" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/one-arm-bent-planche/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/one-arm-dragon-flag</loc>
@@ -522,12 +527,18 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/one-arm-l-sit</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/one-arm-l-sit" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/one-arm-l-sit/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/one-arm-muscle-up</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/one-arm-muscle-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/one-arm-muscle-up/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/one-arm-planche</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/one-arm-planche" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/one-arm-planche/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/one-arm-pull-up</loc>
@@ -561,6 +572,8 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/press-to-handstand</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/press-to-handstand" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/press-to-handstand/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/pull-up</loc>
@@ -610,12 +623,18 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/scapular-pull-up</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/scapular-pull-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/scapular-pull-up/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/shoulder-flag</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/shoulder-flag" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/shoulder-flag/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/shrimp-squat</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/shrimp-squat" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/shrimp-squat/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/side-plank</loc>
@@ -624,9 +643,13 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/single-leg-glute-bridge</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/single-leg-glute-bridge" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/single-leg-glute-bridge/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/sissy-squat</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/sissy-squat" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/sissy-squat/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/sit-ups</loc>
@@ -640,9 +663,13 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/slow-muscle-up</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/slow-muscle-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/slow-muscle-up/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/sphinx-push-up</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/sphinx-push-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/sphinx-push-up/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/squat</loc>
@@ -651,24 +678,36 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/step-up</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/step-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/step-up/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/straddle-front-lever-pull-up</loc>
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/straddle-planche</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/straddle-planche" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/straddle-planche/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/straddle-planche-press-to-handstand</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/straddle-planche-press-to-handstand" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/straddle-planche-press-to-handstand/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/straddle-planche-push-up</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/straddle-planche-push-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/straddle-planche-push-up/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/straddle-press-to-handstand</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/straddle-press-to-handstand" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/straddle-press-to-handstand/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/straight-bar-dip</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/straight-bar-dip" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/straight-bar-dip/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/supinated-pull-up</loc>
@@ -677,9 +716,13 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/toes-to-bar</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/toes-to-bar" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/toes-to-bar/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/touch-front-lever</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/touch-front-lever" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/touch-front-lever/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/tricep-extensions</loc>
@@ -691,18 +734,26 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/tuck-advanced-front-lever</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/tuck-advanced-front-lever" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/tuck-advanced-front-lever/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/tuck-advanced-front-lever-pull-up</loc>
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/tuck-advanced-planche</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/tuck-advanced-planche" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/tuck-advanced-planche/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/tuck-advanced-planche-push-up</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/tuck-advanced-planche-push-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/tuck-advanced-planche-push-up/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/tuck-planche-press-to-handstand</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/tuck-planche-press-to-handstand" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/tuck-planche-press-to-handstand/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/tucked-planche-push-up</loc>
@@ -722,9 +773,13 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/victorian</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/victorian" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/victorian/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/victorian-floor</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/victorian-floor" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/victorian-floor/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/victorian-press</loc>
@@ -733,6 +788,8 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/waist-pull-up</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/waist-pull-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/waist-pull-up/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/walking-lunges</loc>
@@ -759,9 +816,13 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/x-grip-front-lever</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/x-grip-front-lever" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/x-grip-front-lever/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/x-grip-muscle-up</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/x-grip-muscle-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/x-grip-muscle-up/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/zanetti</loc>
@@ -842,6 +903,11 @@
     <loc>https://www.treethenics.com/exercises/butterfly/es</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/butterfly" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/butterfly/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/calf-raise/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/calf-raise" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/calf-raise/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/caruso/es</loc>
@@ -1124,6 +1190,11 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/l-sit-to-handstand/es" />
   </url>
   <url>
+    <loc>https://www.treethenics.com/exercises/lean-planche/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/lean-planche" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/lean-planche/es" />
+  </url>
+  <url>
     <loc>https://www.treethenics.com/exercises/lean-planche-push-up/es</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/lean-planche-push-up" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/lean-planche-push-up/es" />
@@ -1132,6 +1203,11 @@
     <loc>https://www.treethenics.com/exercises/leg-raises/es</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/leg-raises" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/leg-raises/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/maltese/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/maltese" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/maltese/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/maltese-cross/es</loc>
@@ -1174,6 +1250,11 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/one-arm-back-lever/es" />
   </url>
   <url>
+    <loc>https://www.treethenics.com/exercises/one-arm-bent-planche/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/one-arm-bent-planche" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/one-arm-bent-planche/es" />
+  </url>
+  <url>
     <loc>https://www.treethenics.com/exercises/one-arm-dragon-flag/es</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/one-arm-dragon-flag" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/one-arm-dragon-flag/es" />
@@ -1187,6 +1268,21 @@
     <loc>https://www.treethenics.com/exercises/one-arm-front-lever-muscle-up/es</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/one-arm-front-lever-muscle-up" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/one-arm-front-lever-muscle-up/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/one-arm-l-sit/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/one-arm-l-sit" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/one-arm-l-sit/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/one-arm-muscle-up/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/one-arm-muscle-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/one-arm-muscle-up/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/one-arm-planche/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/one-arm-planche" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/one-arm-planche/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/one-arm-pull-up/es</loc>
@@ -1217,6 +1313,11 @@
     <loc>https://www.treethenics.com/exercises/plank/es</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/plank" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/plank/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/press-to-handstand/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/press-to-handstand" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/press-to-handstand/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/pull-up/es</loc>
@@ -1259,9 +1360,34 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/rings-muscle-up/es" />
   </url>
   <url>
+    <loc>https://www.treethenics.com/exercises/scapular-pull-up/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/scapular-pull-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/scapular-pull-up/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/shoulder-flag/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/shoulder-flag" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/shoulder-flag/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/shrimp-squat/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/shrimp-squat" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/shrimp-squat/es" />
+  </url>
+  <url>
     <loc>https://www.treethenics.com/exercises/side-plank/es</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/side-plank" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/side-plank/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/single-leg-glute-bridge/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/single-leg-glute-bridge" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/single-leg-glute-bridge/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/sissy-squat/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/sissy-squat" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/sissy-squat/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/sit-ups/es</loc>
@@ -1274,9 +1400,49 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/skin-the-cat/es" />
   </url>
   <url>
+    <loc>https://www.treethenics.com/exercises/slow-muscle-up/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/slow-muscle-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/slow-muscle-up/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/sphinx-push-up/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/sphinx-push-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/sphinx-push-up/es" />
+  </url>
+  <url>
     <loc>https://www.treethenics.com/exercises/squat/es</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/squat" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/squat/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/step-up/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/step-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/step-up/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/straddle-planche/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/straddle-planche" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/straddle-planche/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/straddle-planche-press-to-handstand/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/straddle-planche-press-to-handstand" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/straddle-planche-press-to-handstand/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/straddle-planche-push-up/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/straddle-planche-push-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/straddle-planche-push-up/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/straddle-press-to-handstand/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/straddle-press-to-handstand" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/straddle-press-to-handstand/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/straight-bar-dip/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/straight-bar-dip" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/straight-bar-dip/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/supinated-pull-up/es</loc>
@@ -1284,9 +1450,39 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/supinated-pull-up/es" />
   </url>
   <url>
+    <loc>https://www.treethenics.com/exercises/toes-to-bar/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/toes-to-bar" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/toes-to-bar/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/touch-front-lever/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/touch-front-lever" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/touch-front-lever/es" />
+  </url>
+  <url>
     <loc>https://www.treethenics.com/exercises/triceps-dip/es</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/triceps-dip" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/triceps-dip/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/tuck-advanced-front-lever/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/tuck-advanced-front-lever" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/tuck-advanced-front-lever/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/tuck-advanced-planche/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/tuck-advanced-planche" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/tuck-advanced-planche/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/tuck-advanced-planche-push-up/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/tuck-advanced-planche-push-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/tuck-advanced-planche-push-up/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/tuck-planche-press-to-handstand/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/tuck-planche-press-to-handstand" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/tuck-planche-press-to-handstand/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/tucked-planche-push-up/es</loc>
@@ -1299,9 +1495,24 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/v-sit/es" />
   </url>
   <url>
+    <loc>https://www.treethenics.com/exercises/victorian/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/victorian" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/victorian/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/victorian-floor/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/victorian-floor" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/victorian-floor/es" />
+  </url>
+  <url>
     <loc>https://www.treethenics.com/exercises/victorian-press/es</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/victorian-press" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/victorian-press/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/waist-pull-up/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/waist-pull-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/waist-pull-up/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/wall-handstand/es</loc>
@@ -1322,6 +1533,16 @@
     <loc>https://www.treethenics.com/exercises/x-grip-flag/es</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/x-grip-flag" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/x-grip-flag/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/x-grip-front-lever/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/x-grip-front-lever" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/x-grip-front-lever/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/x-grip-muscle-up/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/x-grip-muscle-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/x-grip-muscle-up/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/zanetti/es</loc>
