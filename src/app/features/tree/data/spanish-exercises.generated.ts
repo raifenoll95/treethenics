@@ -3,6 +3,7 @@ import type { Exercise } from '../../../shared/models/exercise.model';
 import { ARCH_BODY_HOLD_ES } from './exercises/arch-body-hold.es';
 import { ARCHER_PULL_UP_ES } from './exercises/archer-pull-up.es';
 import { ARCHER_PUSH_UP_ES } from './exercises/archer-push-up.es';
+import { ARM_LEVER_ES } from './exercises/arm-lever.es';
 import { AUSTRALIAN_PULL_UP_ES } from './exercises/australian-pull-up.es';
 import { BACK_LEVER_ES } from './exercises/back-lever.es';
 import { BACK_LEVER_PULL_UP_ES } from './exercises/back-lever-pull-up.es';
@@ -33,9 +34,11 @@ import { DRAGON_FLAG_ES } from './exercises/dragon-flag.es';
 import { DRAGON_PISTOL_SQUAT_ES } from './exercises/dragon-pistol-squat.es';
 import { EARLY_FRONT_LEVER_PROGRESSIONS_ES } from './exercises/early-front-lever-progressions.es';
 import { EARLY_PLANCHE_PROGRESSIONS_ES } from './exercises/early-planche-progressions.es';
+import { ELEVATED_PUSH_UP_ES } from './exercises/elevated-push-up.es';
 import { ENTRADA_DE_ANGEL_ES } from './exercises/entrada-de-angel.es';
 import { ENTRADA_DE_DIABLO_ES } from './exercises/entrada-de-diablo.es';
 import { EXTREME_WIDE_MUSCLE_UP_ES } from './exercises/extreme-wide-muscle-up.es';
+import { FORWARD_LUNGE_ES } from './exercises/forward-lunge.es';
 import { FROG_STAND_ES } from './exercises/frog-stand.es';
 import { FRONT_LEVER_ES } from './exercises/front-lever.es';
 import { FRONT_LEVER_MUSCLE_UP_ES } from './exercises/front-lever-muscle-up.es';
@@ -64,6 +67,7 @@ import { INVERTED_BUTTERFLY_ES } from './exercises/inverted-butterfly.es';
 import { INVERTED_CROSS_ES } from './exercises/inverted-cross.es';
 import { INVERTED_ROW_ES } from './exercises/inverted-row.es';
 import { IRON_CROSS_ES } from './exercises/iron-cross.es';
+import { ISOMETRIC_SQUAT_ES } from './exercises/isometric-squat.es';
 import { JUMP_SQUAT_ES } from './exercises/jump-squat.es';
 import { JUMPING_JACKS_ES } from './exercises/jumping-jacks.es';
 import { KNEE_PUSH_UP_ES } from './exercises/knee-push-up.es';
@@ -100,6 +104,7 @@ import { PLANK_ES } from './exercises/plank.es';
 import { PRESS_TO_HANDSTAND_ES } from './exercises/press-to-handstand.es';
 import { PULL_UP_ES } from './exercises/pull-up.es';
 import { PUSH_UP_ES } from './exercises/push-up.es';
+import { REVERSE_CRUNCHES_ES } from './exercises/reverse-crunches.es';
 import { REVERSE_LUNGE_ES } from './exercises/reverse-lunge.es';
 import { REVERSE_PLANCHE_ES } from './exercises/reverse-planche.es';
 import { REVERSE_PLANK_ES } from './exercises/reverse-plank.es';
@@ -132,11 +137,14 @@ import { TUCK_ADVANCED_PLANCHE_ES } from './exercises/tuck-advanced-planche.es';
 import { TUCK_ADVANCED_PLANCHE_PUSH_UP_ES } from './exercises/tuck-advanced-planche-push-up.es';
 import { TUCK_PLANCHE_PRESS_TO_HANDSTAND_ES } from './exercises/tuck-planche-press-to-handstand.es';
 import { TUCKED_PLANCHE_PUSH_UP_ES } from './exercises/tucked-planche-push-up.es';
+import { TULLOCH_ES } from './exercises/tulloch.es';
+import { TYPEWRITER_PULL_UP_ES } from './exercises/typewriter-pull-up.es';
 import { V_SIT_ES } from './exercises/v-sit.es';
 import { VICTORIAN_ES } from './exercises/victorian.es';
 import { VICTORIAN_FLOOR_ES } from './exercises/victorian-floor.es';
 import { VICTORIAN_PRESS_ES } from './exercises/victorian-press.es';
 import { WAIST_PULL_UP_ES } from './exercises/waist-pull-up.es';
+import { WALKING_LUNGES_ES } from './exercises/walking-lunges.es';
 import { WALL_HANDSTAND_ES } from './exercises/wall-handstand.es';
 import { WALL_SQUAT_ES } from './exercises/wall-squat.es';
 import { WIDE_GRIP_PULL_UP_ES } from './exercises/wide-grip-pull-up.es';
@@ -149,6 +157,7 @@ export const SPANISH_EXERCISES: ReadonlyMap<string, Exercise> = new Map<string, 
   [ARCH_BODY_HOLD_ES.id, ARCH_BODY_HOLD_ES],
   [ARCHER_PULL_UP_ES.id, ARCHER_PULL_UP_ES],
   [ARCHER_PUSH_UP_ES.id, ARCHER_PUSH_UP_ES],
+  [ARM_LEVER_ES.id, ARM_LEVER_ES],
   [AUSTRALIAN_PULL_UP_ES.id, AUSTRALIAN_PULL_UP_ES],
   [BACK_LEVER_ES.id, BACK_LEVER_ES],
   [BACK_LEVER_PULL_UP_ES.id, BACK_LEVER_PULL_UP_ES],
@@ -179,9 +188,11 @@ export const SPANISH_EXERCISES: ReadonlyMap<string, Exercise> = new Map<string, 
   [DRAGON_PISTOL_SQUAT_ES.id, DRAGON_PISTOL_SQUAT_ES],
   [EARLY_FRONT_LEVER_PROGRESSIONS_ES.id, EARLY_FRONT_LEVER_PROGRESSIONS_ES],
   [EARLY_PLANCHE_PROGRESSIONS_ES.id, EARLY_PLANCHE_PROGRESSIONS_ES],
+  [ELEVATED_PUSH_UP_ES.id, ELEVATED_PUSH_UP_ES],
   [ENTRADA_DE_ANGEL_ES.id, ENTRADA_DE_ANGEL_ES],
   [ENTRADA_DE_DIABLO_ES.id, ENTRADA_DE_DIABLO_ES],
   [EXTREME_WIDE_MUSCLE_UP_ES.id, EXTREME_WIDE_MUSCLE_UP_ES],
+  [FORWARD_LUNGE_ES.id, FORWARD_LUNGE_ES],
   [FROG_STAND_ES.id, FROG_STAND_ES],
   [FRONT_LEVER_ES.id, FRONT_LEVER_ES],
   [FRONT_LEVER_MUSCLE_UP_ES.id, FRONT_LEVER_MUSCLE_UP_ES],
@@ -210,6 +221,7 @@ export const SPANISH_EXERCISES: ReadonlyMap<string, Exercise> = new Map<string, 
   [INVERTED_CROSS_ES.id, INVERTED_CROSS_ES],
   [INVERTED_ROW_ES.id, INVERTED_ROW_ES],
   [IRON_CROSS_ES.id, IRON_CROSS_ES],
+  [ISOMETRIC_SQUAT_ES.id, ISOMETRIC_SQUAT_ES],
   [JUMP_SQUAT_ES.id, JUMP_SQUAT_ES],
   [JUMPING_JACKS_ES.id, JUMPING_JACKS_ES],
   [KNEE_PUSH_UP_ES.id, KNEE_PUSH_UP_ES],
@@ -246,6 +258,7 @@ export const SPANISH_EXERCISES: ReadonlyMap<string, Exercise> = new Map<string, 
   [PRESS_TO_HANDSTAND_ES.id, PRESS_TO_HANDSTAND_ES],
   [PULL_UP_ES.id, PULL_UP_ES],
   [PUSH_UP_ES.id, PUSH_UP_ES],
+  [REVERSE_CRUNCHES_ES.id, REVERSE_CRUNCHES_ES],
   [REVERSE_LUNGE_ES.id, REVERSE_LUNGE_ES],
   [REVERSE_PLANCHE_ES.id, REVERSE_PLANCHE_ES],
   [REVERSE_PLANK_ES.id, REVERSE_PLANK_ES],
@@ -278,11 +291,14 @@ export const SPANISH_EXERCISES: ReadonlyMap<string, Exercise> = new Map<string, 
   [TUCK_ADVANCED_PLANCHE_PUSH_UP_ES.id, TUCK_ADVANCED_PLANCHE_PUSH_UP_ES],
   [TUCK_PLANCHE_PRESS_TO_HANDSTAND_ES.id, TUCK_PLANCHE_PRESS_TO_HANDSTAND_ES],
   [TUCKED_PLANCHE_PUSH_UP_ES.id, TUCKED_PLANCHE_PUSH_UP_ES],
+  [TULLOCH_ES.id, TULLOCH_ES],
+  [TYPEWRITER_PULL_UP_ES.id, TYPEWRITER_PULL_UP_ES],
   [V_SIT_ES.id, V_SIT_ES],
   [VICTORIAN_ES.id, VICTORIAN_ES],
   [VICTORIAN_FLOOR_ES.id, VICTORIAN_FLOOR_ES],
   [VICTORIAN_PRESS_ES.id, VICTORIAN_PRESS_ES],
   [WAIST_PULL_UP_ES.id, WAIST_PULL_UP_ES],
+  [WALKING_LUNGES_ES.id, WALKING_LUNGES_ES],
   [WALL_HANDSTAND_ES.id, WALL_HANDSTAND_ES],
   [WALL_SQUAT_ES.id, WALL_SQUAT_ES],
   [WIDE_GRIP_PULL_UP_ES.id, WIDE_GRIP_PULL_UP_ES],

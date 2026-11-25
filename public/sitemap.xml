@@ -81,6 +81,8 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/arm-lever</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/arm-lever" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/arm-lever/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/australian-pull-up</loc>
@@ -237,6 +239,8 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/elevated-push-up</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/elevated-push-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/elevated-push-up/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/entrada-de-angel</loc>
@@ -258,6 +262,8 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/forward-lunge</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/forward-lunge" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/forward-lunge/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/frog-stand</loc>
@@ -401,6 +407,8 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/isometric-squat</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/isometric-squat" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/isometric-squat/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/jump-squat</loc>
@@ -587,6 +595,8 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/reverse-crunches</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/reverse-crunches" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/reverse-crunches/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/reverse-lunge</loc>
@@ -762,9 +772,13 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/tulloch</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/tulloch" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/tulloch/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/typewriter-pull-up</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/typewriter-pull-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/typewriter-pull-up/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/v-sit</loc>
@@ -793,6 +807,8 @@
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/walking-lunges</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/walking-lunges" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/walking-lunges/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/wall-handstand</loc>
@@ -843,6 +859,11 @@
     <loc>https://www.treethenics.com/exercises/archer-push-up/es</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/archer-push-up" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/archer-push-up/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/arm-lever/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/arm-lever" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/arm-lever/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/australian-pull-up/es</loc>
@@ -995,6 +1016,11 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/early-planche-progressions/es" />
   </url>
   <url>
+    <loc>https://www.treethenics.com/exercises/elevated-push-up/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/elevated-push-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/elevated-push-up/es" />
+  </url>
+  <url>
     <loc>https://www.treethenics.com/exercises/entrada-de-angel/es</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/entrada-de-angel" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/entrada-de-angel/es" />
@@ -1008,6 +1034,11 @@
     <loc>https://www.treethenics.com/exercises/extreme-wide-muscle-up/es</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/extreme-wide-muscle-up" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/extreme-wide-muscle-up/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/forward-lunge/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/forward-lunge" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/forward-lunge/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/frog-stand/es</loc>
@@ -1148,6 +1179,11 @@
     <loc>https://www.treethenics.com/exercises/iron-cross/es</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/iron-cross" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/iron-cross/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/isometric-squat/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/isometric-squat" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/isometric-squat/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/jump-squat/es</loc>
@@ -1330,6 +1366,11 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/push-up/es" />
   </url>
   <url>
+    <loc>https://www.treethenics.com/exercises/reverse-crunches/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/reverse-crunches" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/reverse-crunches/es" />
+  </url>
+  <url>
     <loc>https://www.treethenics.com/exercises/reverse-lunge/es</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/reverse-lunge" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/reverse-lunge/es" />
@@ -1490,6 +1531,16 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/tucked-planche-push-up/es" />
   </url>
   <url>
+    <loc>https://www.treethenics.com/exercises/tulloch/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/tulloch" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/tulloch/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/typewriter-pull-up/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/typewriter-pull-up" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/typewriter-pull-up/es" />
+  </url>
+  <url>
     <loc>https://www.treethenics.com/exercises/v-sit/es</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/v-sit" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/v-sit/es" />
@@ -1513,6 +1564,11 @@
     <loc>https://www.treethenics.com/exercises/waist-pull-up/es</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/waist-pull-up" />
     <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/waist-pull-up/es" />
+  </url>
+  <url>
+    <loc>https://www.treethenics.com/exercises/walking-lunges/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.treethenics.com/exercises/walking-lunges" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.treethenics.com/exercises/walking-lunges/es" />
   </url>
   <url>
     <loc>https://www.treethenics.com/exercises/wall-handstand/es</loc>
