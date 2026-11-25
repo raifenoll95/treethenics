@@ -3,7 +3,7 @@ import { HUMAN_FLAG_PULL_UP } from './human-flag-pull-up.exercise';
 
 export const HUMAN_FLAG_PULL_UP_ES: Exercise = {
   ...HUMAN_FLAG_PULL_UP,
-  "name": "Dominada en bandera humana",
+  "name": "Dominada en bandera",
   "description": "Esta variante dinámica de élite consiste en doblar y extender los brazos con el cuerpo casi horizontal en bandera. El brazo superior tira, el inferior empuja en sentido contrario y el abdomen mantiene firmes las caderas y las piernas.",
   "overview": "Desde una bandera estable con brazos rectos, flexiona los codos para acercar la cabeza y la parte superior del tronco a la línea entre las manos sin subir ni bajar las piernas. Invierte la acción de empuje y tirón para recuperar la posición. Practica con piernas abiertas, asistencia o recorrido parcial antes de intentar repeticiones completas con piernas juntas.",
   "howTo": [

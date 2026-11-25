@@ -3,7 +3,7 @@ import { CLEAN_ONE_ARM_HANDSTAND } from './clean-one-arm-handstand.exercise';
 
 export const CLEAN_ONE_ARM_HANDSTAND_ES: Exercise = {
   ...CLEAN_ONE_ARM_HANDSTAND,
-  "name": "Pino a una mano con piernas juntas",
+  "name": "Pino a una mano",
   "description": "En este equilibrio avanzado sostienes todo tu peso sobre una mano, con las piernas estiradas y juntas. Al cerrarlas tienes menos margen para corregir el equilibrio que en straddle. Necesitas trasladar el peso con precisión, controlar el hombro y ajustar la presión de los dedos.",
   "overview": "Esta variante perfecciona un pino a una mano ya consolidado. Domina primero el pino libre y aprende a transferir el peso a un brazo con las piernas abiertas. Reduce la ayuda de la segunda mano hasta equilibrarte de forma constante. Cierra las piernas cuando puedas mantener el hombro sobre la mano y empujar el suelo durante todo el equilibrio.",
   "howTo": [

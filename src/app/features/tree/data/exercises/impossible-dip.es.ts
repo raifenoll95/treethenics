@@ -3,7 +3,7 @@ import { IMPOSSIBLE_DIP } from './impossible-dip.exercise';
 
 export const IMPOSSIBLE_DIP_ES: Exercise = {
   ...IMPOSSIBLE_DIP,
-  "name": "Fondo imposible",
+  "name": "Impossible Dip",
   "description": "El fondo imposible es un elemento avanzado de fuerza en paralelas. Desde el apoyo controlado sobre los antebrazos, extiendes los codos hasta quedar sobre las manos, con los hombros por detrás de los codos y sin tomar impulso. Exige mucha fuerza de tríceps y una buena preparación de los codos.",
   "overview": "La extensión del codo protagoniza este fondo. Los hombros se mantienen detrás de los codos durante la transición. Prepara el recorrido con apoyos inclinados hacia atrás, repeticiones parciales, asistencia y negativas lentas. El objetivo es pasar de los antebrazos a los brazos rectos con fuerza controlada, sin balancearte ni echar el cuerpo hacia delante.",
   "howTo": [
