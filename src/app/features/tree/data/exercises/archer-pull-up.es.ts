@@ -4,7 +4,7 @@ import { ARCHER_PULL_UP } from './archer-pull-up.exercise';
 export const ARCHER_PULL_UP_ES: Exercise = {
   ...ARCHER_PULL_UP,
   "name": "Dominada arquera",
-  "description": "En la dominada arquera acercas el cuerpo a una mano mientras extiendes el otro brazo a lo largo de la barra. Así desplazas más carga hacia un lado y desarrollas la fuerza unilateral que exige la dominada a un brazo. Es una progresión natural cuando ya controlas las dominadas normales.",
+  "description": "En la dominada arquera subes tu cuerpo hacia una mano mientras extiendes el otro brazo. Así desplazas más carga hacia un lado y desarrollas la fuerza unilateral que exige la dominada a un brazo. Es una progresión natural cuando ya controlas las dominadas normales.",
   "overview": "Con un agarre amplio, lleva el pecho hacia una mano mientras estiras poco a poco el brazo contrario. El brazo que se flexiona realiza la mayor parte del trabajo y el otro ayuda al tirón y al equilibrio. Al principio desplaza solo parte del peso hacia un lado y aumenta la extensión del brazo de apoyo según ganes fuerza.",
   "howTo": [
     {
