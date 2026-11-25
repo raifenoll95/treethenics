@@ -3,7 +3,7 @@ import { TUCK_ADVANCED_FRONT_LEVER } from './tuck-advanced-front-lever.exercise'
 
 export const TUCK_ADVANCED_FRONT_LEVER_ES: Exercise = {
   ...TUCK_ADVANCED_FRONT_LEVER,
-  "name": "Advanced tuck front lever",
+  "name": "Advanced tuck front",
   "description": "Cuélgate de la barra con los brazos rectos, activa el abdomen y la espalda y eleva el cuerpo hasta situar el tronco paralelo al suelo. Empieza con aguantes en tuck front lever y elevaciones controladas para ganar fuerza abdominal, estabilidad de hombros y control corporal. Progresa por las variantes advanced tuck, a una pierna y straddle antes de intentar el full front lever.",
   "overview": "El front lever es un estático avanzado que puedes practicar en barra o en anillas. En la variante completa, los brazos están rectos y el tronco, la cadera y las piernas forman una línea horizontal. Mantenerla exige fuerza de dorsales, tensión abdominal y control de todo el cuerpo con los brazos extendidos.",
   "howTo": [
