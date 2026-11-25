@@ -3,7 +3,7 @@ import { TUCK_ADVANCED_PLANCHE } from './tuck-advanced-planche.exercise';
 
 export const TUCK_ADVANCED_PLANCHE_ES: Exercise = {
   ...TUCK_ADVANCED_PLANCHE,
-  "name": "Advanced tuck planche",
+  "name": "Advanced Tuck Planche",
   "description": "La advanced tuck planche es una progresión de planche con brazos rectos. Las rodillas siguen flexionadas, pero se alejan del pecho al abrir la cadera, de modo que la espalda queda más plana. Esa palanca más larga exige bastante más fuerza que la tuck planche básica y te prepara para la straddle planche.",
   "overview": "Desde una tuck planche estable, adelanta los hombros y abre la cadera poco a poco sin estirar las piernas. Intenta alinear la cadera con los hombros y aplanar la espalda mientras mantienes los codos extendidos y las escápulas separadas. Conforme ganes fuerza, podrás alejar más las rodillas del pecho antes de empezar a abrir y estirar las piernas hacia la straddle planche.",
   "howTo": [
