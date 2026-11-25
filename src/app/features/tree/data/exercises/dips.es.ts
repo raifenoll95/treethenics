@@ -3,8 +3,8 @@ import { DIPS } from './dips.exercise';
 
 export const DIPS_ES: Exercise = {
   ...DIPS,
-  "name": "Fondos",
-  "description": "Los fondos son uno de los básicos de la calistenia junto con las dominadas y las flexiones. Desarrollan la fuerza de empuje del pecho y los tríceps que necesitas para avanzar hacia ejercicios más exigentes. Puedes hacerlos en paralelas o en barra recta. Cada variante te prepara para movimientos distintos.",
+  "name": "Fondos en paralelas",
+  "description": "Los fondos en paralelas son uno de los básicos de la calistenia junto con las dominadas y las flexiones. Desarrollan la fuerza de empuje del pecho y los tríceps que necesitas para avanzar hacia ejercicios más exigentes. Puedes hacerlos en paralelas o en barra recta. Cada variante te prepara para movimientos distintos.",
   "overview": "Junto con las dominadas y las flexiones, los fondos forman parte de la base de la calistenia. Fortalecen el pecho y los tríceps y te preparan para ejercicios de empuje más avanzados. Aprende tanto la variante en paralelas como la de barra recta para familiarizarte con ambos apoyos.",
   "howTo": [
     {

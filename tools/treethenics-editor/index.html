@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#111216" />
+    <title>Editor de ejercicios · Treethenics</title>
+    <link rel="stylesheet" href="/editor.css" />
+    <script src="/editor.js" type="module"></script>
+  </head>
+  <body>
+    <aside class="catalog">
+      <header class="brand">
+        <span class="brand-mark" aria-hidden="true">T</span>
+        <div><strong>Treethenics</strong><span>Editor de ejercicios</span></div>
+      </header>
+      <div class="filters">
+        <label for="search">Buscar ejercicio</label>
+        <input
+          id="search"
+          type="search"
+          placeholder="Nombre o identificador"
+          autocomplete="off"
+        />
+        <label class="sr-only" for="difficulty">Dificultad</label>
+        <select id="difficulty">
+          <option value="">Todas las dificultades</option>
+        </select>
+        <p id="count" class="count" aria-live="polite"></p>
+      </div>
+      <nav id="exercises" class="exercises" aria-label="Ejercicios"></nav>
+    </aside>
+    <main class="workspace">
+      <section id="empty" class="empty" aria-live="polite">
+        Cargando ejercicios…
+      </section>
+      <section id="record" class="record" hidden>
+        <div class="editor-toolbar">
+          <header class="record-header">
+            <div>
+              <p id="slug" class="slug"></p>
+              <h1 id="title"></h1>
+            </div>
+            <div class="actions">
+              <button id="discard" class="button" type="button" disabled>
+                Descartar
+              </button>
+              <button id="save" class="button primary" type="button" disabled>
+                Guardar cambios
+              </button>
+            </div>
+          </header>
+          <p id="status" class="status" aria-live="polite"></p>
+          <nav id="tabs" class="tabs" aria-label="Secciones de la ficha"></nav>
+        </div>
+        <div id="fields" class="panes"></div>
+      </section>
+    </main>
+  </body>
+</html>

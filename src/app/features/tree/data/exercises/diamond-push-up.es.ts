@@ -3,7 +3,7 @@ import { DIAMOND_PUSH_UP } from './diamond-push-up.exercise';
 
 export const DIAMOND_PUSH_UP_ES: Exercise = {
   ...DIAMOND_PUSH_UP,
-  "name": "Flexión diamante",
+  "name": "Flexiones diamante",
   "description": "Esta flexión de agarre estrecho da más protagonismo a los tríceps sin dejar de trabajar pecho y hombros. Es una progresión útil cuando las flexiones clásicas empiezan a resultarte fáciles.",
   "overview": "Coloca las manos juntas bajo el pecho y baja con los codos cerca del tronco. Puedes empezar con las rodillas apoyadas. Ajusta la distancia entre las manos para empujar con comodidad sin perder el recorrido.",
   "howTo": [
